@@ -4,6 +4,7 @@ Static, dependency-free prototype of a redesigned portfolio for photographer Nor
 
 - **[opcoes/](opcoes/)** — four home-page **concepts** built from Nora’s identity (Símbolos, Rota, Visível, Dois lares); earlier rounds are kept in `opcoes/v1/` (styles) and `opcoes/v2/` (restyled, generator `build_options_v2.py`); `python3 build_options.py` regenerates them.
 - **[PERFIL.md](PERFIL.md)** — public profile research (in Portuguese).
+- **[docs/redesign-v3/](docs/redesign-v3/)** — chosen visual direction and implementation artifacts (design system, tokens, asset map and responsive specification).
 
 Pages: Home · Work · 4 project stories · About/CV · Commissions · News · Contact.
 
