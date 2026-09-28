@@ -210,55 +210,73 @@ BIO_SHORT = "Finnish-Palestinian visual artist and documentary photographer, bor
 
 
 def build_home():
-    featured = "\n".join(card(p) for p in PROJECTS[:3])
-    body = f"""<div class="hero">
-  <div class="wrap hero-grid">
-    <div>
-      <p class="eyebrow">Documentary photographer · Visual artist · Helsinki</p>
-      <h1>Photographs about belonging, memory and the right to be seen.</h1>
-      <p class="lead">Nora Sayyad is a {BIO_SHORT} Her work has been published by The Washington Post and The Times and is held in Finnish public collections.</p>
+    featured = "\n".join(card(p) for p in PROJECTS)
+    body = f"""<section class="hero-v3" aria-labelledby="home-title">
+  <div class="wrap hero-v3-grid">
+    <div class="hero-v3-copy">
+      <p class="eyebrow">Finnish-Palestinian photographer · visual artist · Helsinki</p>
+      <h1 id="home-title" class="hero-name"><span>Nora</span><span>Sayyad</span></h1>
+      <p class="hero-deck">Documentary, poetic and conceptual work shaped by place, memory and the people in between.</p>
       <div class="actions">
-        <a class="btn" href="/work/">See the work</a>
-        <a class="btn ghost" href="/services/">Commission Nora</a>
+        <a class="btn" href="/work/">Explore work</a>
+        <a class="text-link" href="/about/">About Nora →</a>
+      </div>
+      <div class="hero-note" aria-label="Practice">
+        <span>Documentary</span><span>Portraiture</span><span>Conceptual</span>
       </div>
     </div>
-    <figure class="hero-img">{img(PHOTOS['hero'], "(max-width: 860px) 100vw, 50vw", lazy=False)}</figure>
+    <figure class="hero-v3-portrait">
+      {img(NORA_PORTRAIT, "(max-width: 860px) 100vw, 48vw", "nora-portrait", lazy=False)}
+      <figcaption>Portrait: Linda Lehtovirta / HIAP</figcaption>
+      <div class="tatreez-strip" aria-hidden="true"></div>
+      <svg class="olive-mark" viewBox="0 0 120 180" aria-hidden="true">
+        <path d="M60 168C52 130 55 88 72 36" />
+        <path d="M63 136C45 129 31 116 22 99" />
+        <path d="M67 115C86 106 97 93 104 76" />
+        <path d="M66 89C49 81 38 67 31 51" />
+        <path d="M72 64C88 57 98 45 104 30" />
+        <ellipse cx="31" cy="98" rx="10" ry="22" transform="rotate(-38 31 98)" />
+        <ellipse cx="91" cy="82" rx="10" ry="22" transform="rotate(38 91 82)" />
+        <ellipse cx="39" cy="58" rx="9" ry="20" transform="rotate(-34 39 58)" />
+        <ellipse cx="91" cy="42" rx="9" ry="20" transform="rotate(34 91 42)" />
+      </svg>
+    </figure>
   </div>
-</div>
+</section>
 {CREDS}
-<section aria-labelledby="featured">
+<section class="projects-v3" aria-labelledby="featured">
   <div class="wrap">
-    <div class="section-head"><h2 id="featured">Selected projects</h2><a href="/work/">All projects →</a></div>
-    <div class="cards">{featured}</div>
+    <div class="section-head"><div><p class="eyebrow">Selected work</p><h2 id="featured">Projects in focus</h2></div><a href="/work/">View all projects →</a></div>
+    <div class="cards cards-v3">{featured}</div>
   </div>
 </section>
-<section aria-labelledby="now" style="padding-top:0">
-  <div class="wrap">
-    <div class="news-feature">
-      <div>
-        <p class="eyebrow">On tour 2025–2026</p>
-        <h2 id="now">The Lost Paintings: A Prelude to Return</h2>
-        <p>A group exhibition travelling through Canada, the United States, Northern Ireland and the United Kingdom. <a href="https://www.thelostpaintings.com/artist-sayyad">Nora's page on the project →</a></p>
-        {TOUR}
-        <a class="btn ghost" href="/news/">All exhibitions</a>
-      </div>
-      <div class="ph wide" role="img" aria-label="Installation view of The Lost Paintings" data-label="Installation view — photo needed"></div>
+<section class="current-v3" aria-labelledby="now">
+  <div class="wrap current-grid">
+    <div>
+      <p class="eyebrow">Current · 2025–2026</p>
+      <h2 id="now">The Lost Paintings: A Prelude to Return</h2>
+      <p>A group exhibition travelling through Canada, the United States, Northern Ireland and the United Kingdom.</p>
+      <a class="text-link" href="/news/">View current exhibitions →</a>
+    </div>
+    <div class="archive-panel">
+      <p class="eyebrow">Practice</p>
+      <blockquote>Photography as an archive of people, places and histories — with attention to who gets to be seen.</blockquote>
+      <p><a href="/about/">Biography & CV →</a></p>
     </div>
   </div>
 </section>
-<section aria-labelledby="about-h" style="padding-top:0">
-  <div class="wrap about-top">
-    <div class="ph" role="img" aria-label="Portrait of Nora Sayyad" data-label="Professional portrait of Nora — photo needed"></div>
-    <div class="narrow">
+<section class="about-v3" aria-labelledby="about-h">
+  <div class="wrap about-v3-grid">
+    <figure class="about-v3-portrait">{img(NORA_PORTRAIT, "(max-width: 800px) 100vw, 38vw", "nora-portrait")}</figure>
+    <div>
       <p class="eyebrow">About</p>
-      <h2 id="about-h">Between documentary, poetic and conceptual.</h2>
-      <p>Her practice explores the politics of looking, questions of representation, and how photography can become a space for memory, dialogue and self-determination.</p>
-      <p>She holds an MA in Photography and Film from Aalto University, and works across visual reporting, teaching, writing and public speaking.</p>
-      <p><a href="/about/">Full biography & CV →</a></p>
+      <h2 id="about-h">Between documentary observation and conceptual storytelling.</h2>
+      <p>Nora Sayyad is a Finnish-Palestinian photographer and visual artist born in Sweden and based in Helsinki. Her work explores connection, memory, displacement and lived experience.</p>
+      <p><a class="text-link" href="/about/">Full biography & CV →</a></p>
     </div>
   </div>
 </section>"""
-    page("index.html", "", "Nora Sayyad is a Finnish-Palestinian documentary photographer and visual artist in Helsinki, published in The Washington Post and The Times. Available for commissions.", body)
+    page("index.html", "", "Nora Sayyad is a Finnish-Palestinian documentary photographer and visual artist in Helsinki, published in The Washington Post and The Times. Available for commissions.", body, og=NORA_PORTRAIT)
 
 
 def build_work():
