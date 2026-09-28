@@ -2,7 +2,7 @@
 
 Static, dependency-free prototype of a redesigned portfolio for photographer Nora Sayyad. **Before contributing, read [CONTRIBUTING.md](CONTRIBUTING.md)** (in Portuguese). See **[RELATORIO.md](RELATORIO.md)** for the full evaluation and prioritized plan (in Portuguese).
 
-- **[opcoes/](opcoes/)** — four home-page **concepts** built from Nora’s identity (Símbolos, Rota, Visível, Dois lares); earlier rounds are kept in `opcoes/v1/` (styles) and `opcoes/v2/` (restyled, generator `build_options_v2.py`); `python3 build_options.py` regenerates them.
+- **[opcoes/](opcoes/)** — five home-page **concepts** (Editorial / Archive in Motion, Símbolos, Rota, Visível, Dois lares); earlier rounds are kept in `opcoes/v1/` (styles) and `opcoes/v2/` (restyled). `build_editorial.py` supplies the Editorial concept and `python3 build_options.py` regenerates the current options.
 - **[PERFIL.md](PERFIL.md)** — public profile research (in Portuguese).
 
 Pages: Home · Work · 4 project stories · About/CV · Commissions · News · Contact.
