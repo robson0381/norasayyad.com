@@ -35,9 +35,11 @@ Inglês, finlandês e sueco (GAP). Atua na região de Helsinque, em Uusimaa e em
 
 ## Instagram (@norasayyad)
 
-Analisado em 28/09/2026 a partir de uma cópia da página pública do perfil (117 dos 118 posts, com legenda, data, curtidas e comentários). Stories e destaques não foram incluídos.
+Analisado em 28/09/2026 a partir de duas cópias da página do perfil: uma do visualizador StoriesIG (117 dos 118 posts, com legenda, data, curtidas e comentários) e uma do próprio Instagram (legendas completas, destaques e links da bio). O conteúdo dos stories não foi analisado.
 
-**Bio atual:** "Visual artist and documentary photographer 🫒🕊️🧿🌊 9-/2026 @bristolmuseums @lostpaintingsproject". Não tem e-mail, não chama para contratação e o "9-/2026" parece uma data incompleta.
+**Bio atual:** "Visual artist and documentary photographer 🫒🕊️🧿🌊 9-/2026 @bristolmuseums @lostpaintingsproject" + link "norasayyad.com e mais 1". Não tem e-mail, não chama para contratação e o "9-/2026" parece uma data incompleta.
+
+**Destaques (9):** ☀️🌙 · القراءة ("leitura") · phone · US · spain · 🕊️🕊️🕊️ · 🇵🇸 · de bellas artes · portugal. São quase todos de viagem ou pessoais. Nenhum mostra exposições, imprensa ou como contratá-la.
 
 ### Números
 
@@ -59,6 +61,21 @@ Analisado em 28/09/2026 a partir de uma cópia da página pública do perfil (11
 | Aniversários e formatura (posts pessoais) | 2022–24 | 223–270 | 55–103 |
 
 **Leitura:** o que mais gera conversa é **história pessoal ligada à Palestina e à família**, contada em primeira pessoa e com texto longo. Esse tom não existe no site, onde os projetos não têm texto nenhum.
+
+### Os trabalhos para a imprensa (confirmados nas legendas)
+
+Os dois nomes mais fortes do currículo têm pauta e data. No site, aparecem só como nomes soltos.
+
+- **The Washington Post** (nov/2025): reportagem *"How is 'happiness' measured around the world?"*. Encomenda do editor de fotografia Olivier Laurent, sobre a Finlândia ser o "país mais feliz" pela 8ª vez.
+- **The Times** (mai/2026): pauta sobre educação financeira na Finlândia. Ela fotografou o Yrityskylä ("vila das empresas"), que ensina economia a crianças. A legenda é um texto longo e crítico dela sobre o tema.
+
+**Recomendação:** criar no site uma seção "Selected press" com a capa ou a foto de cada matéria, o título e o link. É a prova de credibilidade mais forte que ela tem.
+
+### Detalhes das exposições (confirmados nas legendas)
+
+- **The Lost Paintings:** 53 artistas. Abriu em Montreal em 29/08/2025 e passou por Boston e Nova York, com residência artística dela em Boston; depois seguiu para a Irlanda do Norte e o Reino Unido.
+- **From Arrival to Belonging?** (10 anos da Startup Refugees): Stoa, Helsinque (20/11–31/12/2025) → Kauppakeskus Valkea, Oulu (19/01–31/03/2026) → abertura na IKEA (12/06/2026) → segue em turnê pela Finlândia.
+- **Visible Palestine** (HIAP, Suomenlinna, 18/12/2025): esboço de uma exposição futura em três partes. Os retratos mostram famílias palestinas, com entrevistas feitas com Iris Pajunen dentro do grupo Solidarity Movements; a parte de protestos reúne fotos de rua de vários fotógrafos.
 
 ### Trabalhos que estão no Instagram e não estão no site
 
