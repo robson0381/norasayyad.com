@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nora Sayyad — Visível</title>
+<meta name="description" content="Nora Sayyad is a Finnish-Palestinian documentary photographer and visual artist in Helsinki, published in The Washington Post and The Times.">
+<meta name="robots" content="noindex">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+body{margin:0;overflow-x:hidden}
+img{max-width:100%;display:block;height:auto}
+a{color:inherit}
+h1,h2,h3,p,figure,blockquote{margin:0}
+:focus-visible{outline:2px solid currentColor;outline-offset:3px}
+.skip{position:absolute;left:-999px}.skip:focus{left:8px;top:8px;z-index:99;background:#000;color:#fff;padding:8px}
+.ph{display:grid;place-items:center;text-align:center;padding:12px;font-size:.72rem;line-height:1.4;background:repeating-linear-gradient(-45deg,rgba(0,0,0,.05) 0 6px,rgba(0,0,0,0) 6px 12px),rgba(127,127,127,.12);color:inherit;opacity:.75}
+.ph span{max-width:18em}
+
+:root{--bg:#0b0b0c;--ink:#f2f0ea;--soft:#9a988f;--blue:#1e4bd8;--line:#26262a}
+body{background:var(--bg);color:var(--ink);font:400 16px/1.6 'Inter',system-ui,sans-serif}
+.h{font-family:'Syne',sans-serif;font-weight:800;letter-spacing:-.02em}
+.wrap{max-width:1280px;margin:0 auto;padding:0 clamp(16px,3vw,36px)}
+header{display:flex;justify-content:space-between;align-items:center;padding:18px 0}
+header a{text-decoration:none}header nav{display:flex;gap:22px;font-size:.95rem;color:var(--soft)}
+.brand{font-size:1.2rem;letter-spacing:.06em;text-transform:uppercase}
+.open{padding:clamp(48px,10vw,120px) 0 clamp(32px,6vw,72px);display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:end}
+.open h1{font-size:clamp(3rem,10vw,9rem);line-height:.9}
+.open h1 span{color:var(--blue)}
+.open p{color:var(--soft);max-width:30rem}
+.open .note{font-size:.85rem;margin-top:16px;color:var(--ink)}
+.words{list-style:none;margin:0;padding:0;font-family:'Syne',sans-serif;font-weight:700;font-size:clamp(1.2rem,2.4vw,1.9rem);line-height:1.3;color:var(--soft)}
+.words li:nth-child(4),.words li:nth-child(5){color:var(--ink)}
+.words small{display:block;font:400 .8rem/1.4 'Inter',sans-serif;margin-top:8px;color:var(--soft)}
+.look{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;padding-bottom:12px}
+.tile{position:relative;aspect-ratio:4/5;overflow:hidden;background:var(--blue);cursor:pointer;border:0;padding:0;text-align:left;color:#fff;font:inherit}
+.tile img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transform:scale(1.04);transition:opacity .5s,transform .8s}
+.tile .cap{position:absolute;inset:0;padding:16px;display:flex;flex-direction:column;justify-content:space-between;transition:opacity .4s}
+.tile .cap b{font-family:'Syne',sans-serif;font-weight:700;font-size:1rem;line-height:1.2}
+.tile .cap small{font-size:.75rem;opacity:.85}
+.tile.seen img,.tile:hover img,.tile:focus-visible img{opacity:1;transform:none}
+.tile.seen .cap,.tile:hover .cap,.tile:focus-visible .cap{opacity:0}
+.hint{display:flex;justify-content:space-between;color:var(--soft);font-size:.85rem;padding:0 0 40px;border-bottom:1px solid var(--line)}
+.voices{padding:clamp(40px,7vw,90px) 0;border-bottom:1px solid var(--line)}
+.voices h2{font-size:.8rem;letter-spacing:.16em;text-transform:uppercase;color:var(--blue);margin-bottom:26px}
+.voice{padding:22px 0;border-top:1px solid var(--line)}
+.voice blockquote{font-family:'Syne',sans-serif;font-weight:700;font-size:clamp(1.3rem,2.8vw,2.3rem);line-height:1.15;max-width:26em}
+.voice p{color:var(--soft);margin-top:10px;font-size:.92rem}
+.projects{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;padding:clamp(40px,6vw,72px) 0;border-bottom:1px solid var(--line)}
+.projects a{text-decoration:none}
+.projects small{color:var(--blue);font-size:.75rem;letter-spacing:.12em;text-transform:uppercase}
+.projects h3{font-family:'Syne',sans-serif;font-weight:700;font-size:1.25rem;line-height:1.15;margin:6px 0}
+.projects p{color:var(--soft);font-size:.9rem}
+.strip{display:flex;flex-wrap:wrap;gap:10px 30px;padding:24px 0;color:var(--soft);font-size:.85rem;border-bottom:1px solid var(--line)}
+.strip b{color:var(--ink);font-weight:500}
+.end{padding:clamp(48px,8vw,100px) 0;display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}
+.end h2{font-size:clamp(2rem,5vw,4rem);line-height:.95}
+.end a{background:var(--ink);color:var(--bg);text-decoration:none;padding:14px 24px;border-radius:999px;font-weight:600}
+footer{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;padding:0 0 64px;color:var(--soft);font-size:.9rem}
+@media (max-width:900px){
+ .open{grid-template-columns:1fr}
+ .look{grid-template-columns:1fr 1fr}
+ .projects{grid-template-columns:1fr 1fr}
+ header nav a:not(.keep){display:none}
+}
+.switch{position:fixed;right:12px;bottom:12px;z-index:90;background:#111;color:#fff;font:500 13px/1 system-ui,sans-serif;padding:10px 14px;border-radius:999px;text-decoration:none;box-shadow:0 4px 18px rgba(0,0,0,.25)}</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<div class="wrap">
+<header><a class="brand h" href="/opcoes/visivel/">Nora Sayyad</a><nav aria-label="Main"><a class="keep" href="/work/">Work</a><a href="/news/">Exhibitions</a><a href="/services/">Commissions</a><a class="keep" href="/about/">About</a></nav></header>
+<main id="main">
+<section class="open">
+  <div><h1 class="h">The right<br>to be <span>seen.</span></h1><p style="margin-top:20px">Finnish-Palestinian photographer, artist and visual reporter whose experimental lens moves between documentary and fictional storytelling. Her practice is about the politics of looking: who is seen, by whom, and on whose terms.</p><p class="note">Every photograph on this page starts covered. It is shown only when you choose to look.</p></div>
+  <ul class="words" aria-label="Word poem"><li>may exist</li><li>existential</li><li>exposure</li><li>exile</li><li>exodus</li><li>existence</li><li>exhale</li><small>— word poem from a 2026 post</small></ul>
+</section>
+<section class="look" aria-label="Portraits, covered until you look"><button class="tile" type="button" aria-pressed="false" aria-label="Reveal: A woman in a headscarf in warm evening light"><div class="cap"><b>A woman in a headscarf in warm evening light</b><small>Tap to look</small></div><img src="https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/01cbc07a-6516-4597-8a09-219c1fb966db/4W7A3479.jpg?format=1500w" srcset="https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/01cbc07a-6516-4597-8a09-219c1fb966db/4W7A3479.jpg?format=500w 500w, https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/01cbc07a-6516-4597-8a09-219c1fb966db/4W7A3479.jpg?format=750w 750w, https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/01cbc07a-6516-4597-8a09-219c1fb966db/4W7A3479.jpg?format=1000w 1000w, https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/01cbc07a-6516-4597-8a09-219c1fb966db/4W7A3479.jpg?format=1500w 1500w, https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/01cbc07a-6516-4597-8a09-219c1fb966db/4W7A3479.jpg?format=2500w 2500w" sizes="(max-width:900px) 50vw, 25vw" width="3485" height="2323" alt="A woman in a headscarf in warm evening light" loading="lazy" decoding="async"></button><button class="tile" type="button" aria-pressed="false" aria-label="Reveal: A woman with curly hair laughing, in black and white"><div class="cap"><b>A woman with curly hair laughing, in black and white</b><small>Tap to look</small></div><img src="https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/1109ae34-c931-4f4b-b7e1-5d46ccbc1900/249A6345.jpg?format=1500w" srcset="https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/1109ae34-c931-4f4b-b7e1-5d46ccbc1900/249A6345.jpg?format=500w 500w, https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/1109ae34-c931-4f4b-b7e1-5d46ccbc1900/249A6345.jpg?format=750w 750w, https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/1109ae34-c931-4f4b-b7e1-5d46ccbc1900/249A6345.jpg?format=1000w 1000w, https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/1109ae34-c931-4f4b-b7e1-5d46ccbc1900/249A6345.jpg?format=1500w 1500w, https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/1109ae34-c931-4f4b-b7e1-5d46ccbc1900/249A6345.jpg?format=2500w 2500w" sizes="(max-width:900px) 50vw, 25vw" width="5464" height="8192" alt="A woman with curly hair laughing, in black and white" loading="lazy" decoding="async"></button><button class="tile" type="button" aria-pressed="false" aria-label="Reveal: Profile portrait of a woman with a red earring, against a blue backdrop"><div class="cap"><b>Profile portrait of a woman with a red earring, against a blue backdrop</b><small>Tap to look</small></div><img src="https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/b8028615-1f89-4cc7-a633-bb61610a1f0f/nora_sayyad_UKJ9.jpg?format=1500w" srcset="https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/b8028615-1f89-4cc7-a633-bb61610a1f0f/nora_sayyad_UKJ9.jpg?format=500w 500w, https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/b8028615-1f89-4cc7-a633-bb61610a1f0f/nora_sayyad_UKJ9.jpg?format=750w 750w, https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/b8028615-1f89-4cc7-a633-bb61610a1f0f/nora_sayyad_UKJ9.jpg?format=1000w 1000w, https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/b8028615-1f89-4cc7-a633-bb61610a1f0f/nora_sayyad_UKJ9.jpg?format=1500w 1500w, https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/b8028615-1f89-4cc7-a633-bb61610a1f0f/nora_sayyad_UKJ9.jpg?format=2500w 2500w" sizes="(max-width:900px) 50vw, 25vw" width="2668" height="4000" alt="Profile portrait of a woman with a red earring, against a blue backdrop" loading="lazy" decoding="async"></button><button class="tile" type="button" aria-pressed="false" aria-label="Reveal: Close-up of a smiling man, in black and white"><div class="cap"><b>Close-up of a smiling man, in black and white</b><small>Tap to look</small></div><img src="https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/08e4c790-fae7-473d-b1f8-85ed2e972054/249A4960.jpg?format=1500w" srcset="https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/08e4c790-fae7-473d-b1f8-85ed2e972054/249A4960.jpg?format=500w 500w, https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/08e4c790-fae7-473d-b1f8-85ed2e972054/249A4960.jpg?format=750w 750w, https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/08e4c790-fae7-473d-b1f8-85ed2e972054/249A4960.jpg?format=1000w 1000w, https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/08e4c790-fae7-473d-b1f8-85ed2e972054/249A4960.jpg?format=1500w 1500w, https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/08e4c790-fae7-473d-b1f8-85ed2e972054/249A4960.jpg?format=2500w 2500w" sizes="(max-width:900px) 50vw, 25vw" width="5464" height="8192" alt="Close-up of a smiling man, in black and white" loading="lazy" decoding="async"></button><button class="tile" type="button" aria-pressed="false" aria-label="Reveal: Two people embrace at a gathering"><div class="cap"><b>Two people embrace at a gathering</b><small>Tap to look</small></div><img src="https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/6b39648d-cff7-43de-92be-19b9fc084f87/1A2A4843.jpg?format=1000w" srcset="https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/6b39648d-cff7-43de-92be-19b9fc084f87/1A2A4843.jpg?format=500w 500w, https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/6b39648d-cff7-43de-92be-19b9fc084f87/1A2A4843.jpg?format=750w 750w, https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/6b39648d-cff7-43de-92be-19b9fc084f87/1A2A4843.jpg?format=1000w 1000w" sizes="(max-width:900px) 50vw, 25vw" width="1313" height="1969" alt="Two people embrace at a gathering" loading="lazy" decoding="async"></button><button class="tile" type="button" aria-pressed="false" aria-label="Reveal: Two women in hijabs reclining on floral fabric"><div class="cap"><b>Two women in hijabs reclining on floral fabric</b><small>Tap to look</small></div><img src="https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/1746530576498-JXIYTM8Q5UQ4RQVNQ3Z2/Pa%25CC%2588a%25CC%2588kuva_Aatike_Hedil_01.jpg?format=1500w" srcset="https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/1746530576498-JXIYTM8Q5UQ4RQVNQ3Z2/Pa%25CC%2588a%25CC%2588kuva_Aatike_Hedil_01.jpg?format=500w 500w, https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/1746530576498-JXIYTM8Q5UQ4RQVNQ3Z2/Pa%25CC%2588a%25CC%2588kuva_Aatike_Hedil_01.jpg?format=750w 750w, https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/1746530576498-JXIYTM8Q5UQ4RQVNQ3Z2/Pa%25CC%2588a%25CC%2588kuva_Aatike_Hedil_01.jpg?format=1000w 1000w, https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/1746530576498-JXIYTM8Q5UQ4RQVNQ3Z2/Pa%25CC%2588a%25CC%2588kuva_Aatike_Hedil_01.jpg?format=1500w 1500w, https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/1746530576498-JXIYTM8Q5UQ4RQVNQ3Z2/Pa%25CC%2588a%25CC%2588kuva_Aatike_Hedil_01.jpg?format=2500w 2500w" sizes="(max-width:900px) 50vw, 25vw" width="2500" height="1406" alt="Two women in hijabs reclining on floral fabric" loading="lazy" decoding="async"></button><button class="tile" type="button" aria-pressed="false" aria-label="Reveal: Portrait of a woman wearing a red bead necklace, against a blue backdrop"><div class="cap"><b>Portrait of a woman wearing a red bead necklace, against a blue backdrop</b><small>Tap to look</small></div><img src="https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/4a807b67-3946-42bf-84e1-56bbea358da5/nora_sayyad_UKJ5.jpg?format=1500w" srcset="https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/4a807b67-3946-42bf-84e1-56bbea358da5/nora_sayyad_UKJ5.jpg?format=500w 500w, https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/4a807b67-3946-42bf-84e1-56bbea358da5/nora_sayyad_UKJ5.jpg?format=750w 750w, https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/4a807b67-3946-42bf-84e1-56bbea358da5/nora_sayyad_UKJ5.jpg?format=1000w 1000w, https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/4a807b67-3946-42bf-84e1-56bbea358da5/nora_sayyad_UKJ5.jpg?format=1500w 1500w, https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/4a807b67-3946-42bf-84e1-56bbea358da5/nora_sayyad_UKJ5.jpg?format=2500w 2500w" sizes="(max-width:900px) 50vw, 25vw" width="2668" height="4000" alt="Portrait of a woman wearing a red bead necklace, against a blue backdrop" loading="lazy" decoding="async"></button><button class="tile" type="button" aria-pressed="false" aria-label="Reveal: A woman in a keffiyeh beneath Palestinian flags at dusk"><div class="cap"><b>A woman in a keffiyeh beneath Palestinian flags at dusk</b><small>Tap to look</small></div><img src="https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/3f618244-88f9-45cf-b120-fa7e2b7b5f8b/_A2A1694.jpg?format=1500w" srcset="https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/3f618244-88f9-45cf-b120-fa7e2b7b5f8b/_A2A1694.jpg?format=500w 500w, https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/3f618244-88f9-45cf-b120-fa7e2b7b5f8b/_A2A1694.jpg?format=750w 750w, https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/3f618244-88f9-45cf-b120-fa7e2b7b5f8b/_A2A1694.jpg?format=1000w 1000w, https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/3f618244-88f9-45cf-b120-fa7e2b7b5f8b/_A2A1694.jpg?format=1500w 1500w" sizes="(max-width:900px) 50vw, 25vw" width="2362" height="3543" alt="A woman in a keffiyeh beneath Palestinian flags at dusk" loading="lazy" decoding="async"></button></section>
+<div class="hint"><span>Each cover carries the description a screen reader would hear.</span><span>Move over, or tap, to see the person.</span></div>
+<section class="voices"><h2>They speak first</h2><div class='voice'><blockquote>“My father has spent his entire life searching for citizenship.”</blockquote><p>Mariam, about her father Abdel Rahman — <em>Letters to Mothers & Daughter–Father Relationships</em>, 2026</p></div><div class='voice'><blockquote>“You learn how taxes work, how welfare works, how money moves through society.”</blockquote><p>Marika Iartym, 16, Helsinki — photographed for The Times, 2026</p></div><div class='voice'><blockquote>“Olen monta kertaa katsellut miehitettyä Palestiinaa rajan toiselta puolelta.”</blockquote><p>Noor Assad, Nazareth / Helsinki, 2025 — <em>Visible Palestine</em></p></div></section>
+<section class="projects"><a href='/work/notes-of-resistance/'><small>25 photographs</small><h3>Notes of Resistance</h3><p>Black Lives Matter in Finland and the Palestine solidarity movement in Helsinki, from the street.</p></a><a href='/work/portraits/'><small>19 photographs</small><h3>Portraits</h3><p>Editorial and personal portraits of artists, activists, families and neighbours.</p></a><a href='/work/from-arrival-to-belonging/'><small>10 photographs</small><h3>From Arrival to Belonging? A Decade in Portraits</h3><p>Refugee lives shaped by 2015 and 2022, and the policies and borders in between.</p></a><a href='/work/parfyymin-tuulahdus/'><small>3 photographs</small><h3>Parfyymin tuulahdus</h3><p>Scent, memory and inheritance — a poetic series.</p></a></section>
+<div class="strip"><span>Published in <b>The Washington Post</b> and <b>The Times</b></span><span>Exhibited at <b>Helsinki City Museum</b>, <b>Finnish Museum of Photography</b>, <b>HIAP</b></span><span>On tour: <b>The Lost Paintings</b></span></div>
+<section class="end"><h2 class="h">Look together.</h2><a href="/contact/">Commission Nora</a></section>
+</main>
+<footer><span>© Nora Sayyad · Helsinki</span><span><a href="mailto:ellinorasayyad@gmail.com">ellinorasayyad@gmail.com</a> · <a href="https://www.instagram.com/norasayyad/">Instagram</a></span></footer>
+</div>
+<a class="switch" href="/opcoes/">← Todas as opções</a>
+<script>
+document.querySelectorAll('.tile').forEach(t => t.addEventListener('click', () => { const on = t.classList.toggle('seen'); t.setAttribute('aria-pressed', String(on)); }));
+</script>
+</body>
+</html>

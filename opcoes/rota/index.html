@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nora Sayyad — Rota</title>
+<meta name="description" content="Nora Sayyad is a Finnish-Palestinian documentary photographer and visual artist in Helsinki, published in The Washington Post and The Times.">
+<meta name="robots" content="noindex">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Space+Grotesk:wght@400;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+body{margin:0;overflow-x:hidden}
+img{max-width:100%;display:block;height:auto}
+a{color:inherit}
+h1,h2,h3,p,figure,blockquote{margin:0}
+:focus-visible{outline:2px solid currentColor;outline-offset:3px}
+.skip{position:absolute;left:-999px}.skip:focus{left:8px;top:8px;z-index:99;background:#000;color:#fff;padding:8px}
+.ph{display:grid;place-items:center;text-align:center;padding:12px;font-size:.72rem;line-height:1.4;background:repeating-linear-gradient(-45deg,rgba(0,0,0,.05) 0 6px,rgba(0,0,0,0) 6px 12px),rgba(127,127,127,.12);color:inherit;opacity:.75}
+.ph span{max-width:18em}
+
+:root{--paper:#e9ebe3;--ink:#1e261e;--soft:#5d665c;--line:#c9cfc4;--route:#c0392b}
+body{background:var(--paper);color:var(--ink);font:400 16px/1.6 'Space Grotesk',system-ui,sans-serif}
+.s{font-family:'Instrument Serif',Georgia,serif;font-weight:400}
+.wrap{max-width:1240px;margin:0 auto;padding:0 clamp(16px,3vw,36px)}
+header{display:flex;justify-content:space-between;align-items:center;padding:18px 0;border-bottom:1px solid var(--line)}
+header a{text-decoration:none}header nav{display:flex;gap:22px;font-size:.95rem}
+.brand{font-size:1.5rem}
+.homes{display:grid;grid-template-columns:repeat(3,1fr);gap:0;padding:clamp(32px,6vw,72px) 0;border-bottom:1px solid var(--line)}
+.homes div{padding:0 24px 0 0}
+.homes div+div{border-left:1px solid var(--line);padding-left:24px}
+.homes small{display:block;font-size:.75rem;letter-spacing:.14em;text-transform:uppercase;color:var(--soft)}
+.homes b{display:block;font-size:clamp(1.6rem,3.2vw,2.6rem);font-weight:400;line-height:1.05;margin:6px 0}
+.homes span{color:var(--soft);font-size:.95rem}
+.lede{padding:clamp(28px,5vw,60px) 0;max-width:40rem}
+.lede h1{font-size:clamp(2rem,4.6vw,3.8rem);line-height:1.05}
+.lede p{margin-top:14px;color:var(--soft)}
+.journey{display:grid;grid-template-columns:260px 1fr;gap:clamp(24px,4vw,56px);padding-bottom:40px}
+.here{position:sticky;top:20px;align-self:start;padding:18px 0}
+.here small{font-size:.75rem;letter-spacing:.14em;text-transform:uppercase;color:var(--soft)}
+.here .place{font-size:clamp(1.8rem,3vw,2.6rem);line-height:1.05;margin:6px 0}
+.here .yr{color:var(--route);font-weight:600}
+.here ol{list-style:none;margin:24px 0 0;padding:0;font-size:.85rem;color:var(--soft)}
+.here ol li{padding:4px 0 4px 16px;border-left:2px solid var(--line)}
+.here ol li.on{color:var(--ink);border-color:var(--route)}
+.stops{position:relative;padding-left:32px}
+.stops::before{content:"";position:absolute;left:8px;top:0;bottom:0;border-left:2px dashed var(--route)}
+.stop{position:relative;display:grid;grid-template-columns:1fr 1fr;gap:clamp(16px,3vw,40px);align-items:center;padding:clamp(28px,4vw,48px) 0;border-bottom:1px solid var(--line);text-decoration:none}
+.stop::before{content:"";position:absolute;left:-30px;top:calc(50% - 7px);width:14px;height:14px;border-radius:50%;background:var(--paper);border:3px solid var(--route)}
+.stop small{font-size:.75rem;letter-spacing:.14em;text-transform:uppercase;color:var(--route)}
+.stop h2{font-size:clamp(1.5rem,2.8vw,2.4rem);line-height:1.05;margin:6px 0 8px}
+.stop p{color:var(--soft);font-size:.98rem}
+.stop .pr{margin-top:10px;font-size:.9rem;text-decoration:underline}
+.stop .pic{aspect-ratio:4/3;overflow:hidden;border-radius:4px}
+.stop .pic img{width:100%;height:100%;object-fit:cover}
+.stop:nth-child(even) .pic{order:-1}
+.stop .ph{aspect-ratio:4/3;border-radius:4px}
+.tail{padding:clamp(40px,7vw,90px) 0;text-align:center}
+.tail h2{font-size:clamp(1.8rem,4vw,3.2rem)}
+.tail p{color:var(--soft);margin-top:10px}
+.tail a{display:inline-block;margin-top:20px;background:var(--ink);color:var(--paper);text-decoration:none;padding:12px 22px;border-radius:999px}
+footer{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;padding:20px 0 64px;border-top:1px solid var(--line);color:var(--soft);font-size:.9rem}
+@media (max-width:900px){
+ .homes{grid-template-columns:1fr}.homes div+div{border-left:0;padding-left:0;border-top:1px solid var(--line);padding-top:16px;margin-top:16px}
+ .journey{grid-template-columns:1fr}.here{position:static}.here ol{display:none}
+ .stop{grid-template-columns:1fr}.stop .pic,.stop .ph{order:-1}
+ header nav a:not(.keep){display:none}
+}
+.switch{position:fixed;right:12px;bottom:12px;z-index:90;background:#111;color:#fff;font:500 13px/1 system-ui,sans-serif;padding:10px 14px;border-radius:999px;text-decoration:none;box-shadow:0 4px 18px rgba(0,0,0,.25)}</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<div class="wrap">
+<header><a class="brand s" href="/opcoes/rota/">Nora Sayyad</a><nav aria-label="Main"><a class="keep" href="/work/">Work</a><a href="/news/">Exhibitions</a><a href="/services/">Commissions</a><a class="keep" href="/about/">About</a></nav></header>
+<main id="main">
+<section class="homes" aria-label="Three homes">
+  <div><small>Born in</small><b class="s">Sweden</b><span>Född i Sverige</span></div>
+  <div><small>Based in</small><b class="s">Helsinki</b><span>Asuu Helsingissä</span></div>
+  <div><small>Roots in</small><b class="s">Palestine</b><span lang="ar" dir="rtl">جذورها في فلسطين</span></div>
+</section>
+<section class="lede"><h1 class="s">The work follows the road.</h1><p>Finnish-Palestinian photographer, artist and visual reporter whose experimental lens moves between documentary and fictional storytelling. Published in The Washington Post and The Times. Scroll to travel through the places where the work was made.</p></section>
+<section class="journey">
+  <aside class="here" aria-live="polite"><small>You are in</small><div class="place s">Turku, Finland</div><div class="yr">2020</div><ol><li>Turku, Finland</li><li>Helsinki</li><li>Helsinki · Oulu · IKEA</li><li>Tornio / Haparanda</li><li>Lifta, Palestine</li><li>Amman · Petra</li><li>Montréal · Boston · New York · Belfast · London · Bristol</li><li>Helsinki · Suomenlinna</li></ol></aside>
+  <div class="stops"><a class="stop" data-place="Turku, Finland" data-yr="2020" href="/work/notes-of-resistance/"><div><small>Turku, Finland · 2020</small><h2 class="s">Black Lives Matter</h2><p>Where <em>Notes of Resistance</em> began: the Black Lives Matter demonstrations of 2020, later the book <em>No Justice, No Peace</em>.</p><span class="pr">Open the project →</span></div><div class="pic"><img src="https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/be0ea7eb-8e8c-47b6-90b6-ae9ce6191616/Kelet_kontrasti_NS.jpg?format=1500w" srcset="https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/be0ea7eb-8e8c-47b6-90b6-ae9ce6191616/Kelet_kontrasti_NS.jpg?format=500w 500w, https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/be0ea7eb-8e8c-47b6-90b6-ae9ce6191616/Kelet_kontrasti_NS.jpg?format=750w 750w, https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/be0ea7eb-8e8c-47b6-90b6-ae9ce6191616/Kelet_kontrasti_NS.jpg?format=1000w 1000w, https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/be0ea7eb-8e8c-47b6-90b6-ae9ce6191616/Kelet_kontrasti_NS.jpg?format=1500w 1500w" sizes="(max-width:900px) 100vw, 45vw" width="2000" height="1333" alt="A woman holds up a hand-lettered Black Lives Matter sign" loading="lazy" decoding="async"></div></a><a class="stop" data-place="Helsinki" data-yr="2023–" href="/work/notes-of-resistance/"><div><small>Helsinki · 2023–</small><h2 class="s">Palestine solidarity</h2><p>Vigils, marches and candles in the snow. The Palestine chapter of <em>Notes of Resistance</em>.</p><span class="pr">Open the project →</span></div><div class="pic"><img src="https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/aaab268f-7340-44de-8e3e-89eb18f04560/_A2A3118+%281%29_SRGB.jpg?format=1500w" srcset="https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/aaab268f-7340-44de-8e3e-89eb18f04560/_A2A3118+%281%29_SRGB.jpg?format=500w 500w, https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/aaab268f-7340-44de-8e3e-89eb18f04560/_A2A3118+%281%29_SRGB.jpg?format=750w 750w, https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/aaab268f-7340-44de-8e3e-89eb18f04560/_A2A3118+%281%29_SRGB.jpg?format=1000w 1000w, https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/aaab268f-7340-44de-8e3e-89eb18f04560/_A2A3118+%281%29_SRGB.jpg?format=1500w 1500w" sizes="(max-width:900px) 100vw, 45vw" width="2268" height="3175" alt="Candles and a handwritten “All eyes on Rafah” sign in the snow" loading="lazy" decoding="async"></div></a><a class="stop" data-place="Helsinki · Oulu · IKEA" data-yr="2025–26" href="/work/from-arrival-to-belonging/"><div><small>Helsinki · Oulu · IKEA · 2025–26</small><h2 class="s">From Arrival to Belonging?</h2><p>Refugees who arrived in 2015 and 2022, photographed for the ten years of Startup Refugees. Now touring Finland.</p><span class="pr">Open the project →</span></div><div class="pic"><img src="https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/a4a39869-0b02-4ffe-9865-0f443df7fdcc/nora_sayyad_UKJ1.jpg?format=1500w" srcset="https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/a4a39869-0b02-4ffe-9865-0f443df7fdcc/nora_sayyad_UKJ1.jpg?format=500w 500w, https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/a4a39869-0b02-4ffe-9865-0f443df7fdcc/nora_sayyad_UKJ1.jpg?format=750w 750w, https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/a4a39869-0b02-4ffe-9865-0f443df7fdcc/nora_sayyad_UKJ1.jpg?format=1000w 1000w, https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/a4a39869-0b02-4ffe-9865-0f443df7fdcc/nora_sayyad_UKJ1.jpg?format=1500w 1500w, https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/a4a39869-0b02-4ffe-9865-0f443df7fdcc/nora_sayyad_UKJ1.jpg?format=2500w 2500w" sizes="(max-width:900px) 100vw, 45vw" width="2668" height="4000" alt="Portrait of a young woman in red, against a blue backdrop" loading="lazy" decoding="async"></div></a><div class="stop" data-place="Tornio / Haparanda" data-yr="2026"><div><small>Tornio / Haparanda · 2026</small><h2 class="s">A protest on the border</h2><p>“The most romantic border I’ve ever seen.” One of the smallest Palestine protests, at the line between Finland and Sweden — the two countries she was born in and lives in.</p></div><div class="ph " style="aspect-ratio:4/3" role="img" aria-label="Photo from the Instagram post — original to be supplied"><span>Photo from the Instagram post — original to be supplied</span></div></div><div class="stop" data-place="Lifta, Palestine" data-yr="2025"><div><small>Lifta, Palestine · 2025</small><h2 class="s">Somebody’s home</h2><p>The ruins of a Palestinian village, the cacti planted centuries ago, and a poem: <em>“the ground that remembers our names”</em>.</p></div><div class="ph " style="aspect-ratio:4/3" role="img" aria-label="Photos from the Instagram post — originals to be supplied"><span>Photos from the Instagram post — originals to be supplied</span></div></div><div class="stop" data-place="Amman · Petra" data-yr="2026"><div><small>Amman · Petra · 2026</small><h2 class="s">Jordan diaries</h2><p>Twenty frames of streets, markets and rock, from the post pinned to the top of her profile.</p></div><div class="ph " style="aspect-ratio:4/3" role="img" aria-label="Photos from the Instagram post — originals to be supplied"><span>Photos from the Instagram post — originals to be supplied</span></div></div><a class="stop" data-place="Montréal · Boston · New York · Belfast · London · Bristol" data-yr="2025–26" href="/news/"><div><small>Montréal · Boston · New York · Belfast · London · Bristol · 2025–26</small><h2 class="s">The Lost Paintings: A Prelude to Return</h2><p>A touring exhibition of 53 artists. Nora’s still life <em>Utopia</em> (2023) crosses the Atlantic with it, and she took up a residency in Boston.</p><span class="pr">Open the project →</span></div><div class="pic"><img src="https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/b6e1baa5-1f89-4868-8972-ec0759a4b5b7/Parfyymin_tuulahdus_still_leben_grain_valo_01+%282%29.jpg?format=1500w" srcset="https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/b6e1baa5-1f89-4868-8972-ec0759a4b5b7/Parfyymin_tuulahdus_still_leben_grain_valo_01+%282%29.jpg?format=500w 500w, https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/b6e1baa5-1f89-4868-8972-ec0759a4b5b7/Parfyymin_tuulahdus_still_leben_grain_valo_01+%282%29.jpg?format=750w 750w, https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/b6e1baa5-1f89-4868-8972-ec0759a4b5b7/Parfyymin_tuulahdus_still_leben_grain_valo_01+%282%29.jpg?format=1000w 1000w, https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/b6e1baa5-1f89-4868-8972-ec0759a4b5b7/Parfyymin_tuulahdus_still_leben_grain_valo_01+%282%29.jpg?format=1500w 1500w, https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/b6e1baa5-1f89-4868-8972-ec0759a4b5b7/Parfyymin_tuulahdus_still_leben_grain_valo_01+%282%29.jpg?format=2500w 2500w" sizes="(max-width:900px) 100vw, 45vw" width="3000" height="2000" alt="Still life of perfume bottles on a dark, blue-lit surface" loading="lazy" decoding="async"></div></a><a class="stop" data-place="Helsinki · Suomenlinna" data-yr="2025" href="/news/"><div><small>Helsinki · Suomenlinna · 2025</small><h2 class="s">Visible Palestine</h2><p>A draft, in three parts, of the exhibition she is working towards: portraits, interviews and protest photography. Back home, to begin again.</p><span class="pr">Open the project →</span></div><div class="pic"><img src="https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/01cbc07a-6516-4597-8a09-219c1fb966db/4W7A3479.jpg?format=1500w" srcset="https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/01cbc07a-6516-4597-8a09-219c1fb966db/4W7A3479.jpg?format=500w 500w, https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/01cbc07a-6516-4597-8a09-219c1fb966db/4W7A3479.jpg?format=750w 750w, https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/01cbc07a-6516-4597-8a09-219c1fb966db/4W7A3479.jpg?format=1000w 1000w, https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/01cbc07a-6516-4597-8a09-219c1fb966db/4W7A3479.jpg?format=1500w 1500w, https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/01cbc07a-6516-4597-8a09-219c1fb966db/4W7A3479.jpg?format=2500w 2500w" sizes="(max-width:900px) 100vw, 45vw" width="3485" height="2323" alt="A woman in a headscarf in warm evening light" loading="lazy" decoding="async"></div></a></div>
+</section>
+<section class="tail"><h2 class="s">Next stop: yours.</h2><p>Commissions, exhibitions and talks, in Finland and abroad.</p><a href="/contact/">Get in touch</a></section>
+</main>
+<footer><span>© Nora Sayyad · Helsinki</span><span><a href="mailto:ellinorasayyad@gmail.com">ellinorasayyad@gmail.com</a> · <a href="https://www.instagram.com/norasayyad/">Instagram</a></span></footer>
+</div>
+<a class="switch" href="/opcoes/">← Todas as opções</a>
+<script>
+const place = document.querySelector('.here .place'), yr = document.querySelector('.here .yr'), items = [...document.querySelectorAll('.here ol li')];
+const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { const i = [...document.querySelectorAll('.stop')].indexOf(e.target); place.textContent = e.target.dataset.place; yr.textContent = e.target.dataset.yr; items.forEach((li, k) => li.classList.toggle('on', k === i)); } }), { rootMargin: '-40% 0px -50% 0px' });
+document.querySelectorAll('.stop').forEach(s => io.observe(s));
+</script>
+</body>
+</html>
