@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 760">
+<rect width="1200" height="760" fill="#f3f0e8"/>
+<rect x="34" y="30" width="1132" height="48" fill="#f8f6f0" stroke="#cfc9bd"/>
+<text x="64" y="61" font-family="Georgia,serif" font-size="20" fill="#111" letter-spacing="3">NORA SAYYAD</text>
+<g font-family="Arial,sans-serif" font-size="12" fill="#333"><text x="710" y="59">Work</text><text x="770" y="59">Current</text><text x="845" y="59">Commissions</text><text x="950" y="59">About</text><text x="1010" y="59">Contact</text></g>
+<rect x="34" y="94" width="1132" height="350" fill="#252724"/>
+<rect x="560" y="94" width="606" height="350" fill="#59635b"/>
+<circle cx="875" cy="270" r="120" fill="#8e958d"/>
+<path d="M760 425 C800 320 880 230 1020 160" stroke="#ddd2c2" stroke-width="34" opacity=".5"/>
+<text x="78" y="220" font-family="Georgia,serif" font-size="68" fill="#fff">NORA</text>
+<text x="78" y="286" font-family="Georgia,serif" font-size="68" fill="#fff">SAYYAD</text>
+<text x="80" y="325" font-family="Arial,sans-serif" font-size="16" fill="#fff">Finnish-Palestinian photographer, artist and visual reporter</text>
+<rect x="80" y="350" width="120" height="36" fill="none" stroke="#fff"/>
+<text x="100" y="373" font-family="Arial,sans-serif" font-size="11" fill="#fff" letter-spacing="1">EXPLORE WORK</text>
+<text x="58" y="486" font-family="Arial,sans-serif" font-size="12" fill="#111" letter-spacing="2">SELECTED PROJECTS</text>
+<g><rect x="58" y="510" width="250" height="160" fill="#17345f"/><rect x="324" y="510" width="250" height="160" fill="#444"/><rect x="590" y="510" width="250" height="160" fill="#727454"/><rect x="856" y="510" width="250" height="160" fill="#a54a3f"/></g>
+<g font-family="Georgia,serif" font-size="18" fill="#111"><text x="58" y="701">From Arrival to Belonging?</text><text x="324" y="701">Notes of Resistance</text><text x="590" y="701">Parfyymin tuulahdus</text><text x="856" y="701">Portraits</text></g>
+<text x="58" y="732" font-family="Arial,sans-serif" font-size="11" fill="#666" letter-spacing="1">EDITORIAL / ARCHIVE IN MOTION</text>
+</svg>
