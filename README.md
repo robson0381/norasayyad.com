@@ -2,7 +2,7 @@
 
 Static, dependency-free prototype of a redesigned portfolio for photographer Nora Sayyad. See **[RELATORIO.md](RELATORIO.md)** for the full evaluation and prioritized plan (in Portuguese).
 
-- **[opcoes/](opcoes/)** — four alternative home-page designs (Noite, Jornal, Arquivo, Azul) for Nora to choose from; `python3 build_options.py` regenerates them.
+- **[opcoes/](opcoes/)** — four home-page directions based on Nora’s Instagram and CV (Reportagem, Cartas, Tatreez, Sequências); the first round is kept in `opcoes/v1/`; `python3 build_options.py` regenerates them.
 - **[PERFIL.md](PERFIL.md)** — public profile research (in Portuguese).
 
 Pages: Home · Work · 4 project stories · About/CV · Commissions · News · Contact.

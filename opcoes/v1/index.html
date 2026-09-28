@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nora Sayyad — Opções de visual</title>
+<meta name="robots" content="noindex">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<style>
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;background:#f4f3ef;color:#1b1b19;font:400 16px/1.6 system-ui,-apple-system,'Segoe UI',sans-serif}
+.wrap{max-width:1180px;margin:0 auto;padding:48px 16px 80px}
+h1{font-size:clamp(1.8rem,4vw,2.6rem);margin:0 0 8px;line-height:1.1}
+.lead{color:#5a5850;max-width:44rem;margin:0 0 40px}
+.opt{display:grid;grid-template-columns:1.4fr 1fr;gap:32px;align-items:center;text-decoration:none;color:inherit;background:#fff;border:1px solid #e0ddd4;border-radius:14px;padding:20px;margin-bottom:24px;transition:box-shadow .2s}
+.opt:hover{box-shadow:0 10px 30px rgba(0,0,0,.08)}
+.shots{position:relative}
+.shots img{width:100%;display:block;border-radius:8px;border:1px solid #e0ddd4}
+.shots .m{position:absolute;right:-8px;bottom:-12px;width:24%;border-radius:10px;box-shadow:0 8px 24px rgba(0,0,0,.2)}
+.tag{font-size:.75rem;letter-spacing:.12em;text-transform:uppercase;color:#8a877c}
+h2{margin:4px 0 2px;font-size:1.8rem}
+.sub{margin:0 0 12px;font-weight:600}
+.go{display:inline-block;margin-top:12px;font-weight:600;border-bottom:2px solid}
+.base{margin-top:36px;color:#5a5850}
+@media (max-width:800px){.opt{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<main class="wrap">
+<h1>Versão 1 (anterior)</h1>
+<p class="lead">Todas usam o mesmo conteúdo real (fotos, bio, CV, turnê). Só muda a cara da página inicial. Em cada opção, o botão “← Todas as opções”, no canto, volta para esta página. As páginas internas (projetos, About, contato) seguem o protótipo atual e depois são adaptadas ao estilo escolhido.</p>
+<a class="opt" href="/opcoes/v1/a/">
+  <div class="shots"><img src="/opcoes/v1/shots/a-desk.jpg" alt="Prévia da opção Noite no computador" loading="lazy"><img class="m" src="/opcoes/v1/shots/a-mob.jpg" alt="Prévia da opção Noite no celular" loading="lazy"></div>
+  <div class="txt"><span class="tag">Opção A</span><h2>Noite</h2><p class="sub">Cinematográfico, fundo escuro</p><p>Foto em tela cheia com o nome grande por cima, uma frase de apresentação e cada projeto como um capítulo alternado. As fotos ganham peso de cinema; pouco texto. Combina com o lado “experimental” e ficcional dela.</p><span class="go">Abrir opção →</span></div>
+</a><a class="opt" href="/opcoes/v1/b/">
+  <div class="shots"><img src="/opcoes/v1/shots/b-desk.jpg" alt="Prévia da opção Jornal no computador" loading="lazy"><img class="m" src="/opcoes/v1/shots/b-mob.jpg" alt="Prévia da opção Jornal no celular" loading="lazy"></div>
+  <div class="txt"><span class="tag">Opção B</span><h2>Jornal</h2><p class="sub">Editorial, tipografia forte</p><p>Cabeçalho de jornal com o nome gigante, foto de capa com legenda, “As seen in” e um índice numerado de projetos. Passa credibilidade jornalística (Washington Post, The Times) logo de cara.</p><span class="go">Abrir opção →</span></div>
+</a><a class="opt" href="/opcoes/v1/c/">
+  <div class="shots"><img src="/opcoes/v1/shots/c-desk.jpg" alt="Prévia da opção Arquivo no computador" loading="lazy"><img class="m" src="/opcoes/v1/shots/c-mob.jpg" alt="Prévia da opção Arquivo no celular" loading="lazy"></div>
+  <div class="txt"><span class="tag">Opção C</span><h2>Arquivo</h2><p class="sub">Minimalista, folha de contato</p><p>Fonte monoespaçada, uma folha de contato com 24 fotos dos 4 projetos, índice em tabela e o CV em colunas. Discreto e “de galeria”; conversa com os temas de memória e arquivo.</p><span class="go">Abrir opção →</span></div>
+</a><a class="opt" href="/opcoes/v1/d/">
+  <div class="shots"><img src="/opcoes/v1/shots/d-desk.jpg" alt="Prévia da opção Azul no computador" loading="lazy"><img class="m" src="/opcoes/v1/shots/d-mob.jpg" alt="Prévia da opção Azul no celular" loading="lazy"></div>
+  <div class="txt"><span class="tag">Opção D</span><h2>Azul</h2><p class="sub">Poético, cor da própria obra</p><p>Fundo no azul dos retratos de <em>From Arrival to Belonging</em> e de <em>Parfyymin tuulahdus</em>, colagem de fotos e uma fonte serifada itálica. É a opção mais autoral e calorosa.</p><span class="go">Abrir opção →</span></div>
+</a>
+<p class="base">Referência: <a href="/">protótipo anterior (claro, clássico)</a>.</p>
+</main>
+</body>
+</html>
