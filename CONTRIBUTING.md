@@ -9,7 +9,8 @@ Guia para quem trabalha no novo site da Nora Sayyad: você, a Nora, outros colab
 | Arquivo ou pasta | O que é | Pode editar à mão? |
 |---|---|---|
 | `build.py` | Gera o site completo (home, projetos, About, Commissions, News, Contact) | Sim: **fonte da verdade** do protótipo |
-| `build_options.py` | Gera os 4 conceitos atuais em `opcoes/` (Símbolos, Rota, Visível, Dois lares) | Sim |
+| `build_options.py` | Gera os 5 conceitos atuais em `opcoes/` (Editorial, Símbolos, Rota, Visível, Dois lares) | Sim |
+| `build_editorial.py` | Fonte do conceito Editorial / Archive in Motion usado por `build_options.py` | Sim |
 | `build_options_v2.py` | Gera a versão 2 em `opcoes/v2/` (Reportagem, Cartas, Tatreez, Sequências) | Sim |
 | `content/photos.json` | Lista de fotos com texto alternativo, largura e altura | Sim |
 | `assets/` | CSS, JS e favicon do protótipo principal | Sim |
