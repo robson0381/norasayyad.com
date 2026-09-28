@@ -84,13 +84,17 @@ def strip_tags(s):
 
 
 def img(p, sizes="100vw", cls="", lazy=True, attrs=""):
-    """Responsive <img> using Squarespace's ?format= resizing."""
+    """Responsive image markup; Squarespace assets use its resizing API."""
+    loading = ' loading="lazy"' if lazy else ' fetchpriority="high"'
+    class_attr = f" class={cls}" if cls else ""
+    if "images.squarespace-cdn.com" not in p["src"]:
+        return (f'<img src="{p["src"]}" width="{p["w"]}" height="{p["h"]}" '
+                f'alt="{escape(p["alt"])}"{loading} decoding="async"{class_attr}{attrs}>')
     widths = [w for w in (500, 750, 1000, 1500, 2500) if w <= p["w"]] or [p["w"]]
     srcset = ", ".join(f'{p["src"]}?format={w}w {w}w' for w in widths)
     default = f'{p["src"]}?format={max([w for w in widths if w <= 1500] or widths[:1])}w'
-    loading = ' loading="lazy"' if lazy else ' fetchpriority="high"'
     return (f'<img src="{default}" srcset="{srcset}" sizes="{sizes}" width="{p["w"]}" height="{p["h"]}" '
-            f'alt="{escape(p["alt"])}"{loading} decoding="async"{f" class={cls}" if cls else ""}{attrs}>')
+            f'alt="{escape(p["alt"])}"{loading} decoding="async"{class_attr}{attrs}>')
 
 
 def page(path, title, desc, body, current=None, og=None):
