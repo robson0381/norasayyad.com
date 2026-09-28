@@ -83,6 +83,7 @@ Registro das decisões do projeto: data, decisão e quem decidiu. Novas entradas
 
 | Data | Decisão | Quem |
 |---|---|---|
+| 28/09/2026 | Direção Editorial / Archive in Motion adicionada ao protótipo como nova opção visual, sem substituir as demais | Robson |
 | 28/09/2026 | Opções da versão 2 (Reportagem, Cartas, Tatreez, Sequências) publicadas num link privado para apresentar à Nora; Tatreez marcada como favorita | Robson |
 | 28/09/2026 | Versões 1 e 2 guardadas como opções adicionais; conceitos novos (Símbolos, Rota, Visível, Dois lares) em `opcoes/` | Robson |
 | 28/09/2026 | Fotos baixadas do Instagram não entram no repositório; usar originais da Nora | Robson |
