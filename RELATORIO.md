@@ -76,3 +76,13 @@ Antes e depois (Squarespace Analytics + Google Search Console): taxa de rejeiç�
 5. **Referências**: 2 ou 3 sites de fotógrafos de que ela gosta.
 6. **Fotos que faltam**: um retrato profissional da Nora (para a About e a home) e vistas das exposições, principalmente de *The Lost Paintings*. No protótipo, esses espaços aparecem como blocos cinza.
 7. **Datas da turnê** *The Lost Paintings* em cada local.
+
+## Decisões
+
+Registro das decisões do projeto: data, decisão e quem decidiu. Novas entradas vão no topo.
+
+| Data | Decisão | Quem |
+|---|---|---|
+| 28/09/2026 | Opções da versão 2 (Reportagem, Cartas, Tatreez, Sequências) publicadas num link privado para apresentar à Nora; Tatreez marcada como favorita | Robson |
+| 28/09/2026 | Versões 1 e 2 guardadas como opções adicionais; conceitos novos (Símbolos, Rota, Visível, Dois lares) em `opcoes/` | Robson |
+| 28/09/2026 | Fotos baixadas do Instagram não entram no repositório; usar originais da Nora | Robson |

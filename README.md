@@ -1,6 +1,6 @@
 # norasayyad.com — redesign prototype
 
-Static, dependency-free prototype of a redesigned portfolio for photographer Nora Sayyad. See **[RELATORIO.md](RELATORIO.md)** for the full evaluation and prioritized plan (in Portuguese).
+Static, dependency-free prototype of a redesigned portfolio for photographer Nora Sayyad. **Before contributing, read [CONTRIBUTING.md](CONTRIBUTING.md)** (in Portuguese). See **[RELATORIO.md](RELATORIO.md)** for the full evaluation and prioritized plan (in Portuguese).
 
 - **[opcoes/](opcoes/)** — four home-page **concepts** built from Nora’s identity (Símbolos, Rota, Visível, Dois lares); earlier rounds are kept in `opcoes/v1/` (styles) and `opcoes/v2/` (restyled, generator `build_options_v2.py`); `python3 build_options.py` regenerates them.
 - **[PERFIL.md](PERFIL.md)** — public profile research (in Portuguese).
