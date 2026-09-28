@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1600" viewBox="0 0 1600 1600" role="img" aria-labelledby="title desc">
+<title id="title">Nora Sayyad redesign v3 reference layout</title>
+<desc id="desc">Square schematic board for the chosen editorial direction. Photo blocks are placeholders for Nora's real images.</desc>
+<rect width="1600" height="1600" fill="#F0F2EA"/>
+<style>.s{font-family:Arial,sans-serif;fill:#2E2E2E}.serif{font-family:Georgia,serif;fill:#2E2E2E}.meta{font:14px Arial,sans-serif;letter-spacing:2px;fill:#2E2E2E}.line{stroke:#C9B8A1;stroke-width:2}</style>
+<text x="60" y="65" class="meta">REDESIGN V3 / REFERENCE BOARD / 1:1</text>
+<text x="60" y="115" class="serif" font-size="40">Nora Sayyad — editorial portfolio direction</text>
+<line x1="60" y1="140" x2="1540" y2="140" class="line"/>
+
+<text x="60" y="190" class="s" font-size="18" font-weight="700">HOME / DESKTOP</text>
+<rect x="60" y="210" width="930" height="720" fill="#fff" stroke="#C9B8A1"/>
+<text x="90" y="252" class="serif" font-size="22">NORA SAYYAD</text>
+<text x="590" y="252" class="meta">WORK   CURRENT   COMMISSIONS   ABOUT   CONTACT   EN/FI</text>
+<rect x="82" y="282" width="886" height="390" fill="#D8D0C0"/>
+<rect x="548" y="282" width="420" height="390" fill="#2E2E2E"/>
+<text x="590" y="476" font-family="Arial" font-size="22" fill="#fff">RETRATO REAL DE NORA</text>
+<text x="112" y="405" class="serif" font-size="76">NORA</text>
+<text x="112" y="485" class="serif" font-size="76">SAYYAD</text>
+<text x="112" y="530" class="s" font-size="21">Finnish-Palestinian photographer,</text>
+<text x="112" y="560" class="s" font-size="21">artist and visual reporter based in Helsinki.</text>
+<rect x="112" y="590" width="170" height="48" fill="#4A5A3C"/>
+<text x="137" y="620" font-family="Arial" font-size="14" letter-spacing="1" fill="#fff">EXPLORE WORK →</text>
+<g transform="translate(930 300)" fill="#882E2E"><path d="M15 0 30 15 15 30 0 15Z"/><path d="M15 40 30 55 15 70 0 55Z"/><path d="M15 80 30 95 15 110 0 95Z"/><path d="M15 120 30 135 15 150 0 135Z"/><path d="M15 160 30 175 15 190 0 175Z"/><path d="M15 200 30 215 15 230 0 215Z"/><path d="M15 240 30 255 15 270 0 255Z"/><path d="M15 280 30 295 15 310 0 295Z"/><path d="M15 320 30 335 15 350 0 335Z"/></g>
+<text x="90" y="720" class="meta">SELECTED PROJECTS</text>
+<rect x="90" y="745" width="200" height="120" fill="#204B6F"/><rect x="310" y="745" width="200" height="120" fill="#2E2E2E"/><rect x="530" y="745" width="200" height="120" fill="#4A5A3C"/><rect x="750" y="745" width="200" height="120" fill="#C9B8A1"/>
+<text x="90" y="895" class="meta">FROM ARRIVAL TO BELONGING?</text><text x="310" y="895" class="meta">NOTES OF RESISTANCE</text><text x="530" y="895" class="meta">PARFYYMIN TUULAHDUS</text><text x="750" y="895" class="meta">PORTRAITS</text>
+
+<text x="1030" y="190" class="s" font-size="18" font-weight="700">HOME / MOBILE</text>
+<rect x="1030" y="210" width="270" height="560" rx="32" fill="#2E2E2E"/>
+<rect x="1042" y="226" width="246" height="528" rx="22" fill="#fff"/>
+<text x="1060" y="262" class="serif" font-size="15">NORA SAYYAD</text>
+<rect x="1054" y="286" width="222" height="260" fill="#2E2E2E"/>
+<text x="1072" y="390" font-family="Georgia" font-size="40" fill="#fff">NORA</text><text x="1072" y="436" font-family="Georgia" font-size="40" fill="#fff">SAYYAD</text>
+<text x="1072" y="480" font-family="Arial" font-size="13" fill="#fff">REAL PORTRAIT</text>
+<rect x="1054" y="566" width="222" height="168" fill="#F0F2EA"/><text x="1068" y="596" class="meta">SELECTED PROJECT</text><rect x="1068" y="615" width="194" height="90" fill="#882E2E"/>
+
+<text x="60" y="1000" class="s" font-size="18" font-weight="700">PROJECT TEMPLATE</text>
+<rect x="60" y="1020" width="930" height="500" fill="#fff" stroke="#C9B8A1"/>
+<text x="90" y="1060" class="serif" font-size="22">NORA SAYYAD</text><text x="90" y="1120" class="meta">← ALL PROJECTS</text>
+<text x="90" y="1185" class="serif" font-size="44">From Arrival</text><text x="90" y="1230" class="serif" font-size="44">to Belonging?</text><text x="90" y="1270" class="meta">2024–2026 / DOCUMENTARY</text>
+<text x="90" y="1320" class="s" font-size="17">Project text + metadata.</text><text x="90" y="1350" class="s" font-size="17">Use only confirmed facts.</text>
+<rect x="455" y="1080" width="500" height="280" fill="#204B6F"/><text x="620" y="1225" font-family="Arial" font-size="20" fill="#fff">REAL PROJECT IMAGE</text>
+<rect x="455" y="1380" width="116" height="90" fill="#C9B8A1"/><rect x="583" y="1380" width="116" height="90" fill="#4A5A3C"/><rect x="711" y="1380" width="116" height="90" fill="#882E2E"/><rect x="839" y="1380" width="116" height="90" fill="#2E2E2E"/>
+
+<text x="1030" y="835" class="s" font-size="18" font-weight="700">VISUAL LANGUAGE</text>
+<rect x="1030" y="855" width="510" height="665" fill="#fff" stroke="#C9B8A1"/>
+<text x="1055" y="910" class="serif" font-size="34">Memory, archive, place.</text>
+<text x="1055" y="950" class="s" font-size="17">References should be subtle, real and approved.</text>
+<text x="1055" y="1005" class="meta">PALETTE</text>
+<rect x="1055" y="1025" width="62" height="62" fill="#F0F2EA" stroke="#C9B8A1"/><rect x="1128" y="1025" width="62" height="62" fill="#2E2E2E"/><rect x="1201" y="1025" width="62" height="62" fill="#4A5A3C"/><rect x="1274" y="1025" width="62" height="62" fill="#204B6F"/><rect x="1347" y="1025" width="62" height="62" fill="#882E2E"/><rect x="1420" y="1025" width="62" height="62" fill="#C9B8A1"/>
+<text x="1055" y="1140" class="meta">DETAILS</text>
+<rect x="1055" y="1160" width="160" height="130" fill="#F0F2EA" stroke="#C9B8A1"/><path d="M1070 1180 1100 1210 1070 1240 1100 1270 M1100 1180 1130 1210 1100 1240 1130 1270 M1130 1180 1160 1210 1130 1240 1160 1270" fill="none" stroke="#882E2E" stroke-width="6"/><text x="1055" y="1320" class="meta">TATREEZ: VERIFIED / APPROVED ONLY</text>
+<path d="M1290 1275 C1340 1235 1380 1180 1380 1125 M1380 1185 C1430 1155 1460 1140 1490 1130 M1380 1210 C1330 1190 1300 1170 1275 1145" fill="none" stroke="#4A5A3C" stroke-width="8"/><text x="1290" y="1320" class="meta">OLIVE BRANCH / SUBTLE</text>
+<line x1="1055" y1="1360" x2="1510" y2="1360" class="line"/><text x="1055" y="1400" class="meta">NO AI PORTRAIT IN PRODUCTION</text><text x="1055" y="1435" class="meta">NO PSEUDO-ARABIC</text><text x="1055" y="1470" class="meta">REAL PHOTOS / REAL CAPTIONS / REAL DATES</text>
+</svg>
