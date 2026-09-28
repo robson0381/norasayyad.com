@@ -100,7 +100,8 @@ def img(p, sizes="100vw", cls="", lazy=True, attrs=""):
 def page(path, title, desc, body, current=None, og=None):
     full_title = f"{title} — Nora Sayyad" if title else "Nora Sayyad — Documentary photographer & visual artist, Helsinki"
     url = SITE + ("/" + path.rsplit("index.html", 1)[0] if path != "index.html" else "/")
-    og_image = (og or PHOTOS["hero"])["src"] + "?format=1500w"
+    og_src = (og or PHOTOS["hero"])["src"]
+    og_image = og_src + "?format=1500w" if "images.squarespace-cdn.com" in og_src else og_src
     nav = "".join(
         f'<li><a href="/{slug}/"{" aria-current=page" if current == slug else ""}>{label}</a></li>'
         for slug, label in NAV
@@ -353,7 +354,7 @@ def cv(title, rows, open_=False):
 def build_about():
     body = f"""<section>
   <div class="wrap about-top">
-    <div class="ph" role="img" aria-label="Portrait of Nora Sayyad" data-label="Portrait of Nora — photo needed"></div>
+    <figure class="about-v3-portrait">{img(NORA_PORTRAIT, "(max-width: 800px) 100vw, 38vw", "nora-portrait")}<figcaption>Portrait: Linda Lehtovirta / HIAP</figcaption></figure>
     <div class="narrow">
       <p class="eyebrow">About</p>
       <h1>Nora Sayyad</h1>
