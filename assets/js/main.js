@@ -31,6 +31,8 @@ if (photos.length) {
   const show = (n) => {
     i = (n + photos.length) % photos.length;
     const media = photos[i].querySelector('.ph, img').cloneNode(true);
+    if (media.tagName === 'IMG') { media.sizes = '92vw'; media.removeAttribute('loading'); }
+    media.removeAttribute('tabindex');
     stage.replaceChildren(media);
     const fc = photos[i].querySelector('figcaption');
     cap.textContent = `${i + 1} / ${photos.length}` + (fc ? ` — ${fc.textContent}` : '');
