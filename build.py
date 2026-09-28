@@ -17,7 +17,16 @@ SITE = "https://www.norasayyad.com"
 EMAIL = "ellinorasayyad@gmail.com"
 PHOTOS = json.loads((ROOT / "content/photos.json").read_text(encoding="utf-8"))
 
-NAV = [("work", "Work"), ("news", "Exhibitions"), ("services", "Commissions"), ("about", "About")]
+# Public portrait used in this prototype; replace with Nora's supplied original before production.
+# Source/credit: HIAP resident profile — photo by Linda Lehtovirta.
+NORA_PORTRAIT = {
+    "src": "https://e5r5u8jv4iq.exactdn.com/wp-content/uploads/2025/11/notefile-12-667x800.jpeg",
+    "w": 667,
+    "h": 800,
+    "alt": "Portrait of Nora Sayyad outdoors, looking upward with one hand near her face",
+}
+
+NAV = [("work", "Work"), ("news", "Current"), ("services", "Commissions"), ("about", "About")]
 
 PROJECTS = [
     {
@@ -110,7 +119,7 @@ def page(path, title, desc, body, current=None, og=None):
 <link rel="preconnect" href="https://images.squarespace-cdn.com">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/assets/css/style.css">
 </head>
 <body>
@@ -123,7 +132,7 @@ def page(path, title, desc, body, current=None, og=None):
     </button>
     <nav class="nav" id="nav" aria-label="Main">
       <ul>{nav}</ul>
-      <div class="lang" aria-label="Language"><a href="#" aria-current="true">EN</a><a href="#" title="Suomeksi (coming soon)">FI</a><a href="#" title="På svenska (coming soon)">SV</a></div>
+      <div class="lang" aria-label="Language"><a href="#" aria-current="true">EN</a><a href="#" title="Suomeksi (coming soon)">FI</a></div>
       <a class="btn small" href="/contact/">Get in touch</a>
     </nav>
   </div>
