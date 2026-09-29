@@ -248,7 +248,7 @@ def build_home():
     <div class="current-grid">
       <div class="current-image">{img(PHOTOS['notes-of-resistance'][9], "(max-width: 820px) 100vw, 38vw")}</div>
       <article class="current-main">
-        <p class="eyebrow">On tour · 2025–2026</p>
+        <p class="eyebrow">Recent tour · 2025–2026</p>
         <h3>The Lost Paintings: A Prelude to Return</h3>
         <p>A travelling group exhibition presented across Canada, the United States, Northern Ireland and the United Kingdom, including Nora Sayyad's work <em>Utopia</em>.</p>
         <a class="btn ghost" href="/news/">Exhibitions & dates →</a>
@@ -486,7 +486,7 @@ def build_news():
     </div>
   </div>
 </section>"""
-    page("news/index.html", "Exhibitions", "Current and past exhibitions of Nora Sayyad, including the touring exhibition The Lost Paintings: A Prelude to Return.", body, current="news")
+    page("news/index.html", "Exhibitions", "Recent and past exhibitions of Nora Sayyad, including The Lost Paintings: A Prelude to Return.", body, current="news")
 
 
 def build_contact():
