@@ -123,7 +123,7 @@ def page(path, title, desc, body, current=None, og=None):
     </button>
     <nav class="nav" id="nav" aria-label="Main">
       <ul>{nav}</ul>
-      <div class="lang" aria-label="Language"><a href="#" aria-current="true">EN</a><span class="disabled" aria-disabled="true" title="Suomeksi — planned">FI</span></div>
+      <div class="lang" aria-label="Language"><span aria-current="true">EN</span><span class="disabled" aria-disabled="true" title="Suomeksi — planned">FI</span></div>
       <a class="btn small" href="/contact/">Get in touch</a>
     </nav>
   </div>
