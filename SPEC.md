@@ -256,6 +256,7 @@ No protótipo, o formulário abre um rascunho estruturado no aplicativo de e-mai
 
 - `content/photos.json`: 58 referências estruturadas com dimensões e alt text.
 - `content/current-site-inventory.json`: inventário completo do site atual e as 86 URLs de Notes of Resistance.
+- `content/sample-assets.json`: proveniência e status de substituição dos assets provisórios usados no protótipo.
 - `REFERENCE_BUNDLE.md`: resumo das 346 imagens fornecidas como referência de curadoria; essas cópias não são masters de produção.
 - imagens de amostra: CDN atual do Squarespace.
 
