@@ -291,17 +291,6 @@ def build_home():
     <blockquote>Photography as a space for memory, dialogue and self-determination.<small>Nora Sayyad · visual practice</small></blockquote>
   </div>
 </section>
-<section class="poetic-feature" aria-labelledby="poetic-title">
-  <div class="wrap poetic-grid">
-    <figure class="poetic-image">{img(PHOTOS['parfyymin-tuulahdus'][0], "(max-width: 900px) 100vw, 52vw")}</figure>
-    <div class="poetic-copy">
-      <p class="eyebrow">Poetic / conceptual</p>
-      <h2 id="poetic-title">Parfyymin<br>tuulahdus</h2>
-      <p>A darker, more intimate register within Nora's visual practice.</p>
-      <a class="text-link" href="/work/parfyymin-tuulahdus/">View project →</a>
-    </div>
-  </div>
-</section>
 <section class="home-about" aria-labelledby="about-h">
   <div class="wrap about-editorial">
     <figure class="about-portrait"><img src="{ABOUT_PORTRAIT}" width="240" height="300" alt="Self-portrait by Nora Sayyad in Buenos Aires, May 2023" loading="lazy" decoding="async"></figure>
@@ -311,6 +300,17 @@ def build_home():
       <p class="lead">Her practice explores belonging, memory, diaspora, representation and the politics of looking.</p>
       <p>Based in Helsinki, Nora works across photography, visual reporting, writing, teaching and public speaking.</p>
       <a class="text-link" href="/about/">Biography & CV →</a>
+    </div>
+  </div>
+</section>
+<section class="poetic-feature" aria-labelledby="poetic-title">
+  <div class="wrap poetic-grid">
+    <figure class="poetic-image">{img(PHOTOS['parfyymin-tuulahdus'][0], "(max-width: 900px) 100vw, 52vw")}</figure>
+    <div class="poetic-copy">
+      <p class="eyebrow">Poetic / conceptual</p>
+      <h2 id="poetic-title">Parfyymin<br>tuulahdus</h2>
+      <p>A darker, more intimate register within Nora's visual practice.</p>
+      <a class="text-link" href="/work/parfyymin-tuulahdus/">View project →</a>
     </div>
   </div>
 </section>
