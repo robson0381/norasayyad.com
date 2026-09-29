@@ -43,7 +43,25 @@ for (const [mode, viewport] of viewports) {
     await page.evaluate(() => document.fonts?.ready);
     await page.waitForTimeout(500);
 
-    // Above-the-fold render before any scripted scrolling.
+    // Wait for visible images before the above-the-fold render.
+    const visibleImages = page.locator('img:visible');
+    for (let i = 0; i < await visibleImages.count(); i++) {
+      const image = visibleImages.nth(i);
+      await image.evaluate(async img => {
+        if (!img.complete) {
+          await Promise.race([
+            new Promise(resolve => {
+              img.addEventListener('load', resolve, { once: true });
+              img.addEventListener('error', resolve, { once: true });
+            }),
+            new Promise(resolve => setTimeout(resolve, 3000)),
+          ]);
+        }
+        if (img.complete && img.naturalWidth > 0 && img.decode) {
+          try { await img.decode(); } catch {}
+        }
+      });
+    }
     await page.screenshot({ path: `qa-artifacts/${mode}-${name}-fold.png`, fullPage: false });
 
     // Exercise every image position, then wait for decoded pixels before the full-page screenshot.
@@ -130,6 +148,7 @@ for (const [mode, viewport] of viewports) {
 
   const menu = page.locator('.menu-toggle');
   await menu.click();
+  await page.waitForTimeout(250);
   const navVisible = await page.locator('#nav').evaluate(el => {
     const s = getComputedStyle(el);
     return s.visibility === 'visible' && s.pointerEvents !== 'none' && s.opacity !== '0';
