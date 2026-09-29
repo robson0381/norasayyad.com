@@ -11,8 +11,12 @@ This checklist records what has been explicitly designed/tested in the source fo
 | Mobile | 390 px | modern phone baseline |
 | Tablet | 768 px | portrait tablet / large mobile |
 | Desktop | 1440 px | primary editorial desktop composition |
+| Large / zoom-out | 1800 px+ | preserve the same page frame proportion instead of freezing at a narrow fixed column |
 
 ## Global
+
+The shared layout now uses fluid page-width, section spacing and grid gaps. Above 1800 CSS px, the master frame expands to ~92vw so browser zoom-out and ultrawide screens retain the intended editorial proportion.
+
 
 | Check | 390 | 768 | 1440 |
 |---|:---:|:---:|:---:|
