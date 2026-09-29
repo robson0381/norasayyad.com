@@ -190,7 +190,7 @@ BIO_SHORT = "Finnish-Palestinian visual artist and documentary photographer, bor
 
 def build_home():
     slides = [
-        (PHOTOS["from-arrival-to-belonging"][8], "From Arrival to Belonging? · 2025–2026"),
+        (PHOTOS["from-arrival-to-belonging"][0], "From Arrival to Belonging? · 2025–2026"),
         (PHOTOS["portraits"][4], "Portraits · ongoing"),
         (PHOTOS["notes-of-resistance"][7], "Notes of Resistance"),
         (PHOTOS["parfyymin-tuulahdus"][0], "Parfyymin tuulahdus"),
