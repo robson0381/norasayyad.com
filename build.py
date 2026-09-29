@@ -177,8 +177,10 @@ def cover(p):
 
 
 def card(p):
-    return f"""<a class="card" href="/work/{p['slug']}/">
-  <div class="frame">{img(cover(p), "(max-width: 700px) 100vw, 33vw", "cover")}</div>
+    cover_photo = cover(p)
+    orientation = " landscape-cover" if cover_photo["w"] > cover_photo["h"] else ""
+    return f"""<a class="card{orientation}" href="/work/{p['slug']}/">
+  <div class="frame">{img(cover_photo, "(max-width: 700px) 100vw, 33vw", "cover")}</div>
   <h3>{p['title']}</h3>
   <p>{p['teaser']}</p>
   <div class="meta">{p["meta"]} · {len(PHOTOS[p['slug']])} photographs</div>
