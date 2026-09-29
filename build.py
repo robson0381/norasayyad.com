@@ -194,7 +194,7 @@ def build_home():
         (PHOTOS["parfyymin-tuulahdus"][0], "Parfyymin tuulahdus"),
     ]
     slide_html = "\n".join(
-        f'<figure class="hero-slide{" active" if i == 0 else ""}" data-hero-slide aria-hidden="{"false" if i == 0 else "true"}>{img(ph, "100vw", lazy=i > 0)}<figcaption class="hero-caption">{label}</figcaption></figure>'
+        f'<figure class="hero-slide{" active" if i == 0 else ""}" data-hero-slide aria-hidden="{"false" if i == 0 else "true"}">{img(ph, "100vw", lazy=i > 0)}<figcaption class="hero-caption">{label}</figcaption></figure>'
         for i, (ph, label) in enumerate(slides)
     )
     featured_projects = [
