@@ -348,7 +348,7 @@ footer{{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;paddi
 }}
 """
     dots = ["var(--olive)", "var(--sea)", "var(--eye)", "var(--red)"]
-    cards = "".join(f"""<a class="card" href="/work/{p['slug']}/"><div class="f">{img(cover(p), "(max-width:900px) 50vw, 25vw")}</div><h3 class="serif">{p['title']}</h3><p><span class="dot" style="background:{dots[i]}"></span>{YEARS[p['slug']]} · {p['teaser']}</p></a>""" for i, p in enumerate(PROJECTS))
+    cards = "".join(f"""<a class="card" href="/work/{p['slug']}/"><div class="f">{img(cover(p), "(max-width:900px) 50vw, 25vw")}</div><h3 class="serif">{p['title']}</h3><p><span class="dot" style="background:{dots[i % len(dots)]}"></span>{YEARS[p['slug']]} · {p['teaser']}</p></a>""" for i, p in enumerate(PROJECTS))
     shows = "".join(f"<div class='show'><small>{k}</small><h3 class='serif'>{t}</h3><p>{w}</p><p style='margin-top:8px'>{x}</p></div>" for k, t, w, x in EXHIB)
     body = f"""<div class="band" aria-hidden="true"></div>
 <div class="wrap">
