@@ -80,6 +80,14 @@ for rel in MAIN_PAGES:
     if re.search(r'<form\b[^>]*action="#"', html):
         err(f"{rel}: dead prototype form action=#")
 
+    if 'data-hero-slide' in html:
+        hero_tags = re.findall(r'<figure\b[^>]*data-hero-slide[^>]*>', html)
+        if len(hero_tags) != 4:
+            err(f"{rel}: expected 4 hero slides, found {len(hero_tags)}")
+        for tag in hero_tags:
+            if not re.search(r'aria-hidden="(?:true|false)"', tag):
+                err(f"{rel}: malformed hero aria-hidden attribute")
+
     if 'href="/assets/nora-sayyad-cv.pdf"' in html:
         err(f"{rel}: references a CV PDF that is not in the repository")
 
