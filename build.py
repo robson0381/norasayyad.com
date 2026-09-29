@@ -485,7 +485,7 @@ def build_services():
         f'<div class="service"><h3>{t}</h3><p>{d}</p><a class="btn ghost small" href="/contact/?topic={topic_map[t].replace(" ", "+")}">Ask about {t.lower()}</a></div>'
         for t, d in items
     )
-    body = f"""<section>
+    body = f"""<section class="services-page">
   <div class="wrap">
     <p class="eyebrow">Commissions</p>
     <h1>Work with Nora</h1>
