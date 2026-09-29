@@ -82,8 +82,8 @@ for rel in MAIN_PAGES:
 
     if 'data-hero-slide' in html:
         hero_tags = re.findall(r'<figure\b[^>]*data-hero-slide[^>]*>', html)
-        if len(hero_tags) != 4:
-            err(f"{rel}: expected 4 hero slides, found {len(hero_tags)}")
+        if len(hero_tags) != 5:
+            err(f"{rel}: expected 5 hero slides, found {len(hero_tags)}")
         for tag in hero_tags:
             if not re.search(r'aria-hidden="(?:true|false)"', tag):
                 err(f"{rel}: malformed hero aria-hidden attribute")
