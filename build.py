@@ -17,6 +17,7 @@ SITE = "https://www.norasayyad.com"
 EMAIL = "ellinorasayyad@gmail.com"
 PHOTOS = json.loads((ROOT / "content/photos.json").read_text(encoding="utf-8"))
 ABOUT_PORTRAIT = "/assets/images/nora-selfportrait-buenos-aires-2023-sample.jpg"
+WORK_ARCHIVE_IMAGE = "https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/c47bc6e7-c136-42cc-88b7-b90dc9e6572c/_A2A2025-1%2Bkopio%2B2_SAYYAD.jpg"
 
 NAV = [("work", "Work"), ("news", "Current"), ("services", "Commissions"), ("about", "About")]
 
@@ -299,21 +300,11 @@ def build_home():
       <h2 id="about-h">Documentary, poetic and conceptual.</h2>
       <p class="lead">Her practice explores belonging, memory, diaspora, representation and the politics of looking.</p>
       <p>Based in Helsinki, Nora works across photography, visual reporting, writing, teaching and public speaking.</p>
-      <a class="text-link" href="/about/">Biography & CV →</a>
+      <a class="text-link" href="/about/">Biography & career →</a>
     </div>
   </div>
 </section>
-<section class="poetic-feature" aria-labelledby="poetic-title">
-  <div class="wrap poetic-grid">
-    <figure class="poetic-image">{img(PHOTOS['parfyymin-tuulahdus'][0], "(max-width: 900px) 100vw, 52vw")}</figure>
-    <div class="poetic-copy">
-      <p class="eyebrow">Poetic / conceptual</p>
-      <h2 id="poetic-title">Parfyymin<br>tuulahdus</h2>
-      <p>A darker, more intimate register within Nora's visual practice.</p>
-      <a class="text-link" href="/work/parfyymin-tuulahdus/">View project →</a>
-    </div>
-  </div>
-</section>
+
 <section class="commission-band">
   <div class="wrap commission-editorial">
     <h2>Commissions<br>& editorial.</h2>
@@ -333,7 +324,14 @@ def build_work():
     <p class="eyebrow">Work</p>
     <h1>Projects</h1>
     <p class="lead narrow">Long-form documentary series, portrait work and poetic projects. Each one opens with its story.</p>
-    <div class="cards" style="margin-top:40px">{cards}</div>
+    <figure class="work-archive-visual">
+      <img src="{WORK_ARCHIVE_IMAGE}?format=1500w"
+           srcset="{WORK_ARCHIVE_IMAGE}?format=750w 750w, {WORK_ARCHIVE_IMAGE}?format=1000w 1000w, {WORK_ARCHIVE_IMAGE}?format=1500w 1500w, {WORK_ARCHIVE_IMAGE}?format=2500w 2500w"
+           sizes="(max-width: 760px) 100vw, 1420px"
+           alt="Close-up still life of fruit and flowers against a black background"
+           loading="lazy" decoding="async">
+    </figure>
+    <div class="cards">{cards}</div>
   </div>
 </section>"""
     page("work/index.html", "Work", "Documentary projects and portraits by Nora Sayyad: Notes of Resistance, From Arrival to Belonging?, Portraits and Parfyymin tuulahdus.", body, current="work")
@@ -407,13 +405,13 @@ def build_about():
       <p>Her practice moves between documentary, poetic and conceptual approaches, exploring the politics of looking, questions of representation, and how photography can become a space for memory, dialogue and self-determination. Drawing from personal and collective histories, her work examines connection, belonging and lived experience in relation to wider social and political realities.</p>
       <p>Her work has been exhibited internationally, including as part of <em>The Lost Paintings: A Prelude to Return</em>, and presented at the Helsinki City Museum, the Finnish Museum of Photography and HIAP. Her photographs have been published by The Washington Post and The Times, and are held in the public collections of the Migration Institute of Finland, the Finnish Heritage Agency and the National Library of Finland.</p>
       <p>Alongside her artistic practice she works across visual reporting, teaching, writing, public speaking and artivism, and has collaborated with organisations including Plan International Finland. In 2021 she was assistant curator of the award-winning <em>No Justice, No Peace</em>.</p>
-      <p style="display:flex;gap:12px;flex-wrap:wrap"><a class="btn" href="#cv">View full CV</a><a class="btn ghost" href="/contact/">Contact</a></p>
+      <p style="display:flex;gap:12px;flex-wrap:wrap"><a class="btn" href="#cv">View career history</a><a class="btn ghost" href="/contact/">Contact</a></p>
     </div>
   </div>
 </section>
 <section style="padding-top:0">
   <div class="wrap narrow">
-    <h2 id="cv">CV</h2>
+    <h2 id="cv">Career history</h2>
     {cv("Solo exhibitions", [
         ("2025–26", "<em>From Arrival to Belonging: A Decade in Portraits</em>, with Startup Refugees — IKEA; STOA; Valkea; Revontuli, Finland"),
         ("2025", "<em>Untitled: Palestine</em> (working title / ongoing work), Pop-up HIAP, Helsinki, Finland"),
@@ -461,7 +459,7 @@ def build_about():
     {cv("Memberships", [("", "Women Photograph (US) · Association of Photographic Artists · Kuvasto ry · GAP Creatives Database")])}
   </div>
 </section>"""
-    page("about/index.html", "About", "Biography and CV of Nora Sayyad: exhibitions, public collections, awards, press, teaching and education.", body, current="about")
+    page("about/index.html", "About", "Biography and career history of Nora Sayyad: exhibitions, public collections, awards, press, teaching and education.", body, current="about")
 
 
 def build_services():
