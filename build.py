@@ -96,6 +96,16 @@ def page(path, title, desc, body, current=None, og=None):
         f'<li><a href="/{slug}/"{" aria-current=page" if current == slug else ""}>{label}</a></li>'
         for slug, label in NAV
     )
+    footer_html = "" if path == "index.html" else f"""<footer class="site-footer">
+  <div class="wrap">
+    <p>© Nora Sayyad · Helsinki, Finland · <a href="mailto:{EMAIL}">{EMAIL}</a></p>
+    <ul>
+      <li><a href="https://www.instagram.com/norasayyad/" rel="me">Instagram</a></li>
+      <li><a href="https://www.womenphotograph.com">Women Photograph</a></li>
+      <li><a href="/contact/">Contact</a></li>
+    </ul>
+  </div>
+</footer>"""
     html = f"""<!doctype html>
 <html lang="en">
 <head>
@@ -135,16 +145,7 @@ def page(path, title, desc, body, current=None, og=None):
 <main id="main">
 {body}
 </main>
-{"" if path == "index.html" else f"""<footer class="site-footer">
-  <div class="wrap">
-    <p>© Nora Sayyad · Helsinki, Finland · <a href="mailto:{EMAIL}">{EMAIL}</a></p>
-    <ul>
-      <li><a href="https://www.instagram.com/norasayyad/" rel="me">Instagram</a></li>
-      <li><a href="https://www.womenphotograph.com">Women Photograph</a></li>
-      <li><a href="/contact/">Contact</a></li>
-    </ul>
-  </div>
-</footer>"""}
+{footer_html}
 <script src="/assets/js/main.js" defer></script>
 </body>
 </html>
