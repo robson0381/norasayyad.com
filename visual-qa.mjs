@@ -5,6 +5,7 @@ const base = 'http://127.0.0.1:4173';
 const targets = [
   ['home', '/'],
   ['work', '/work/'],
+  ['current', '/news/'],
   ['project', '/work/from-arrival-to-belonging/'],
   ['about', '/about/'],
   ['contact', '/contact/'],
