@@ -71,11 +71,11 @@ section{padding:clamp(56px,7vw,96px) 0;border-bottom:1px solid var(--line)}
 .hero-slide{opacity:0;transition:opacity .55s ease;pointer-events:none}
 .hero-slide.active{opacity:1}
 .hero-slide img{width:100%;height:100%;object-fit:cover;object-position:center 42%;filter:saturate(.88) contrast(1.02)}
-.hero-shade{position:absolute;inset:0;background:linear-gradient(90deg,rgba(5,5,5,.67) 0%,rgba(5,5,5,.26) 44%,rgba(5,5,5,.04) 76%)}
+.hero-shade{position:absolute;inset:0;background:linear-gradient(90deg,rgba(5,5,5,.54) 0%,rgba(5,5,5,.18) 44%,rgba(5,5,5,.025) 76%)}
 .hero-copy{position:absolute;z-index:2;left:clamp(26px,4.4vw,72px);top:50%;transform:translateY(-50%);width:min(560px,46vw);color:white}
 .hero-copy h1{font-size:clamp(4rem,8vw,8.5rem);line-height:.78;letter-spacing:-.06em;text-transform:uppercase;margin:0 0 24px}
 .hero-copy p:not(.eyebrow){font-size:clamp(.94rem,1.2vw,1.1rem);max-width:35rem;margin-bottom:24px}
-.hero-controls{position:absolute;z-index:3;left:50%;bottom:20px;transform:translateX(-50%);display:flex;align-items:center;gap:12px;color:white;font-size:.66rem;letter-spacing:.08em}
+.hero-caption{position:absolute;z-index:2;right:24px;bottom:22px;color:rgba(255,255,255,.86);font:500 .62rem/1.4 var(--sans);letter-spacing:.11em;text-transform:uppercase}.hero-controls{position:absolute;z-index:3;left:50%;bottom:20px;transform:translateX(-50%);display:flex;align-items:center;gap:12px;color:white;font-size:.66rem;letter-spacing:.08em}
 .hero-controls button{border:0;background:none;color:white;padding:7px 9px;cursor:pointer;font-size:1rem}.hero-controls button:focus-visible{outline-color:white}
 .selected-work{padding-top:76px}
 .editorial-projects{display:grid;grid-template-columns:1.15fr .95fr .95fr .95fr;gap:14px}
@@ -193,7 +193,7 @@ textarea{min-height:170px;resize:vertical}.two{display:grid;grid-template-column
   .nav.open{opacity:1;transform:none;visibility:visible;pointer-events:auto}
   .nav ul{flex-direction:column;gap:18px}.nav ul a{font-family:var(--serif);font-size:1.8rem}
   .editorial-hero{padding-top:12px}.hero-stage{height:76vh;min-height:560px}
-  .hero-copy{left:24px;right:24px;top:auto;bottom:74px;transform:none;width:auto}.hero-copy h1{font-size:clamp(3.8rem,17vw,7rem)}
+  .hero-copy{left:24px;right:24px;top:auto;bottom:74px;transform:none;width:auto}.hero-caption{display:none}.hero-copy h1{font-size:clamp(3.8rem,17vw,7rem)}
   .editorial-projects{grid-template-columns:1fr 1fr}.editorial-project:first-child .editorial-project-image{aspect-ratio:4/5}
   .creds .wrap{grid-template-columns:1fr}.creds ul{grid-template-columns:repeat(2,1fr);gap:18px}
   .current-grid,.about-editorial,.about-top,.commission-editorial,.project-intro,.contact-layout{grid-template-columns:1fr}
