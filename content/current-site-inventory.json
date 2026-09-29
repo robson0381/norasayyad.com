@@ -9,7 +9,16 @@
     },
     "work": {
       "path": "/work-1",
-      "project_covers": 4
+      "project_covers": 4,
+      "background_image": {
+        "filename": "_A2A2025-1+kopio+2_SAYYAD.jpg",
+        "source_url": "https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/c47bc6e7-c136-42cc-88b7-b90dc9e6572c/_A2A2025-1%2Bkopio%2B2_SAYYAD.jpg",
+        "source": "current Squarespace CDN",
+        "role": "Work page background / archive visual",
+        "usage": "prototype sample",
+        "original_needed": true,
+        "metadata_status": "recovered from current Work page; original dimensions still to be confirmed"
+      }
     },
     "portraits": {
       "path": "/work-1/project-one-f5w4d-z9nem-s3jda-eyssk-73f62-tmxz9-kllpy",
