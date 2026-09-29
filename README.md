@@ -6,6 +6,7 @@ Static, dependency-free prototype of a redesigned portfolio for photographer Nor
 - **[PERFIL.md](PERFIL.md)** — public profile research (in Portuguese).
 - **[REFERENCE_BUNDLE.md](REFERENCE_BUNDLE.md)** — inventário resumido das 346 imagens de referência fornecidas; não envia cópias do Instagram ao repositório.
 - **[SPEC.md](SPEC.md)** — especificação da direção principal, componentes, responsividade, acessibilidade, imagens e arquitetura de produção.
+- **[CONTENT_STATUS.md](CONTENT_STATUS.md)** — o que ainda depende de originais/aprovação da Nora antes de produção.
 - **[MIGRATION_MAP.md](MIGRATION_MAP.md)** — mapa do site Squarespace atual para as novas rotas, com o que preservar, melhorar e remover.
 - **[content/current-site-inventory.json](content/current-site-inventory.json)** — inventário de migração; inclui as 86 URLs atuais de `Notes of Resistance`.
 - **[review/notes-of-resistance/](review/notes-of-resistance/)** — galeria interna/noindex com o arquivo atual completo para seleção visual.
