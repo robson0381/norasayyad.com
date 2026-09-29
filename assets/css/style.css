@@ -215,6 +215,8 @@ textarea{min-height:170px;resize:vertical}.two{display:grid;grid-template-column
   .editorial-projects{grid-template-columns:1fr}
   .work-index .cards{grid-template-columns:1fr}
   .contact-meta div{grid-template-columns:82px 1fr}
+  .about-top .narrow,.about-editorial>div:last-child{order:-1}
+  .about-portrait{max-width:360px;margin-inline:auto}
   .credentials{grid-template-columns:1fr 1fr}
   .section-head{align-items:start}
   .two{grid-template-columns:1fr}
