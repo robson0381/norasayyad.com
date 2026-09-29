@@ -98,7 +98,7 @@ def page(path, title, desc, body, current=None, og=None):
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{full_title}</title>
-<meta name="description" content="{escape(desc)}">
+<meta name="description" content="{escape(desc)}">\n<meta name="robots" content="noindex,nofollow">
 <link rel="canonical" href="{url}">
 <meta property="og:type" content="website">
 <meta property="og:title" content="{full_title}">
@@ -123,7 +123,7 @@ def page(path, title, desc, body, current=None, og=None):
     </button>
     <nav class="nav" id="nav" aria-label="Main">
       <ul>{nav}</ul>
-      <div class="lang" aria-label="Language"><a href="#" aria-current="true">EN</a><a href="#" title="Suomeksi (coming soon)">FI</a></div>
+      <div class="lang" aria-label="Language"><a href="#" aria-current="true">EN</a><span class="disabled" aria-disabled="true" title="Suomeksi — planned">FI</span></div>
       <a class="btn small" href="/contact/">Get in touch</a>
     </nav>
   </div>
@@ -131,17 +131,6 @@ def page(path, title, desc, body, current=None, og=None):
 <main id="main">
 {body}
 </main>
-<section class="newsletter" aria-labelledby="nl-title">
-  <div class="wrap narrow">
-    <h2 id="nl-title">Exhibitions & new work, a few times a year</h2>
-    <p>Openings, talks and new projects. No spam.</p>
-    <form action="#" method="post">
-      <label for="nl-email" style="position:absolute;left:-999px">Email</label>
-      <input id="nl-email" type="email" name="email" placeholder="your@email.com" required>
-      <button class="btn" type="submit">Subscribe</button>
-    </form>
-  </div>
-</section>
 <footer class="site-footer">
   <div class="wrap">
     <p>© Nora Sayyad · Helsinki, Finland · <a href="mailto:{EMAIL}">{EMAIL}</a></p>
@@ -387,13 +376,13 @@ def build_about():
       <p>Her practice moves between documentary, poetic and conceptual approaches, exploring the politics of looking, questions of representation, and how photography can become a space for memory, dialogue and self-determination. Drawing from personal and collective histories, her work examines connection, belonging and lived experience in relation to wider social and political realities.</p>
       <p>Her work has been exhibited internationally, including as part of <em>The Lost Paintings: A Prelude to Return</em>, and presented at the Helsinki City Museum, the Finnish Museum of Photography and HIAP. Her photographs have been published by The Washington Post and The Times, and are held in the public collections of the Migration Institute of Finland, the Finnish Heritage Agency and the National Library of Finland.</p>
       <p>Alongside her artistic practice she works across visual reporting, teaching, writing, public speaking and artivism, and has collaborated with organisations including Plan International Finland. In 2021 she was assistant curator of the award-winning <em>No Justice, No Peace</em>.</p>
-      <p style="display:flex;gap:12px;flex-wrap:wrap"><a class="btn" href="/assets/nora-sayyad-cv.pdf" download>Download CV (PDF)</a><a class="btn ghost" href="/contact/">Contact</a></p>
+      <p style="display:flex;gap:12px;flex-wrap:wrap"><a class="btn" href="#cv">View full CV</a><a class="btn ghost" href="/contact/">Contact</a></p>
     </div>
   </div>
 </section>
 <section style="padding-top:0">
   <div class="wrap narrow">
-    <h2>CV</h2>
+    <h2 id="cv">CV</h2>
     {cv("Solo exhibitions", [
         ("2025–26", "<em>From Arrival to Belonging: A Decade in Portraits</em>, with Startup Refugees — IKEA; STOA; Valkea; Revontuli, Finland"),
         ("2025", "<em>Untitled: Palestine</em> (working title / ongoing work), Pop-up HIAP, Helsinki, Finland"),
@@ -451,8 +440,14 @@ def build_services():
         ("Talks", "Lectures on documentary photography, representation and the politics of looking."),
         ("Workshops", "Photography workshops for schools, museums and community groups."),
     ]
+    topic_map = {
+        "Portraits": "Commission",
+        "Editorial & documentary": "Commission",
+        "Talks": "Talk or workshop",
+        "Workshops": "Talk or workshop",
+    }
     cards = "".join(
-        f'<div class="service"><h3>{t}</h3><p>{d}</p><a class="btn ghost small" href="/contact/?topic={t.split()[0].lower()}">Ask about {t.lower()}</a></div>'
+        f'<div class="service"><h3>{t}</h3><p>{d}</p><a class="btn ghost small" href="/contact/?topic={topic_map[t].replace(" ", "+")}">Ask about {t.lower()}</a></div>'
         for t, d in items
     )
     body = f"""<section>
@@ -499,7 +494,7 @@ def build_contact():
     <p class="eyebrow">Contact</p>
     <h1>Let's talk</h1>
     <p class="lead narrow">Commissions, exhibitions, press, talks and prints. Replies within <span class=todo>2 working days</span>.</p>
-    <form class="contact" action="#" method="post" style="margin-top:32px">
+    <form class="contact" action="mailto:{EMAIL}" method="post" data-mailto-form style="margin-top:32px">
       <div class="two">
         <label>Name<input name="name" autocomplete="name" required></label>
         <label>Email<input type="email" name="email" autocomplete="email" required></label>
@@ -509,7 +504,7 @@ def build_contact():
         <label>Topic<select name="topic"><option>Commission</option><option>Exhibition / curatorial</option><option>Press</option><option>Talk or workshop</option><option>Prints</option><option>Other</option></select></label>
       </div>
       <label>Message<textarea name="message" required></textarea></label>
-      <div><button class="btn" type="submit">Send message</button></div>
+      <div><button class="btn" type="submit">Open email draft</button></div>\n      <p class="form-note">Preview mode: this opens your email application with the message filled in. A direct web form will be connected before launch.</p>
     </form>
     <p style="margin-top:32px">Or email <a href="mailto:{EMAIL}">{EMAIL}</a></p>
   </div>
