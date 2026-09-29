@@ -4,6 +4,7 @@ Static, dependency-free prototype of a redesigned portfolio for photographer Nor
 
 - **[opcoes/](opcoes/)** — six visual **concepts** (the main Editorial / Archive in Motion direction, the secondary Archive / Memory alternative, Símbolos, Rota, Visível and Dois lares); earlier rounds are kept in `opcoes/v1/` (styles) and `opcoes/v2/` (restyled). `build_editorial.py` supplies the Editorial concept and `build_memory.py` supplies the Archive / Memory alternative and `python3 build_options.py` regenerates the current options.
 - **[PERFIL.md](PERFIL.md)** — public profile research (in Portuguese).
+- **[REFERENCE_BUNDLE.md](REFERENCE_BUNDLE.md)** — inventário resumido das 346 imagens de referência fornecidas; não envia cópias do Instagram ao repositório.
 - **[SPEC.md](SPEC.md)** — especificação da direção principal, componentes, responsividade, acessibilidade, imagens e arquitetura de produção.
 - **[MIGRATION_MAP.md](MIGRATION_MAP.md)** — mapa do site Squarespace atual para as novas rotas, com o que preservar, melhorar e remover.
 - **[content/current-site-inventory.json](content/current-site-inventory.json)** — inventário de migração; inclui as 86 URLs atuais de `Notes of Resistance`.
@@ -15,6 +16,7 @@ Pages: Home · Work · 4 project stories · About/CV · Commissions · News · C
 ```sh
 python3 build.py              # regenerate main site from the shared template
 python3 build_review.py       # regenerate internal migration review gallery
+python3 qa.py                 # static accessibility/link/content sanity checks
 python3 -m http.server 8000   # preview at http://localhost:8000
 ```
 
