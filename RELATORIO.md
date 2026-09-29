@@ -13,7 +13,7 @@ Este repositório traz um **protótipo navegável** do site proposto (HTML/CSS e
 | Work | `/work-1` | Índice de 4 projetos, com a foto mudando ao passar o mouse |
 | Notes of Resistance | `/work-1/notes-of-resistance` | **86 fotos**, nenhum texto ou legenda |
 | Portraits | `/work-1/project-one-f5w4d-z9nem-…` | 19 fotos, nenhum texto |
-| From Arrival to Belonging? | `/work-1/project-two-ky966-n329z-…` | 11 fotos (uma repetida) e **o único texto de projeto do site** |
+| From Arrival to Belonging? | `/work-1/project-two-ky966-n329z-…` | 10 fotos e **o único texto de projeto do site** |
 | Parfyymin tuulahdus | `/work-1/parfyymin-tuulahdus` | 3 fotos e só o título; uma das fotos também está em Portraits |
 | About | `/about` | Bio forte e CV completo, mas sem foto dela e num bloco único e longo |
 
@@ -31,7 +31,7 @@ Em todas as páginas: link "Login / Account", link para `/cart`, meta descriptio
 |---|---|---|---|
 | 1 | Link "Login Account" e carrinho "0" sem loja | Desativar *Commerce* e *Customer Accounts* em Configurações | Cabeçalho sem login/carrinho |
 | 2 | URLs `/work-1` e `/project-one-f5w4d-…` | Renomear os slugs e criar redirecionamentos 301 das URLs antigas | `/work/`, `/work/notes-of-resistance/` |
-| 3 | Texto alternativo = nome do arquivo (`4W7A4927.jpg`, `Kopio tiedostosta…`) ou vazio | Descrever a cena em cada imagem; renomear os arquivos antes do upload | As 57 fotos do protótipo têm texto alternativo descritivo (`content/photos.json`) |
+| 3 | Texto alternativo = nome do arquivo (`4W7A4927.jpg`, `Kopio tiedostosta…`) ou vazio | Descrever a cena em cada imagem; renomear os arquivos antes do upload | As 58 referências estruturadas do protótipo têm texto alternativo descritivo (`content/photos.json`) |
 | 4 | Sem meta description e sem og:image | Preencher *SEO description* por página e definir a imagem social | `<meta name="description">` e `og:image` em todas as páginas |
 | 5 | Home sem H1; "A visual storyteller" com 12px, branco, em cima da foto | H1 com o posicionamento, texto ≥ 16px, fora da foto ou sobre uma área escura | H1 + lead na home |
 | 6 | Foto de capa é uma exportação "INSTAGRAM" clareada | Enviar o original em ≥ 2500px, sem recompressão | Hero com `srcset` responsivo |
