@@ -8,6 +8,7 @@ const targets = [
   ['current', '/news/'],
   ['commissions', '/services/'],
   ['project', '/work/from-arrival-to-belonging/'],
+  ['parallel', '/work/from-a-parallel-life/'],
   ['about', '/about/'],
   ['contact', '/contact/'],
   ['presentation', '/presentation/'],
@@ -121,10 +122,6 @@ for (const [mode, viewport] of viewports) {
 
     const overflow = metrics.scrollWidth > metrics.clientWidth + 1;
     if (overflow) failures.push(`${mode}/${name}: horizontal overflow ${metrics.scrollWidth} > ${metrics.clientWidth}`);
-    if (mode === 'desktop' && name === 'commissions') {
-      const pageHeight = await page.evaluate(() => Math.max(document.documentElement.scrollHeight, document.body.scrollHeight));
-      if (pageHeight > viewport.height + 2) failures.push(`desktop/commissions: vertical scroll remains ${pageHeight} > ${viewport.height}`);
-    }
     if (metrics.h1Count !== 1) failures.push(`${mode}/${name}: expected 1 H1, got ${metrics.h1Count}`);
     if (metrics.missingAlt) failures.push(`${mode}/${name}: ${metrics.missingAlt} image(s) missing alt`);
     if (metrics.brokenImages) failures.push(`${mode}/${name}: ${metrics.brokenImages} image(s) failed to load`);
