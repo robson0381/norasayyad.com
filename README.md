@@ -9,6 +9,7 @@ Static, dependency-free prototype of a redesigned portfolio for photographer Nor
 - **[CONTENT_STATUS.md](CONTENT_STATUS.md)** — o que ainda depende de originais/aprovação da Nora antes de produção.
 - **[MIGRATION_MAP.md](MIGRATION_MAP.md)** — mapa do site Squarespace atual para as novas rotas, com o que preservar, melhorar e remover.
 - **[content/current-site-inventory.json](content/current-site-inventory.json)** — inventário de migração; inclui as 86 URLs atuais de `Notes of Resistance`.
+- **[content/sample-assets.json](content/sample-assets.json)** — proveniência e status dos assets provisórios usados apenas para apresentação.
 - **[review/notes-of-resistance/](review/notes-of-resistance/)** — galeria interna/noindex com o arquivo atual completo para seleção visual.
 - **[presentation/](presentation/)** — página privada/noindex para apresentar a proposta à Nora sem expor notas técnicas.
 
