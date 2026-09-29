@@ -2,11 +2,35 @@
 const toggle = document.querySelector('.menu-toggle');
 const nav = document.getElementById('nav');
 if (toggle && nav) {
-  toggle.addEventListener('click', () => {
-    const open = nav.classList.toggle('open');
+  const setMenu = (open) => {
+    nav.classList.toggle('open', open);
     toggle.setAttribute('aria-expanded', String(open));
     document.body.style.overflow = open ? 'hidden' : '';
-  });
+  };
+  toggle.addEventListener('click', () => setMenu(!nav.classList.contains('open')));
+  nav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => setMenu(false)));
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') setMenu(false); });
+}
+
+// Editorial hero: manual, non-autoplay carousel
+const hero = document.querySelector('[data-hero]');
+if (hero) {
+  const slides = [...hero.querySelectorAll('[data-hero-slide]')];
+  const index = hero.querySelector('[data-hero-index]');
+  const prev = hero.querySelector('[data-hero-prev]');
+  const next = hero.querySelector('[data-hero-next]');
+  let active = 0;
+  const show = (n) => {
+    active = (n + slides.length) % slides.length;
+    slides.forEach((slide, i) => {
+      const on = i === active;
+      slide.classList.toggle('active', on);
+      slide.setAttribute('aria-hidden', String(!on));
+    });
+    if (index) index.textContent = String(active + 1).padStart(2, '0') + ' / ' + String(slides.length).padStart(2, '0');
+  };
+  prev && prev.addEventListener('click', () => show(active - 1));
+  next && next.addEventListener('click', () => show(active + 1));
 }
 
 // Lightbox for project stories: click a photo, then arrows / swipe / Esc
