@@ -110,8 +110,9 @@ Ordem oficial:
 5. Manifesto visual
 6. About
 7. Commissions
-8. Newsletter
-9. Footer
+8. Footer
+
+Newsletter is intentionally deferred in the presentation prototype until a provider/backend is chosen.
 
 ### Hero
 
@@ -247,7 +248,7 @@ Assuntos:
 - Prints
 - Other
 
-Produção exige backend real antes de publicar.
+No protótipo, o formulário abre um rascunho estruturado no aplicativo de e-mail do visitante. Produção exige backend real antes de publicar.
 
 ## 12. Fotografias e pipeline
 
@@ -255,6 +256,7 @@ Produção exige backend real antes de publicar.
 
 - `content/photos.json`: 58 referências estruturadas com dimensões e alt text.
 - `content/current-site-inventory.json`: inventário completo do site atual e as 86 URLs de Notes of Resistance.
+- `REFERENCE_BUNDLE.md`: resumo das 346 imagens fornecidas como referência de curadoria; essas cópias não são masters de produção.
 - imagens de amostra: CDN atual do Squarespace.
 
 ### Estados futuros do asset
@@ -455,3 +457,12 @@ Além do anterior:
 - domínio/DNS com plano de rollback;
 - validação mobile e acessibilidade;
 - performance auditada.
+
+## 21. QA automatizado
+
+O repositório inclui duas camadas de validação:
+
+- `qa.py`: links internos, H1, alt text, IDs duplicados, formulários mortos, inventário e artefatos obrigatórios;
+- `visual-qa.mjs`: screenshots Playwright em 1440×1000 e 390×844, além de verificação de overflow horizontal, H1 e alt text.
+
+GitHub Actions recompila os geradores antes da validação para detectar regressões de sintaxe e estrutura.
