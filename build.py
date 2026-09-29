@@ -21,19 +21,6 @@ NAV = [("work", "Work"), ("news", "Current"), ("services", "Commissions"), ("abo
 
 PROJECTS = [
     {
-        "slug": "notes-of-resistance",
-        "title": "Notes of Resistance",
-        "teaser": "Black Lives Matter in Finland and the Palestine solidarity movement in Helsinki, from the street.",
-        "intro": "<span class=todo>Draft — Nora to confirm:</span> Since the Black Lives Matter demonstrations of 2020, Nora has documented the people who take to the streets of Finland against racism and, later, in solidarity with Palestine: the signs they make, the vigils they hold and the care they show one another. Photographs from the series appeared in <em>NO JUSTICE, NO PEACE</em>, awarded Gold at Vuoden Huiput 2021.",
-        "facts": [
-            ("Years", "2020–<span class=todo>2025</span>"),
-            ("Location", "Finland"),
-            ("Book", '<a href="https://vuodenhuiput.fi/work/no-justice-no-peace/">No Justice, No Peace</a> (2021)'),
-            ("Press", '<a href="https://www.ruskeattytot.fi/freepalestine-documented">#FREEPALESTINE: Documented</a>'),
-        ],
-        "cover": 7,
-    },
-    {
         "slug": "portraits",
         "title": "Portraits",
         "teaser": "Editorial and personal portraits of artists, activists, families and neighbours.",
@@ -66,6 +53,19 @@ PROJECTS = [
             ("Press", '<a href="https://www.ruskeattytot.fi/podcast-parfyymin-tuulahdus">Podcast: Parfyymin tuulahdus, Ruskeat tytöt</a>'),
         ],
         "cover": 0,
+    },
+    {
+        "slug": "notes-of-resistance",
+        "title": "Notes of Resistance",
+        "teaser": "Black Lives Matter in Finland and the Palestine solidarity movement in Helsinki, from the street.",
+        "intro": "<span class=todo>Draft — Nora to confirm:</span> Since the Black Lives Matter demonstrations of 2020, Nora has documented the people who take to the streets of Finland against racism and, later, in solidarity with Palestine: the signs they make, the vigils they hold and the care they show one another. Photographs from the series appeared in <em>NO JUSTICE, NO PEACE</em>, awarded Gold at Vuoden Huiput 2021.",
+        "facts": [
+            ("Years", "2020–<span class=todo>2025</span>"),
+            ("Location", "Finland"),
+            ("Book", '<a href="https://vuodenhuiput.fi/work/no-justice-no-peace/">No Justice, No Peace</a> (2021)'),
+            ("Press", '<a href="https://www.ruskeattytot.fi/freepalestine-documented">#FREEPALESTINE: Documented</a>'),
+        ],
+        "cover": 7,
     },
 ]
 
