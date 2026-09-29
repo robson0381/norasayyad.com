@@ -70,16 +70,25 @@ if (photos.length) {
   let i = 0;
   let lastFocus = null;
 
-  const show = (n) => {
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  let turnTimer = null;
+  const show = (n, direction = 0) => {
     i = (n + photos.length) % photos.length;
     const media = photos[i].querySelector('.ph, img').cloneNode(true);
     if (media.tagName === 'IMG') { media.sizes = '92vw'; media.removeAttribute('loading'); }
     media.removeAttribute('tabindex');
     stage.replaceChildren(media);
+    stage.classList.remove('page-next', 'page-prev');
+    if (!reducedMotion && direction) {
+      void stage.offsetWidth;
+      stage.classList.add(direction > 0 ? 'page-next' : 'page-prev');
+      clearTimeout(turnTimer);
+      turnTimer = setTimeout(() => stage.classList.remove('page-next', 'page-prev'), 340);
+    }
     const fc = photos[i].querySelector('figcaption');
     cap.textContent = `${i + 1} / ${photos.length}` + (fc ? ` — ${fc.textContent}` : '');
   };
-  const open = (n) => { lastFocus = document.activeElement; show(n); lb.classList.add('open'); lb.querySelector('.lb-close').focus(); };
+  const open = (n) => { lastFocus = document.activeElement; show(n, 0); lb.classList.add('open'); lb.querySelector('.lb-close').focus(); };
   const close = () => { lb.classList.remove('open'); lastFocus && lastFocus.focus(); };
 
   photos.forEach((fig, n) => {
@@ -89,21 +98,21 @@ if (photos.length) {
     media.addEventListener('keydown', (e) => { if (e.key === 'Enter') open(n); });
   });
   lb.querySelector('.lb-close').onclick = close;
-  lb.querySelector('.lb-prev').onclick = () => show(i - 1);
-  lb.querySelector('.lb-next').onclick = () => show(i + 1);
+  lb.querySelector('.lb-prev').onclick = () => show(i - 1, -1);
+  lb.querySelector('.lb-next').onclick = () => show(i + 1, 1);
   lb.addEventListener('click', (e) => { if (e.target === lb) close(); });
   document.addEventListener('keydown', (e) => {
     if (!lb.classList.contains('open')) return;
     if (e.key === 'Escape') close();
-    if (e.key === 'ArrowLeft') show(i - 1);
-    if (e.key === 'ArrowRight') show(i + 1);
+    if (e.key === 'ArrowLeft') show(i - 1, -1);
+    if (e.key === 'ArrowRight') show(i + 1, 1);
   });
   let x0 = null;
   lb.addEventListener('touchstart', (e) => { x0 = e.touches[0].clientX; }, { passive: true });
   lb.addEventListener('touchend', (e) => {
     if (x0 === null) return;
     const dx = e.changedTouches[0].clientX - x0;
-    if (Math.abs(dx) > 40) show(i + (dx < 0 ? 1 : -1));
+    if (Math.abs(dx) > 40) show(i + (dx < 0 ? 1 : -1), dx < 0 ? 1 : -1);
     x0 = null;
   });
 }
