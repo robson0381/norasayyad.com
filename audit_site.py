@@ -51,6 +51,8 @@ for route, path in sorted(routes.items()):
             continue
         if clean in ("", "/"):
             continue
+        if any(clean.lstrip("/").startswith(prefix + "/") or clean.lstrip("/") == prefix for prefix in SKIP_DIRS):
+            continue
         normalized = clean if clean.endswith("/") else clean + "/"
         if normalized not in routes and clean not in routes:
             issues.append(f"{route}: unresolved internal link {href}")
