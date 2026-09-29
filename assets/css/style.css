@@ -85,10 +85,23 @@ section{padding:clamp(56px,7vw,96px) 0;border-bottom:1px solid var(--line)}
 .editorial-project-image img{width:100%;height:100%;object-fit:cover;transition:transform .55s ease,filter .35s}
 .editorial-project:hover img{transform:scale(1.025);filter:saturate(.9)}
 .editorial-project h3{margin:12px 0 5px;font-size:1.35rem;text-wrap:balance}
-.creds{padding:28px 0;border-bottom:1px solid var(--line)}
-.creds .wrap{display:grid;grid-template-columns:220px 1fr;gap:28px;align-items:center}
-.creds ul{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(6,1fr);gap:18px}
-.creds li{font-family:var(--serif);font-size:1.04rem;line-height:1.05;text-align:center}
+.credibility{padding:52px 0 58px}
+.credibility-head{display:grid;grid-template-columns:220px 1fr;gap:28px;align-items:end;margin-bottom:28px}
+.credibility-head .eyebrow{margin:0}
+.credibility-head h2{font-size:clamp(2rem,3.8vw,3.8rem);margin:0}
+.credibility-groups{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.credential-group{padding:22px clamp(18px,2.3vw,34px) 26px;border-right:1px solid var(--line);min-height:190px;display:grid;grid-template-rows:auto 1fr;gap:22px}
+.credential-group:last-child{border-right:0}
+.credential-label{font:500 .64rem/1.3 var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft);margin:0}
+.credential-marks{display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:center}
+.credential-mark{display:block;text-align:center;color:var(--ink);line-height:1.02}
+.mark-wapo{font:500 clamp(1.18rem,1.7vw,1.75rem)/.98 Georgia,var(--serif)}
+.mark-times{font:500 clamp(1.55rem,2vw,2.05rem)/1 var(--serif)}
+.mark-helsinki{font:600 clamp(.9rem,1.25vw,1.18rem)/1.03 var(--sans);letter-spacing:-.025em;text-transform:uppercase}
+.mark-photo-museum{font:500 clamp(.9rem,1.2vw,1.1rem)/1.08 var(--sans)}
+.mark-migration{font:500 clamp(.9rem,1.2vw,1.1rem)/1.08 var(--sans)}
+.mark-library{font:500 clamp(1rem,1.4vw,1.32rem)/1.04 var(--serif)}
+.credential-note{font-size:.7rem;color:var(--ink-soft);margin:12px 0 0}
 .current-grid{display:grid;grid-template-columns:1.05fr 1fr .85fr;gap:38px;align-items:start}
 .current-image{aspect-ratio:4/3;overflow:hidden;background:var(--ph-a)}.current-image img{width:100%;height:100%;object-fit:cover}
 .current-main h3,.press-note h3{font-size:clamp(1.8rem,3vw,3rem);line-height:.98;text-wrap:balance}
@@ -98,7 +111,17 @@ section{padding:clamp(56px,7vw,96px) 0;border-bottom:1px solid var(--line)}
 .manifesto-frame img{width:100%;height:100%;object-fit:cover}
 .manifesto-shade{position:absolute;inset:0;background:linear-gradient(90deg,rgba(8,8,8,.08),rgba(8,8,8,.64))}
 .manifesto-frame blockquote{position:absolute;z-index:2;right:7%;top:50%;transform:translateY(-50%);max-width:630px;margin:0;color:white;font:400 clamp(2.3rem,4.7vw,5rem)/.94 var(--serif);letter-spacing:-.025em}
+
 .manifesto-frame small{display:block;margin-top:24px;font:500 .67rem/1.4 var(--sans);letter-spacing:.14em;text-transform:uppercase}
+.poetic-feature{background:#0b0b0a;color:#f3f0e8;padding:0;border-bottom:0}
+.poetic-grid{width:min(1500px,calc(100% - 28px));display:grid;grid-template-columns:1.35fr .65fr;min-height:640px}
+.poetic-image{margin:0;min-height:640px;overflow:hidden;background:#050505}
+.poetic-image img{width:100%;height:100%;object-fit:cover;object-position:center}
+.poetic-copy{padding:clamp(38px,6vw,88px);display:flex;flex-direction:column;justify-content:center}
+.poetic-copy .eyebrow{color:rgba(243,240,232,.62)}
+.poetic-copy h2{font-size:clamp(3.3rem,6vw,6.6rem);line-height:.82;margin-bottom:26px}
+.poetic-copy p:not(.eyebrow){max-width:360px;color:rgba(243,240,232,.76)}
+.poetic-copy .text-link{align-self:flex-start;margin-top:10px}
 .about-editorial{display:grid;grid-template-columns:.72fr 1.28fr;gap:clamp(34px,6vw,80px);align-items:start}
 .about-editorial h2{font-size:clamp(3rem,6vw,6rem);line-height:.86}
 .about-portrait{aspect-ratio:4/5;margin:0;overflow:hidden;background:var(--ph-a)}.about-portrait img{width:100%;height:100%;object-fit:cover;object-position:center}
@@ -195,7 +218,13 @@ textarea{min-height:170px;resize:vertical}.two{display:grid;grid-template-column
   .editorial-hero{padding-top:12px}.hero-stage{height:min(76svh,720px);min-height:540px}
   .hero-copy{left:24px;right:24px;top:auto;bottom:74px;transform:none;width:auto}.hero-caption{display:none}.hero-copy h1{font-size:clamp(3.8rem,17vw,7rem)}
   .editorial-projects{grid-template-columns:1fr 1fr}.editorial-project:first-child .editorial-project-image{aspect-ratio:4/5}
-  .creds .wrap{grid-template-columns:1fr}.creds ul{grid-template-columns:repeat(2,1fr);gap:18px}
+  .credibility-head{grid-template-columns:1fr;gap:10px}
+  .credibility-groups{grid-template-columns:1fr}
+  .credential-group{border-right:0;border-bottom:1px solid var(--line);min-height:150px}
+  .credential-group:last-child{border-bottom:0}
+  .poetic-grid{grid-template-columns:1fr;min-height:0}
+  .poetic-image{min-height:0;aspect-ratio:16/10}
+  .poetic-copy{padding:52px var(--gutter) 60px}
   .current-grid,.about-editorial,.about-top,.commission-editorial,.project-intro,.contact-layout{grid-template-columns:1fr}
   .contact-copy{position:static}
   .work-index .cards{grid-template-columns:1fr 1fr;gap:42px 18px}
@@ -231,8 +260,13 @@ textarea{min-height:170px;resize:vertical}.two{display:grid;grid-template-column
   .hero-controls{left:20px;bottom:18px}
   .selected-work{padding-top:58px}
   .editorial-project h3{font-size:1.55rem}
-  .creds ul{gap:14px 18px}
-  .creds li{font-size:1rem;text-align:left}
+  .credential-marks{grid-template-columns:1fr 1fr;gap:18px}
+  .credential-group{padding:20px 0 22px}
+  .credential-mark{text-align:left}
+  .credential-note{font-size:.68rem}
+  .poetic-grid{width:calc(100% - 16px)}
+  .poetic-image{aspect-ratio:4/5}
+  .poetic-copy h2{font-size:clamp(3rem,15vw,4.8rem)}
   .current-grid{gap:28px}
   .manifesto-frame{width:calc(100% - 16px);height:min(58svh,560px)}
   .manifesto-frame blockquote{left:22px;right:22px;bottom:28px;font-size:clamp(2rem,10vw,3.2rem)}
