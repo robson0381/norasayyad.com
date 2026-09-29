@@ -66,7 +66,7 @@ section{padding:clamp(56px,7vw,96px) 0;border-bottom:1px solid var(--line)}
 
 /* Editorial home */
 .editorial-hero{padding:22px 0 0;border-bottom:0}
-.hero-stage{height:calc(100svh - 94px);min-height:570px;position:relative;overflow:hidden;background:#252521}
+.hero-stage{height:min(74vh,780px);min-height:570px;position:relative;overflow:hidden;background:#252521}
 .hero-slides,.hero-slide{position:absolute;inset:0;margin:0}
 .hero-slide{opacity:0;transition:opacity .55s ease;pointer-events:none}
 .hero-slide.active{opacity:1}
