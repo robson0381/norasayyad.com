@@ -43,7 +43,7 @@ CREDS = ["The Washington Post", "The Times", "Helsinki City Museum", "Finnish Mu
 ROUTE = ["Gaza, Palestine", "Egypt", "Kuwait", "United Arab Emirates", "Egypt", "UAE", "Jordan",
          "Egypt", "Syria", "UAE", "Sudan", "Syria", "Finland"]
 YEARS = {"notes-of-resistance": "2020–", "portraits": "2017–", "from-arrival-to-belonging": "2025–26",
-         "parfyymin-tuulahdus": "2023"}
+         "parfyymin-tuulahdus": "2023", "from-a-parallel-life": "New project"}
 NEW = ("Letters to Mothers & Daughter–Father Relationships", "2026",
        "A father who has spent his whole life searching for citizenship, and the daughter who carries his story.")
 
