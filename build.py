@@ -24,11 +24,9 @@ PROJECTS = [
         "slug": "portraits",
         "title": "Portraits",
         "teaser": "Editorial and personal portraits of artists, activists, families and neighbours.",
-        "intro": "<span class=todo>Short introduction: how Nora works with the people she photographs, and where these portraits were published.</span>",
+        "intro": "",
         "facts": [
-            ("Years", "<span class=todo>2017–2025</span>"),
             ("Location", "Finland"),
-            ("Published", "Helsingin Sanomat, Plan International Finland, <span class=todo>…</span>"),
         ],
         "cover": 4,
     },
@@ -48,7 +46,7 @@ PROJECTS = [
         "slug": "parfyymin-tuulahdus",
         "title": "Parfyymin tuulahdus",
         "teaser": "Scent, memory and inheritance — a poetic series.",
-        "intro": "<span class=todo>Short introduction to the series (in English, with the Finnish title explained).</span>",
+        "intro": "",
         "facts": [
             ("Press", '<a href="https://www.ruskeattytot.fi/podcast-parfyymin-tuulahdus">Podcast: Parfyymin tuulahdus, Ruskeat tytöt</a>'),
         ],
@@ -58,9 +56,9 @@ PROJECTS = [
         "slug": "notes-of-resistance",
         "title": "Notes of Resistance",
         "teaser": "Black Lives Matter in Finland and the Palestine solidarity movement in Helsinki, from the street.",
-        "intro": "<span class=todo>Draft — Nora to confirm:</span> Since the Black Lives Matter demonstrations of 2020, Nora has documented the people who take to the streets of Finland against racism and, later, in solidarity with Palestine: the signs they make, the vigils they hold and the care they show one another. Photographs from the series appeared in <em>NO JUSTICE, NO PEACE</em>, awarded Gold at Vuoden Huiput 2021.",
+        "intro": "",
         "facts": [
-            ("Years", "2020–<span class=todo>2025</span>"),
+            ("Years", "2020–"),
             ("Location", "Finland"),
             ("Book", '<a href="https://vuodenhuiput.fi/work/no-justice-no-peace/">No Justice, No Peace</a> (2021)'),
             ("Press", '<a href="https://www.ruskeattytot.fi/freepalestine-documented">#FREEPALESTINE: Documented</a>'),
@@ -178,11 +176,11 @@ CREDS = """<div class="creds" aria-label="Published, exhibited and collected by"
 </div>"""
 
 TOUR = """<ul class="tour">
-  <li><span>Montréal, Canada · Articule; MAI – Montréal, arts interculturels</span><span class=todo>Dates</span></li>
-  <li><span>United States · Unbound Visual Arts</span><span class=todo>Dates</span></li>
-  <li><span>Belfast, Northern Ireland · The MAC</span><span class=todo>Dates</span></li>
-  <li><span>London, UK · P21 Gallery</span><span class=todo>Dates</span></li>
-  <li><span>Bristol, UK · Bristol Museum & Art Gallery</span><span><span class="status">On now</span></span></li>
+  <li><span>Tiohtià:ke/Montréal · articule & MAI</span><span>29 Aug – 4 Oct 2025</span></li>
+  <li><span>Boston · Unbound Visual Arts & Brookline Art Center</span><span>19 Oct – 17 Dec 2025</span></li>
+  <li><span>Belfast · The MAC</span><span>23 Jan – 29 Mar 2026</span></li>
+  <li><span>London · P21 Gallery</span><span>16 Apr – 29 May 2026</span></li>
+  <li><span>Bristol · Bristol Museum & Art Gallery</span><span>19 Jun – 27 Sep 2026</span></li>
 </ul>"""
 
 BIO_SHORT = "Finnish-Palestinian visual artist and documentary photographer, born in Sweden and based in Helsinki."
@@ -323,9 +321,11 @@ def build_project(i):
         landscape = ph["w"] > ph["h"]
         cls = "" if landscape else ("half right" if n % 2 else "half")
         sizes = "(max-width: 1200px) 100vw, 1150px" if landscape else "(max-width: 760px) 100vw, 720px"
+        caption = ph.get("caption")
+        figcaption = f"<figcaption>{escape(caption)}</figcaption>" if caption else ""
         figs.append(f"""<figure class="{cls}">
   {img(ph, sizes, lazy=n > 0)}
-  <figcaption><span class=todo>Caption: place, date.</span></figcaption>
+  {figcaption}
 </figure>""")
     facts = "".join(f"<li><span>{k}</span><span>{v}</span></li>" for k, v in p["facts"])
     title_txt = strip_tags(p["title"])
@@ -336,7 +336,7 @@ def build_project(i):
       <div>
         <h1>{p['title']}</h1>
         <p class="lead">{p['teaser']}</p>
-        <p>{p['intro']}</p>
+        {f"<p>{p['intro']}</p>" if p["intro"] else ""}
       </div>
       <ul class="facts">
         {facts}
@@ -469,7 +469,7 @@ def build_news():
     <h1>Exhibitions & news</h1>
     <div class="news-feature" style="margin-top:32px">
       <div>
-        <p><span class="status">On tour</span></p>
+        <p><span class="status">Tour concluded</span></p>
         <h2>The Lost Paintings: A Prelude to Return</h2>
         <p>Group exhibition, 2025–2026. <a href="https://www.thelostpaintings.com/artist-sayyad">About Nora's contribution →</a></p>
         {TOUR}
