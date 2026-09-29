@@ -22,7 +22,7 @@ const failures = [];
 const results = [];
 
 for (const [mode, viewport] of viewports) {
-  const context = await browser.newContext({ viewportSize: viewport, deviceScaleFactor: 1 });
+  const context = await browser.newContext({ viewport, deviceScaleFactor: 1 });
   for (const [name, path] of targets) {
     const page = await context.newPage();
     const badResponses = [];
