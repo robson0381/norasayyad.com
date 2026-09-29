@@ -190,14 +190,14 @@ BIO_SHORT = "Finnish-Palestinian visual artist and documentary photographer, bor
 
 def build_home():
     slides = [
-        PHOTOS["portraits"][15],
-        PHOTOS["from-arrival-to-belonging"][1],
-        PHOTOS["notes-of-resistance"][7],
-        PHOTOS["parfyymin-tuulahdus"][0],
+        (PHOTOS["from-arrival-to-belonging"][8], "From Arrival to Belonging? · 2025–2026"),
+        (PHOTOS["portraits"][4], "Portraits · ongoing"),
+        (PHOTOS["notes-of-resistance"][7], "Notes of Resistance"),
+        (PHOTOS["parfyymin-tuulahdus"][0], "Parfyymin tuulahdus"),
     ]
     slide_html = "\n".join(
-        f'<figure class="hero-slide{" active" if i == 0 else ""}" data-hero-slide aria-hidden="{"false" if i == 0 else "true"}>{img(ph, "100vw", lazy=i > 0)}</figure>'
-        for i, ph in enumerate(slides)
+        f'<figure class="hero-slide{" active" if i == 0 else ""}" data-hero-slide aria-hidden="{"false" if i == 0 else "true"}>{img(ph, "100vw", lazy=i > 0)}<figcaption class="hero-caption">{label}</figcaption></figure>'
+        for i, (ph, label) in enumerate(slides)
     )
     featured_projects = [
         next(p for p in PROJECTS if p["slug"] == "from-arrival-to-belonging"),
@@ -269,7 +269,7 @@ def build_home():
 </section>
 <section class="manifesto-band">
   <div class="wrap manifesto-frame">
-    {img(PHOTOS['hero'], "100vw")}
+    {img(PHOTOS['notes-of-resistance'][18], "100vw")}
     <div class="manifesto-shade"></div>
     <blockquote>Photography as a space for memory, dialogue and self-determination.<small>Nora Sayyad · visual practice</small></blockquote>
   </div>
