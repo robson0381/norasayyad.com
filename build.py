@@ -300,7 +300,7 @@ def build_home():
 
 def build_work():
     cards = "\n".join(card(p) for p in PROJECTS)
-    body = f"""<section>
+    body = f"""<section class="work-index">
   <div class="wrap">
     <p class="eyebrow">Work</p>
     <h1>Projects</h1>
@@ -489,27 +489,38 @@ def build_news():
 
 
 def build_contact():
-    body = f"""<section>
-  <div class="wrap">
-    <p class="eyebrow">Contact</p>
-    <h1>Let's talk</h1>
-    <p class="lead narrow">Commissions, exhibitions, press, talks and prints. Replies within <span class=todo>2 working days</span>.</p>
-    <form class="contact" action="mailto:{EMAIL}" method="post" data-mailto-form style="margin-top:32px">
-      <div class="two">
-        <label>Name<input name="name" autocomplete="name" required></label>
-        <label>Email<input type="email" name="email" autocomplete="email" required></label>
+    body = f"""<section class="contact-section">
+  <div class="wrap contact-layout">
+    <div class="contact-copy">
+      <p class="eyebrow">Contact</p>
+      <h1>Let's talk.</h1>
+      <p class="lead">Commissions, exhibitions, press, talks and selected collaborations.</p>
+      <div class="contact-meta">
+        <div><span>Based in</span><b>Helsinki, Finland</b></div>
+        <div><span>Email</span><a href="mailto:{EMAIL}">{EMAIL}</a></div>
+        <div><span>Instagram</span><a href="https://www.instagram.com/norasayyad/">@norasayyad</a></div>
       </div>
-      <div class="two">
-        <label>Organisation<input name="org" autocomplete="organization"></label>
-        <label>Topic<select name="topic"><option>Commission</option><option>Exhibition / curatorial</option><option>Press</option><option>Talk or workshop</option><option>Prints</option><option>Other</option></select></label>
-      </div>
-      <label>Message<textarea name="message" required></textarea></label>
-      <div><button class="btn" type="submit">Open email draft</button></div>\n      <p class="form-note">Preview mode: this opens your email application with the message filled in. A direct web form will be connected before launch.</p>
-    </form>
-    <p style="margin-top:32px">Or email <a href="mailto:{EMAIL}">{EMAIL}</a></p>
+    </div>
+    <div>
+      <form class="contact" action="mailto:{EMAIL}" method="post" data-mailto-form>
+        <div class="two">
+          <label>Name<input name="name" autocomplete="name" required></label>
+          <label>Email<input type="email" name="email" autocomplete="email" required></label>
+        </div>
+        <div class="two">
+          <label>Organisation<input name="org" autocomplete="organization"></label>
+          <label>Topic<select name="topic"><option>Commission</option><option>Exhibition / curatorial</option><option>Press</option><option>Talk or workshop</option><option>Prints</option><option>Other</option></select></label>
+        </div>
+        <label>Message<textarea name="message" required></textarea></label>
+        <div><button class="btn" type="submit">Open email draft</button></div>
+        <p class="form-note">Preview mode: this opens your email application with the message filled in. A direct web form will be connected before launch.</p>
+      </form>
+    </div>
   </div>
 </section>"""
     page("contact/index.html", "Contact", "Contact photographer Nora Sayyad for commissions, exhibitions, press, talks and prints.", body)
+
+
 
 
 if __name__ == "__main__":
