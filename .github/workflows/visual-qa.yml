@@ -7,6 +7,9 @@ on:
     paths:
       - ".github/workflows/visual-qa.yml"
       - "visual-qa.mjs"
+      - "audit_site.py"
+      - "content/sample-assets.json"
+      - "assets/images/**"
       - "assets/css/style.css"
       - "assets/js/main.js"
       - "build.py"
@@ -31,6 +34,7 @@ jobs:
           python build_options.py
           python build_options_v2.py
           python build_review.py
+          python audit_site.py
       - uses: actions/setup-node@v4
         with:
           node-version: "22"
@@ -43,7 +47,7 @@ jobs:
           python -m http.server 4173 >/tmp/nora-http.log 2>&1 &
           echo $! > /tmp/nora-http.pid
           sleep 2
-      - name: Capture desktop and mobile
+      - name: Capture desktop, tablet and mobile
         run: node visual-qa.mjs
       - uses: actions/upload-artifact@v4
         if: always()
