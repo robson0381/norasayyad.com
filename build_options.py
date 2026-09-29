@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Five home-page CONCEPTS for Nora Sayyad: one editorial direction plus four identity-led concepts.
+"""Six home-page CONCEPTS for Nora Sayyad: one main editorial direction plus five alternatives.
 
 Run: python3 build_options.py  ->  opcoes/<slug>/index.html + opcoes/index.html
 Earlier rounds are frozen in opcoes/v1/ (styles) and opcoes/v2/ (restyled).
@@ -17,6 +17,7 @@ from pathlib import Path
 
 from build import PHOTOS, PROJECTS, EMAIL, img
 from build_editorial import concept_editorial
+from build_memory import concept_memory
 
 ROOT = Path(__file__).parent / "opcoes"
 N, PO, AR, PA = (PHOTOS[k] for k in ("notes-of-resistance", "portraits", "from-arrival-to-belonging", "parfyymin-tuulahdus"))
@@ -451,6 +452,9 @@ CONCEPTS = [
     ("editorial", "Editorial", "Archive in Motion · portfólio editorial contemporâneo",
      "Uma home inspirada em livro de fotografia contemporâneo: grande imagem inicial, tipografia editorial, projetos selecionados, clientes e publicações, Current, About e Commissions. Paleta off-white, azul profundo, oliva e vermelho óxido.",
      "É a direção mais próxima do mockup aprovado: elegante, internacional e profissional, sem esconder a força documental e autoral da Nora.", concept_editorial),
+    ("memoria", "Arquivo / Memória", "Cartas, arquivo familiar e deslocamento",
+     "Uma alternativa mais íntima: fotografias tratadas como folhas de arquivo, notas marginais, datas, documentos e pequenos gestos gráficos inspirados em memória, correspondência e tatreez.",
+     "Mostra uma leitura mais autoral e experimental da mesma identidade, sem transformar referências palestinas em decoração óbvia.", concept_memory),
     ("simbolos", "Símbolos", "🫒🕊️🧿🌊 — a bio dela vira a estrutura do site",
      "Quatro salas: <b>Oliveira</b> (raízes, família, terra), <b>Pomba</b> (paz, resistência, solidariedade), <b>Olho</b> (olhar e ser vista) e <b>Mar</b> (travessias, fronteiras, diáspora). Cada projeto, exposição e livro mora numa sala. Os nomes aparecem em inglês, finlandês, sueco e árabe. Ao passar o mouse, a sala abre e mostra o que tem dentro.",
      "O site deixa de ser um arquivo em ordem cronológica e passa a ser organizado pelos temas que ela mesma escolheu para se apresentar.", concept_simbolos),
@@ -468,7 +472,7 @@ CONCEPTS = [
 
 def hub():
     cards = "".join(f"""<a class="opt" href="/opcoes/{k}/">
-  <div class="shots"><img src="/opcoes/shots/{k}-desk.{'svg' if k == 'editorial' else 'jpg'}" alt="Prévia do conceito {name} no computador" loading="lazy"><img class="m" src="/opcoes/shots/{k}-mob.{'svg' if k == 'editorial' else 'jpg'}" alt="Prévia do conceito {name} no celular" loading="lazy"></div>
+  <div class="shots"><img src="/opcoes/shots/{k}-desk.{'svg' if k in ('editorial','memoria') else 'jpg'}" alt="Prévia do conceito {name} no computador" loading="lazy"><img class="m" src="/opcoes/shots/{k}-mob.{'svg' if k == 'editorial' else 'jpg'}" alt="Prévia do conceito {name} no celular" loading="lazy"></div>
   <div class="txt"><span class="tag">Conceito</span><h2>{name}</h2><p class="sub">{sub}</p><p>{desc}</p><p class="why"><b>Por quê:</b> {why}</p><span class="go">Abrir →</span></div>
 </a>""" for k, name, sub, desc, why, _ in CONCEPTS)
     return f"""<!doctype html>
@@ -502,8 +506,8 @@ h2{{margin:4px 0 2px;font-size:1.8rem}}
 </head>
 <body>
 <main class="wrap">
-<h1>Cinco conceitos para o site da Nora</h1>
-<p class="lead">A opção Editorial traduz o mockup visual aprovado para uma home funcional. As outras quatro partem de aspectos da identidade e da prática da Nora. O botão “← Todas as opções”, no canto, volta para cá.</p>
+<h1>Seis conceitos para o site da Nora</h1>
+<p class="lead">Editorial é a direção principal escolhida. Arquivo / Memória é a alternativa de apresentação mais autoral; as demais opções ficam como estudos de exploração. O botão “← Todas as opções”, no canto, volta para cá.</p>
 {cards}
 <p class="more"><b>Opções adicionais:</b> <a href="/opcoes/v2/">versão 2 (Reportagem, Cartas, Tatreez, Sequências)</a> <a href="/opcoes/v1/">versão 1 (Noite, Jornal, Arquivo, Azul)</a> <a href="/">protótipo claro original</a></p>
 </main>
