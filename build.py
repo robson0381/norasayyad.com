@@ -135,7 +135,7 @@ def page(path, title, desc, body, current=None, og=None):
 <main id="main">
 {body}
 </main>
-<footer class="site-footer">
+{"" if path == "index.html" else f"""<footer class="site-footer">
   <div class="wrap">
     <p>© Nora Sayyad · Helsinki, Finland · <a href="mailto:{EMAIL}">{EMAIL}</a></p>
     <ul>
@@ -144,7 +144,7 @@ def page(path, title, desc, body, current=None, og=None):
       <li><a href="/contact/">Contact</a></li>
     </ul>
   </div>
-</footer>
+</footer>"""}
 <script src="/assets/js/main.js" defer></script>
 </body>
 </html>
@@ -208,6 +208,7 @@ BIO_SHORT = "Finnish-Palestinian visual artist and documentary photographer, bor
 
 def build_home():
     slides = [
+        (PHOTOS["hero"], "Visual practice"),
         (PHOTOS["from-arrival-to-belonging"][0], "From Arrival to Belonging? · 2025–2026"),
         (PHOTOS["portraits"][4], "Portraits · ongoing"),
         (PHOTOS["notes-of-resistance"][7], "Notes of Resistance"),
@@ -258,7 +259,6 @@ def build_home():
     <div class="editorial-projects">{featured}</div>
   </div>
 </section>
-{CREDS}
 <section class="current-section" aria-labelledby="now">
   <div class="wrap">
     <div class="section-head">
@@ -285,13 +285,6 @@ def build_home():
     </div>
   </div>
 </section>
-<section class="manifesto-band">
-  <div class="wrap manifesto-frame">
-    {img(PHOTOS['hero'], "100vw")}
-    <div class="manifesto-shade"></div>
-    <blockquote>Photography as a space for memory, dialogue and self-determination.<small>Nora Sayyad · visual practice</small></blockquote>
-  </div>
-</section>
 <section class="home-about" aria-labelledby="about-h">
   <div class="wrap about-editorial">
     <figure class="about-portrait"><img src="{ABOUT_PORTRAIT}" width="240" height="300" alt="Self-portrait by Nora Sayyad in Buenos Aires, May 2023" loading="lazy" decoding="async"></figure>
@@ -304,7 +297,7 @@ def build_home():
     </div>
   </div>
 </section>
-
+{CREDS}
 <section class="commission-band">
   <div class="wrap commission-editorial">
     <h2>Commissions<br>& editorial.</h2>
@@ -312,6 +305,14 @@ def build_home():
       <p>Available for editorial, institutional and selected commissioned work in Finland and internationally.</p>
       <a class="btn inverse" href="/contact/">Discuss a project →</a>
     </div>
+  </div>
+  <div class="wrap home-footer">
+    <p>© Nora Sayyad · Helsinki, Finland · <a href="mailto:{EMAIL}">{EMAIL}</a></p>
+    <ul>
+      <li><a href="https://www.instagram.com/norasayyad/" rel="me">Instagram</a></li>
+      <li><a href="https://www.womenphotograph.com">Women Photograph</a></li>
+      <li><a href="/contact/">Contact</a></li>
+    </ul>
   </div>
 </section>"""
     page("index.html", "", "Nora Sayyad is a Finnish-Palestinian photographer, artist and visual reporter based in Helsinki, working across documentary and poetic storytelling.", body, og=slides[0][0])
@@ -321,16 +322,19 @@ def build_work():
     cards = "\n".join(card(p) for p in PROJECTS)
     body = f"""<section class="work-index">
   <div class="wrap">
-    <p class="eyebrow">Work</p>
-    <h1>Projects</h1>
-    <p class="lead narrow">Long-form documentary series, portrait work and poetic projects. Each one opens with its story.</p>
-    <figure class="work-archive-visual">
+    <div class="work-hero">
       <img src="{WORK_ARCHIVE_IMAGE}?format=1500w"
            srcset="{WORK_ARCHIVE_IMAGE}?format=750w 750w, {WORK_ARCHIVE_IMAGE}?format=1000w 1000w, {WORK_ARCHIVE_IMAGE}?format=1500w 1500w, {WORK_ARCHIVE_IMAGE}?format=2500w 2500w"
            sizes="(max-width: 760px) 100vw, 1420px"
            alt="Close-up still life of fruit and flowers against a black background"
-           loading="lazy" decoding="async">
-    </figure>
+           loading="eager" decoding="async">
+      <div class="work-hero-shade"></div>
+      <div class="work-hero-copy">
+        <p class="eyebrow light">Work</p>
+        <h1>Projects</h1>
+        <p>Long-form documentary series, portrait work and poetic projects. Each one opens with its story.</p>
+      </div>
+    </div>
     <div class="cards">{cards}</div>
   </div>
 </section>"""
