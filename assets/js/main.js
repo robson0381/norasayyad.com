@@ -2,14 +2,20 @@
 const toggle = document.querySelector('.menu-toggle');
 const nav = document.getElementById('nav');
 if (toggle && nav) {
+  const firstLink = () => nav.querySelector('a, button, [tabindex]:not([tabindex="-1"])');
   const setMenu = (open) => {
     nav.classList.toggle('open', open);
     toggle.setAttribute('aria-expanded', String(open));
     document.body.style.overflow = open ? 'hidden' : '';
+    if (open) {
+      window.setTimeout(() => firstLink()?.focus(), 20);
+    } else if (document.activeElement && nav.contains(document.activeElement)) {
+      toggle.focus();
+    }
   };
   toggle.addEventListener('click', () => setMenu(!nav.classList.contains('open')));
   nav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => setMenu(false)));
-  document.addEventListener('keydown', e => { if (e.key === 'Escape') setMenu(false); });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape' && nav.classList.contains('open')) setMenu(false); });
 }
 
 // Editorial hero: manual, non-autoplay carousel
@@ -31,6 +37,18 @@ if (hero) {
   };
   prev && prev.addEventListener('click', () => show(active - 1));
   next && next.addEventListener('click', () => show(active + 1));
+  hero.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowLeft') show(active - 1);
+    if (e.key === 'ArrowRight') show(active + 1);
+  });
+  let x0 = null;
+  hero.addEventListener('touchstart', (e) => { x0 = e.touches[0].clientX; }, { passive: true });
+  hero.addEventListener('touchend', (e) => {
+    if (x0 === null) return;
+    const dx = e.changedTouches[0].clientX - x0;
+    if (Math.abs(dx) > 50) show(active + (dx < 0 ? 1 : -1));
+    x0 = null;
+  });
 }
 
 // Lightbox for project stories: click a photo, then arrows / swipe / Esc
@@ -87,5 +105,36 @@ if (photos.length) {
     const dx = e.changedTouches[0].clientX - x0;
     if (Math.abs(dx) > 40) show(i + (dx < 0 ? 1 : -1));
     x0 = null;
+  });
+}
+
+
+// Contact preview: preselect topic from query string and open a structured email draft.
+const contactForm = document.querySelector('[data-mailto-form]');
+if (contactForm) {
+  const params = new URLSearchParams(window.location.search);
+  const requestedTopic = params.get('topic');
+  const select = contactForm.querySelector('select[name="topic"]');
+  if (requestedTopic && select) {
+    const decoded = requestedTopic.replace(/\+/g, ' ');
+    const option = [...select.options].find(o => o.value.toLowerCase() === decoded.toLowerCase());
+    if (option) select.value = option.value;
+  }
+
+  contactForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    if (!contactForm.reportValidity()) return;
+    const data = new FormData(contactForm);
+    const subject = `Nora Sayyad website — ${data.get('topic') || 'Enquiry'}`;
+    const lines = [
+      `Name: ${data.get('name') || ''}`,
+      `Email: ${data.get('email') || ''}`,
+      `Organisation: ${data.get('org') || ''}`,
+      `Topic: ${data.get('topic') || ''}`,
+      '',
+      String(data.get('message') || '')
+    ];
+    window.location.href = 'mailto:ellinorasayyad@gmail.com?subject=' +
+      encodeURIComponent(subject) + '&body=' + encodeURIComponent(lines.join('\n'));
   });
 }
