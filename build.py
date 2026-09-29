@@ -166,12 +166,8 @@ def card(p):
 </a>"""
 
 
-CREDS = """<section class="credibility" aria-labelledby="credibility-title">
+CREDS = """<section class="credibility" aria-label="Selected recognition">
   <div class="wrap">
-    <div class="credibility-head">
-      <p class="eyebrow">Selected recognition</p>
-      <h2 id="credibility-title">Published · exhibited · collected</h2>
-    </div>
     <div class="credibility-groups">
       <div class="credential-group">
         <p class="credential-label">Published</p>
@@ -195,7 +191,6 @@ CREDS = """<section class="credibility" aria-labelledby="credibility-title">
         </div>
       </div>
     </div>
-    <p class="credential-note">Institutional wordmarks are used in this prototype; official vector logos can replace them before production.</p>
   </div>
 </section>"""
 
