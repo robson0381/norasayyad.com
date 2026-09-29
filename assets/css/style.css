@@ -196,7 +196,11 @@ textarea{min-height:170px;resize:vertical}.two{display:grid;grid-template-column
   .hero-copy{left:24px;right:24px;top:auto;bottom:74px;transform:none;width:auto}.hero-copy h1{font-size:clamp(3.8rem,17vw,7rem)}
   .editorial-projects{grid-template-columns:1fr 1fr}.editorial-project:first-child .editorial-project-image{aspect-ratio:4/5}
   .creds .wrap{grid-template-columns:1fr}.creds ul{grid-template-columns:repeat(2,1fr);gap:18px}
-  .current-grid,.about-editorial,.about-top,.commission-editorial,.project-intro,.contact-layout{grid-template-columns:1fr}\n  .contact-copy{position:static}\n  .work-index .cards{grid-template-columns:1fr 1fr;gap:42px 18px}\n  .work-index .card:nth-child(n){grid-column:auto;margin-top:0}\n  .work-index .card:nth-child(4) .frame{aspect-ratio:4/5}
+  .current-grid,.about-editorial,.about-top,.commission-editorial,.project-intro,.contact-layout{grid-template-columns:1fr}
+  .contact-copy{position:static}
+  .work-index .cards{grid-template-columns:1fr 1fr;gap:42px 18px}
+  .work-index .card:nth-child(n){grid-column:auto;margin-top:0}
+  .work-index .card:nth-child(4) .frame{aspect-ratio:4/5}
   .about-portrait{aspect-ratio:16/9}
   .manifesto-frame{height:62vh}.manifesto-frame blockquote{left:28px;right:28px;top:auto;bottom:34px;transform:none}
 }
@@ -208,7 +212,9 @@ textarea{min-height:170px;resize:vertical}.two{display:grid;grid-template-column
   .hero-stage{height:72vh;min-height:530px}.hero-shade{background:linear-gradient(0deg,rgba(5,5,5,.73) 0%,rgba(5,5,5,.12) 76%)}
   .hero-copy h1{font-size:clamp(3.7rem,20vw,5.8rem)}
   .hero-controls{left:24px;transform:none}
-  .editorial-projects{grid-template-columns:1fr}\n  .work-index .cards{grid-template-columns:1fr}\n  .contact-meta div{grid-template-columns:82px 1fr}
+  .editorial-projects{grid-template-columns:1fr}
+  .work-index .cards{grid-template-columns:1fr}
+  .contact-meta div{grid-template-columns:82px 1fr}
   .credentials{grid-template-columns:1fr 1fr}
   .section-head{align-items:start}
   .two{grid-template-columns:1fr}
