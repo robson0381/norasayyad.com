@@ -16,6 +16,7 @@ SITE = "https://www.norasayyad.com"
 # Switch to a domain address (e.g. contact@norasayyad.com) once it exists.
 EMAIL = "ellinorasayyad@gmail.com"
 PHOTOS = json.loads((ROOT / "content/photos.json").read_text(encoding="utf-8"))
+ABOUT_PORTRAIT = "/assets/images/nora-selfportrait-buenos-aires-2023-sample.jpg"
 
 NAV = [("work", "Work"), ("news", "Current"), ("services", "Commissions"), ("about", "About")]
 
@@ -274,7 +275,7 @@ def build_home():
 </section>
 <section class="home-about" aria-labelledby="about-h">
   <div class="wrap about-editorial">
-    <div class="ph about-portrait" role="img" aria-label="Portrait of Nora Sayyad" data-label="Portrait of Nora — original photo to be selected"></div>
+    <figure class="about-portrait"><img src="{ABOUT_PORTRAIT}" width="240" height="300" alt="Self-portrait by Nora Sayyad in Buenos Aires, May 2023" loading="lazy" decoding="async"></figure>
     <div>
       <p class="eyebrow">About</p>
       <h2 id="about-h">Documentary, poetic and conceptual.</h2>
@@ -369,7 +370,7 @@ def cv(title, rows, open_=False):
 def build_about():
     body = f"""<section>
   <div class="wrap about-top">
-    <div class="ph" role="img" aria-label="Portrait of Nora Sayyad" data-label="Portrait of Nora — photo needed"></div>
+    <figure class="about-portrait"><img src="{ABOUT_PORTRAIT}" width="240" height="300" alt="Self-portrait by Nora Sayyad in Buenos Aires, May 2023" loading="eager" decoding="async"></figure>
     <div class="narrow">
       <p class="eyebrow">About</p>
       <h1>Nora Sayyad</h1>
