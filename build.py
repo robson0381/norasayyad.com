@@ -166,19 +166,38 @@ def card(p):
 </a>"""
 
 
-CREDS = """<div class="creds" aria-label="Published, exhibited and collected by">
+CREDS = """<section class="credibility" aria-labelledby="credibility-title">
   <div class="wrap">
-    <p class="eyebrow" style="margin:0">Published · exhibited · collected</p>
-    <ul>
-      <li>The Washington Post</li>
-      <li>The Times</li>
-      <li>Helsinki City Museum</li>
-      <li>Finnish Museum of Photography</li>
-      <li>Bristol Museum & Art Gallery</li>
-      <li>National Library of Finland</li>
-    </ul>
+    <div class="credibility-head">
+      <p class="eyebrow">Selected recognition</p>
+      <h2 id="credibility-title">Published · exhibited · collected</h2>
+    </div>
+    <div class="credibility-groups">
+      <div class="credential-group">
+        <p class="credential-label">Published</p>
+        <div class="credential-marks">
+          <span class="credential-mark mark-wapo" aria-label="The Washington Post">The Washington Post</span>
+          <span class="credential-mark mark-times" aria-label="The Times">The Times</span>
+        </div>
+      </div>
+      <div class="credential-group">
+        <p class="credential-label">Exhibited</p>
+        <div class="credential-marks">
+          <span class="credential-mark mark-helsinki" aria-label="Helsinki City Museum">Helsinki<br>City Museum</span>
+          <span class="credential-mark mark-photo-museum" aria-label="The Finnish Museum of Photography">The Finnish Museum<br>of Photography</span>
+        </div>
+      </div>
+      <div class="credential-group">
+        <p class="credential-label">Collected</p>
+        <div class="credential-marks">
+          <span class="credential-mark mark-migration" aria-label="Migration Institute of Finland">Migration Institute<br>of Finland</span>
+          <span class="credential-mark mark-library" aria-label="The National Library of Finland">The National Library<br>of Finland</span>
+        </div>
+      </div>
+    </div>
+    <p class="credential-note">Institutional wordmarks are used in this prototype; official vector logos can replace them before production.</p>
   </div>
-</div>"""
+</section>"""
 
 TOUR = """<ul class="tour">
   <li><span>Tiohtià:ke/Montréal · articule & MAI</span><span>29 Aug – 4 Oct 2025</span></li>
@@ -272,9 +291,20 @@ def build_home():
 </section>
 <section class="manifesto-band">
   <div class="wrap manifesto-frame">
-    {img(PHOTOS['notes-of-resistance'][18], "100vw")}
+    {img(PHOTOS['hero'], "100vw")}
     <div class="manifesto-shade"></div>
     <blockquote>Photography as a space for memory, dialogue and self-determination.<small>Nora Sayyad · visual practice</small></blockquote>
+  </div>
+</section>
+<section class="poetic-feature" aria-labelledby="poetic-title">
+  <div class="wrap poetic-grid">
+    <figure class="poetic-image">{img(PHOTOS['parfyymin-tuulahdus'][0], "(max-width: 900px) 100vw, 52vw")}</figure>
+    <div class="poetic-copy">
+      <p class="eyebrow">Poetic / conceptual</p>
+      <h2 id="poetic-title">Parfyymin<br>tuulahdus</h2>
+      <p>A darker, more intimate register within Nora's visual practice.</p>
+      <a class="text-link" href="/work/parfyymin-tuulahdus/">View project →</a>
+    </div>
   </div>
 </section>
 <section class="home-about" aria-labelledby="about-h">
