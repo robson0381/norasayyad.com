@@ -72,6 +72,15 @@ PROJECTS = [
         "cover": 7,
         "meta": "2020– · Documentary",
     },
+    {
+        "slug": "from-a-parallel-life",
+        "title": "From a Parallel Life",
+        "teaser": "When love creates shapes that reality couldn't.",
+        "intro": "",
+        "facts": [],
+        "cover": 0,
+        "meta": "New project",
+    },
 ]
 
 
@@ -80,19 +89,26 @@ def strip_tags(s):
 
 
 def img(p, sizes="100vw", cls="", lazy=True, attrs=""):
-    """Responsive <img> using Squarespace's ?format= resizing."""
+    """Responsive image helper for Squarespace CDN and local prototype assets."""
+    loading = ' loading="lazy"' if lazy else ' fetchpriority="high"'
+    class_attr = f' class="{cls}"' if cls else ""
+    if p["src"].startswith("/"):
+        return (f'<img src="{p["src"]}" width="{p["w"]}" height="{p["h"]}" '
+                f'alt="{escape(p["alt"])}"{loading} decoding="async"{class_attr}{attrs}>')
     widths = [w for w in (500, 750, 1000, 1500, 2500) if w <= p["w"]] or [p["w"]]
     srcset = ", ".join(f'{p["src"]}?format={w}w {w}w' for w in widths)
     default = f'{p["src"]}?format={max([w for w in widths if w <= 1500] or widths[:1])}w'
-    loading = ' loading="lazy"' if lazy else ' fetchpriority="high"'
     return (f'<img src="{default}" srcset="{srcset}" sizes="{sizes}" width="{p["w"]}" height="{p["h"]}" '
-            f'alt="{escape(p["alt"])}"{loading} decoding="async"{f" class={cls}" if cls else ""}{attrs}>')
+            f'alt="{escape(p["alt"])}"{loading} decoding="async"{class_attr}{attrs}>')
 
 
 def page(path, title, desc, body, current=None, og=None):
     full_title = f"{title} — Nora Sayyad" if title else "Nora Sayyad — Photographer, artist & visual reporter, Helsinki"
     url = SITE + ("/" + path.rsplit("index.html", 1)[0] if path != "index.html" else "/")
-    og_image = (og or PHOTOS["hero"])["src"] + "?format=1500w"
+    og_src = (og or PHOTOS["hero"])["src"]
+    og_image = (SITE + og_src) if og_src.startswith("/") else (og_src + "?format=1500w")
+    section = path.split("/", 1)[0] if path != "index.html" else "home"
+    body_class = f"page-{section}"
     nav = "".join(
         f'<li><a href="{"/" if not slug else f"/{slug}/"}"{" aria-current=page" if current == slug else ""}>{label}</a></li>'
         for slug, label in NAV
@@ -340,7 +356,7 @@ def build_work():
     <div class="cards">{cards}</div>
   </div>
 </section>"""
-    page("work/index.html", "Work", "Documentary projects and portraits by Nora Sayyad: Notes of Resistance, From Arrival to Belonging?, Portraits and Parfyymin tuulahdus.", body, current="work")
+    page("work/index.html", "Work", "Projects by Nora Sayyad: Notes of Resistance, From Arrival to Belonging?, Portraits, Parfyymin tuulahdus and From a Parallel Life.", body, current="work")
 
 
 def build_project(i):
@@ -401,17 +417,18 @@ def cv(title, rows, open_=False):
 
 
 def build_about():
-    body = f"""<section>
-  <div class="wrap about-top">
-    <figure class="about-portrait"><img src="{ABOUT_PORTRAIT}" width="240" height="300" alt="Self-portrait by Nora Sayyad in Buenos Aires, May 2023" loading="eager" decoding="async"></figure>
-    <div class="narrow">
-      <p class="eyebrow">About</p>
-      <h1>Nora Sayyad</h1>
-      <p class="lead">{BIO_SHORT}</p>
-      <p>Her practice moves between documentary, poetic and conceptual approaches, exploring the politics of looking, questions of representation, and how photography can become a space for memory, dialogue and self-determination. Drawing from personal and collective histories, her work examines connection, belonging and lived experience in relation to wider social and political realities.</p>
-      <p>Her work has been exhibited internationally, including as part of <em>The Lost Paintings: A Prelude to Return</em>, and presented at the Helsinki City Museum, the Finnish Museum of Photography and HIAP. Her photographs have been published by The Washington Post and The Times, and are held in the public collections of the Migration Institute of Finland, the Finnish Heritage Agency and the National Library of Finland.</p>
-      <p>Alongside her artistic practice she works across visual reporting, teaching, writing, public speaking and artivism, and has collaborated with organisations including Plan International Finland. In 2021 she was assistant curator of the award-winning <em>No Justice, No Peace</em>.</p>
-      <p style="display:flex;gap:12px;flex-wrap:wrap"><a class="btn" href="#cv">View career history</a><a class="btn ghost" href="/contact/">Contact</a></p>
+    body = f"""<section class="about-hero">
+  <div class="wrap">
+    <div class="about-hero-stage">
+      <figure class="about-hero-portrait"><img src="{ABOUT_PORTRAIT}" width="240" height="300" alt="Self-portrait by Nora Sayyad in Buenos Aires, May 2023" loading="eager" decoding="async"></figure>
+      <div class="about-hero-copy">
+        <p class="eyebrow">About</p>
+        <h1>Nora Sayyad</h1>
+        <p class="lead">{BIO_SHORT}</p>
+        <p>Her practice moves between documentary, poetic and conceptual approaches, exploring the politics of looking, questions of representation, and how photography can become a space for memory, dialogue and self-determination.</p>
+        <p>Her work has been exhibited internationally and published by The Washington Post and The Times, with work held in public collections in Finland.</p>
+        <p style="display:flex;gap:12px;flex-wrap:wrap"><a class="btn" href="#cv">View career history</a><a class="btn ghost" href="/contact/">Contact</a></p>
+      </div>
     </div>
   </div>
 </section>
@@ -485,15 +502,14 @@ def build_services():
         f'<div class="service"><h3>{t}</h3><p>{d}</p><a class="btn ghost small" href="/contact/?topic={topic_map[t].replace(" ", "+")}">Ask about {t.lower()}</a></div>'
         for t, d in items
     )
-    body = f"""<section class="services-page">
+    body = f"""<section>
   <div class="wrap">
     <p class="eyebrow">Commissions</p>
     <h1>Work with Nora</h1>
     <p class="lead narrow">Available for projects and commissions in Finland and internationally. Past clients include Plan International Finland, the City of Helsinki, the University of Helsinki, Kone Foundation and Startup Refugees.</p>
     <div class="services" style="margin-top:40px">{cards}</div>
   </div>
-</section>
-{CREDS}"""
+</section>"""
     page("services/index.html", "Commissions", "Commission Nora Sayyad for portraits, editorial and documentary assignments, talks and photography workshops.", body, current="services")
 
 
