@@ -396,7 +396,7 @@ def build_about():
     <h2>CV</h2>
     {cv("Solo exhibitions", [
         ("2025–26", "<em>From Arrival to Belonging: A Decade in Portraits</em>, with Startup Refugees — IKEA; STOA; Valkea; Revontuli, Finland"),
-        ("2025", "<em>Visible Palestine</em>, pop-up exhibition, HIAP, Suomenlinna, Helsinki"),
+        ("2025", "<em>Untitled: Palestine</em> (working title / ongoing work), Pop-up HIAP, Helsinki, Finland"),
         ("2024", "<em>Tervetuloa, tervemenoa: Suomi muuttoliikkeessä</em>, with the Migration Institute of Finland — touring Finnish universities and Turku City Library"),
         ("2022", "<em>Wired This Way</em>, STOA Cultural Center, Helsinki"),
         ("2021", "<em>Voimanaisia</em>, with Plan International Finland — Vuotalo & Maunula House, Helsinki"),
@@ -485,7 +485,7 @@ def build_news():
     <h2 style="margin-top:64px">Also in 2025–2026</h2>
     <div class="cards">
       <a class="card" href="/work/from-arrival-to-belonging/"><div class="frame">{img(PHOTOS['from-arrival-to-belonging'][5], "(max-width: 700px) 100vw, 33vw", "cover")}</div><h3>From Arrival to Belonging: A Decade in Portraits</h3><p>Solo exhibition with Startup Refugees — IKEA; STOA; Valkea; Revontuli</p></a>
-      <div class="card"><div class="ph land" role="img" aria-label="Visible Palestine pop-up at HIAP" data-label="Photo needed"></div><h3>Visible Palestine</h3><p>Pop-up exhibition, HIAP, Suomenlinna — draft of a future three-part exhibition</p><div class="meta">2025</div></div>
+      <div class="card"><div class="ph land" role="img" aria-label="Untitled Palestine pop-up at HIAP" data-label="Photo needed"></div><h3>Untitled: Palestine</h3><p>Working title / ongoing work — Pop-up HIAP, Helsinki, Finland</p><div class="meta">2025</div></div>
       <div class="card"><div class="ph land" role="img" aria-label="Näse Gård, Porvoo" data-label="Photo needed"></div><h3>Förkolnade Minnen / Muistoihin Hiiltyneet</h3><p>Group exhibition, Näse Gård, Porvoo</p><div class="meta">2025</div></div>
     </div>
   </div>
