@@ -29,8 +29,6 @@ This checklist records what has been explicitly designed/tested in the source fo
 
 ## Home
 
-**Hero first-viewport rule:** on desktop, the Hero height is calculated from the viewport height minus the sticky header and top gap. The rest of the site's original scale is preserved. This prevents the next section from peeking into the first screen on taller monitors at 100% zoom.
-
 
 | Check | 390 | 768 | 1440 |
 |---|:---:|:---:|:---:|
