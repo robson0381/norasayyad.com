@@ -1,0 +1,30 @@
+name: Prototype QA
+
+on:
+  pull_request:
+  push:
+    branches:
+      - chatgpt/editorial-archive
+      - claude/optimistic-tesla-0j7ruv
+
+permissions:
+  contents: read
+
+jobs:
+  qa:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Compile generators
+        run: python -m py_compile build.py build_editorial.py build_memory.py build_options.py build_options_v2.py build_review.py qa.py
+      - name: Regenerate prototype
+        run: |
+          python build.py
+          python build_options.py
+          python build_options_v2.py
+          python build_review.py
+      - name: Static QA
+        run: python qa.py
