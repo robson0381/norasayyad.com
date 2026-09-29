@@ -67,6 +67,10 @@ O protótipo já possui 58 referências estruturadas em `content/photos.json` co
 
 O arquivo `content/current-site-inventory.json` preserva o inventário completo de **Notes of Resistance (86 URLs do CDN atual)**. Essas imagens são tratadas como **amostras temporárias**. A versão final deve trocar as referências do CDN/exports por originais fornecidos pela Nora.
 
+### Retrato de Nora usado na amostra
+
+Foi localizado no material fornecido um autorretrato com a legenda original **“Self-portraits in Buenos Aires, May 2023”**. Uma derivação leve desse arquivo é usada apenas no protótipo para evitar apresentar Home/About com um bloco vazio. O arquivo original/aprovado deve substituir essa derivação antes da produção.
+
 ### Estratégia de amostra x produção
 
 - **Amostra:** usar o CDN atual para reproduzir visualmente o conteúdo sem duplicar arquivos recomprimidos.
@@ -82,7 +86,7 @@ Isso permite trocar Squarespace por outra hospedagem sem perder links já compar
 
 ## 7. Pendências que dependem da Nora
 
-1. Escolher o retrato profissional para Home/About.
+1. Aprovar ou substituir o autorretrato de Buenos Aires (maio de 2023) usado como amostra em Home/About.
 2. Enviar originais das fotografias selecionadas para produção.
 3. Confirmar seleção final de Notes of Resistance.
 4. Confirmar statements e legendas dos projetos.
