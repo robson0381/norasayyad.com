@@ -30,6 +30,7 @@ PROJECTS = [
             ("Location", "Finland"),
         ],
         "cover": 4,
+        "meta": "Ongoing · Portraiture",
     },
     {
         "slug": "from-arrival-to-belonging",
@@ -42,6 +43,7 @@ PROJECTS = [
             ("Exhibited", "IKEA; STOA; Valkea; Revontuli, Finland"),
         ],
         "cover": 1,
+        "meta": "2025–2026 · Documentary",
     },
     {
         "slug": "parfyymin-tuulahdus",
@@ -52,6 +54,7 @@ PROJECTS = [
             ("Press", '<a href="https://www.ruskeattytot.fi/podcast-parfyymin-tuulahdus">Podcast: Parfyymin tuulahdus, Ruskeat tytöt</a>'),
         ],
         "cover": 0,
+        "meta": "Conceptual · Poetic",
     },
     {
         "slug": "notes-of-resistance",
@@ -65,6 +68,7 @@ PROJECTS = [
             ("Press", '<a href="https://www.ruskeattytot.fi/freepalestine-documented">#FREEPALESTINE: Documented</a>'),
         ],
         "cover": 7,
+        "meta": "2020– · Documentary",
     },
 ]
 
@@ -84,7 +88,7 @@ def img(p, sizes="100vw", cls="", lazy=True, attrs=""):
 
 
 def page(path, title, desc, body, current=None, og=None):
-    full_title = f"{title} — Nora Sayyad" if title else "Nora Sayyad — Documentary photographer & visual artist, Helsinki"
+    full_title = f"{title} — Nora Sayyad" if title else "Nora Sayyad — Photographer, artist & visual reporter, Helsinki"
     url = SITE + ("/" + path.rsplit("index.html", 1)[0] if path != "index.html" else "/")
     og_image = (og or PHOTOS["hero"])["src"] + "?format=1500w"
     nav = "".join(
@@ -158,7 +162,7 @@ def card(p):
   <div class="frame">{img(cover(p), "(max-width: 700px) 100vw, 33vw", "cover")}</div>
   <h3>{p['title']}</h3>
   <p>{p['teaser']}</p>
-  <div class="meta">{len(PHOTOS[p['slug']])} photographs</div>
+  <div class="meta">{p["meta"]} · {len(PHOTOS[p['slug']])} photographs</div>
 </a>"""
 
 
@@ -208,7 +212,7 @@ def build_home():
         f"""<a class="editorial-project" href="/work/{p['slug']}/">
   <div class="editorial-project-image">{img(cover(p), "(max-width: 640px) 100vw, 25vw", "cover")}</div>
   <h3>{p['title']}</h3>
-  <div class="meta">{'Ongoing' if p['slug'] == 'portraits' else strip_tags(p['facts'][0][1]) if p['facts'] else 'Project'} · {len(PHOTOS[p['slug']])} photographs</div>
+  <div class="meta">{p["meta"]} · {len(PHOTOS[p['slug']])} photographs</div>
 </a>""" for p in featured_projects
     )
     body = f"""<section class="editorial-hero" aria-labelledby="home-title">
@@ -223,7 +227,7 @@ def build_home():
         <a class="btn inverse" href="/work/">Explore work →</a>
       </div>
       <div class="hero-controls" aria-label="Featured photographs">
-        <span data-hero-index>01 / {len(slides):02d}</span>
+        <span data-hero-index aria-live="polite">01 / {len(slides):02d}</span>
         <button type="button" data-hero-prev aria-label="Previous photograph">←</button>
         <button type="button" data-hero-next aria-label="Next photograph">→</button>
       </div>
@@ -294,7 +298,7 @@ def build_home():
     </div>
   </div>
 </section>"""
-    page("index.html", "", "Nora Sayyad is a Finnish-Palestinian photographer, artist and visual reporter based in Helsinki, working across documentary and poetic storytelling.", body)
+    page("index.html", "", "Nora Sayyad is a Finnish-Palestinian photographer, artist and visual reporter based in Helsinki, working across documentary and poetic storytelling.", body, og=slides[0][0])
 
 
 def build_work():
