@@ -256,6 +256,15 @@ def build_home():
     <div class="hero-stage" data-hero>
       <div class="hero-slides">{slide_html}</div>
       <div class="hero-shade"></div>
+      <div class="mobile-hero-copy" aria-hidden="true">
+        <p class="mobile-kicker">Stories of</p>
+        <h2>Memory,<br>Movement and<br>Belonging.</h2>
+        <p class="mobile-intro">Nora Sayyad is a Finnish-Palestinian photographer and visual artist working across documentary, conceptual and poetic forms.</p>
+        <div class="mobile-hero-actions">
+          <a class="mobile-primary" href="#featured">View selected work <span>→</span></a>
+          <a class="mobile-secondary" href="/about/">About the artist <span>→</span></a>
+        </div>
+      </div>
       <div class="hero-copy">
         <p class="eyebrow light">Photographer · Artist · Visual reporter · Helsinki</p>
         <h1 id="home-title">Nora<br>Sayyad</h1>
