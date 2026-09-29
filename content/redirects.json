@@ -1,0 +1,36 @@
+{
+  "generated_at": "2026-09-29",
+  "purpose": "Platform-independent redirect specification for the future migration away from the current Squarespace routes.",
+  "redirects": [
+    {
+      "from": "/work-1",
+      "to": "/work/",
+      "status": 301
+    },
+    {
+      "from": "/work-1/project-one-f5w4d-z9nem-s3jda-eyssk-73f62-tmxz9-kllpy",
+      "to": "/work/portraits/",
+      "status": 301
+    },
+    {
+      "from": "/work-1/project-two-ky966-n329z-nnx53-feazs-s32gp-b59d5-9c4hw",
+      "to": "/work/from-arrival-to-belonging/",
+      "status": 301
+    },
+    {
+      "from": "/work-1/parfyymin-tuulahdus",
+      "to": "/work/parfyymin-tuulahdus/",
+      "status": 301
+    },
+    {
+      "from": "/work-1/notes-of-resistance",
+      "to": "/work/notes-of-resistance/",
+      "status": 301
+    },
+    {
+      "from": "/about",
+      "to": "/about/",
+      "status": 301
+    }
+  ]
+}
