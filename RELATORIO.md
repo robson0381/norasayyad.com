@@ -8,6 +8,7 @@ Este repositório traz um **protótipo navegável** do site proposto (HTML/CSS e
 
 | Página | URL atual | Conteúdo |
 |---|---|---|
+| 28/09/2026 | Editorial / Archive in Motion definido como identidade principal do protótipo; Arquivo / Memória passa a ser a alternativa visual secundária para apresentação | Robson |
 | Home | `/` | Uma foto, "A visual storyteller", botão "View Portfolio" |
 | Work | `/work-1` | Índice de 4 projetos, com a foto mudando ao passar o mouse |
 | Notes of Resistance | `/work-1/notes-of-resistance` | **86 fotos**, nenhum texto ou legenda |
