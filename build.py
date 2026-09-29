@@ -18,8 +18,9 @@ EMAIL = "ellinorasayyad@gmail.com"
 PHOTOS = json.loads((ROOT / "content/photos.json").read_text(encoding="utf-8"))
 ABOUT_PORTRAIT = "/assets/images/nora-selfportrait-buenos-aires-2023-sample.jpg"
 WORK_ARCHIVE_IMAGE = "https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/c47bc6e7-c136-42cc-88b7-b90dc9e6572c/_A2A2025-1%2Bkopio%2B2_SAYYAD.jpg"
+LOST_PAINTINGS_IMAGE = "/assets/images/lost-paintings-current.webp"
 
-NAV = [("work", "Work"), ("news", "Current"), ("services", "Commissions"), ("about", "About")]
+NAV = [("", "Home"), ("work", "Work"), ("news", "Current"), ("services", "Commissions"), ("about", "About")]
 
 PROJECTS = [
     {
@@ -93,7 +94,7 @@ def page(path, title, desc, body, current=None, og=None):
     url = SITE + ("/" + path.rsplit("index.html", 1)[0] if path != "index.html" else "/")
     og_image = (og or PHOTOS["hero"])["src"] + "?format=1500w"
     nav = "".join(
-        f'<li><a href="/{slug}/"{" aria-current=page" if current == slug else ""}>{label}</a></li>'
+        f'<li><a href="{"/" if not slug else f"/{slug}/"}"{" aria-current=page" if current == slug else ""}>{label}</a></li>'
         for slug, label in NAV
     )
     footer_html = "" if path == "index.html" else f"""<footer class="site-footer">
@@ -216,7 +217,7 @@ def build_home():
         (PHOTOS["parfyymin-tuulahdus"][0], "Parfyymin tuulahdus"),
     ]
     slide_html = "\n".join(
-        f'<figure class="hero-slide{" active" if i == 0 else ""}" data-hero-slide aria-hidden="{"false" if i == 0 else "true"}">{img(ph, "100vw", lazy=i > 0)}<figcaption class="hero-caption">{label}</figcaption></figure>'
+        f'<figure class="hero-slide hero-slide-{i + 1}{" active" if i == 0 else ""}" style="--hero-bg:url(\'{ph["src"]}?format=1500w\')" data-hero-slide aria-hidden="{"false" if i == 0 else "true"}">{img(ph, "100vw", lazy=i > 0)}<figcaption class="hero-caption">{label}</figcaption></figure>'
         for i, (ph, label) in enumerate(slides)
     )
     featured_projects = [
@@ -267,7 +268,7 @@ def build_home():
       <a class="text-link" href="/news/">View current →</a>
     </div>
     <div class="current-grid">
-      <div class="current-image">{img(PHOTOS['notes-of-resistance'][9], "(max-width: 820px) 100vw, 38vw")}</div>
+      <div class="current-image"><img src="{LOST_PAINTINGS_IMAGE}" width="420" height="530" alt="The Lost Paintings exhibition artwork" loading="lazy" decoding="async"></div>
       <article class="current-main">
         <p class="eyebrow">Recent tour · 2025–2026</p>
         <h3>The Lost Paintings: A Prelude to Return</h3>
@@ -509,7 +510,7 @@ def build_news():
         {TOUR}
         <p>Press: <a href="https://akimbo.ca/akimblog/the-lost-paintings-at-articule-and-mai-montreal/">Akimbo</a> · <a href="https://brooklineartscenter.org/lost-paintings-project">Brookline Arts Center</a></p>
       </div>
-      <div class="ph wide" role="img" aria-label="Installation view of The Lost Paintings" data-label="Installation view — photo needed"></div>
+      <figure class="lost-paintings-image"><img src="{LOST_PAINTINGS_IMAGE}" width="420" height="530" alt="The Lost Paintings exhibition artwork" loading="lazy" decoding="async"></figure>
     </div>
     <h2 style="margin-top:64px">Also in 2025–2026</h2>
     <div class="cards">
