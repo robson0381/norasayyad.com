@@ -1,0 +1,49 @@
+name: Sync generated prototype
+
+on:
+  push:
+    branches:
+      - chatgpt/editorial-archive
+    paths:
+      - "build.py"
+      - "build_editorial.py"
+      - "build_memory.py"
+      - "build_options.py"
+      - "build_options_v2.py"
+      - "build_review.py"
+      - "content/photos.json"
+      - "content/current-site-inventory.json"
+      - ".github/workflows/generated-sync.yml"
+
+permissions:
+  contents: write
+
+jobs:
+  regenerate:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: chatgpt/editorial-archive
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Regenerate HTML
+        run: |
+          python build.py
+          python build_options.py
+          python build_options_v2.py
+          python build_review.py
+      - name: Commit generated files when changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html work about services news contact opcoes review
+          if git diff --cached --quiet; then
+            echo "Generated files are already in sync."
+          else
+            git commit -m "Sync generated prototype"
+            git push origin HEAD:chatgpt/editorial-archive
+          fi
