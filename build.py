@@ -328,6 +328,7 @@ def build_project(i):
   {figcaption}
 </figure>""")
     facts = "".join(f"<li><span>{k}</span><span>{v}</span></li>" for k, v in p["facts"])
+    intro_html = f"<p>{p['intro']}</p>" if p["intro"] else ""
     title_txt = strip_tags(p["title"])
     body = f"""<section style="padding-bottom:40px">
   <div class="wrap">
@@ -336,7 +337,7 @@ def build_project(i):
       <div>
         <h1>{p['title']}</h1>
         <p class="lead">{p['teaser']}</p>
-        {f"<p>{p['intro']}</p>" if p["intro"] else ""}
+        {intro_html}
       </div>
       <ul class="facts">
         {facts}
