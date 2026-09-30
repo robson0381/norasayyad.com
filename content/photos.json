@@ -1,410 +1,410 @@
 {
- "hero": {
-  "src": "https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/1746530662510-8H15BYD3FAAEB25P2SB5/ELY_KANSI_01_INSTAGRAM_valoisampi.jpg",
-  "w": 2500,
-  "h": 1406,
-  "alt": "A woman and a man stand back to back on a hillside, in black and white"
- },
- "notes-of-resistance": [
-  {
-   "src": "https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/e5e85ee9-ba4e-4f22-97c5-ca637303d65b/01.jpg",
-   "w": 1005,
-   "h": 1005,
-   "alt": "Profile of a young demonstrator in silhouette against a pale sky",
-   "chapter": "Black Lives Matter, Finland 2020"
+  "hero": {
+    "src": "https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/1746530662510-8H15BYD3FAAEB25P2SB5/ELY_KANSI_01_INSTAGRAM_valoisampi.jpg",
+    "w": 2500,
+    "h": 1406,
+    "alt": "A woman and a man stand back to back on a hillside, in black and white"
   },
-  {
-   "src": "https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/1746530454524-B46OC3HLMGI4IEMGKLCU/4W7A4693.jpg",
-   "w": 2000,
-   "h": 1125,
-   "alt": "Demonstrators raise their fists above the crowd"
-  },
-  {
-   "src": "https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/be0ea7eb-8e8c-47b6-90b6-ae9ce6191616/Kelet_kontrasti_NS.jpg",
-   "w": 2000,
-   "h": 1333,
-   "alt": "A woman holds up a hand-lettered Black Lives Matter sign"
-  },
-  {
-   "src": "https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/ecf4f6f8-0108-494e-960e-c20c2d3ce9c8/BLM_TKU_NORASAYYAD_02.jpg",
-   "w": 2000,
-   "h": 1333,
-   "alt": "The back of a T-shirt reading “No homophobia, no violence, no racism, no sexism”"
-  },
-  {
-   "src": "https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/5e9f4d0d-7ab1-4379-ba5b-aceb711d9d33/4W7A4929.jpg",
-   "w": 2000,
-   "h": 1333,
-   "alt": "A crowd on stone steps raising fists and phones"
-  },
-  {
-   "src": "https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/4a2f45be-9c01-438a-a423-aa479f3e2a92/4W7A4689.jpg",
-   "w": 2000,
-   "h": 1333,
-   "alt": "A speaker shouts into a megaphone in front of the crowd"
-  },
-  {
-   "src": "https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/98259fe4-eb3b-4189-b0e1-ce33fec31aa7/4W7A4498.jpg",
-   "w": 2000,
-   "h": 1333,
-   "alt": "A demonstrator seen from behind, facing a packed square"
-  },
-  {
-   "src": "https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/8a22cfb8-4135-473c-a21f-8d0319b9d695/_A2A4998.jpg",
-   "w": 2362,
-   "h": 3543,
-   "alt": "A Palestinian flag held high over a street demonstration",
-   "chapter": "Palestine solidarity, Helsinki"
-  },
-  {
-   "src": "https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/424a8cc6-3cce-4317-b864-1b6b5bf30b0c/Protestikuva_esimerkki_1A2A4430_Sayyad_.jpg",
-   "w": 2362,
-   "h": 3543,
-   "alt": "Palestinian flags raised above a crowded city street"
-  },
-  {
-   "src": "https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/13b64272-dd16-4ef4-8309-80a4ccec441c/_A2A0233_SRGB.jpg",
-   "w": 2362,
-   "h": 1575,
-   "alt": "A protester wrapped in a keffiyeh stands at a building entrance"
-  },
-  {
-   "src": "https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/655dc677-44de-4e91-b6b8-72fe3634f9f9/_A2A6933_SRGB.jpg",
-   "w": 2362,
-   "h": 3543,
-   "alt": "Candles and flowers laid on stone steps in memory of the dead"
-  },
-  {
-   "src": "https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/aaab268f-7340-44de-8e3e-89eb18f04560/_A2A3118+%281%29_SRGB.jpg",
-   "w": 2268,
-   "h": 3175,
-   "alt": "Candles and a handwritten “All eyes on Rafah” sign in the snow"
-  },
-  {
-   "src": "https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/5d8ebea6-8ce4-45c0-aa63-667585a40538/249A4622.jpg",
-   "w": 1575,
-   "h": 2362,
-   "alt": "Hand-made placards and flags at a demonstration"
-  },
-  {
-   "src": "https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/e247d195-0874-44b1-928e-2b3ea05d2887/249A4676_SRGB.jpg",
-   "w": 1575,
-   "h": 2362,
-   "alt": "A placard reading “Suomi, kanna vastuu” among Palestinian flags"
-  },
-  {
-   "src": "https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/3f618244-88f9-45cf-b120-fa7e2b7b5f8b/_A2A1694.jpg",
-   "w": 2362,
-   "h": 3543,
-   "alt": "A woman in a keffiyeh beneath Palestinian flags at dusk"
-  },
-  {
-   "src": "https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/aee39eb4-e30b-4688-854b-74f48aeeb592/_A2A3045.jpg",
-   "w": 2362,
-   "h": 3543,
-   "alt": "A Palestinian flag glows at a night-time vigil"
-  },
-  {
-   "src": "https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/994d87a5-1e9d-44fd-84ab-cc277aa5bf4e/_A2A3380.jpg",
-   "w": 1575,
-   "h": 2362,
-   "alt": "A musician performs on stage in warm light"
-  },
-  {
-   "src": "https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/e2aef143-769b-4304-897a-ff8997f92147/_A2A3389.jpg",
-   "w": 2362,
-   "h": 1575,
-   "alt": "A performer on a red-lit stage at a solidarity concert"
-  },
-  {
-   "src": "https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/2233db9a-6e4a-4df8-ad04-ae02209a2e76/_J1A3032_e.jpg",
-   "w": 3000,
-   "h": 2000,
-   "alt": "Demonstrators holding placards, in black and white"
-  },
-  {
-   "src": "https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/cee83288-3d3b-4015-9e03-cfeaab9a9844/_J1A3108.jpg",
-   "w": 3500,
-   "h": 2333,
-   "alt": "Demonstrators chanting in a dense crowd, in black and white"
-  },
-  {
-   "src": "https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/3b08d551-e730-49cd-8e30-075f408eb21d/249A4631.jpg",
-   "w": 2362,
-   "h": 1575,
-   "alt": "Speakers with a megaphone address a rally"
-  },
-  {
-   "src": "https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/054c3f8b-8f1b-4a14-a22b-4793727180fd/249A4673.jpg",
-   "w": 1575,
-   "h": 2362,
-   "alt": "A cardboard sign reading “Free Gaza” held above the crowd"
-  },
-  {
-   "src": "https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/168ee618-bfaf-481a-a408-9bf894b31dcb/_A2A6520.jpg",
-   "w": 3543,
-   "h": 2362,
-   "alt": "A banner reading “Stop genocide, free Palestine” carried down a street"
-  },
-  {
-   "src": "https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/012e12cb-0ed1-44c8-9142-0f4f28d64c78/_A2A6935.jpg",
-   "w": 3543,
-   "h": 2362,
-   "alt": "A placard asking “Does my life matter less because my skin is brown?”"
-  },
-  {
-   "src": "https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/6b39648d-cff7-43de-92be-19b9fc084f87/1A2A4843.jpg",
-   "w": 1313,
-   "h": 1969,
-   "alt": "Two people embrace at a gathering"
-  }
- ],
- "portraits": [
-  {
-   "src": "https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/22ca768e-e169-40d0-9ac6-a387e64b5691/_A2A1744+kopio.jpg",
-   "w": 6720,
-   "h": 4480,
-   "alt": "Two young women in black coats, one adjusting the other's collar"
-  },
-  {
-   "src": "https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/0a4bf557-9d34-491e-b85c-b73032121657/Koko_Mona_iso_grain.jpg",
-   "w": 4480,
-   "h": 6720,
-   "alt": "Two women in sunglasses sharing a whisper, in black and white"
-  },
-  {
-   "src": "https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/e6b6ac92-ca4f-41ce-8d04-4e2a07ed3558/uimari_01_norasayyad.jpg",
-   "w": 3000,
-   "h": 3000,
-   "alt": "Close portrait of a child against a deep blue wall"
-  },
-  {
-   "src": "https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/1109ae34-c931-4f4b-b7e1-5d46ccbc1900/249A6345.jpg",
-   "w": 5464,
-   "h": 8192,
-   "alt": "A woman with curly hair laughing, in black and white"
-  },
-  {
-   "src": "https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/0d7e0888-94e5-4956-9e26-70b1e8888d7e/249A6278.jpg",
-   "w": 5413,
-   "h": 8116,
-   "alt": "A woman in an orange jacket, her hair caught in motion"
-  },
-  {
-   "src": "https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/08e4c790-fae7-473d-b1f8-85ed2e972054/249A4960.jpg",
-   "w": 5464,
-   "h": 8192,
-   "alt": "Close-up of a smiling man, in black and white"
-  },
-  {
-   "src": "https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/6683beb1-9354-4cc4-be59-e0968ee88a51/ELY_KANSI_02_SOME_KESKIKOKO.jpg",
-   "w": 2000,
-   "h": 1333,
-   "alt": "Three young men standing together on a hillside, in black and white"
-  },
-  {
-   "src": "https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/2e004ccc-f7fd-4eaa-9d41-99c80a85ce7e/Iskander_Russia_19_NoraSayyad.jpg",
-   "w": 2022,
-   "h": 2053,
-   "alt": "A man crouching by a chain-link fence, in black and white"
-  },
-  {
-   "src": "https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/e8ec4f1b-46b4-4371-8c28-92d0129b2b84/41360003_Instagramversion.jpg",
-   "w": 3000,
-   "h": 3000,
-   "alt": "A man looking out through the open window of a car"
-  },
-  {
-   "src": "https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/c94a2f1c-1a7d-4a1d-bcc6-0b52d4b60649/_A2A0770+kopio+%281%29.jpg",
-   "w": 4480,
-   "h": 6720,
-   "alt": "A woman walking a dog through snow, carrying a red bag"
-  },
-  {
-   "src": "https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/8700f093-ba27-48d0-a87b-e4c4b4c0bff7/_49A9117.jpg",
-   "w": 5210,
-   "h": 7815,
-   "alt": "A person in traditional dress standing on a snowy path"
-  },
-  {
-   "src": "https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/9e42a7aa-7c17-4de9-9fdf-87c9e4bce626/Kopio+tiedostosta+_49A8740.jpg",
-   "w": 3643,
-   "h": 5461,
-   "alt": "A woman standing among birch trees in a snowy field"
-  },
-  {
-   "src": "https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/50aacb3e-8d2c-4d57-8f90-5b435d8f20bc/_A2A0158_versio5_kopio+%281%29.jpg",
-   "w": 4418,
-   "h": 6626,
-   "alt": "A group of women posing on a wooden staircase"
-  },
-  {
-   "src": "https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/1ceae102-f868-428d-8487-9711f2f51fbf/_A2A2231_some.jpg",
-   "w": 4480,
-   "h": 6720,
-   "alt": "A person with a shaved head resting a hand on their head, against black"
-  },
-  {
-   "src": "https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/1746530576498-JXIYTM8Q5UQ4RQVNQ3Z2/Pa%25CC%2588a%25CC%2588kuva_Aatike_Hedil_01.jpg",
-   "w": 2500,
-   "h": 1406,
-   "alt": "Two women in hijabs reclining on floral fabric"
-  },
-  {
-   "src": "https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/01cbc07a-6516-4597-8a09-219c1fb966db/4W7A3479.jpg",
-   "w": 3485,
-   "h": 2323,
-   "alt": "A woman in a headscarf in warm evening light"
-  },
-  {
-   "src": "https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/7c4fe495-18d3-4abd-a0e1-169ee45a8d7b/_A2A7782.jpg",
-   "w": 1969,
-   "h": 2953,
-   "alt": "A woman with curly hair, eyes closed, against a pale sky"
-  },
-  {
-   "src": "https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/35e08027-deea-4979-82e9-1a713a57f682/_A2A7374.jpg",
-   "w": 1969,
-   "h": 1313,
-   "alt": "Two people in colourful traditional dress sitting on grass"
-  },
-  {
-   "src": "https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/f4b2a33d-b163-48dd-a4d2-b45ecb74f65b/249A5695_SRGB-p.jpg",
-   "w": 2732,
-   "h": 4096,
-   "alt": "A woman in a keffiyeh sitting among autumn leaves"
-  }
- ],
- "from-arrival-to-belonging": [
-  {
-   "src": "https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/ee3ded84-435b-4bbe-b286-2f3410a30f54/nora_sayyad_UKJ2.jpg",
-   "w": 2668,
-   "h": 4000,
-   "alt": "Portrait of a man with a sprig of flowers, against a blue backdrop"
-  },
-  {
-   "src": "https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/a4a39869-0b02-4ffe-9865-0f443df7fdcc/nora_sayyad_UKJ1.jpg",
-   "w": 2668,
-   "h": 4000,
-   "alt": "Portrait of a young woman in red, against a blue backdrop"
-  },
-  {
-   "src": "https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/0643fb90-1fb8-4d88-a497-7cc6a38a87dd/nora_sayyad_UKJ3.jpg",
-   "w": 2668,
-   "h": 4000,
-   "alt": "Portrait of a woman holding a red flower, against a blue backdrop"
-  },
-  {
-   "src": "https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/e6292ab4-9554-46f3-93ef-6e954b5f706b/nora_sayyad_UKJ4.jpg",
-   "w": 2668,
-   "h": 4000,
-   "alt": "Portrait of a man in an embroidered shirt, against a blue backdrop"
-  },
-  {
-   "src": "https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/4a807b67-3946-42bf-84e1-56bbea358da5/nora_sayyad_UKJ5.jpg",
-   "w": 2668,
-   "h": 4000,
-   "alt": "Portrait of a woman wearing a red bead necklace, against a blue backdrop"
-  },
-  {
-   "src": "https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/89b7cd83-c3cb-474a-b133-56827a34231c/nora_sayyad_UKJ6.jpg",
-   "w": 2668,
-   "h": 4000,
-   "alt": "Portrait of a woman in black, against a blue backdrop"
-  },
-  {
-   "src": "https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/252b2d63-8c84-43e0-a5bc-390c3fa70add/nora_sayyad_UKJ7.jpg",
-   "w": 2668,
-   "h": 4000,
-   "alt": "Portrait of a man with a rose on his shirt, against a blue backdrop"
-  },
-  {
-   "src": "https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/375c51b3-1efc-439c-93d3-737bcbccc09f/nora_sayyad_UKJ8.jpg",
-   "w": 2668,
-   "h": 4000,
-   "alt": "Portrait of a woman in red, hand at her chin, against a blue backdrop"
-  },
-  {
-   "src": "https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/b8028615-1f89-4cc7-a633-bb61610a1f0f/nora_sayyad_UKJ9.jpg",
-   "w": 2668,
-   "h": 4000,
-   "alt": "Profile portrait of a woman with a red earring, against a blue backdrop"
-  },
-  {
-   "src": "https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/3dc7bd50-cfcc-4397-ba96-78b0e4bb12c1/nora_sayyad_UKJ10.jpg",
-   "w": 2668,
-   "h": 4000,
-   "alt": "Portrait of a bearded man in a grey jacket, against a blue backdrop"
-  }
- ],
- "parfyymin-tuulahdus": [
-  {
-   "src": "https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/b6e1baa5-1f89-4868-8972-ec0759a4b5b7/Parfyymin_tuulahdus_still_leben_grain_valo_01+%282%29.jpg",
-   "w": 3000,
-   "h": 2000,
-   "alt": "Still life of perfume bottles on a dark, blue-lit surface"
-  },
-  {
-   "src": "https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/c82d389c-7c2a-44ca-b50e-bbd97e319e67/Koko_Mona_iso_grain.jpg",
-   "w": 4480,
-   "h": 6720,
-   "alt": "Two women in sunglasses sharing a whisper, in black and white"
-  },
-  {
-   "src": "https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/09041bbe-897d-422e-a844-31202fcee7ff/Parfyymi_hamsat_v%C3%A4ri_01.jpg",
-   "w": 2000,
-   "h": 3000,
-   "alt": "A person lying back, holding up a hamsa charm against deep blue"
-  }
- ],
- "from-a-parallel-life": [
-  {
-   "src": "/assets/images/from-a-parallel-life/terra-dual.jpg",
-   "w": 700,
-   "h": 393,
-   "alt": "A split Earth floating against a star-filled sky"
-  },
-  {
-   "src": "/assets/images/from-a-parallel-life/torre-longe.jpg",
-   "w": 320,
-   "h": 320,
-   "alt": "A couple walks hand in hand in front of the Eiffel Tower"
-  },
-  {
-   "src": "/assets/images/from-a-parallel-life/bebe-azul.webp",
-   "w": 213,
-   "h": 320,
-   "alt": "A smiling baby in a pale blue top"
-  },
-  {
-   "src": "/assets/images/from-a-parallel-life/alianca.jpg",
-   "w": 320,
-   "h": 320,
-   "alt": "A smiling couple exchanges rings during an intimate wedding ceremony"
-  },
-  {
-   "src": "/assets/images/from-a-parallel-life/beijo.webp",
-   "w": 180,
-   "h": 320,
-   "alt": "A couple kisses by the Seine with Notre-Dame in the background"
-  },
-  {
-   "src": "/assets/images/from-a-parallel-life/bebe-inverno.webp",
-   "w": 240,
-   "h": 320,
-   "alt": "A baby in a cream knitted outfit and pom-pom hat"
-  },
-  {
-   "src": "/assets/images/from-a-parallel-life/torre-perto.webp",
-   "w": 320,
-   "h": 320,
-   "alt": "A couple embraces beneath the Eiffel Tower"
-  },
-  {
-   "src": "/assets/images/from-a-parallel-life/bebe-rosa.webp",
-   "w": 213,
-   "h": 320,
-   "alt": "A smiling baby in a soft pink top"
-  }
- ]
+  "notes-of-resistance": [
+    {
+      "src": "https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/e5e85ee9-ba4e-4f22-97c5-ca637303d65b/01.jpg",
+      "w": 1005,
+      "h": 1005,
+      "alt": "Profile of a young demonstrator in silhouette against a pale sky",
+      "chapter": "Black Lives Matter, Finland 2020"
+    },
+    {
+      "src": "https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/1746530454524-B46OC3HLMGI4IEMGKLCU/4W7A4693.jpg",
+      "w": 2000,
+      "h": 1125,
+      "alt": "Demonstrators raise their fists above the crowd"
+    },
+    {
+      "src": "https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/be0ea7eb-8e8c-47b6-90b6-ae9ce6191616/Kelet_kontrasti_NS.jpg",
+      "w": 2000,
+      "h": 1333,
+      "alt": "A woman holds up a hand-lettered Black Lives Matter sign"
+    },
+    {
+      "src": "https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/ecf4f6f8-0108-494e-960e-c20c2d3ce9c8/BLM_TKU_NORASAYYAD_02.jpg",
+      "w": 2000,
+      "h": 1333,
+      "alt": "The back of a T-shirt reading “No homophobia, no violence, no racism, no sexism”"
+    },
+    {
+      "src": "https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/5e9f4d0d-7ab1-4379-ba5b-aceb711d9d33/4W7A4929.jpg",
+      "w": 2000,
+      "h": 1333,
+      "alt": "A crowd on stone steps raising fists and phones"
+    },
+    {
+      "src": "https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/4a2f45be-9c01-438a-a423-aa479f3e2a92/4W7A4689.jpg",
+      "w": 2000,
+      "h": 1333,
+      "alt": "A speaker shouts into a megaphone in front of the crowd"
+    },
+    {
+      "src": "https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/98259fe4-eb3b-4189-b0e1-ce33fec31aa7/4W7A4498.jpg",
+      "w": 2000,
+      "h": 1333,
+      "alt": "A demonstrator seen from behind, facing a packed square"
+    },
+    {
+      "src": "https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/8a22cfb8-4135-473c-a21f-8d0319b9d695/_A2A4998.jpg",
+      "w": 2362,
+      "h": 3543,
+      "alt": "A Palestinian flag held high over a street demonstration",
+      "chapter": "Palestine solidarity, Helsinki"
+    },
+    {
+      "src": "https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/424a8cc6-3cce-4317-b864-1b6b5bf30b0c/Protestikuva_esimerkki_1A2A4430_Sayyad_.jpg",
+      "w": 2362,
+      "h": 3543,
+      "alt": "Palestinian flags raised above a crowded city street"
+    },
+    {
+      "src": "https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/13b64272-dd16-4ef4-8309-80a4ccec441c/_A2A0233_SRGB.jpg",
+      "w": 2362,
+      "h": 1575,
+      "alt": "A protester wrapped in a keffiyeh stands at a building entrance"
+    },
+    {
+      "src": "https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/655dc677-44de-4e91-b6b8-72fe3634f9f9/_A2A6933_SRGB.jpg",
+      "w": 2362,
+      "h": 3543,
+      "alt": "Candles and flowers laid on stone steps in memory of the dead"
+    },
+    {
+      "src": "https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/aaab268f-7340-44de-8e3e-89eb18f04560/_A2A3118+%281%29_SRGB.jpg",
+      "w": 2268,
+      "h": 3175,
+      "alt": "Candles and a handwritten “All eyes on Rafah” sign in the snow"
+    },
+    {
+      "src": "https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/5d8ebea6-8ce4-45c0-aa63-667585a40538/249A4622.jpg",
+      "w": 1575,
+      "h": 2362,
+      "alt": "Hand-made placards and flags at a demonstration"
+    },
+    {
+      "src": "https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/e247d195-0874-44b1-928e-2b3ea05d2887/249A4676_SRGB.jpg",
+      "w": 1575,
+      "h": 2362,
+      "alt": "A placard reading “Suomi, kanna vastuu” among Palestinian flags"
+    },
+    {
+      "src": "https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/3f618244-88f9-45cf-b120-fa7e2b7b5f8b/_A2A1694.jpg",
+      "w": 2362,
+      "h": 3543,
+      "alt": "A woman in a keffiyeh beneath Palestinian flags at dusk"
+    },
+    {
+      "src": "https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/aee39eb4-e30b-4688-854b-74f48aeeb592/_A2A3045.jpg",
+      "w": 2362,
+      "h": 3543,
+      "alt": "A Palestinian flag glows at a night-time vigil"
+    },
+    {
+      "src": "https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/994d87a5-1e9d-44fd-84ab-cc277aa5bf4e/_A2A3380.jpg",
+      "w": 1575,
+      "h": 2362,
+      "alt": "A musician performs on stage in warm light"
+    },
+    {
+      "src": "https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/e2aef143-769b-4304-897a-ff8997f92147/_A2A3389.jpg",
+      "w": 2362,
+      "h": 1575,
+      "alt": "A performer on a red-lit stage at a solidarity concert"
+    },
+    {
+      "src": "https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/2233db9a-6e4a-4df8-ad04-ae02209a2e76/_J1A3032_e.jpg",
+      "w": 3000,
+      "h": 2000,
+      "alt": "Demonstrators holding placards, in black and white"
+    },
+    {
+      "src": "https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/cee83288-3d3b-4015-9e03-cfeaab9a9844/_J1A3108.jpg",
+      "w": 3500,
+      "h": 2333,
+      "alt": "Demonstrators chanting in a dense crowd, in black and white"
+    },
+    {
+      "src": "https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/3b08d551-e730-49cd-8e30-075f408eb21d/249A4631.jpg",
+      "w": 2362,
+      "h": 1575,
+      "alt": "Speakers with a megaphone address a rally"
+    },
+    {
+      "src": "https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/054c3f8b-8f1b-4a14-a22b-4793727180fd/249A4673.jpg",
+      "w": 1575,
+      "h": 2362,
+      "alt": "A cardboard sign reading “Free Gaza” held above the crowd"
+    },
+    {
+      "src": "https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/168ee618-bfaf-481a-a408-9bf894b31dcb/_A2A6520.jpg",
+      "w": 3543,
+      "h": 2362,
+      "alt": "A banner reading “Stop genocide, free Palestine” carried down a street"
+    },
+    {
+      "src": "https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/012e12cb-0ed1-44c8-9142-0f4f28d64c78/_A2A6935.jpg",
+      "w": 3543,
+      "h": 2362,
+      "alt": "A placard asking “Does my life matter less because my skin is brown?”"
+    },
+    {
+      "src": "https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/6b39648d-cff7-43de-92be-19b9fc084f87/1A2A4843.jpg",
+      "w": 1313,
+      "h": 1969,
+      "alt": "Two people embrace at a gathering"
+    }
+  ],
+  "portraits": [
+    {
+      "src": "https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/22ca768e-e169-40d0-9ac6-a387e64b5691/_A2A1744+kopio.jpg",
+      "w": 6720,
+      "h": 4480,
+      "alt": "Two young women in black coats, one adjusting the other's collar"
+    },
+    {
+      "src": "https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/0a4bf557-9d34-491e-b85c-b73032121657/Koko_Mona_iso_grain.jpg",
+      "w": 4480,
+      "h": 6720,
+      "alt": "Two women in sunglasses sharing a whisper, in black and white"
+    },
+    {
+      "src": "https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/e6b6ac92-ca4f-41ce-8d04-4e2a07ed3558/uimari_01_norasayyad.jpg",
+      "w": 3000,
+      "h": 3000,
+      "alt": "Close portrait of a child against a deep blue wall"
+    },
+    {
+      "src": "https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/1109ae34-c931-4f4b-b7e1-5d46ccbc1900/249A6345.jpg",
+      "w": 5464,
+      "h": 8192,
+      "alt": "A woman with curly hair laughing, in black and white"
+    },
+    {
+      "src": "https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/0d7e0888-94e5-4956-9e26-70b1e8888d7e/249A6278.jpg",
+      "w": 5413,
+      "h": 8116,
+      "alt": "A woman in an orange jacket, her hair caught in motion"
+    },
+    {
+      "src": "https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/08e4c790-fae7-473d-b1f8-85ed2e972054/249A4960.jpg",
+      "w": 5464,
+      "h": 8192,
+      "alt": "Close-up of a smiling man, in black and white"
+    },
+    {
+      "src": "https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/6683beb1-9354-4cc4-be59-e0968ee88a51/ELY_KANSI_02_SOME_KESKIKOKO.jpg",
+      "w": 2000,
+      "h": 1333,
+      "alt": "Three young men standing together on a hillside, in black and white"
+    },
+    {
+      "src": "https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/2e004ccc-f7fd-4eaa-9d41-99c80a85ce7e/Iskander_Russia_19_NoraSayyad.jpg",
+      "w": 2022,
+      "h": 2053,
+      "alt": "A man crouching by a chain-link fence, in black and white"
+    },
+    {
+      "src": "https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/e8ec4f1b-46b4-4371-8c28-92d0129b2b84/41360003_Instagramversion.jpg",
+      "w": 3000,
+      "h": 3000,
+      "alt": "A man looking out through the open window of a car"
+    },
+    {
+      "src": "https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/c94a2f1c-1a7d-4a1d-bcc6-0b52d4b60649/_A2A0770+kopio+%281%29.jpg",
+      "w": 4480,
+      "h": 6720,
+      "alt": "A woman walking a dog through snow, carrying a red bag"
+    },
+    {
+      "src": "https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/8700f093-ba27-48d0-a87b-e4c4b4c0bff7/_49A9117.jpg",
+      "w": 5210,
+      "h": 7815,
+      "alt": "A person in traditional dress standing on a snowy path"
+    },
+    {
+      "src": "https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/9e42a7aa-7c17-4de9-9fdf-87c9e4bce626/Kopio+tiedostosta+_49A8740.jpg",
+      "w": 3643,
+      "h": 5461,
+      "alt": "A woman standing among birch trees in a snowy field"
+    },
+    {
+      "src": "https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/50aacb3e-8d2c-4d57-8f90-5b435d8f20bc/_A2A0158_versio5_kopio+%281%29.jpg",
+      "w": 4418,
+      "h": 6626,
+      "alt": "A group of women posing on a wooden staircase"
+    },
+    {
+      "src": "https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/1ceae102-f868-428d-8487-9711f2f51fbf/_A2A2231_some.jpg",
+      "w": 4480,
+      "h": 6720,
+      "alt": "A person with a shaved head resting a hand on their head, against black"
+    },
+    {
+      "src": "https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/1746530576498-JXIYTM8Q5UQ4RQVNQ3Z2/Pa%25CC%2588a%25CC%2588kuva_Aatike_Hedil_01.jpg",
+      "w": 2500,
+      "h": 1406,
+      "alt": "Two women in hijabs reclining on floral fabric"
+    },
+    {
+      "src": "https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/01cbc07a-6516-4597-8a09-219c1fb966db/4W7A3479.jpg",
+      "w": 3485,
+      "h": 2323,
+      "alt": "A woman in a headscarf in warm evening light"
+    },
+    {
+      "src": "https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/7c4fe495-18d3-4abd-a0e1-169ee45a8d7b/_A2A7782.jpg",
+      "w": 1969,
+      "h": 2953,
+      "alt": "A woman with curly hair, eyes closed, against a pale sky"
+    },
+    {
+      "src": "https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/35e08027-deea-4979-82e9-1a713a57f682/_A2A7374.jpg",
+      "w": 1969,
+      "h": 1313,
+      "alt": "Two people in colourful traditional dress sitting on grass"
+    },
+    {
+      "src": "https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/f4b2a33d-b163-48dd-a4d2-b45ecb74f65b/249A5695_SRGB-p.jpg",
+      "w": 2732,
+      "h": 4096,
+      "alt": "A woman in a keffiyeh sitting among autumn leaves"
+    }
+  ],
+  "from-arrival-to-belonging": [
+    {
+      "src": "https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/ee3ded84-435b-4bbe-b286-2f3410a30f54/nora_sayyad_UKJ2.jpg",
+      "w": 2668,
+      "h": 4000,
+      "alt": "Portrait of a man with a sprig of flowers, against a blue backdrop"
+    },
+    {
+      "src": "https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/a4a39869-0b02-4ffe-9865-0f443df7fdcc/nora_sayyad_UKJ1.jpg",
+      "w": 2668,
+      "h": 4000,
+      "alt": "Portrait of a young woman in red, against a blue backdrop"
+    },
+    {
+      "src": "https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/0643fb90-1fb8-4d88-a497-7cc6a38a87dd/nora_sayyad_UKJ3.jpg",
+      "w": 2668,
+      "h": 4000,
+      "alt": "Portrait of a woman holding a red flower, against a blue backdrop"
+    },
+    {
+      "src": "https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/e6292ab4-9554-46f3-93ef-6e954b5f706b/nora_sayyad_UKJ4.jpg",
+      "w": 2668,
+      "h": 4000,
+      "alt": "Portrait of a man in an embroidered shirt, against a blue backdrop"
+    },
+    {
+      "src": "https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/4a807b67-3946-42bf-84e1-56bbea358da5/nora_sayyad_UKJ5.jpg",
+      "w": 2668,
+      "h": 4000,
+      "alt": "Portrait of a woman wearing a red bead necklace, against a blue backdrop"
+    },
+    {
+      "src": "https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/89b7cd83-c3cb-474a-b133-56827a34231c/nora_sayyad_UKJ6.jpg",
+      "w": 2668,
+      "h": 4000,
+      "alt": "Portrait of a woman in black, against a blue backdrop"
+    },
+    {
+      "src": "https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/252b2d63-8c84-43e0-a5bc-390c3fa70add/nora_sayyad_UKJ7.jpg",
+      "w": 2668,
+      "h": 4000,
+      "alt": "Portrait of a man with a rose on his shirt, against a blue backdrop"
+    },
+    {
+      "src": "https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/375c51b3-1efc-439c-93d3-737bcbccc09f/nora_sayyad_UKJ8.jpg",
+      "w": 2668,
+      "h": 4000,
+      "alt": "Portrait of a woman in red, hand at her chin, against a blue backdrop"
+    },
+    {
+      "src": "https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/b8028615-1f89-4cc7-a633-bb61610a1f0f/nora_sayyad_UKJ9.jpg",
+      "w": 2668,
+      "h": 4000,
+      "alt": "Profile portrait of a woman with a red earring, against a blue backdrop"
+    },
+    {
+      "src": "https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/3dc7bd50-cfcc-4397-ba96-78b0e4bb12c1/nora_sayyad_UKJ10.jpg",
+      "w": 2668,
+      "h": 4000,
+      "alt": "Portrait of a bearded man in a grey jacket, against a blue backdrop"
+    }
+  ],
+  "parfyymin-tuulahdus": [
+    {
+      "src": "https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/b6e1baa5-1f89-4868-8972-ec0759a4b5b7/Parfyymin_tuulahdus_still_leben_grain_valo_01+%282%29.jpg",
+      "w": 3000,
+      "h": 2000,
+      "alt": "Still life of perfume bottles on a dark, blue-lit surface"
+    },
+    {
+      "src": "https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/c82d389c-7c2a-44ca-b50e-bbd97e319e67/Koko_Mona_iso_grain.jpg",
+      "w": 4480,
+      "h": 6720,
+      "alt": "Two women in sunglasses sharing a whisper, in black and white"
+    },
+    {
+      "src": "https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/09041bbe-897d-422e-a844-31202fcee7ff/Parfyymi_hamsat_v%C3%A4ri_01.jpg",
+      "w": 2000,
+      "h": 3000,
+      "alt": "A person lying back, holding up a hamsa charm against deep blue"
+    }
+  ],
+  "from-a-parallel-life": [
+    {
+      "src": "/assets/images/from-a-parallel-life/terra-dual.webp",
+      "w": 739,
+      "h": 415,
+      "alt": "A split Earth floating against a star-filled sky"
+    },
+    {
+      "src": "/assets/images/from-a-parallel-life/torre-longe.webp",
+      "w": 900,
+      "h": 900,
+      "alt": "A couple walks hand in hand in front of the Eiffel Tower"
+    },
+    {
+      "src": "/assets/images/from-a-parallel-life/bebe-azul.webp",
+      "w": 666,
+      "h": 1000,
+      "alt": "A smiling baby in a pale blue top"
+    },
+    {
+      "src": "/assets/images/from-a-parallel-life/alianca.webp",
+      "w": 1400,
+      "h": 1400,
+      "alt": "A smiling couple exchanges rings during an intimate wedding ceremony"
+    },
+    {
+      "src": "/assets/images/from-a-parallel-life/beijo.webp",
+      "w": 789,
+      "h": 1400,
+      "alt": "A couple kisses by the Seine with Notre-Dame in the background"
+    },
+    {
+      "src": "/assets/images/from-a-parallel-life/bebe-inverno.webp",
+      "w": 750,
+      "h": 1000,
+      "alt": "A baby in a cream knitted outfit and pom-pom hat"
+    },
+    {
+      "src": "/assets/images/from-a-parallel-life/torre-perto.webp",
+      "w": 850,
+      "h": 850,
+      "alt": "A couple embraces beneath the Eiffel Tower"
+    },
+    {
+      "src": "/assets/images/from-a-parallel-life/bebe-rosa.webp",
+      "w": 666,
+      "h": 1000,
+      "alt": "A smiling baby in a soft pink top"
+    }
+  ]
 }
