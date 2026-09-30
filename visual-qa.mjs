@@ -204,12 +204,14 @@ for (const [mode, viewport] of viewports) {
   await page.goto(base + '/work/from-a-parallel-life/', { waitUntil: 'domcontentloaded' });
   await page.evaluate(() => document.fonts?.ready);
   await page.waitForTimeout(500);
-  const lowRes = await page.locator('.story img').evaluateAll(imgs =>
-    imgs.map(img => ({ src: img.getAttribute('src'), w: img.naturalWidth, h: img.naturalHeight }))
-      .filter(img => img.w < 600 || img.h < 390)
+  const overScaled = await page.locator('.story img').evaluateAll(imgs =>
+    imgs.map(img => {
+      const r = img.getBoundingClientRect();
+      return { src: img.getAttribute('src'), naturalW: img.naturalWidth, renderedW: Math.round(r.width), ratio: img.naturalWidth ? r.width / img.naturalWidth : 999 };
+    }).filter(img => img.ratio > 1.2)
   );
-  if (lowRes.length) failures.push(`parallel-low-res: ${JSON.stringify(lowRes)}`);
-  results.push({ mode: 'desktop', name: 'parallel-resolution', lowRes });
+  if (overScaled.length) failures.push(`parallel-overscaled: ${JSON.stringify(overScaled)}`);
+  results.push({ mode: 'desktop', name: 'parallel-resolution', overScaled });
   await context.close();
 }
 
