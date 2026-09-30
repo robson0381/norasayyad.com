@@ -559,6 +559,8 @@ def build_about():
         ("2025", "The Lost Paintings Residency, Boston, US"),
         ("2025", '<a href="https://urbanapa.fi/events/ua-miniresidencies-nora-sayyad/">UrbanApa Miniresidencies / HIAP</a>, Helsinki'),
         ("2025", "Summer Well: Art and Activism, Saari Residence, Kone Foundation"),
+        ("2023", "Societal ETMU Award to Palestinian Voices in Finland, accepted on behalf of the organisation, Jyväskylä"),
+        ("2022", "Helsinki Cultural Act Award to the Refugee Film Festival team (festival photographer)"),
         ("2021", "<em>No Justice, No Peace</em> — Vuoden Huiput, Gold; Finland's Most Beautiful Books, Special Books (assistant curator)"),
         ("2019", "Jouko Lehtola Foundation & The Finnish Institute, St. Petersburg"),
     ])}
