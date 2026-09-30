@@ -173,7 +173,7 @@ def page(path, title, desc, body, current=None, og=None):
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600&family=Newsreader:opsz,wght@6..72,400;6..72,500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/css/style.css?v=20260930-8">
+<link rel="stylesheet" href="/assets/css/style.css?v=20260930-10">
 </head>
 <body class="{body_class}">
 <a class="skip" href="#main">Skip to content</a>
@@ -208,7 +208,7 @@ def page(path, title, desc, body, current=None, og=None):
 {body}
 </main>
 {footer_html}
-<script src="/assets/js/main.js?v=20260930-8" defer></script>
+<script src="/assets/js/main.js?v=20260930-10" defer></script>
 </body>
 </html>
 """
@@ -238,22 +238,22 @@ CREDS = """<section class="credibility" aria-label="Selected recognition">
       <div class="credential-group">
         <p class="credential-label">Published</p>
         <div class="credential-marks">
-          <img class="credential-mark mark-wapo" src="/assets/logos/washington-post.svg" width="463" height="72" alt="The Washington Post">
-          <span class="credential-mark mark-times" aria-label="The Times">The Times</span>
+          <img class="credential-mark mark-wapo" src="/assets/logos/washington-post.svg" width="463" height="72" alt="The Washington Post" loading="lazy" decoding="async">
+          <img class="credential-mark mark-times" src="/assets/logos/the-times.png" width="1084" height="127" alt="The Times" loading="lazy" decoding="async">
         </div>
       </div>
       <div class="credential-group">
         <p class="credential-label">Exhibited</p>
         <div class="credential-marks">
-          <span class="credential-mark mark-helsinki" aria-label="Helsinki City Museum">Helsinki<br>City Museum</span>
-          <span class="credential-mark mark-photo-museum" aria-label="The Finnish Museum of Photography">The Finnish Museum<br>of Photography</span>
+          <img class="credential-mark mark-helsinki" src="/assets/logos/helsinki-city-museum.png" width="475" height="117" alt="Helsinki City Museum" loading="lazy" decoding="async">
+          <img class="credential-mark mark-photo-museum" src="/assets/logos/finnish-museum-of-photography.png" width="240" height="240" alt="The Finnish Museum of Photography" loading="lazy" decoding="async">
         </div>
       </div>
       <div class="credential-group">
         <p class="credential-label">Collected</p>
         <div class="credential-marks">
-          <span class="credential-mark mark-migration" aria-label="Migration Institute of Finland">Migration Institute<br>of Finland</span>
-          <span class="credential-mark mark-library" aria-label="The National Library of Finland">The National Library<br>of Finland</span>
+          <img class="credential-mark mark-migration" src="/assets/logos/migration-institute-of-finland.png" width="429" height="240" alt="Migration Institute of Finland" loading="lazy" decoding="async">
+          <img class="credential-mark mark-library" src="/assets/logos/national-library-of-finland.png" width="168" height="121" alt="The National Library of Finland" loading="lazy" decoding="async">
         </div>
       </div>
     </div>
@@ -288,7 +288,7 @@ def build_home():
     ]
     featured = "\n".join(
         f"""<a class="editorial-project" href="/work/{p['slug']}/">
-  <div class="editorial-project-image">{img(cover(p), "(max-width: 640px) 100vw, 25vw", "cover")}</div>
+  <div class="editorial-project-image" style="--cover:url('{cover(p)["src"]}?format=500w')">{img(cover(p), "(max-width: 640px) 100vw, 25vw", "cover")}</div>
   <h3>{split_title(p['title'])}</h3>
   <div class="meta">{p["meta"]} · {len(PHOTOS[p['slug']])} photographs</div>
 </a>""" for p in featured_projects
@@ -298,23 +298,15 @@ def build_home():
     <div class="hero-stage" data-hero>
       <div class="hero-slides">{slide_html}</div>
       <div class="hero-shade"></div>
-      <div class="mobile-hero-copy">
-        <p class="mobile-kicker">Stories of</p>
-        <h2>Memory,<br>Movement and<br>Belonging.</h2>
-        <span class="mobile-rule" aria-hidden="true"></span>
-        <p class="mobile-intro">Nora Sayyad is a Finnish-Palestinian photographer and visual artist working across documentary, conceptual and poetic forms.</p>
-        <div class="mobile-hero-actions">
-          <a class="mobile-primary" href="#featured">View selected work <span>→</span></a>
-          <a class="mobile-secondary" href="/about/">About the artist <span>→</span></a>
-        </div>
-      </div>
       <div class="hero-copy">
         <p class="eyebrow light">Photographer · Artist · Visual reporter · Helsinki</p>
         <h1 id="home-title">Nora<br>Sayyad</h1>
       </div>
       <div class="hero-foot">
+        <span class="mobile-rule" aria-hidden="true"></span>
         <p>Finnish-Palestinian photographer, artist and visual reporter whose practice moves between documentary and poetic storytelling.</p>
-        <a class="btn accent" href="/work/">Explore work →</a>
+        <a class="btn accent" href="/work/">View Portfolio <span aria-hidden="true">→</span></a>
+        <a class="hero-about" href="/about/">About the artist <span aria-hidden="true">→</span></a>
       </div>
       <div class="hero-controls" aria-label="Featured photographs">
         <span data-hero-index aria-live="polite">01 / {len(slides):02d}</span>

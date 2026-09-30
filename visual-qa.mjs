@@ -158,14 +158,10 @@ for (const [mode, viewport] of viewports) {
   });
   await page.screenshot({ path: 'qa-artifacts/mobile-home-menu.png', fullPage: false });
 
-  const mobileHeroVisible = await page.locator('.mobile-hero-copy').evaluate(el => {
-    const s = getComputedStyle(el);
-    return s.display !== 'none' && s.visibility !== 'hidden' && parseFloat(s.opacity || '1') > 0;
-  });
-  // The desktop copy stays in the accessibility tree (it holds the page h1) but must not be visible.
-  const desktopHeroHidden = await page.locator('.hero-copy').evaluate(el => {
+  // Mobile shows the same hero copy as desktop (name, text, View Portfolio) in normal flow.
+  const mobileHeroVisible = await page.locator('.hero-copy h1').evaluate(el => {
     const r = el.getBoundingClientRect();
-    return getComputedStyle(el).display === 'none' || (r.width <= 1 && r.height <= 1);
+    return r.width > 100 && getComputedStyle(el).visibility !== 'hidden';
   });
   const menuSequence = await page.locator('#nav a').evaluateAll(links =>
     // getClientRects() is empty for links inside the collapsed Work submenu.
@@ -173,8 +169,7 @@ for (const [mode, viewport] of viewports) {
       .map(a => a.textContent.trim())
   );
   const expectedMenu = ['Home', 'Work', 'Current', 'Commissions', 'About', 'Get in touch'];
-  if (!mobileHeroVisible) failures.push('mobile/home: mobile editorial hero copy is not visible');
-  if (!desktopHeroHidden) failures.push('mobile/home: desktop hero copy is still visible');
+  if (!mobileHeroVisible) failures.push('mobile/home: hero title is not visible');
   if (JSON.stringify(menuSequence) !== JSON.stringify(expectedMenu)) {
     failures.push(`mobile/home: menu sequence ${JSON.stringify(menuSequence)} != ${JSON.stringify(expectedMenu)}`);
   }
@@ -193,7 +188,6 @@ for (const [mode, viewport] of viewports) {
     name: 'home-interactions',
     navVisible,
     mobileHeroVisible,
-    desktopHeroHidden,
     menuSequence,
     heroBefore: before,
     heroAfter: after,

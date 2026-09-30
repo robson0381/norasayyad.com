@@ -28,6 +28,14 @@ if (toggle && nav) {
   window.matchMedia('(min-width: 961px)').addEventListener('change', (m) => { if (m.matches) setMenu(false); });
 }
 
+// Home header on mobile stays fixed over the hero and gains a background once the page scrolls
+const homeHeader = document.querySelector('.page-home .site-header');
+if (homeHeader) {
+  const onScroll = () => homeHeader.classList.toggle('is-scrolled', window.scrollY > 40);
+  onScroll();
+  window.addEventListener('scroll', onScroll, { passive: true });
+}
+
 // Site search over assets/search-index.json (built by build.py)
 const searchForms = [...document.querySelectorAll('[data-search]')];
 if (searchForms.length) {
