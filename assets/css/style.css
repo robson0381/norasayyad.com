@@ -179,7 +179,7 @@ section{padding:clamp(56px,7vw,96px) 0;border-bottom:1px solid var(--line)}
 
 /* Lightbox */
 .lightbox{position:fixed;inset:0;background:rgba(8,8,8,.95);display:none;align-items:center;justify-content:center;z-index:200;padding:56px 16px}
-.lightbox.open{display:flex}.lb-stage{display:grid;place-items:center;perspective:1600px;transform-style:preserve-3d}.lightbox img{max-width:92vw;max-height:82vh;width:auto;height:auto;backface-visibility:hidden}
+.lightbox.open{display:flex}.lb-stage{display:grid;place-items:center}.lightbox img{max-width:92vw;max-height:82vh;width:auto;height:auto}
 100%{opacity:1;transform-origin:left center;transform:rotateY(0) translateX(0)}}
 100%{opacity:1;transform-origin:right center;transform:rotateY(0) translateX(0)}}.lightbox button{position:absolute;background:none;border:0;color:#fff;font-size:2rem;cursor:pointer;padding:12px 18px}
 .lightbox .lb-close{top:8px;right:8px}.lightbox .lb-prev{left:4px;top:50%;transform:translateY(-50%)}.lightbox .lb-next{right:4px;top:50%;transform:translateY(-50%)}
@@ -238,7 +238,7 @@ textarea{min-height:170px;resize:vertical}.two{display:grid;grid-template-column
   .hero-copy{left:24px;right:24px;top:auto;bottom:74px;transform:none;width:auto}.hero-caption{display:none}.hero-copy h1{font-size:clamp(3.8rem,17vw,7rem)}
   .editorial-projects{grid-template-columns:1fr 1fr}
   .work-index .cards{grid-template-columns:1fr 1fr;gap:36px 16px}
-  .work-hero{aspect-ratio:16/8;margin-bottom:42px}
+  .work-hero{height:auto;min-height:0;aspect-ratio:16/8;margin-bottom:42px}
   .work-hero-copy{width:min(520px,58%);top:12%;transform:none}
   .work-hero-copy h1{font-size:clamp(3.5rem,10vw,6rem)}
   .credibility{padding:18px 0 20px}
@@ -265,7 +265,7 @@ textarea{min-height:170px;resize:vertical}.two{display:grid;grid-template-column
   .hero-controls{left:24px;transform:none}
   .editorial-projects{grid-template-columns:1fr}
   .work-index .cards{grid-template-columns:1fr;gap:36px}
-  .work-hero{aspect-ratio:4/5;margin-bottom:36px}
+  .work-hero{height:auto;min-height:0;aspect-ratio:4/5;margin-bottom:36px}
   .work-hero img{object-position:center}
   .work-hero-shade{background:linear-gradient(0deg,rgba(5,5,5,.78) 0%,rgba(5,5,5,.38) 55%,rgba(5,5,5,.08) 100%)}
   .work-hero-copy{left:20px;right:20px;bottom:28px;top:auto;transform:none;width:auto}
