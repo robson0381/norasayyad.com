@@ -173,7 +173,7 @@ def page(path, title, desc, body, current=None, og=None):
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600&family=Newsreader:opsz,wght@6..72,400;6..72,500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/css/style.css?v=20260930-11">
+<link rel="stylesheet" href="/assets/css/style.css?v=20260930-14">
 </head>
 <body class="{body_class}">
 <a class="skip" href="#main">Skip to content</a>
@@ -208,7 +208,7 @@ def page(path, title, desc, body, current=None, og=None):
 {body}
 </main>
 {footer_html}
-<script src="/assets/js/main.js?v=20260930-11" defer></script>
+<script src="/assets/js/main.js?v=20260930-14" defer></script>
 </body>
 </html>
 """
@@ -366,7 +366,7 @@ def build_home():
 {CREDS}
 <section class="commission-band">
   <div class="wrap commission-editorial">
-    <h2>Commissions<br>& editorial.</h2>
+    <h2>Commissions <br>&amp; editorial.</h2>
     <div>
       <p>Available for editorial, institutional and selected commissioned work in Finland and internationally.</p>
       <a class="btn inverse" href="/contact/">Discuss a project →</a>
@@ -577,12 +577,10 @@ def build_news():
         f'<article class="news-item">{thumb}<div class="news-item-copy"><p class="meta">{meta}</p><h3>{title}</h3><p>{text}</p></div></article>'
         for thumb, meta, title, text in more
     )
-    body = f"""<section class="current-intro">
-  <div class="wrap">
+    body = f"""<section class="current-feature" aria-labelledby="lost-paintings">
+  <div class="wrap current-title">
     <h1>Exhibitions & news</h1>
   </div>
-</section>
-<section class="current-feature" aria-labelledby="lost-paintings">
   <div class="wrap news-feature">
     <figure class="lost-paintings-image"><img src="{LOST_PAINTINGS_IMAGE}" width="420" height="530" alt="The Lost Paintings exhibition artwork" loading="eager" decoding="async"></figure>
     <div class="news-feature-copy">

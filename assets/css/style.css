@@ -82,7 +82,6 @@ main>section{background:var(--surface);border-bottom:0;margin-bottom:12px}
 .site-header{background:rgba(251,250,246,.96)}
 .page-home main>.editorial-hero{background:none}
 main>.commission-band{background:var(--blue);margin-bottom:0}
-.page-news main>.current-intro{margin-bottom:0}
 .section-head{display:flex;justify-content:space-between;align-items:end;gap:24px;margin-bottom:30px;flex-wrap:wrap}
 .section-head h2{margin:0}
 .ph{position:relative;background:linear-gradient(135deg,var(--ph-a),var(--ph-b));aspect-ratio:4/5;width:100%;overflow:hidden}
@@ -140,11 +139,14 @@ main>.commission-band{background:var(--blue);margin-bottom:0}
 .about-editorial{display:grid;grid-template-columns:.72fr 1.28fr;gap:clamp(34px,6vw,80px);align-items:start}
 .about-editorial h2{font-size:clamp(3rem,6vw,6rem);line-height:.86}
 .about-portrait{aspect-ratio:4/5;margin:0;overflow:hidden;background:var(--ph-a)}.about-portrait img{width:100%;height:100%;object-fit:cover;object-position:center}
-.commission-band{background:var(--blue);color:white;border-bottom:0;padding-bottom:34px}
-.commission-editorial{display:grid;grid-template-columns:1.15fr .85fr;gap:50px;align-items:end}
-.commission-editorial h2{font-size:clamp(3.5rem,7vw,7.5rem);line-height:.82;margin:0}
-.commission-editorial p{max-width:520px;font-size:1.05rem}
-.home-footer{margin-top:clamp(48px,6vw,82px);padding-top:22px;border-top:1px solid rgba(255,255,255,.3);display:flex;justify-content:space-between;align-items:flex-start;gap:22px;font-size:.76rem;color:rgba(255,255,255,.82)}
+.commission-band{background:var(--blue);color:white;border-bottom:0;padding:41px 0 23px}
+.commission-editorial{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:clamp(20px,3vw,48px);align-items:center}
+.commission-editorial>div{display:contents}
+.commission-editorial h2{font-size:clamp(1.6rem,2.3vw,2.3rem);line-height:.95;margin:0}
+.commission-editorial h2 br{display:none}
+.commission-editorial p{max-width:460px;font-size:.86rem;line-height:1.5;margin:0;color:rgba(255,255,255,.88)}
+.commission-editorial .btn{padding:10px 14px;font-size:.62rem;white-space:nowrap}
+.home-footer{margin-top:16px;padding-top:12px;border-top:1px solid rgba(255,255,255,.3);display:flex;justify-content:space-between;align-items:flex-start;gap:22px;font-size:.7rem;color:rgba(255,255,255,.78)}
 .home-footer p{margin:0}
 .home-footer ul{list-style:none;margin:0;padding:0;display:flex;gap:20px;flex-wrap:wrap}
 .home-footer a{color:inherit;text-underline-offset:3px}
@@ -236,8 +238,8 @@ main>section.work-index{background:none;padding-bottom:0}
 
 /* About / CV */
 .about-top{display:grid;grid-template-columns:.72fr 1.28fr;gap:clamp(30px,6vw,80px);align-items:start}
-.about-hero{padding:22px 0 0;border-bottom:0}
-.about-hero-stage{height:min(74vh,780px);min-height:570px;display:grid;grid-template-columns:.72fr 1.28fr;overflow:hidden;background:var(--surface);border-bottom:1px solid var(--line)}
+main>section.about-hero{padding:22px 0 0;background:none}
+.about-hero-stage{height:min(74vh,780px);min-height:570px;display:grid;grid-template-columns:.72fr 1.28fr;overflow:hidden;background:var(--surface)}
 .about-hero-portrait{height:100%;margin:0;overflow:hidden;background:#e8e3d9}
 .about-hero-portrait img{width:100%;height:100%;object-fit:cover;object-position:center 34%}
 .about-hero-copy{padding:clamp(30px,4.8vw,72px);display:flex;flex-direction:column;justify-content:center;min-width:0}
@@ -253,9 +255,7 @@ details ul{margin:14px 0 0;padding-left:1.1em}.cv b{display:inline-block;min-wid
 
 
  /* News */
-.current-intro{padding-bottom:clamp(20px,3vw,36px);border-bottom:0}
-.current-intro h1{margin:0}
-.current-feature{padding-top:clamp(20px,3vw,36px)}
+.current-title h1{margin:0 0 clamp(18px,2.6vw,32px)}
 .news-feature{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(28px,5vw,72px);align-items:start}
 .lost-paintings-image{margin:0;aspect-ratio:4/5;background:#0b0b0b;overflow:hidden;position:sticky;top:96px}
 .lost-paintings-image img{width:100%;height:100%;object-fit:cover;object-position:center 30%}
@@ -398,9 +398,10 @@ textarea{min-height:170px;resize:vertical}.two{display:grid;grid-template-column
   .credential-mark{margin-inline:auto}.mark-wapo{width:150px}.mark-times{width:140px}
   .credential-note{font-size:.68rem}
   .current-grid{gap:28px}
-  .commission-editorial{gap:28px}
-  .commission-editorial h2{font-size:clamp(3rem,15vw,5rem)}
-  .home-footer{display:grid;grid-template-columns:1fr;gap:14px;margin-top:44px;padding-top:18px}
+  .commission-editorial{gap:12px;justify-items:start}
+  .commission-editorial h2{font-size:1.7rem}
+  .commission-editorial h2 br{display:inline}
+  .home-footer{display:grid;grid-template-columns:1fr;gap:10px;margin-top:18px;padding-top:12px}
   .home-footer ul{gap:12px 18px}
   .site-footer .wrap{display:grid;grid-template-columns:1fr}
   .site-footer ul{gap:12px 18px}
@@ -471,29 +472,35 @@ textarea{min-height:170px;resize:vertical}.two{display:grid;grid-template-column
   .about-hero-copy>p:not(.eyebrow):not(.lead){max-width:none}
 
 }
-/* Commissions fits one screen on laptops and desktops: spacing follows the viewport height */
+/* Blocks never run wider than the useful page width (as on Work); content keeps an inner margin */
+@media(min-width:761px){
+  main>section{width:min(var(--wrap),calc(100% - 2*var(--gutter)));margin-inline:auto}
+  main>section>.wrap{width:calc(100% - 2*clamp(20px,3vw,44px))}
+  main>.editorial-hero>.wrap,main>.work-index>.wrap,main>.about-hero>.wrap{width:100%}
+}
+/* First block of Current and Commissions: same size as the Home/Work hero (74vh, 570px min) */
 @media(min-width:961px){
-  body.page-services{min-height:100svh;display:flex;flex-direction:column}
-  .page-services main{flex:1;display:flex;flex-direction:column;justify-content:center}
-  .page-services main>section{padding:clamp(20px,6vh,96px) 0;border-bottom:0}
+  .page-services main>section:first-child,.page-news main>section:first-child{margin-top:22px;min-height:max(570px,min(74vh,780px));display:flex;flex-direction:column;justify-content:center;padding:clamp(22px,4vh,52px) 0}
   .page-services .lead{font-size:clamp(1.1rem,min(2.25vw,3.3vh),1.7rem);margin-bottom:0}
   .page-services .services{margin-top:clamp(18px,4.5vh,44px);grid-template-columns:repeat(4,minmax(0,1fr))}
   .page-services .service{padding:clamp(16px,3.2vh,30px)}
   .page-services .service p{font-size:clamp(.86rem,2.1vh,1rem)}
   .page-services .service h3{margin-bottom:clamp(8px,1.4vh,14px)}
-  .page-services .site-footer{padding:clamp(14px,2.6vh,34px) 0 clamp(16px,3.4vh,48px)}
 }
-/* Current: title + feature fill the first screen on laptops and desktops, like Commissions */
+/* Current: the title + The Lost Paintings feature form the hero-sized first block */
 @media(min-width:961px){
-  .page-news .current-intro{padding:clamp(20px,5vh,64px) 0 clamp(10px,2vh,24px)}
-  .page-news .current-feature{display:flex;flex-direction:column;padding:clamp(12px,2.5vh,32px) 0 clamp(20px,4.5vh,56px);min-height:calc(100svh - 73px - clamp(20px,5vh,64px) - clamp(10px,2vh,24px) - .9 * clamp(2.7rem,4.4vw,4.35rem))}
+  .page-news .current-feature{justify-content:flex-start;padding:clamp(18px,3vh,40px) 0}
+  .page-news .current-feature .news-kicker{margin-bottom:clamp(8px,1.4vh,16px)}
+  .page-news .news-feature-copy>p{font-size:clamp(.84rem,1.9vh,.95rem);margin-bottom:.6em}
+  .page-news .news-press{margin:0}
   .page-news .current-feature>.news-feature{flex:1;align-items:stretch}
-  .page-news .lost-paintings-image{position:relative;top:auto;aspect-ratio:auto;min-height:340px}
+  .page-news .current-title h1{margin-bottom:clamp(10px,2vh,24px)}
+  .page-news .lost-paintings-image{position:relative;top:auto;aspect-ratio:auto;min-height:300px}
   .page-news .lost-paintings-image img{position:absolute;inset:0}
   .page-news .news-feature-copy{display:flex;flex-direction:column;justify-content:center}
-  .page-news .news-feature-copy h2{font-size:clamp(2rem,min(3.8vw,6.2vh),3.9rem)}
-  .page-news .tour{margin:clamp(8px,1.6vh,18px) 0 clamp(10px,2vh,26px)}
-  .page-news .tour li{padding:clamp(5px,1vh,10px) 0}
+  .page-news .news-feature-copy h2{font-size:clamp(1.8rem,min(3.4vw,5.2vh),3.4rem);margin-bottom:.35em}
+  .page-news .tour{margin:clamp(6px,1.2vh,14px) 0 clamp(8px,1.6vh,18px)}
+  .page-news .tour li{padding:clamp(4px,.75vh,9px) 0;font-size:clamp(.8rem,1.8vh,.9rem)}
 }
 @media(prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
