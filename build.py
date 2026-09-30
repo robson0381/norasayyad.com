@@ -21,6 +21,19 @@ WORK_ARCHIVE_IMAGE = "https://images.squarespace-cdn.com/content/v1/6818f37ce189
 LOST_PAINTINGS_IMAGE = "https://images.squarespace-cdn.com/content/v1/6542ba5ff81a372c7283e330/388e52ba-e53c-4a50-bcc7-a1f7346341fb/Nora_Sayyad.png?format=1000w"
 
 NAV = [("", "Home"), ("work", "Work"), ("news", "Current"), ("services", "Commissions"), ("about", "About")]
+CHEVRON = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg>'
+SEARCH_ICON = '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5L21 21"/></svg>'
+# Every generated page is indexed for the client-side search (assets/search-index.json).
+SEARCH_PAGES = []
+
+
+def search_form(where):
+    return f"""<form class="site-search" role="search" data-search>
+          <label class="visually-hidden" for="q-{where}">Search the site</label>
+          <input type="search" id="q-{where}" name="q" placeholder="Search" autocomplete="off" enterkeyhint="search">
+          <button type="submit" aria-label="Search">{SEARCH_ICON}</button>
+          <ul class="search-results" aria-live="polite"></ul>
+        </form>"""
 
 PROJECTS = [
     {
@@ -84,6 +97,14 @@ PROJECTS = [
 ]
 
 
+def split_title(title):
+    """'Main? Subtitle' -> main title plus a subtitle span (inline on desktop, its own line on mobile)."""
+    head, sep, tail = title.partition("? ")
+    if not sep:
+        return title
+    return f'<span class="t">{head}?</span> <span class="s">{tail}</span>'
+
+
 def strip_tags(s):
     return re.sub(r"<[^>]+>", "", s)
 
@@ -109,10 +130,20 @@ def page(path, title, desc, body, current=None, og=None):
     og_image = (SITE + og_src) if og_src.startswith("/") else (og_src + "?format=1500w")
     section = path.split("/", 1)[0] if path != "index.html" else "home"
     body_class = f"page-{section}"
-    nav = "".join(
-        f'<li><a href="{"/" if not slug else f"/{slug}/"}"{" aria-current=page" if current == slug else ""}>{label}</a></li>'
-        for slug, label in NAV
-    )
+    SEARCH_PAGES.append({"url": url.replace(SITE, "") or "/", "title": title or "Home", "desc": desc, "body": body})
+    def nav_item(slug, label):
+        link = f'<a href="{"/" if not slug else f"/{slug}/"}"{" aria-current=page" if current == slug else ""}>{label}</a>'
+        if slug != "work":
+            return f"<li>{link}</li>"
+        # Work opens a project list inside the mobile drawer; desktop ignores it.
+        subs = "".join(
+            f'<li><a href="/work/{p["slug"]}/"{" aria-current=page" if path == f"work/{p["slug"]}/index.html" else ""}>{strip_tags(p["title"])}</a></li>'
+            for p in PROJECTS
+        )
+        return (f'<li class="has-sub">{link}<button class="sub-toggle" type="button" aria-expanded="false" '
+                f'aria-controls="nav-work" aria-label="Show projects">{CHEVRON}</button>'
+                f'<ul class="nav-sub" id="nav-work">{subs}</ul></li>')
+    nav = "".join(nav_item(slug, label) for slug, label in NAV)
     footer_html = "" if path == "index.html" else f"""<footer class="site-footer">
   <div class="wrap">
     <p>© Nora Sayyad · Helsinki, Finland · <a href="mailto:{EMAIL}">{EMAIL}</a></p>
@@ -142,28 +173,42 @@ def page(path, title, desc, body, current=None, og=None):
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600&family=Newsreader:opsz,wght@6..72,400;6..72,500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/css/style.css?v=20260930-4">
+<link rel="stylesheet" href="/assets/css/style.css?v=20260930-5">
 </head>
 <body class="{body_class}">
 <a class="skip" href="#main">Skip to content</a>
 <header class="site-header">
   <div class="wrap">
     <a class="brand" href="/">Nora Sayyad</a>
-    <button class="menu-toggle" aria-label="Menu" aria-expanded="false" aria-controls="nav">
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 7h18M3 12h18M3 17h18"/></svg>
-    </button>
+    <div class="header-tools">
+      <div class="lang header-lang" aria-label="Language"><span aria-current="true">EN</span><span aria-hidden="true">/</span><span class="disabled" aria-disabled="true" title="Suomeksi — planned">FI</span></div>
+      <button class="menu-toggle" aria-label="Menu" aria-expanded="false" aria-controls="nav">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 7h18M3 12h18M3 17h18"/></svg>
+      </button>
+    </div>
+    <div class="nav-scrim" data-nav-close></div>
     <nav class="nav" id="nav" aria-label="Main">
+      <div class="nav-top">
+        {search_form("drawer")}
+        <button class="nav-close" type="button" aria-label="Close menu" data-nav-close>
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 5l14 14M19 5L5 19"/></svg>
+        </button>
+      </div>
       <ul>{nav}</ul>
       <div class="lang" aria-label="Language"><span aria-current="true">EN</span><span class="disabled" aria-disabled="true" title="Suomeksi — planned">FI</span></div>
       <a class="btn small" href="/contact/">Get in touch</a>
     </nav>
+    <button class="search-toggle" type="button" aria-label="Search" aria-expanded="false" aria-controls="search-panel">{SEARCH_ICON}</button>
+  </div>
+  <div class="search-panel" id="search-panel" hidden>
+    <div class="wrap">{search_form("panel")}</div>
   </div>
 </header>
 <main id="main">
 {body}
 </main>
 {footer_html}
-<script src="/assets/js/main.js?v=20260930-4" defer></script>
+<script src="/assets/js/main.js?v=20260930-5" defer></script>
 </body>
 </html>
 """
@@ -244,7 +289,7 @@ def build_home():
     featured = "\n".join(
         f"""<a class="editorial-project" href="/work/{p['slug']}/">
   <div class="editorial-project-image">{img(cover(p), "(max-width: 640px) 100vw, 25vw", "cover")}</div>
-  <h3>{p['title']}</h3>
+  <h3>{split_title(p['title'])}</h3>
   <div class="meta">{p["meta"]} · {len(PHOTOS[p['slug']])} photographs</div>
 </a>""" for p in featured_projects
     )
@@ -256,6 +301,7 @@ def build_home():
       <div class="mobile-hero-copy">
         <p class="mobile-kicker">Stories of</p>
         <h2>Memory,<br>Movement and<br>Belonging.</h2>
+        <span class="mobile-rule" aria-hidden="true"></span>
         <p class="mobile-intro">Nora Sayyad is a Finnish-Palestinian photographer and visual artist working across documentary, conceptual and poetic forms.</p>
         <div class="mobile-hero-actions">
           <a class="mobile-primary" href="#featured">View selected work <span>→</span></a>
@@ -265,8 +311,10 @@ def build_home():
       <div class="hero-copy">
         <p class="eyebrow light">Photographer · Artist · Visual reporter · Helsinki</p>
         <h1 id="home-title">Nora<br>Sayyad</h1>
+      </div>
+      <div class="hero-foot">
         <p>Finnish-Palestinian photographer, artist and visual reporter whose practice moves between documentary and poetic storytelling.</p>
-        <a class="btn inverse" href="/work/">Explore work →</a>
+        <a class="btn accent" href="/work/">Explore work →</a>
       </div>
       <div class="hero-controls" aria-label="Featured photographs">
         <span data-hero-index aria-live="polite">01 / {len(slides):02d}</span>
@@ -341,7 +389,7 @@ def build_home():
     </ul>
   </div>
 </section>"""
-    page("index.html", "", "Nora Sayyad is a Finnish-Palestinian photographer, artist and visual reporter based in Helsinki, working across documentary and poetic storytelling.", body, og=slides[0][0])
+    page("index.html", "", "Nora Sayyad is a Finnish-Palestinian photographer, artist and visual reporter based in Helsinki, working across documentary and poetic storytelling.", body, current="", og=slides[0][0])
 
 
 def build_work():
@@ -512,31 +560,53 @@ def build_services():
   <div class="wrap">
     <h1>Work with Nora</h1>
     <p class="lead narrow">Available for projects and commissions in Finland and internationally. Past clients include Plan International Finland, the City of Helsinki, the University of Helsinki, Kone Foundation and Startup Refugees.</p>
-    <div class="services" style="margin-top:40px">{cards}</div>
+    <div class="services">{cards}</div>
   </div>
 </section>"""
     page("services/index.html", "Commissions", "Commission Nora Sayyad for portraits, editorial and documentary assignments, talks and photography workshops.", body, current="services")
 
 
 def build_news():
-    body = f"""<section>
+    more = [
+        (f'<a class="news-thumb" href="/work/from-arrival-to-belonging/" tabindex="-1" aria-hidden="true">{img(PHOTOS["from-arrival-to-belonging"][5], "(max-width: 760px) 104px, 30vw", "cover")}</a>',
+         "2025–2026 · Solo exhibition",
+         '<a href="/work/from-arrival-to-belonging/">From Arrival to Belonging: A Decade in Portraits</a>',
+         "With Startup Refugees — IKEA; STOA; Valkea; Revontuli, Finland."),
+        ('<div class="news-thumb ph" role="img" aria-label="Untitled Palestine pop-up at HIAP" data-label="Photo needed"></div>',
+         "2025 · Pop-up exhibition",
+         "Untitled: Palestine",
+         "Working title / ongoing work — Pop-up HIAP, Helsinki, Finland."),
+        ('<div class="news-thumb ph" role="img" aria-label="Näse Gård, Porvoo" data-label="Photo needed"></div>',
+         "2025 · Group exhibition",
+         "Förkolnade Minnen / Muistoihin Hiiltyneet",
+         "Näse Gård, Porvoo, Finland."),
+    ]
+    items = "\n".join(
+        f'<article class="news-item">{thumb}<div class="news-item-copy"><p class="meta">{meta}</p><h3>{title}</h3><p>{text}</p></div></article>'
+        for thumb, meta, title, text in more
+    )
+    body = f"""<section class="current-intro">
   <div class="wrap">
     <h1>Exhibitions & news</h1>
-    <div class="news-feature" style="margin-top:32px">
-      <div>
-        <p><span class="status">Tour concluded</span></p>
-        <h2>The Lost Paintings: A Prelude to Return</h2>
-        <p>Group exhibition, 2025–2026. <a href="https://www.thelostpaintings.com/artist-sayyad">About Nora's contribution →</a></p>
-        {TOUR}
-        <p>Press: <a href="https://akimbo.ca/akimblog/the-lost-paintings-at-articule-and-mai-montreal/">Akimbo</a> · <a href="https://brooklineartscenter.org/lost-paintings-project">Brookline Arts Center</a></p>
-      </div>
-      <figure class="lost-paintings-image"><img src="{LOST_PAINTINGS_IMAGE}" width="420" height="530" alt="The Lost Paintings exhibition artwork" loading="lazy" decoding="async"></figure>
+  </div>
+</section>
+<section class="current-feature" aria-labelledby="lost-paintings">
+  <div class="wrap news-feature">
+    <figure class="lost-paintings-image"><img src="{LOST_PAINTINGS_IMAGE}" width="420" height="530" alt="The Lost Paintings exhibition artwork" loading="eager" decoding="async"></figure>
+    <div class="news-feature-copy">
+      <p class="news-kicker"><span class="status">Tour concluded</span><span class="meta">Group exhibition · 2025–2026</span></p>
+      <h2 id="lost-paintings">The Lost Paintings: A Prelude to Return</h2>
+      <p>A travelling group exhibition presented across Canada, the United States, Northern Ireland and the United Kingdom, including Nora Sayyad's work <em>Utopia</em>. <a href="https://www.thelostpaintings.com/artist-sayyad">About Nora's contribution →</a></p>
+      {TOUR}
+      <p class="news-press">Press: <a href="https://akimbo.ca/akimblog/the-lost-paintings-at-articule-and-mai-montreal/">Akimbo</a> · <a href="https://brooklineartscenter.org/lost-paintings-project">Brookline Arts Center</a></p>
     </div>
-    <h2 style="margin-top:64px">Also in 2025–2026</h2>
-    <div class="cards">
-      <a class="card" href="/work/from-arrival-to-belonging/"><div class="frame">{img(PHOTOS['from-arrival-to-belonging'][5], "(max-width: 700px) 100vw, 33vw", "cover")}</div><h3>From Arrival to Belonging: A Decade in Portraits</h3><p>Solo exhibition with Startup Refugees — IKEA; STOA; Valkea; Revontuli</p></a>
-      <div class="card"><div class="ph land" role="img" aria-label="Untitled Palestine pop-up at HIAP" data-label="Photo needed"></div><h3>Untitled: Palestine</h3><p>Working title / ongoing work — Pop-up HIAP, Helsinki, Finland</p><div class="meta">2025</div></div>
-      <div class="card"><div class="ph land" role="img" aria-label="Näse Gård, Porvoo" data-label="Photo needed"></div><h3>Förkolnade Minnen / Muistoihin Hiiltyneet</h3><p>Group exhibition, Näse Gård, Porvoo</p><div class="meta">2025</div></div>
+  </div>
+</section>
+<section class="current-more" aria-labelledby="also">
+  <div class="wrap">
+    <h2 id="also">Also in 2025–2026</h2>
+    <div class="news-list">
+{items}
     </div>
   </div>
 </section>"""
@@ -574,8 +644,17 @@ def build_contact():
   </div>
 </section>"""
     page("contact/index.html", "Contact", "Contact photographer Nora Sayyad for commissions, exhibitions, press, talks and prints.", body)
-
-
+def write_search_index():
+    """Plain-text index of every page, with image alt text so scenes are findable too."""
+    entries = []
+    for pg in SEARCH_PAGES:
+        body = re.sub(r"<(script|style|form)\b.*?</\1>", " ", pg["body"], flags=re.S)
+        alts = " ".join(re.findall(r'alt="([^"]*)"', body))
+        text = re.sub(r"\s+", " ", strip_tags(body.replace("<br>", " "))).strip()
+        entries.append({"url": pg["url"], "title": pg["title"], "desc": pg["desc"],
+                        "text": re.sub(r"&amp;", "&", text), "alt": alts})
+    (ROOT / "assets/search-index.json").write_text(
+        json.dumps(entries, ensure_ascii=False, separators=(",", ":")), encoding="utf-8")
 
 
 if __name__ == "__main__":
@@ -587,4 +666,5 @@ if __name__ == "__main__":
     build_services()
     build_news()
     build_contact()
+    write_search_index()
     print("built")

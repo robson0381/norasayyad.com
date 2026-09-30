@@ -168,10 +168,9 @@ for (const [mode, viewport] of viewports) {
     return getComputedStyle(el).display === 'none' || (r.width <= 1 && r.height <= 1);
   });
   const menuSequence = await page.locator('#nav a').evaluateAll(links =>
-    links.filter(a => {
-      const s = getComputedStyle(a);
-      return s.display !== 'none' && s.visibility !== 'hidden';
-    }).map(a => a.textContent.trim())
+    // getClientRects() is empty for links inside the collapsed Work submenu.
+    links.filter(a => a.getClientRects().length > 0 && getComputedStyle(a).visibility !== 'hidden')
+      .map(a => a.textContent.trim())
   );
   const expectedMenu = ['Home', 'Work', 'Current', 'Commissions', 'About', 'Get in touch'];
   if (!mobileHeroVisible) failures.push('mobile/home: mobile editorial hero copy is not visible');
@@ -182,7 +181,8 @@ for (const [mode, viewport] of viewports) {
 
   const before = await page.locator('[data-hero-index]').textContent();
   await page.keyboard.press('Escape');
-  await page.locator('[data-hero-next]').click();
+  // Mobile hides the arrow controls (swipe + autoplay remain); trigger the same handler directly.
+  await page.locator('[data-hero-next]').evaluate(el => el.click());
   const after = await page.locator('[data-hero-index]').textContent();
 
   if (!navVisible) failures.push('mobile/home: menu did not become visible');

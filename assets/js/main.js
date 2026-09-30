@@ -1,21 +1,93 @@
-// Mobile menu
+// Mobile menu: drawer from the right; a tap anywhere that is not a control closes it
 const toggle = document.querySelector('.menu-toggle');
 const nav = document.getElementById('nav');
 if (toggle && nav) {
-  const firstLink = () => nav.querySelector('a, button, [tabindex]:not([tabindex="-1"])');
   const setMenu = (open) => {
     nav.classList.toggle('open', open);
+    document.body.classList.toggle('menu-open', open);
     toggle.setAttribute('aria-expanded', String(open));
-    document.body.style.overflow = open ? 'hidden' : '';
     if (open) {
-      window.setTimeout(() => firstLink()?.focus(), 20);
+      window.setTimeout(() => nav.querySelector('ul a')?.focus({ preventScroll: true }), 20);
     } else if (document.activeElement && nav.contains(document.activeElement)) {
       toggle.focus();
     }
   };
   toggle.addEventListener('click', () => setMenu(!nav.classList.contains('open')));
-  nav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => setMenu(false)));
+  document.querySelectorAll('[data-nav-close]').forEach(el => el.addEventListener('click', () => setMenu(false)));
+  nav.addEventListener('click', (e) => {
+    if (!nav.classList.contains('open')) return;
+    if (e.target.closest('a')) { setMenu(false); return; }
+    if (!e.target.closest('button, input, label, .site-search, .lang')) setMenu(false);
+  });
+  nav.querySelectorAll('.sub-toggle').forEach(btn => btn.addEventListener('click', () => {
+    const open = btn.getAttribute('aria-expanded') !== 'true';
+    btn.setAttribute('aria-expanded', String(open));
+    btn.closest('.has-sub').classList.toggle('sub-open', open);
+  }));
   document.addEventListener('keydown', e => { if (e.key === 'Escape' && nav.classList.contains('open')) setMenu(false); });
+  window.matchMedia('(min-width: 961px)').addEventListener('change', (m) => { if (m.matches) setMenu(false); });
+}
+
+// Site search over assets/search-index.json (built by build.py)
+const searchForms = [...document.querySelectorAll('[data-search]')];
+if (searchForms.length) {
+  let index = null;
+  const fold = (t) => (t || '').normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase();
+  const load = () => index || (index = fetch('/assets/search-index.json').then(r => r.json()).then(rows =>
+    rows.map(r => ({ ...r, fTitle: fold(r.title), fBody: fold(r.desc + ' ' + r.text + ' ' + r.alt), raw: r.text + ' ' + r.alt }))));
+  const esc = (t) => t.replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+  const snippet = (row, term) => {
+    const at = fold(row.raw).indexOf(term);
+    if (at < 0) return esc(row.desc);
+    const from = Math.max(0, at - 50);
+    const text = row.raw.slice(from, at + 90);
+    const hit = at - from;
+    return (from ? '…' : '') + esc(text.slice(0, hit)) + '<mark>' + esc(text.slice(hit, hit + term.length)) + '</mark>' + esc(text.slice(hit + term.length)) + '…';
+  };
+  const run = async (form) => {
+    const input = form.querySelector('input');
+    const list = form.querySelector('.search-results');
+    const terms = fold(input.value).split(/\s+/).filter(t => t.length > 1);
+    if (!terms.length) { list.replaceChildren(); form.classList.remove('has-results'); return []; }
+    const rows = await load();
+    const hits = rows.map(r => {
+      let score = 0;
+      for (const t of terms) {
+        const inBody = r.fBody.split(t).length - 1;
+        if (!inBody && !r.fTitle.includes(t)) return null;
+        score += (r.fTitle.includes(t) ? 10 : 0) + Math.min(inBody, 6);
+      }
+      return { r, score };
+    }).filter(Boolean).sort((a, b) => b.score - a.score).slice(0, 6);
+    list.innerHTML = hits.length
+      ? hits.map(({ r }) => `<li><a href="${r.url}"><b>${esc(r.title)}</b><span>${snippet(r, terms[0])}</span></a></li>`).join('')
+      : '<li class="search-empty">No results</li>';
+    form.classList.add('has-results');
+    return hits;
+  };
+  searchForms.forEach(form => {
+    const input = form.querySelector('input');
+    input.addEventListener('focus', load, { once: true });
+    input.addEventListener('input', () => run(form));
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const hits = await run(form);
+      if (hits.length) location.href = hits[0].r.url;
+    });
+  });
+
+  const searchToggle = document.querySelector('.search-toggle');
+  const panel = document.getElementById('search-panel');
+  if (searchToggle && panel) {
+    const setPanel = (open) => {
+      panel.hidden = !open;
+      searchToggle.setAttribute('aria-expanded', String(open));
+      if (open) panel.querySelector('input').focus();
+    };
+    searchToggle.addEventListener('click', () => setPanel(panel.hidden));
+    document.addEventListener('keydown', e => { if (e.key === 'Escape' && !panel.hidden) { setPanel(false); searchToggle.focus(); } });
+    document.addEventListener('click', e => { if (!panel.hidden && !panel.contains(e.target) && !searchToggle.contains(e.target)) setPanel(false); });
+  }
 }
 
 // Editorial hero: manual, non-autoplay carousel

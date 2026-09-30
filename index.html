@@ -18,21 +18,45 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600&family=Newsreader:opsz,wght@6..72,400;6..72,500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/css/style.css?v=20260930-4">
+<link rel="stylesheet" href="/assets/css/style.css?v=20260930-5">
 </head>
 <body class="page-home">
 <a class="skip" href="#main">Skip to content</a>
 <header class="site-header">
   <div class="wrap">
     <a class="brand" href="/">Nora Sayyad</a>
-    <button class="menu-toggle" aria-label="Menu" aria-expanded="false" aria-controls="nav">
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 7h18M3 12h18M3 17h18"/></svg>
-    </button>
+    <div class="header-tools">
+      <div class="lang header-lang" aria-label="Language"><span aria-current="true">EN</span><span aria-hidden="true">/</span><span class="disabled" aria-disabled="true" title="Suomeksi — planned">FI</span></div>
+      <button class="menu-toggle" aria-label="Menu" aria-expanded="false" aria-controls="nav">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 7h18M3 12h18M3 17h18"/></svg>
+      </button>
+    </div>
+    <div class="nav-scrim" data-nav-close></div>
     <nav class="nav" id="nav" aria-label="Main">
-      <ul><li><a href="/">Home</a></li><li><a href="/work/">Work</a></li><li><a href="/news/">Current</a></li><li><a href="/services/">Commissions</a></li><li><a href="/about/">About</a></li></ul>
+      <div class="nav-top">
+        <form class="site-search" role="search" data-search>
+          <label class="visually-hidden" for="q-drawer">Search the site</label>
+          <input type="search" id="q-drawer" name="q" placeholder="Search" autocomplete="off" enterkeyhint="search">
+          <button type="submit" aria-label="Search"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5L21 21"/></svg></button>
+          <ul class="search-results" aria-live="polite"></ul>
+        </form>
+        <button class="nav-close" type="button" aria-label="Close menu" data-nav-close>
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 5l14 14M19 5L5 19"/></svg>
+        </button>
+      </div>
+      <ul><li><a href="/" aria-current=page>Home</a></li><li class="has-sub"><a href="/work/">Work</a><button class="sub-toggle" type="button" aria-expanded="false" aria-controls="nav-work" aria-label="Show projects"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg></button><ul class="nav-sub" id="nav-work"><li><a href="/work/portraits/">Portraits</a></li><li><a href="/work/from-arrival-to-belonging/">From Arrival to Belonging? A Decade in Portraits</a></li><li><a href="/work/parfyymin-tuulahdus/">Parfyymin tuulahdus</a></li><li><a href="/work/notes-of-resistance/">Notes of Resistance</a></li><li><a href="/work/from-a-parallel-life/">From a Parallel Life</a></li></ul></li><li><a href="/news/">Current</a></li><li><a href="/services/">Commissions</a></li><li><a href="/about/">About</a></li></ul>
       <div class="lang" aria-label="Language"><span aria-current="true">EN</span><span class="disabled" aria-disabled="true" title="Suomeksi — planned">FI</span></div>
       <a class="btn small" href="/contact/">Get in touch</a>
     </nav>
+    <button class="search-toggle" type="button" aria-label="Search" aria-expanded="false" aria-controls="search-panel"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5L21 21"/></svg></button>
+  </div>
+  <div class="search-panel" id="search-panel" hidden>
+    <div class="wrap"><form class="site-search" role="search" data-search>
+          <label class="visually-hidden" for="q-panel">Search the site</label>
+          <input type="search" id="q-panel" name="q" placeholder="Search" autocomplete="off" enterkeyhint="search">
+          <button type="submit" aria-label="Search"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5L21 21"/></svg></button>
+          <ul class="search-results" aria-live="polite"></ul>
+        </form></div>
   </div>
 </header>
 <main id="main">
@@ -45,6 +69,7 @@
       <div class="mobile-hero-copy">
         <p class="mobile-kicker">Stories of</p>
         <h2>Memory,<br>Movement and<br>Belonging.</h2>
+        <span class="mobile-rule" aria-hidden="true"></span>
         <p class="mobile-intro">Nora Sayyad is a Finnish-Palestinian photographer and visual artist working across documentary, conceptual and poetic forms.</p>
         <div class="mobile-hero-actions">
           <a class="mobile-primary" href="#featured">View selected work <span>→</span></a>
@@ -54,8 +79,10 @@
       <div class="hero-copy">
         <p class="eyebrow light">Photographer · Artist · Visual reporter · Helsinki</p>
         <h1 id="home-title">Nora<br>Sayyad</h1>
+      </div>
+      <div class="hero-foot">
         <p>Finnish-Palestinian photographer, artist and visual reporter whose practice moves between documentary and poetic storytelling.</p>
-        <a class="btn inverse" href="/work/">Explore work →</a>
+        <a class="btn accent" href="/work/">Explore work →</a>
       </div>
       <div class="hero-controls" aria-label="Featured photographs">
         <span data-hero-index aria-live="polite">01 / 02</span>
@@ -73,7 +100,7 @@
     </div>
     <div class="editorial-projects"><a class="editorial-project" href="/work/from-arrival-to-belonging/">
   <div class="editorial-project-image"><img src="https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/a4a39869-0b02-4ffe-9865-0f443df7fdcc/nora_sayyad_UKJ1.jpg?format=1500w" srcset="https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/a4a39869-0b02-4ffe-9865-0f443df7fdcc/nora_sayyad_UKJ1.jpg?format=500w 500w, https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/a4a39869-0b02-4ffe-9865-0f443df7fdcc/nora_sayyad_UKJ1.jpg?format=750w 750w, https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/a4a39869-0b02-4ffe-9865-0f443df7fdcc/nora_sayyad_UKJ1.jpg?format=1000w 1000w, https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/a4a39869-0b02-4ffe-9865-0f443df7fdcc/nora_sayyad_UKJ1.jpg?format=1500w 1500w, https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/a4a39869-0b02-4ffe-9865-0f443df7fdcc/nora_sayyad_UKJ1.jpg?format=2500w 2500w" sizes="(max-width: 640px) 100vw, 25vw" width="2668" height="4000" alt="Portrait of a young woman in red, against a blue backdrop" loading="lazy" decoding="async" class="cover"></div>
-  <h3>From Arrival to Belonging? A Decade in Portraits</h3>
+  <h3><span class="t">From Arrival to Belonging?</span> <span class="s">A Decade in Portraits</span></h3>
   <div class="meta">2025–2026 · Documentary · 10 photographs</div>
 </a>
 <a class="editorial-project" href="/work/notes-of-resistance/">
@@ -177,6 +204,6 @@
 </section>
 </main>
 
-<script src="/assets/js/main.js?v=20260930-4" defer></script>
+<script src="/assets/js/main.js?v=20260930-5" defer></script>
 </body>
 </html>
