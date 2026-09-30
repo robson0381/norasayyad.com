@@ -360,50 +360,50 @@
   "from-a-parallel-life": [
     {
       "src": "/assets/images/from-a-parallel-life/terra-dual.webp",
-      "w": 739,
-      "h": 415,
+      "w": 1022,
+      "h": 576,
       "alt": "A split Earth floating against a star-filled sky"
     },
     {
       "src": "/assets/images/from-a-parallel-life/torre-longe.webp",
-      "w": 900,
-      "h": 900,
+      "w": 2000,
+      "h": 2000,
       "alt": "A couple walks hand in hand in front of the Eiffel Tower"
     },
     {
       "src": "/assets/images/from-a-parallel-life/bebe-azul.webp",
-      "w": 666,
-      "h": 1000,
+      "w": 432,
+      "h": 650,
       "alt": "A smiling baby in a pale blue top"
     },
     {
       "src": "/assets/images/from-a-parallel-life/alianca.webp",
-      "w": 1400,
-      "h": 1400,
+      "w": 2000,
+      "h": 2000,
       "alt": "A smiling couple exchanges rings during an intimate wedding ceremony"
     },
     {
       "src": "/assets/images/from-a-parallel-life/beijo.webp",
-      "w": 789,
-      "h": 1400,
+      "w": 1128,
+      "h": 2000,
       "alt": "A couple kisses by the Seine with Notre-Dame in the background"
     },
     {
       "src": "/assets/images/from-a-parallel-life/bebe-inverno.webp",
-      "w": 750,
-      "h": 1000,
+      "w": 432,
+      "h": 578,
       "alt": "A baby in a cream knitted outfit and pom-pom hat"
     },
     {
       "src": "/assets/images/from-a-parallel-life/torre-perto.webp",
-      "w": 850,
-      "h": 850,
+      "w": 2000,
+      "h": 2000,
       "alt": "A couple embraces beneath the Eiffel Tower"
     },
     {
       "src": "/assets/images/from-a-parallel-life/bebe-rosa.webp",
-      "w": 666,
-      "h": 1000,
+      "w": 432,
+      "h": 650,
       "alt": "A smiling baby in a soft pink top"
     }
   ]
