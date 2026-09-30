@@ -229,9 +229,6 @@ BIO_SHORT = "Finnish-Palestinian visual artist and documentary photographer, bor
 def build_home():
     slides = [
         (PHOTOS["hero"], "Visual practice"),
-        (PHOTOS["from-arrival-to-belonging"][0], "From Arrival to Belonging? · 2025–2026"),
-        (PHOTOS["portraits"][4], "Portraits · ongoing"),
-        (PHOTOS["notes-of-resistance"][7], "Notes of Resistance"),
         (PHOTOS["parfyymin-tuulahdus"][0], "Parfyymin tuulahdus"),
     ]
     slide_html = "\n".join(
@@ -359,7 +356,6 @@ def build_work():
            loading="eager" decoding="async">
       <div class="work-hero-shade"></div>
       <div class="work-hero-copy">
-        <p class="eyebrow light">Work</p>
         <h1>Projects</h1>
         <p>Long-form documentary series, portrait work and poetic projects. Each one opens with its story.</p>
       </div>
@@ -433,7 +429,6 @@ def build_about():
     <div class="about-hero-stage">
       <figure class="about-hero-portrait"><img src="{ABOUT_PORTRAIT}" width="240" height="300" alt="Self-portrait by Nora Sayyad in Buenos Aires, May 2023" loading="eager" decoding="async"></figure>
       <div class="about-hero-copy">
-        <p class="eyebrow">About</p>
         <h1>Nora Sayyad</h1>
         <p class="lead">{BIO_SHORT}</p>
         <p>Her practice moves between documentary, poetic and conceptual approaches, exploring the politics of looking, questions of representation, and how photography can become a space for memory, dialogue and self-determination.</p>
@@ -443,7 +438,7 @@ def build_about():
     </div>
   </div>
 </section>
-<section style="padding-top:0">
+<section class="career-section">
   <div class="wrap narrow">
     <h2 id="cv">Career history</h2>
     {cv("Solo exhibitions", [
@@ -515,7 +510,6 @@ def build_services():
     )
     body = f"""<section>
   <div class="wrap">
-    <p class="eyebrow">Commissions</p>
     <h1>Work with Nora</h1>
     <p class="lead narrow">Available for projects and commissions in Finland and internationally. Past clients include Plan International Finland, the City of Helsinki, the University of Helsinki, Kone Foundation and Startup Refugees.</p>
     <div class="services" style="margin-top:40px">{cards}</div>
@@ -527,7 +521,6 @@ def build_services():
 def build_news():
     body = f"""<section>
   <div class="wrap">
-    <p class="eyebrow">Exhibitions</p>
     <h1>Exhibitions & news</h1>
     <div class="news-feature" style="margin-top:32px">
       <div>
