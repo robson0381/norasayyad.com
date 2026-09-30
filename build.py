@@ -173,7 +173,7 @@ def page(path, title, desc, body, current=None, og=None):
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600&family=Newsreader:opsz,wght@6..72,400;6..72,500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/css/style.css?v=20260930-10">
+<link rel="stylesheet" href="/assets/css/style.css?v=20260930-11">
 </head>
 <body class="{body_class}">
 <a class="skip" href="#main">Skip to content</a>
@@ -208,7 +208,7 @@ def page(path, title, desc, body, current=None, og=None):
 {body}
 </main>
 {footer_html}
-<script src="/assets/js/main.js?v=20260930-10" defer></script>
+<script src="/assets/js/main.js?v=20260930-11" defer></script>
 </body>
 </html>
 """
@@ -253,7 +253,7 @@ CREDS = """<section class="credibility" aria-label="Selected recognition">
         <p class="credential-label">Collected</p>
         <div class="credential-marks">
           <img class="credential-mark mark-migration" src="/assets/logos/migration-institute-of-finland.png" width="429" height="240" alt="Migration Institute of Finland" loading="lazy" decoding="async">
-          <img class="credential-mark mark-library" src="/assets/logos/national-library-of-finland.png" width="168" height="121" alt="The National Library of Finland" loading="lazy" decoding="async">
+          <img class="credential-mark mark-library" src="/assets/logos/national-library-of-finland.png" width="278" height="200" alt="The National Library of Finland" loading="lazy" decoding="async">
         </div>
       </div>
     </div>
@@ -281,10 +281,10 @@ def build_home():
         for i, (ph, label) in enumerate(slides)
     )
     featured_projects = [
-        next(p for p in PROJECTS if p["slug"] == "from-arrival-to-belonging"),
-        next(p for p in PROJECTS if p["slug"] == "notes-of-resistance"),
-        next(p for p in PROJECTS if p["slug"] == "parfyymin-tuulahdus"),
         next(p for p in PROJECTS if p["slug"] == "portraits"),
+        next(p for p in PROJECTS if p["slug"] == "from-arrival-to-belonging"),
+        next(p for p in PROJECTS if p["slug"] == "parfyymin-tuulahdus"),
+        next(p for p in PROJECTS if p["slug"] == "notes-of-resistance"),
     ]
     featured = "\n".join(
         f"""<a class="editorial-project" href="/work/{p['slug']}/">

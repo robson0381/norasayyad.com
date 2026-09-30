@@ -158,10 +158,10 @@ for (const [mode, viewport] of viewports) {
   });
   await page.screenshot({ path: 'qa-artifacts/mobile-home-menu.png', fullPage: false });
 
-  // Mobile shows the same hero copy as desktop (name, text, View Portfolio) in normal flow.
-  const mobileHeroVisible = await page.locator('.hero-copy h1').evaluate(el => {
+  // Mobile hero: name only in the header (h1 kept for screen readers), text + View Portfolio bottom-left.
+  const mobileHeroVisible = await page.locator('.hero-foot .btn').evaluate(el => {
     const r = el.getBoundingClientRect();
-    return r.width > 100 && getComputedStyle(el).visibility !== 'hidden';
+    return r.width > 100 && r.bottom <= window.innerHeight && getComputedStyle(el).visibility !== 'hidden';
   });
   const menuSequence = await page.locator('#nav a').evaluateAll(links =>
     // getClientRects() is empty for links inside the collapsed Work submenu.
@@ -169,7 +169,7 @@ for (const [mode, viewport] of viewports) {
       .map(a => a.textContent.trim())
   );
   const expectedMenu = ['Home', 'Work', 'Current', 'Commissions', 'About', 'Get in touch'];
-  if (!mobileHeroVisible) failures.push('mobile/home: hero title is not visible');
+  if (!mobileHeroVisible) failures.push('mobile/home: hero View Portfolio button is not visible');
   if (JSON.stringify(menuSequence) !== JSON.stringify(expectedMenu)) {
     failures.push(`mobile/home: menu sequence ${JSON.stringify(menuSequence)} != ${JSON.stringify(expectedMenu)}`);
   }
