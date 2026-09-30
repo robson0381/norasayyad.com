@@ -158,6 +158,24 @@ for (const [mode, viewport] of viewports) {
   });
   await page.screenshot({ path: 'qa-artifacts/mobile-home-menu.png', fullPage: false });
 
+  const mobileHeroVisible = await page.locator('.mobile-hero-copy').evaluate(el => {
+    const s = getComputedStyle(el);
+    return s.display !== 'none' && s.visibility !== 'hidden' && parseFloat(s.opacity || '1') > 0;
+  });
+  const desktopHeroHidden = await page.locator('.hero-copy').evaluate(el => getComputedStyle(el).display === 'none');
+  const menuSequence = await page.locator('#nav a').evaluateAll(links =>
+    links.filter(a => {
+      const s = getComputedStyle(a);
+      return s.display !== 'none' && s.visibility !== 'hidden';
+    }).map(a => a.textContent.trim())
+  );
+  const expectedMenu = ['Home', 'Work', 'Current', 'Commissions', 'About', 'Get in touch'];
+  if (!mobileHeroVisible) failures.push('mobile/home: mobile editorial hero copy is not visible');
+  if (!desktopHeroHidden) failures.push('mobile/home: desktop hero copy is still visible');
+  if (JSON.stringify(menuSequence) !== JSON.stringify(expectedMenu)) {
+    failures.push(`mobile/home: menu sequence ${JSON.stringify(menuSequence)} != ${JSON.stringify(expectedMenu)}`);
+  }
+
   const before = await page.locator('[data-hero-index]').textContent();
   await page.keyboard.press('Escape');
   await page.locator('[data-hero-next]').click();
@@ -170,9 +188,28 @@ for (const [mode, viewport] of viewports) {
     mode: 'mobile',
     name: 'home-interactions',
     navVisible,
+    mobileHeroVisible,
+    desktopHeroHidden,
+    menuSequence,
     heroBefore: before,
     heroAfter: after,
   });
+  await context.close();
+}
+
+// The supplied Parallel Life album should no longer use the tiny prototype thumbnails.
+{
+  const context = await browser.newContext({ viewport: { width: 1440, height: 1000 }, deviceScaleFactor: 1 });
+  const page = await context.newPage();
+  await page.goto(base + '/work/from-a-parallel-life/', { waitUntil: 'domcontentloaded' });
+  await page.evaluate(() => document.fonts?.ready);
+  await page.waitForTimeout(500);
+  const lowRes = await page.locator('.story img').evaluateAll(imgs =>
+    imgs.map(img => ({ src: img.getAttribute('src'), w: img.naturalWidth, h: img.naturalHeight }))
+      .filter(img => img.w < 600 || img.h < 390)
+  );
+  if (lowRes.length) failures.push(`parallel-low-res: ${JSON.stringify(lowRes)}`);
+  results.push({ mode: 'desktop', name: 'parallel-resolution', lowRes });
   await context.close();
 }
 
