@@ -137,6 +137,15 @@ section{padding:clamp(56px,7vw,96px) 0;border-bottom:1px solid var(--line)}
   letter-spacing:-.035em;
 }
 
+/* Secondary page title scale — 30% smaller, shared across inner pages */
+.page-work .work-hero-copy h1,
+.page-news main>section:first-child> .wrap > h1,
+.page-services main>section:first-child> .wrap > h1,
+.page-about .about-hero-copy h1{
+  font-size:clamp(2.7rem,4.4vw,4.35rem);
+  line-height:.9;
+}
+
 /* Work index: photographic hero + structured editorial grid */
 .work-index{padding-top:22px}
 .work-hero{position:relative;height:min(74vh,780px);min-height:570px;overflow:hidden;background:#090909;margin-bottom:58px}
@@ -179,10 +188,13 @@ section{padding:clamp(56px,7vw,96px) 0;border-bottom:1px solid var(--line)}
 
 /* Lightbox */
 .lightbox{position:fixed;inset:0;background:rgba(8,8,8,.95);display:none;align-items:center;justify-content:center;z-index:200;padding:56px 16px}
-.lightbox.open{display:flex}.lb-stage{display:grid;place-items:center}.lightbox img{max-width:92vw;max-height:82vh;width:auto;height:auto}
-100%{opacity:1;transform-origin:left center;transform:rotateY(0) translateX(0)}}
-100%{opacity:1;transform-origin:right center;transform:rotateY(0) translateX(0)}}.lightbox button{position:absolute;background:none;border:0;color:#fff;font-size:2rem;cursor:pointer;padding:12px 18px}
-.lightbox .lb-close{top:8px;right:8px}.lightbox .lb-prev{left:4px;top:50%;transform:translateY(-50%)}.lightbox .lb-next{right:4px;top:50%;transform:translateY(-50%)}
+.lightbox.open{display:flex}
+.lb-stage{display:grid;place-items:center}
+.lightbox img{max-width:92vw;max-height:82vh;width:auto;height:auto}
+.lightbox button{position:absolute;background:none;border:0;color:#fff;font-size:2rem;cursor:pointer;padding:12px 18px}
+.lightbox .lb-close{top:8px;right:8px}
+.lightbox .lb-prev{left:4px;top:50%;transform:translateY(-50%)}
+.lightbox .lb-next{right:4px;top:50%;transform:translateY(-50%)}
 .lightbox .lb-cap{position:absolute;bottom:14px;left:16px;right:16px;color:#ddd;font-size:.8rem;text-align:center}
 
 /* About / CV */
@@ -195,8 +207,8 @@ section{padding:clamp(56px,7vw,96px) 0;border-bottom:1px solid var(--line)}
 .about-hero-copy h1{font-size:clamp(3.6rem,6.3vw,6.2rem);margin-bottom:.24em}
 .about-hero-copy .lead{max-width:760px}
 .about-hero-copy>p:not(.eyebrow):not(.lead){max-width:760px}
-.career-section{padding-top:clamp(64px,6vw,92px)}
-.career-section #cv{margin-bottom:clamp(30px,3vw,46px)}
+.career-section{padding-top:clamp(92px,8vw,132px)}
+.career-section #cv{margin-bottom:clamp(44px,4vw,68px)}
 details{border-bottom:1px solid var(--line);padding:18px 0}
 details summary{cursor:pointer;font-family:var(--serif);font-size:1.35rem;list-style:none;display:flex;justify-content:space-between}
 details summary::-webkit-details-marker{display:none}details summary::after{content:"+";font-family:var(--sans)}details[open] summary::after{content:"–"}
@@ -255,11 +267,15 @@ textarea{min-height:170px;resize:vertical}.two{display:grid;grid-template-column
   .work-index .card:nth-child(4) .frame{aspect-ratio:4/5}
   .about-portrait{aspect-ratio:4/5;max-width:620px}
 }
-@media(max-width:700px){
+@media(max-width:760px){
   body{font-size:14px}
   section{padding:52px 0}
   h1{font-size:clamp(2.8rem,15vw,4.8rem)}
   h2{font-size:clamp(2.1rem,11vw,3.5rem)}
+  .page-work .work-hero-copy h1,
+  .page-news main>section:first-child> .wrap > h1,
+  .page-services main>section:first-child> .wrap > h1,
+  .page-about .about-hero-copy h1{font-size:clamp(2.55rem,11vw,3.5rem);line-height:.92}
   .hero-stage{height:min(74svh,650px);min-height:520px}.hero-shade{background:linear-gradient(0deg,rgba(5,5,5,.70) 0%,rgba(5,5,5,.20) 56%,rgba(5,5,5,.03) 100%)}
   .hero-copy h1{font-size:clamp(3.7rem,20vw,5.8rem)}
   .hero-controls{left:24px;transform:none}
@@ -283,6 +299,8 @@ textarea{min-height:170px;resize:vertical}.two{display:grid;grid-template-column
 
   .site-header .wrap{gap:12px}
   .nav .lang{display:none}
+  .nav>ul{display:flex;order:1;width:100%}
+  .nav>.btn.small{display:inline-flex;order:2;align-self:flex-start;margin-top:4px}
   .nav>ul{order:1;width:100%}
   .nav>.btn.small{order:2;align-self:flex-start;margin-top:4px}
   .brand{font-size:1.12rem}
