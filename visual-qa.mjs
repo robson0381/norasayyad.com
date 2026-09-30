@@ -162,7 +162,11 @@ for (const [mode, viewport] of viewports) {
     const s = getComputedStyle(el);
     return s.display !== 'none' && s.visibility !== 'hidden' && parseFloat(s.opacity || '1') > 0;
   });
-  const desktopHeroHidden = await page.locator('.hero-copy').evaluate(el => getComputedStyle(el).display === 'none');
+  // The desktop copy stays in the accessibility tree (it holds the page h1) but must not be visible.
+  const desktopHeroHidden = await page.locator('.hero-copy').evaluate(el => {
+    const r = el.getBoundingClientRect();
+    return getComputedStyle(el).display === 'none' || (r.width <= 1 && r.height <= 1);
+  });
   const menuSequence = await page.locator('#nav a').evaluateAll(links =>
     links.filter(a => {
       const s = getComputedStyle(a);

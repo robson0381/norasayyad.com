@@ -127,23 +127,14 @@ section{padding:clamp(56px,7vw,96px) 0;border-bottom:1px solid var(--line)}
 
 
 
-/* Secondary page hero titles — shared scale; Home hero keeps its own title size */
+/* Secondary page hero titles — ~30% smaller, shared scale; Home hero keeps its own title size */
 .page-work .work-hero-copy h1,
 .page-news main>section:first-child>.wrap>h1,
 .page-services main>section:first-child>.wrap>h1,
 .page-about .about-hero-copy h1{
-  font-size:clamp(2.5rem,4.4vw,4.35rem);
-  line-height:.92;
-  letter-spacing:-.035em;
-}
-
-/* Secondary page title scale — 30% smaller, shared across inner pages */
-.page-work .work-hero-copy h1,
-.page-news main>section:first-child> .wrap > h1,
-.page-services main>section:first-child> .wrap > h1,
-.page-about .about-hero-copy h1{
   font-size:clamp(2.7rem,4.4vw,4.35rem);
   line-height:.9;
+  letter-spacing:-.035em;
 }
 
 /* Work index: photographic hero + structured editorial grid */
@@ -377,7 +368,8 @@ textarea{min-height:170px;resize:vertical}.two{display:grid;grid-template-column
   .about-hero-copy{order:1;padding:30px 20px 34px}
   .about-hero-copy h1{font-size:clamp(3rem,15vw,4.8rem)}
   .about-hero-copy>p:not(.eyebrow):not(.lead){max-width:none}
-  .page-home .hero-copy{display:none!important}
+  .page-home .hero-copy{position:absolute!important;width:1px!important;height:1px!important;overflow:hidden;clip-path:inset(50%);white-space:nowrap;left:0;top:0}
+  .page-home .hero-copy>:not(h1){display:none}
   .page-home .mobile-hero-copy{display:block!important;position:absolute;z-index:4;left:24px;right:24px;top:23%;color:white;pointer-events:none}
   .page-home .mobile-hero-copy a{pointer-events:auto}
   .page-home .mobile-kicker{font:500 .68rem/1.2 var(--sans);letter-spacing:.38em;text-transform:uppercase;margin:0 0 22px;color:rgba(255,255,255,.9)}
