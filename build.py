@@ -403,7 +403,7 @@ def build_project(i):
     </div>
   </div>
 </section>
-<div class="wrap story">
+<div class="wrap story{" parallel-life" if p["slug"] == "from-a-parallel-life" else ""}">
 {chr(10).join(figs)}
 </div>
 <section>
