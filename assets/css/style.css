@@ -356,4 +356,8 @@ textarea{min-height:170px;resize:vertical}.two{display:grid;grid-template-column
   .page-home .mobile-primary span,.page-home .mobile-secondary span{font-size:1rem;letter-spacing:0}
 
 }
-@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.hero-slide,.editorial-project-image img,.card .frame img,.nav{transition:none!important}.editorial-project:hover img,.card:hover .frame img{transform:none}.lb-stage.page-next img,}
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .hero-slide,.editorial-project-image img,.card .frame img,.nav{transition:none!important}
+  .editorial-project:hover img,.card:hover .frame img{transform:none}
+}
