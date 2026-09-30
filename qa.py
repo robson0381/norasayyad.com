@@ -123,6 +123,25 @@ for required in [
     if not (ROOT / required).exists():
         err(f"missing required project artifact: {required}")
 
+# Header-only checks miss truncated uploads: a cut-off WebP still reports its full
+# width to the browser. Compare each file's declared length with its real size.
+local_images = sorted((ROOT / "assets/images").rglob("*"))
+for path in local_images:
+    if not path.is_file():
+        continue
+    data = path.read_bytes()
+    rel = path.relative_to(ROOT).as_posix()
+    if data[:4] == b"RIFF" and data[8:12] == b"WEBP":
+        declared = int.from_bytes(data[4:8], "little") + 8
+        if declared != len(data):
+            err(f"{rel}: truncated WebP ({len(data)} of {declared} bytes)")
+    elif data[:2] == b"\xff\xd8":
+        if not data.rstrip(b"\x00").endswith(b"\xff\xd9"):
+            err(f"{rel}: truncated JPEG (missing end marker)")
+    elif data[:8] == b"\x89PNG\r\n\x1a\n":
+        if b"IEND" not in data[-12:]:
+            err(f"{rel}: truncated PNG (missing IEND)")
+
 print(f"QA: {len(MAIN_PAGES)} main pages · {structured} structured images · {len(notes)} Notes archive entries")
 for item in warnings:
     print("WARNING:", item)
