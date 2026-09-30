@@ -8,7 +8,7 @@ written or confirmed by Nora.
 """
 import json
 import re
-from html import escape
+from html import escape, unescape
 from pathlib import Path
 
 ROOT = Path(__file__).parent
@@ -16,6 +16,9 @@ SITE = "https://www.norasayyad.com"
 # Switch to a domain address (e.g. contact@norasayyad.com) once it exists.
 EMAIL = "ellinorasayyad@gmail.com"
 PHOTOS = json.loads((ROOT / "content/photos.json").read_text(encoding="utf-8"))
+# Finnish copy: exact English text fragment -> Finnish. Draft translation, to be reviewed by a native speaker.
+FI = json.loads((ROOT / "content/fi.json").read_text(encoding="utf-8"))
+FI_MISSING = set()
 ABOUT_PORTRAIT = "/assets/images/nora-selfportrait-buenos-aires-2023-sample.jpg"
 WORK_ARCHIVE_IMAGE = "https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/c47bc6e7-c136-42cc-88b7-b90dc9e6572c/_A2A2025-1%2Bkopio%2B2_SAYYAD.jpg"
 LOST_PAINTINGS_IMAGE = "https://images.squarespace-cdn.com/content/v1/6542ba5ff81a372c7283e330/388e52ba-e53c-4a50-bcc7-a1f7346341fb/Nora_Sayyad.png?format=1000w"
@@ -24,7 +27,7 @@ NAV = [("", "Home"), ("work", "Work"), ("news", "Current"), ("services", "Commis
 CHEVRON = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg>'
 SEARCH_ICON = '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5L21 21"/></svg>'
 # Every generated page is indexed for the client-side search (assets/search-index.json).
-SEARCH_PAGES = []
+SEARCH_PAGES = {"en": [], "fi": []}
 
 
 def search_form(where):
@@ -130,7 +133,8 @@ def page(path, title, desc, body, current=None, og=None):
     og_image = (SITE + og_src) if og_src.startswith("/") else (og_src + "?format=1500w")
     section = path.split("/", 1)[0] if path != "index.html" else "home"
     body_class = f"page-{section}"
-    SEARCH_PAGES.append({"url": url.replace(SITE, "") or "/", "title": title or "Home", "desc": desc, "body": body})
+    rel = url.replace(SITE, "") or "/"
+    SEARCH_PAGES["en"].append({"url": rel, "title": title or "Home", "desc": desc, "body": body})
     def nav_item(slug, label):
         link = f'<a href="{"/" if not slug else f"/{slug}/"}"{" aria-current=page" if current == slug else ""}>{label}</a>'
         if slug != "work":
@@ -154,18 +158,27 @@ def page(path, title, desc, body, current=None, og=None):
     </ul>
   </div>
 </footer>"""
-    html = f"""<!doctype html>
-<html lang="en">
+    def render(lang):
+        en_href, fi_href = rel, "/fi" + rel
+        def lang_links(extra=""):
+            return (f'<div class="lang{extra}" aria-label="Language">'
+                    f'<a href="{en_href}" hreflang="en" lang="en"{" aria-current=true" if lang == "en" else ""}>EN</a>'
+                    f'{"<span aria-hidden=true>/</span>" if extra else ""}'
+                    f'<a href="{fi_href}" hreflang="fi" lang="fi"{" aria-current=true" if lang == "fi" else ""}>FI</a></div>')
+        return f"""<!doctype html>
+<html lang="{lang}">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{full_title}</title>
 <meta name="description" content="{escape(desc)}">\n<meta name="robots" content="noindex,nofollow">
-<link rel="canonical" href="{url}">
+<link rel="canonical" href="{SITE + (fi_href if lang == "fi" else en_href)}">
+<link rel="alternate" hreflang="en" href="{SITE + en_href}">
+<link rel="alternate" hreflang="fi" href="{SITE + fi_href}">
 <meta property="og:type" content="website">
 <meta property="og:title" content="{full_title}">
 <meta property="og:description" content="{escape(desc)}">
-<meta property="og:url" content="{url}">
+<meta property="og:url" content="{SITE + (fi_href if lang == "fi" else en_href)}">
 <meta property="og:image" content="{og_image}">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
@@ -173,7 +186,7 @@ def page(path, title, desc, body, current=None, og=None):
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600&family=Newsreader:opsz,wght@6..72,400;6..72,500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/css/style.css?v=20260930-14">
+<link rel="stylesheet" href="/assets/css/style.css?v=20260930-16">
 </head>
 <body class="{body_class}">
 <a class="skip" href="#main">Skip to content</a>
@@ -181,7 +194,7 @@ def page(path, title, desc, body, current=None, og=None):
   <div class="wrap">
     <a class="brand" href="/">Nora Sayyad</a>
     <div class="header-tools">
-      <div class="lang header-lang" aria-label="Language"><span aria-current="true">EN</span><span aria-hidden="true">/</span><span class="disabled" aria-disabled="true" title="Suomeksi — planned">FI</span></div>
+      {lang_links(" header-lang")}
       <button class="menu-toggle" aria-label="Menu" aria-expanded="false" aria-controls="nav">
         <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 7h18M3 12h18M3 17h18"/></svg>
       </button>
@@ -195,7 +208,7 @@ def page(path, title, desc, body, current=None, og=None):
         </button>
       </div>
       <ul>{nav}</ul>
-      <div class="lang" aria-label="Language"><span aria-current="true">EN</span><span class="disabled" aria-disabled="true" title="Suomeksi — planned">FI</span></div>
+      {lang_links()}
       <a class="btn small" href="/contact/">Get in touch</a>
     </nav>
     <button class="search-toggle" type="button" aria-label="Search" aria-expanded="false" aria-controls="search-panel">{SEARCH_ICON}</button>
@@ -208,13 +221,55 @@ def page(path, title, desc, body, current=None, og=None):
 {body}
 </main>
 {footer_html}
-<script src="/assets/js/main.js?v=20260930-14" defer></script>
+<script src="/assets/js/main.js?v=20260930-16" defer></script>
 </body>
 </html>
 """
-    out = ROOT / path
-    out.parent.mkdir(parents=True, exist_ok=True)
-    out.write_text(html, encoding="utf-8")
+    for lang in ("en", "fi"):
+        html = render(lang)
+        target = ROOT / path
+        if lang == "fi":
+            html = to_finnish(html)
+            target = ROOT / "fi" / path
+            fi_body = to_finnish(body)
+            SEARCH_PAGES["fi"].append({"url": "/fi" + rel, "title": FI.get(title or "Home", title or "Home"),
+                                       "desc": FI.get(desc, desc), "body": fi_body})
+        target.parent.mkdir(parents=True, exist_ok=True)
+        target.write_text(html, encoding="utf-8")
+
+
+TEXT_NODE = re.compile(r">([^<]+)<")
+ATTR = re.compile(r'\b(alt|aria-label|placeholder|title|content|data-label)="([^"]*)"')
+INTERNAL_HREF = re.compile(r'href="/(?!assets/|fi/)([^"]*)"(?! hreflang="en")')
+
+
+def fi_text(raw):
+    """Translate one text fragment, keeping its surrounding whitespace; unknown text stays English."""
+    core = raw.strip()
+    if not core or not re.search(r"[A-Za-z]", core):
+        return raw
+    key = re.sub(r"\s+", " ", unescape(core))
+    if key in FI:
+        lead, trail = raw[:len(raw) - len(raw.lstrip())], raw[len(raw.rstrip()):]
+        return lead + escape(FI[key], quote=False) + trail
+    FI_MISSING.add(key)
+    return raw
+
+
+def to_finnish(html):
+    html = TEXT_NODE.sub(lambda m: ">" + fi_text(m.group(1)) + "<", html)
+    def attr(m):
+        name, value = m.groups()
+        key = unescape(value)
+        if name == "content" and key not in FI:
+            return m.group(0)
+        if key in FI:
+            return f'{name}="{escape(FI[key])}"'
+        if re.search(r"[A-Za-z]", key):
+            FI_MISSING.add(key)
+        return m.group(0)
+    html = ATTR.sub(attr, html)
+    return INTERNAL_HREF.sub(lambda m: f'href="/fi/{m.group(1)}"', html)
 
 
 def cover(p):
@@ -634,17 +689,21 @@ def build_contact():
   </div>
 </section>"""
     page("contact/index.html", "Contact", "Contact photographer Nora Sayyad for commissions, exhibitions, press, talks and prints.", body)
+
+
 def write_search_index():
-    """Plain-text index of every page, with image alt text so scenes are findable too."""
-    entries = []
-    for pg in SEARCH_PAGES:
-        body = re.sub(r"<(script|style|form)\b.*?</\1>", " ", pg["body"], flags=re.S)
-        alts = " ".join(re.findall(r'alt="([^"]*)"', body))
-        text = re.sub(r"\s+", " ", strip_tags(body.replace("<br>", " "))).strip()
-        entries.append({"url": pg["url"], "title": pg["title"], "desc": pg["desc"],
-                        "text": re.sub(r"&amp;", "&", text), "alt": alts})
-    (ROOT / "assets/search-index.json").write_text(
-        json.dumps(entries, ensure_ascii=False, separators=(",", ":")), encoding="utf-8")
+    """Plain-text index of every page per language, with image alt text so scenes are findable too."""
+    for lang, pages in SEARCH_PAGES.items():
+        entries = []
+        for pg in pages:
+            body = re.sub(r"<(script|style|form)\b.*?</\1>", " ", pg["body"], flags=re.S)
+            alts = " ".join(re.findall(r'alt="([^"]*)"', body))
+            text = re.sub(r"\s+", " ", strip_tags(body.replace("<br>", " "))).strip()
+            entries.append({"url": pg["url"], "title": pg["title"], "desc": pg["desc"],
+                            "text": unescape(text), "alt": unescape(alts)})
+        name = "search-index.json" if lang == "en" else f"search-index-{lang}.json"
+        (ROOT / "assets" / name).write_text(
+            json.dumps(entries, ensure_ascii=False, separators=(",", ":")), encoding="utf-8")
 
 
 if __name__ == "__main__":
@@ -657,4 +716,5 @@ if __name__ == "__main__":
     build_news()
     build_contact()
     write_search_index()
-    print("built")
+    (ROOT / "content/fi-missing.txt").write_text("\n".join(sorted(FI_MISSING)) + "\n", encoding="utf-8")
+    print(f"built (fi: {len(FI_MISSING)} untranslated fragments -> content/fi-missing.txt)")

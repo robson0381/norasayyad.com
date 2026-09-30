@@ -29,6 +29,8 @@ MAIN_PAGES = [
     Path("news/index.html"),
     Path("contact/index.html"),
 ]
+# Every main page also exists in Finnish under /fi/.
+MAIN_PAGES += [Path("fi") / p for p in MAIN_PAGES]
 errors: list[str] = []
 warnings: list[str] = []
 

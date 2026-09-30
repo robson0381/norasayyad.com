@@ -63,3 +63,11 @@ pode ser hero? sim/não
 ```
 
 Evitar masters vindos de Instagram. O pacote de referência fornecido continua documentado em `REFERENCE_BUNDLE.md`.
+
+## Versão em finlandês (/fi/)
+
+- Todas as páginas principais têm versão finlandesa em `/fi/`, gerada por `build.py` a partir de `content/fi.json` (texto em inglês → finlandês).
+- **A tradução é um rascunho e precisa de revisão por falante nativo** (de preferência a Nora) antes de publicar. Para corrigir, edite só o valor em finlandês em `content/fi.json` e rode `python3 build.py`.
+- Nomes de projetos, títulos de obras e instituições ficam no original.
+- `content/fi-missing.txt` lista qualquer texto novo do site que ainda não tem tradução (hoje: nenhum). Texto sem tradução aparece em inglês na versão FI.
+

@@ -1,3 +1,7 @@
+const IS_FI = document.documentElement.lang === 'fi';
+// Site root, so fetches and result links also work when the preview is served from a sub-path (GitHub Pages).
+const BASE = (document.querySelector('link[href*="/assets/css/style.css"]')?.getAttribute('href') || '').split('/assets/')[0];
+
 // Mobile menu: drawer from the right; a tap anywhere that is not a control closes it
 const toggle = document.querySelector('.menu-toggle');
 const nav = document.getElementById('nav');
@@ -41,7 +45,7 @@ const searchForms = [...document.querySelectorAll('[data-search]')];
 if (searchForms.length) {
   let index = null;
   const fold = (t) => (t || '').normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase();
-  const load = () => index || (index = fetch('/assets/search-index.json').then(r => r.json()).then(rows =>
+  const load = () => index || (index = fetch(BASE + (IS_FI ? '/assets/search-index-fi.json' : '/assets/search-index.json')).then(r => r.json()).then(rows =>
     rows.map(r => ({ ...r, fTitle: fold(r.title), fBody: fold(r.desc + ' ' + r.text + ' ' + r.alt), raw: r.text + ' ' + r.alt }))));
   const esc = (t) => t.replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
   const snippet = (row, term) => {
@@ -68,8 +72,8 @@ if (searchForms.length) {
       return { r, score };
     }).filter(Boolean).sort((a, b) => b.score - a.score).slice(0, 6);
     list.innerHTML = hits.length
-      ? hits.map(({ r }) => `<li><a href="${r.url}"><b>${esc(r.title)}</b><span>${snippet(r, terms[0])}</span></a></li>`).join('')
-      : '<li class="search-empty">No results</li>';
+      ? hits.map(({ r }) => `<li><a href="${BASE + r.url}"><b>${esc(r.title)}</b><span>${snippet(r, terms[0])}</span></a></li>`).join('')
+      : `<li class="search-empty">${IS_FI ? 'Ei tuloksia' : 'No results'}</li>`;
     form.classList.add('has-results');
     return hits;
   };
@@ -80,7 +84,7 @@ if (searchForms.length) {
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
       const hits = await run(form);
-      if (hits.length) location.href = hits[0].r.url;
+      if (hits.length) location.href = BASE + hits[0].r.url;
     });
   });
 
@@ -154,11 +158,11 @@ if (photos.length) {
   lb.className = 'lightbox';
   lb.setAttribute('role', 'dialog');
   lb.setAttribute('aria-modal', 'true');
-  lb.setAttribute('aria-label', 'Photo viewer');
-  lb.innerHTML = '<button class="lb-close" aria-label="Close">×</button>' +
-    '<button class="lb-prev" aria-label="Previous photo">‹</button>' +
+  lb.setAttribute('aria-label', IS_FI ? 'Kuvakatselin' : 'Photo viewer');
+  lb.innerHTML = `<button class="lb-close" aria-label="${IS_FI ? 'Sulje' : 'Close'}">×</button>` +
+    `<button class="lb-prev" aria-label="${IS_FI ? 'Edellinen kuva' : 'Previous photo'}">‹</button>` +
     '<div class="lb-stage"></div>' +
-    '<button class="lb-next" aria-label="Next photo">›</button>' +
+    `<button class="lb-next" aria-label="${IS_FI ? 'Seuraava kuva' : 'Next photo'}">›</button>` +
     '<p class="lb-cap"></p>';
   document.body.appendChild(lb);
   const stage = lb.querySelector('.lb-stage');

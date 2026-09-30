@@ -22,7 +22,7 @@ body{margin:0;background:var(--paper);color:var(--ink);font:400 16px/1.62 var(--
 img{max-width:100%;display:block}
 a{color:inherit}
 p{margin:0 0 1em}
-h1,h2,h3{font-family:var(--serif);font-weight:400;line-height:1.02;margin:0 0 .5em}
+h1,h2,h3{font-family:var(--serif);font-weight:400;line-height:1.02;margin:0 0 .5em;overflow-wrap:break-word;hyphens:auto}
 h1{font-size:clamp(3rem,7vw,6.4rem);letter-spacing:-.035em}
 h2{font-size:clamp(2.2rem,4.5vw,4.7rem);letter-spacing:-.025em}
 h3{font-size:clamp(1.3rem,2vw,1.7rem)}
@@ -366,6 +366,7 @@ textarea{min-height:170px;resize:vertical}.two{display:grid;grid-template-column
   .contact-meta div{grid-template-columns:82px 1fr}
   .about-top .narrow,.about-editorial>div:last-child{order:-1}
   .about-portrait{max-width:360px;margin-inline:auto}
+  .about-editorial h2{font-size:clamp(2.2rem,10.5vw,3rem)}
   .credentials{grid-template-columns:1fr 1fr}
   .section-head{align-items:start}
   .two{grid-template-columns:1fr}
@@ -414,6 +415,7 @@ textarea{min-height:170px;resize:vertical}.two{display:grid;grid-template-column
   .page-home .site-header .wrap{min-height:74px;align-items:flex-start;padding-top:18px;transition:min-height .25s,padding .25s}
   .page-home .brand{font-size:1.25rem;line-height:1.05;letter-spacing:.06em;color:inherit}
   .page-home .brand::after{content:"Photographer & visual artist";display:block;margin-top:7px;font:500 .5rem/1.2 var(--sans);letter-spacing:.3em;text-transform:uppercase;opacity:.92}
+  html[lang="fi"] .page-home .brand::after{content:"Valokuvaaja & kuvataiteilija"}
   .page-home .header-lang{color:rgba(255,255,255,.82)}.page-home .header-lang [aria-current]{color:#fff}
   .page-home .menu-toggle{color:inherit}
   .page-home .site-header.is-scrolled{background:rgba(20,20,18,.94);border-bottom-color:rgba(255,255,255,.08)}

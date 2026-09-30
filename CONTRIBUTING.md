@@ -14,6 +14,8 @@ Guia para quem trabalha no novo site da Nora Sayyad: você, a Nora, outros colab
 | `build_memory.py` | Fonte da alternativa visual Archive / Memory | Sim |
 | `build_options_v2.py` | Gera a versão 2 em `opcoes/v2/` (Reportagem, Cartas, Tatreez, Sequências) | Sim |
 | `content/photos.json` | Lista de fotos com texto alternativo, largura e altura | Sim |
+| `content/fi.json` | Tradução finlandesa (texto em inglês → finlandês) usada para gerar `/fi/` | Sim: revisão nativa pendente |
+| `fi/` | Páginas em finlandês, **geradas** por `build.py` | **Não** |
 | `assets/` | CSS, JS e favicon do protótipo principal | Sim |
 | `index.html`, `work/`, `about/`, `services/`, `news/`, `contact/` | **Gerados** por `build.py` | **Não**: edite o gerador e rode de novo |
 | `opcoes/*/index.html` | **Gerados** pelos `build_options*.py` | **Não** |
