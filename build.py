@@ -89,8 +89,8 @@ PROJECTS = [
         "meta": "2020– · Documentary",
     },
     {
-        "slug": "from-a-parallel-life",
-        "title": "From a Parallel Life",
+        "slug": "from-a-parallel-universe",
+        "title": "From a Parallel Universe",
         "teaser": "When love creates shapes that reality couldn't.",
         "intro": "",
         "facts": [],
@@ -458,7 +458,7 @@ def build_work():
     <div class="cards">{cards}</div>
   </div>
 </section>"""
-    page("work/index.html", "Work", "Projects by Nora Sayyad: Notes of Resistance, From Arrival to Belonging?, Portraits, Parfyymin tuulahdus and From a Parallel Life.", body, current="work")
+    page("work/index.html", "Work", "Projects by Nora Sayyad: Notes of Resistance, From Arrival to Belonging?, Portraits, Parfyymin tuulahdus and From a Parallel Universe.", body, current="work")
 
 
 def build_project(i):
@@ -498,7 +498,7 @@ def build_project(i):
     </div>
   </div>
 </section>
-<div class="wrap story{" parallel-life" if p["slug"] == "from-a-parallel-life" else ""}">
+<div class="wrap story{" parallel-universe" if p["slug"] == "from-a-parallel-universe" else ""}">
 {chr(10).join(figs)}
 </div>
 <section>

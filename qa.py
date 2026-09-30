@@ -23,7 +23,7 @@ MAIN_PAGES = [
     Path("work/from-arrival-to-belonging/index.html"),
     Path("work/parfyymin-tuulahdus/index.html"),
     Path("work/notes-of-resistance/index.html"),
-    Path("work/from-a-parallel-life/index.html"),
+    Path("work/from-a-parallel-universe/index.html"),
     Path("about/index.html"),
     Path("services/index.html"),
     Path("news/index.html"),

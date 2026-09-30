@@ -212,18 +212,18 @@ main>section.work-index{background:none;padding-bottom:0}
 .pager a{text-decoration:none;font-family:var(--serif);font-size:1.15rem}.pager small{display:block;font:500 .64rem/1.4 var(--sans);color:var(--ink-soft);letter-spacing:.1em;text-transform:uppercase}
 .pager .next{text-align:right}.pager .all{font:500 .7rem/1 var(--sans);letter-spacing:.08em;text-transform:uppercase}
 
-/* Parallel Life sample gallery — keep the current sample files near their native size so they stay sharp */
-.parallel-life{grid-template-columns:repeat(2,minmax(0,1fr));align-items:start;column-gap:clamp(22px,4vw,64px)}
-.parallel-life figure,.parallel-life figure.half,.parallel-life figure.right{width:auto;max-width:100%;justify-self:center}
-.parallel-life figure:first-child{grid-column:1/-1;width:min(100%,760px)}
-.parallel-life img{width:auto;max-width:100%;height:auto;display:block;margin-inline:auto}
-.parallel-life figure:nth-child(2) img,
-.parallel-life figure:nth-child(4) img,
-.parallel-life figure:nth-child(7) img{max-width:min(100%,500px)}
-.parallel-life figure:nth-child(3) img,
-.parallel-life figure:nth-child(5) img,
-.parallel-life figure:nth-child(6) img,
-.parallel-life figure:nth-child(8) img{max-height:700px}
+/* Parallel Universe sample gallery — keep the current sample files near their native size so they stay sharp */
+.parallel-universe{grid-template-columns:repeat(2,minmax(0,1fr));align-items:start;column-gap:clamp(22px,4vw,64px)}
+.parallel-universe figure,.parallel-universe figure.half,.parallel-universe figure.right{width:auto;max-width:100%;justify-self:center}
+.parallel-universe figure:first-child{grid-column:1/-1;width:min(100%,760px)}
+.parallel-universe img{width:auto;max-width:100%;height:auto;display:block;margin-inline:auto}
+.parallel-universe figure:nth-child(2) img,
+.parallel-universe figure:nth-child(4) img,
+.parallel-universe figure:nth-child(7) img{max-width:min(100%,500px)}
+.parallel-universe figure:nth-child(3) img,
+.parallel-universe figure:nth-child(5) img,
+.parallel-universe figure:nth-child(6) img,
+.parallel-universe figure:nth-child(8) img{max-height:700px}
 
  /* Lightbox */
 .lightbox{position:fixed;inset:0;background:rgba(8,8,8,.95);display:none;align-items:center;justify-content:center;z-index:200;padding:56px 16px}
@@ -371,9 +371,9 @@ textarea{min-height:170px;resize:vertical}.two{display:grid;grid-template-column
   .section-head{align-items:start}
   .two{grid-template-columns:1fr}
   .pager{grid-template-columns:1fr 1fr}.pager .all{display:none}
-  .parallel-life{grid-template-columns:1fr;gap:34px}
-  .parallel-life figure:first-child{grid-column:auto}
-  .parallel-life img{max-width:100%!important;max-height:none!important}
+  .parallel-universe{grid-template-columns:1fr;gap:34px}
+  .parallel-universe figure:first-child{grid-column:auto}
+  .parallel-universe img{max-width:100%!important;max-height:none!important}
   .facts li{grid-template-columns:96px 1fr}
 
   .site-header .wrap{gap:12px}

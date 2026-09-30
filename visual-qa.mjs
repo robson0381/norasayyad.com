@@ -8,7 +8,7 @@ const targets = [
   ['current', '/news/'],
   ['commissions', '/services/'],
   ['project', '/work/from-arrival-to-belonging/'],
-  ['parallel', '/work/from-a-parallel-life/'],
+  ['parallel', '/work/from-a-parallel-universe/'],
   ['about', '/about/'],
   ['contact', '/contact/'],
   ['presentation', '/presentation/'],
@@ -195,11 +195,11 @@ for (const [mode, viewport] of viewports) {
   await context.close();
 }
 
-// The supplied Parallel Life album should no longer use the tiny prototype thumbnails.
+// The supplied Parallel Universe album should no longer use the tiny prototype thumbnails.
 {
   const context = await browser.newContext({ viewport: { width: 1440, height: 1000 }, deviceScaleFactor: 1 });
   const page = await context.newPage();
-  await page.goto(base + '/work/from-a-parallel-life/', { waitUntil: 'domcontentloaded' });
+  await page.goto(base + '/work/from-a-parallel-universe/', { waitUntil: 'domcontentloaded' });
   await page.evaluate(() => document.fonts?.ready);
   await page.waitForTimeout(500);
   const overScaled = await page.locator('.story img').evaluateAll(imgs =>
