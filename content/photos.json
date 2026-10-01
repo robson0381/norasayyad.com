@@ -406,5 +406,61 @@
       "h": 650,
       "alt": "A smiling baby in a soft pink top"
     }
+  ],
+  "visible-palestine-cover": {
+    "src": "/assets/images/visible-palestine/cover.webp",
+    "w": 710,
+    "h": 827,
+    "alt": "Announcement of Nora Sayyad's UA Miniresidency, with her portrait"
+  },
+  "visible-palestine": [
+    {
+      "src": "/assets/images/visible-palestine/exhibition-wall.webp",
+      "w": 796,
+      "h": 570,
+      "alt": "A visitor reads beside portraits pinned to a white wall"
+    },
+    {
+      "src": "/assets/images/visible-palestine/exhibition-tatreez-map.webp",
+      "w": 578,
+      "h": 687,
+      "alt": "An embroidered tatreez map of Palestine hung beside two portraits"
+    },
+    {
+      "src": "/assets/images/visible-palestine/exhibition-visitors.webp",
+      "w": 789,
+      "h": 570,
+      "alt": "Two visitors talking in front of photographs on the exhibition wall"
+    },
+    {
+      "src": "/assets/images/visible-palestine/exhibition-poster.webp",
+      "w": 579,
+      "h": 836,
+      "alt": "A “No Genocide” poster on the wall, with small prints hanging from strings"
+    },
+    {
+      "src": "/assets/images/visible-palestine/exhibition-artist-wall.webp",
+      "w": 829,
+      "h": 572,
+      "alt": "A woman in a purple fringed jacket stands in front of the exhibition wall"
+    },
+    {
+      "src": "/assets/images/visible-palestine/residency-lunch.webp",
+      "w": 826,
+      "h": 566,
+      "alt": "Residents talking over lunch at a long table"
+    },
+    {
+      "src": "/assets/images/visible-palestine/residency-reading.webp",
+      "w": 787,
+      "h": 563,
+      "alt": "Two women reading printed material in front of bookshelves"
+    },
+    {
+      "src": "/assets/images/visible-palestine/residency-preparing.webp",
+      "w": 787,
+      "h": 571,
+      "alt": "Two women preparing work in a bright room with arched windows"
+    }
   ]
 }

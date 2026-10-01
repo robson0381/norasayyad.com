@@ -186,7 +186,7 @@ def page(path, title, desc, body, current=None, og=None):
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600&family=Newsreader:opsz,wght@6..72,400;6..72,500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/css/style.css?v=20260930-16">
+<link rel="stylesheet" href="/assets/css/style.css?v=20260930-17">
 </head>
 <body class="{body_class}">
 <a class="skip" href="#main">Skip to content</a>
@@ -221,7 +221,7 @@ def page(path, title, desc, body, current=None, og=None):
 {body}
 </main>
 {footer_html}
-<script src="/assets/js/main.js?v=20260930-16" defer></script>
+<script src="/assets/js/main.js?v=20260930-17" defer></script>
 </body>
 </html>
 """
@@ -538,7 +538,7 @@ def build_about():
     <h2 id="cv">Career history</h2>
     {cv("Solo exhibitions", [
         ("2025–26", "<em>From Arrival to Belonging: A Decade in Portraits</em>, with Startup Refugees — IKEA; STOA; Valkea; Revontuli, Finland"),
-        ("2025", "<em>Untitled: Palestine</em> (working title / ongoing work), Pop-up HIAP, Helsinki, Finland"),
+        ("2025", '<a href="/news/visible-palestine/"><em>Visible Palestine</em></a> (ongoing work), pop-up exhibition, HIAP, Suomenlinna, Helsinki'),
         ("2024", "<em>Tervetuloa, tervemenoa: Suomi muuttoliikkeessä</em>, with the Migration Institute of Finland — touring Finnish universities and Turku City Library"),
         ("2022", "<em>Wired This Way</em>, STOA Cultural Center, Helsinki"),
         ("2021", "<em>Voimanaisia</em>, with Plan International Finland — Vuotalo & Maunula House, Helsinki"),
@@ -621,10 +621,10 @@ def build_news():
          "2025–2026 · Solo exhibition",
          '<a href="/work/from-arrival-to-belonging/">From Arrival to Belonging: A Decade in Portraits</a>',
          "With Startup Refugees — IKEA; STOA; Valkea; Revontuli, Finland."),
-        ('<div class="news-thumb ph" role="img" aria-label="Untitled Palestine pop-up at HIAP" data-label="Photo needed"></div>',
+        (f'<a class="news-thumb" href="/news/visible-palestine/" tabindex="-1" aria-hidden="true">{img(PHOTOS["visible-palestine-cover"], "(max-width: 760px) 104px, 30vw", "cover")}</a>',
          "2025 · Pop-up exhibition",
-         "Untitled: Palestine",
-         "Working title / ongoing work — Pop-up HIAP, Helsinki, Finland."),
+         '<a href="/news/visible-palestine/">Visible Palestine</a>',
+         "Pop-up photo exhibition at HIAP, Suomenlinna, 18 December 2025: a draft for a future exhibition, based on ongoing work."),
         ('<div class="news-thumb ph" role="img" aria-label="Näse Gård, Porvoo" data-label="Photo needed"></div>',
          "2025 · Group exhibition",
          "Förkolnade Minnen / Muistoihin Hiiltyneet",
@@ -658,6 +658,43 @@ def build_news():
   </div>
 </section>"""
     page("news/index.html", "Exhibitions", "Recent and past exhibitions of Nora Sayyad, including The Lost Paintings: A Prelude to Return.", body, current="news")
+
+
+def build_visible_palestine():
+    figs = "\n".join(f'<figure>{img(ph, "(max-width: 760px) 100vw, 640px", lazy=n > 1)}</figure>'
+                     for n, ph in enumerate(PHOTOS["visible-palestine"]))
+    body = f"""<section style="padding-bottom:40px">
+  <div class="wrap">
+    <p class="eyebrow"><a href="/news/">Current</a> / Visible Palestine</p>
+    <div class="project-intro">
+      <div>
+        <h1>Visible Palestine</h1>
+        <p class="lead">A pop-up photo exhibition based on Nora's ongoing work, shown as the public event of her UA Miniresidency at HIAP.</p>
+        <p>The pop-up is a draft for a future exhibition envisioned in three parts. Portraits tell the stories of Palestinians and their families, showing how everyday life and resistance coexist. They are supported by interviews collected with Iris Pajunen within the Solidarity Movements workgroup, which also gathers visual documentation of activism and communities that have supported Palestine in Finland and abroad over the decades. The Protests section brings together street photography from multiple photographers, highlighting communal action and grassroots solidarity.</p>
+      </div>
+      <ul class="facts">
+        <li><span>Date</span><span>18 December 2025</span></li>
+        <li><span>Venue</span><span>HIAP, Suomenlinna, Helsinki</span></li>
+        <li><span>Context</span><span><a href="https://urbanapa.fi/events/ua-miniresidencies-nora-sayyad/">UA Miniresidencies</a> (UrbanApa &amp; HIAP)</span></li>
+        <li><span>Interviews</span><span>With Iris Pajunen, Solidarity Movements workgroup</span></li>
+        <li><span>Status</span><span>Ongoing work</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+<div class="wrap story exhibition-gallery">
+{figs}
+</div>
+<section>
+  <div class="wrap">
+    <nav class="pager" aria-label="Current">
+      <a class="prev" href="/news/"><small>← Back</small>Exhibitions &amp; news</a>
+    </nav>
+  </div>
+</section>"""
+    page("news/visible-palestine/index.html", "Visible Palestine",
+         "Visible Palestine: a pop-up photo exhibition by Nora Sayyad at HIAP, Suomenlinna, December 2025, based on her ongoing work.",
+         body, current="news", og=PHOTOS["visible-palestine-cover"])
 
 
 def build_contact():
@@ -716,6 +753,7 @@ if __name__ == "__main__":
     build_about()
     build_services()
     build_news()
+    build_visible_palestine()
     build_contact()
     write_search_index()
     (ROOT / "content/fi-missing.txt").write_text("\n".join(sorted(FI_MISSING)) + "\n", encoding="utf-8")

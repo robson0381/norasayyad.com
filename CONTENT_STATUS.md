@@ -9,7 +9,6 @@ Status em 29/09/2026. O protótipo principal já não depende de textos `todo` v
 | Home — bloco About | placeholder | 1 retrato profissional/autoral da Nora em alta resolução |
 | About — retrato principal | placeholder | pode ser o mesmo retrato da Home ou uma segunda opção |
 | Current — The Lost Paintings | placeholder | instalação/exhibition view autorizado |
-| Current — Untitled: Palestine | placeholder | imagem representativa do pop-up/ongoing work |
 | Current — Förkolnade Minnen / Muistoihin Hiiltyneet | placeholder | vista da exposição ou obra autorizada |
 
 ## Fotografias já utilizáveis como amostra
@@ -70,4 +69,11 @@ Evitar masters vindos de Instagram. O pacote de referência fornecido continua d
 - **A tradução é um rascunho e precisa de revisão por falante nativo** (de preferência a Nora) antes de publicar. Para corrigir, edite só o valor em finlandês em `content/fi.json` e rode `python3 build.py`.
 - Nomes de projetos, títulos de obras e instituições ficam no original.
 - `content/fi-missing.txt` lista qualquer texto novo do site que ainda não tem tradução (hoje: nenhum). Texto sem tradução aparece em inglês na versão FI.
+
+## Visible Palestine (antes "Untitled: Palestine")
+
+- Página própria em `/news/visible-palestine/`, com capa no cartão da Current e 8 fotos da residência UA Miniresidency e do pop-up na HIAP (18/12/2025). Fotos fornecidas por Robson em 30/09/2026, com autorização de uso no protótipo.
+- O texto da página resume a apresentação pública da HIAP/UrbanApa sobre a exposição.
+- **Pessoas identificáveis** (outras residentes e visitantes): confirmar com a Nora a autorização de cada uma antes do site no ar.
+- As fotos têm cerca de 800 px de largura; para a versão final, pedir os originais em alta resolução.
 

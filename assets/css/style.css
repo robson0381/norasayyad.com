@@ -225,6 +225,10 @@ main>section.work-index{background:none;padding-bottom:0}
 .parallel-universe figure:nth-child(6) img,
 .parallel-universe figure:nth-child(8) img{max-height:700px}
 
+/* Exhibition photo gallery (Visible Palestine): two columns, sources are ~800px wide */
+.exhibition-gallery{grid-template-columns:repeat(2,minmax(0,1fr));align-items:start;gap:clamp(18px,3vw,40px)}
+.exhibition-gallery img{max-width:100%;width:auto;margin-inline:auto}
+
  /* Lightbox */
 .lightbox{position:fixed;inset:0;background:rgba(8,8,8,.95);display:none;align-items:center;justify-content:center;z-index:200;padding:56px 16px}
 .lightbox.open{display:flex}
@@ -371,7 +375,7 @@ textarea{min-height:170px;resize:vertical}.two{display:grid;grid-template-column
   .section-head{align-items:start}
   .two{grid-template-columns:1fr}
   .pager{grid-template-columns:1fr 1fr}.pager .all{display:none}
-  .parallel-universe{grid-template-columns:1fr;gap:34px}
+  .parallel-universe,.exhibition-gallery{grid-template-columns:1fr;gap:34px}
   .parallel-universe figure:first-child{grid-column:auto}
   .parallel-universe img{max-width:100%!important;max-height:none!important}
   .facts li{grid-template-columns:96px 1fr}
