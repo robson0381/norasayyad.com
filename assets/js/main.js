@@ -238,3 +238,21 @@ if (contactForm) {
       encodeURIComponent(subject) + '&body=' + encodeURIComponent(lines.join('\n'));
   });
 }
+
+// Career history: one control opens or closes every section
+const cvToggle = document.querySelector('[data-cv-toggle]');
+if (cvToggle) {
+  const sections = [...document.querySelectorAll('.career-section details')];
+  const label = cvToggle.querySelector('.cv-toggle-label');
+  const sync = () => {
+    const allOpen = sections.every(d => d.open);
+    cvToggle.setAttribute('aria-expanded', String(allOpen));
+    label.textContent = allOpen ? (IS_FI ? 'Sulje kaikki' : 'Collapse all') : (IS_FI ? 'Avaa kaikki' : 'Expand all');
+  };
+  cvToggle.addEventListener('click', () => {
+    const open = cvToggle.getAttribute('aria-expanded') !== 'true';
+    sections.forEach(d => { d.open = open; });
+    sync();
+  });
+  sections.forEach(d => d.addEventListener('toggle', sync));
+}

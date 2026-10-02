@@ -10,6 +10,7 @@ const targets = [
   ['project', '/work/from-arrival-to-belonging/'],
   ['parallel', '/work/from-a-parallel-universe/'],
   ['about', '/about/'],
+  ['career', '/career/'],
   ['contact', '/contact/'],
   ['presentation', '/presentation/'],
   ['memory', '/opcoes/memoria/'],
@@ -168,7 +169,7 @@ for (const [mode, viewport] of viewports) {
     links.filter(a => a.getClientRects().length > 0 && getComputedStyle(a).visibility !== 'hidden')
       .map(a => a.textContent.trim())
   );
-  const expectedMenu = ['Home', 'Work', 'Current', 'Commissions', 'About', 'Get in touch'];
+  const expectedMenu = ['Home', 'Work', 'Current', 'Commissions', 'About', 'Career', 'Get in touch'];
   if (!mobileHeroVisible) failures.push('mobile/home: hero View Portfolio button is not visible');
   if (JSON.stringify(menuSequence) !== JSON.stringify(expectedMenu)) {
     failures.push(`mobile/home: menu sequence ${JSON.stringify(menuSequence)} != ${JSON.stringify(expectedMenu)}`);

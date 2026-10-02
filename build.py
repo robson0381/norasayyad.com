@@ -23,7 +23,7 @@ ABOUT_PORTRAIT = "/assets/images/nora-selfportrait-buenos-aires-2023-sample.jpg"
 WORK_ARCHIVE_IMAGE = "https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/c47bc6e7-c136-42cc-88b7-b90dc9e6572c/_A2A2025-1%2Bkopio%2B2_SAYYAD.jpg"
 LOST_PAINTINGS_IMAGE = "https://images.squarespace-cdn.com/content/v1/6542ba5ff81a372c7283e330/388e52ba-e53c-4a50-bcc7-a1f7346341fb/Nora_Sayyad.png?format=1000w"
 
-NAV = [("", "Home"), ("work", "Work"), ("news", "Current"), ("services", "Commissions"), ("about", "About")]
+NAV = [("", "Home"), ("work", "Work"), ("news", "Current"), ("services", "Commissions"), ("about", "About"), ("career", "Career")]
 CHEVRON = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg>'
 SEARCH_ICON = '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5L21 21"/></svg>'
 # Every generated page is indexed for the client-side search (assets/search-index.json).
@@ -186,7 +186,7 @@ def page(path, title, desc, body, current=None, og=None):
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600&family=Newsreader:opsz,wght@6..72,400;6..72,500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/css/style.css?v=20261001-7">
+<link rel="stylesheet" href="/assets/css/style.css?v=20261002-1">
 </head>
 <body class="{body_class}">
 <a class="skip" href="#main">Skip to content</a>
@@ -221,7 +221,7 @@ def page(path, title, desc, body, current=None, og=None):
 {body}
 </main>
 {footer_html}
-<script src="/assets/js/main.js?v=20261001-7" defer></script>
+<script src="/assets/js/main.js?v=20261002-1" defer></script>
 </body>
 </html>
 """
@@ -396,7 +396,7 @@ def build_home():
       </article>
       <article class="press-note">
         <p class="eyebrow">Selected press</p>
-        <h3>The Washington Post</h3>
+        <h3><a href="https://www.washingtonpost.com/world/interactive/2025/world-happiness-report/">The Washington Post</a></h3>
         <p>“How is happiness measured around the world?” — photographed in Finland.</p>
         <hr>
         <h3>The Times</h3>
@@ -528,14 +528,24 @@ def build_about():
         <p class="lead">{BIO_SHORT}</p>
         <p>Her practice moves between documentary, poetic and conceptual approaches, exploring the politics of looking, questions of representation, and how photography can become a space for memory, dialogue and self-determination.</p>
         <p>Her work has been exhibited internationally and published by The Washington Post and The Times, with work held in public collections in Finland.</p>
-        <p style="display:flex;gap:12px;flex-wrap:wrap"><a class="btn" href="#cv">View career history</a><a class="btn ghost" href="/contact/">Contact</a></p>
+        <p style="display:flex;gap:12px;flex-wrap:wrap"><a class="btn" href="/career/">View career history</a><a class="btn ghost" href="/contact/">Contact</a></p>
       </div>
     </div>
   </div>
+</section>"""
+    page("about/index.html", "About", "Biography of Nora Sayyad, Finnish-Palestinian photographer and visual artist based in Helsinki.", body, current="about")
+
+
+def build_career():
+    body = f"""<section class="career-intro">
+  <div class="wrap">
+    <h1>Career history</h1>
+    <p class="lead narrow">Exhibitions, collections, awards, assignments, press and teaching, from 2015 to today.</p>
+  </div>
 </section>
-<section class="career-section">
+<section class="career-section" aria-label="Career history">
   <div class="wrap narrow">
-    <h2 id="cv">Career history</h2>
+    <button class="cv-toggle" type="button" aria-expanded="false" data-cv-toggle><span class="cv-toggle-icon" aria-hidden="true"></span><span class="cv-toggle-label">Expand all</span></button>
     {cv("Solo exhibitions", [
         ("2025–26", "<em>From Arrival to Belonging: A Decade in Portraits</em>, with Startup Refugees — IKEA; STOA; Valkea; Revontuli, Finland"),
         ("2025", '<a href="/news/visible-palestine/"><em>Visible Palestine</em></a> (ongoing work), pop-up exhibition, HIAP, Suomenlinna, Helsinki'),
@@ -544,7 +554,7 @@ def build_about():
         ("2021", "<em>Voimanaisia</em>, with Plan International Finland — Vuotalo & Maunula House, Helsinki"),
         ("2017", "<em>Finding Forgiveness</em>, Logomo, Turku, with the Finnish Association for Abducted Children"),
         ("2015", "<em>Hour of Your Reality</em>, Book Café, Turku"),
-    ], True)}
+    ])}
     {cv("Selected group exhibitions", [
         ("2025–26", '<a href="https://www.thelostpaintings.com/artist-sayyad"><em>The Lost Paintings: A Prelude to Return</em></a> — Articule; MAI Montréal; Unbound Visual Arts; The MAC; P21 Gallery; Bristol Museum & Art Gallery'),
         ("2025", "<em>Förkolnade Minnen / Muistoihin Hiiltyneet</em>, Näse Gård, Porvoo"),
@@ -566,7 +576,7 @@ def build_about():
     ])}
     {cv("Selected assignments", [
         ("2026", "The Times — financial literacy in Finland (Yrityskylä)"),
-        ("2025", "The Washington Post — “How is happiness measured around the world?”"),
+        ("2025", '<a href="https://www.washingtonpost.com/world/interactive/2025/world-happiness-report/">The Washington Post — “How is happiness measured around the world?”</a>'),
     ])}
     {cv("Selected press", [
         ("", '<a href="https://brooklineartscenter.org/lost-paintings-project">The Lost Paintings: A Prelude to Return</a> — Brookline Arts Center'),
@@ -585,7 +595,7 @@ def build_about():
     {cv("Memberships", [("", "Women Photograph (US) · Association of Photographic Artists · Kuvasto ry · GAP Creatives Database")])}
   </div>
 </section>"""
-    page("about/index.html", "About", "Biography and career history of Nora Sayyad: exhibitions, public collections, awards, press, teaching and education.", body, current="about")
+    page("career/index.html", "Career history", "Career history of Nora Sayyad: exhibitions, public collections, awards, assignments, press, teaching and education.", body, current="career")
 
 
 def build_services():
@@ -751,6 +761,7 @@ if __name__ == "__main__":
     for i in range(len(PROJECTS)):
         build_project(i)
     build_about()
+    build_career()
     build_services()
     build_news()
     build_visible_palestine()

@@ -16,7 +16,7 @@ from pathlib import Path
 ROOT = Path(__file__).parent
 OUT = ROOT / "_site"
 RUNTIME_ITEMS = [
-    "index.html", "work", "about", "services", "news", "contact", "fi",
+    "index.html", "work", "about", "career", "services", "news", "contact", "fi",
     "presentation", "opcoes", "review", "assets",
 ]
 

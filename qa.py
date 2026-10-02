@@ -25,6 +25,7 @@ MAIN_PAGES = [
     Path("work/notes-of-resistance/index.html"),
     Path("work/from-a-parallel-universe/index.html"),
     Path("about/index.html"),
+    Path("career/index.html"),
     Path("services/index.html"),
     Path("news/index.html"),
     Path("news/visible-palestine/index.html"),
