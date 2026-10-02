@@ -186,7 +186,7 @@ def page(path, title, desc, body, current=None, og=None):
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600&family=Newsreader:opsz,wght@6..72,400;6..72,500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/css/style.css?v=20261002-2">
+<link rel="stylesheet" href="/assets/css/style.css?v=20261002-3">
 </head>
 <body class="{body_class}">
 <a class="skip" href="#main">Skip to content</a>
@@ -221,7 +221,7 @@ def page(path, title, desc, body, current=None, og=None):
 {body}
 </main>
 {footer_html}
-<script src="/assets/js/main.js?v=20261002-2" defer></script>
+<script src="/assets/js/main.js?v=20261002-3" defer></script>
 </body>
 </html>
 """
@@ -525,12 +525,17 @@ def build_about():
       <figure class="about-hero-portrait"><img src="{ABOUT_PORTRAIT}" width="240" height="300" alt="Self-portrait by Nora Sayyad in Buenos Aires, May 2023" loading="eager" decoding="async"></figure>
       <div class="about-hero-copy">
         <h1>Nora Sayyad</h1>
-        <p class="lead">{BIO_SHORT}</p>
-        <p>Her practice moves between documentary, poetic and conceptual approaches, exploring the politics of looking, questions of representation, and how photography can become a space for memory, dialogue and self-determination.</p>
-        <p>Her work has been exhibited internationally and published by The Washington Post and The Times, with work held in public collections in Finland.</p>
-        <p style="display:flex;gap:12px;flex-wrap:wrap"><a class="btn" href="/career/">View career history</a><a class="btn ghost" href="/contact/">Contact</a></p>
+        <p class="lead">Nora Sayyad is a Finnish-Palestinian visual artist and documentary photographer, born in Sweden and based in Helsinki.</p>
+        <p>Her practice moves between documentary, poetic and conceptual approaches, exploring the politics of looking, questions of representation, and how photography can become a space for memory, dialogue and self-determination. Drawing from personal and collective histories, her work examines connection, belonging and lived experience in relation to wider social and political realities.</p>
+        <p class="about-actions"><a class="btn" href="/career/">View career history</a><a class="btn ghost" href="/contact/">Contact</a></p>
       </div>
     </div>
+  </div>
+</section>
+<section class="about-more" aria-label="Exhibitions, publications and collaborations">
+  <div class="wrap about-columns">
+    <p>Her work has been exhibited internationally, including as part of <em>The Lost Paintings: A Prelude to Return</em>, and presented at institutions including the Helsinki City Museum, the Finnish Museum of Photography and HIAP. Her photographs have been published by Finnish and international media including The Washington Post and The Times. Her work is held in the public collections of the Migration Institute of Finland, the Finnish Heritage Agency and the National Library of Finland.</p>
+    <p>Alongside her artistic practice, she works across visual reporting, teaching, writing, public speaking, and artivism, and has collaborated with organisations including Plan International Finland. In 2021, she was assistant curator of the award-winning <em>No Justice, No Peace</em>, which received Gold at Vuoden Huiput and a Special Books honour in Finland’s Most Beautiful Books.</p>
   </div>
 </section>"""
     page("about/index.html", "About", "Biography of Nora Sayyad, Finnish-Palestinian photographer and visual artist based in Helsinki.", body, current="about")

@@ -253,6 +253,12 @@ main>section.about-hero{padding:22px 0 0;background:none}
 .about-hero-copy h1{font-size:clamp(3.6rem,6.3vw,6.2rem);margin-bottom:.24em}
 .about-hero-copy .lead{max-width:760px}
 .about-hero-copy>p:not(.eyebrow):not(.lead){max-width:760px}
+.about-hero-copy .lead{font-size:clamp(1.15rem,1.7vw,1.5rem);line-height:1.32}
+.about-hero-copy>p:not(.lead):not(.about-actions){font-size:.95rem;line-height:1.6}
+.about-actions{display:flex;gap:12px;flex-wrap:wrap;margin:6px 0 0}
+/* Second About block: the rest of Nora's bio in two quiet columns */
+.about-columns{display:grid;grid-template-columns:1fr 1fr;gap:clamp(24px,4vw,64px)}
+.about-columns p{margin:0;font-size:.95rem;line-height:1.65;color:var(--ink-soft)}
 .career-intro h1{margin-bottom:.35em}
 .career-intro .lead{margin:0}
 /* Expand / collapse all: a filled round "+" that reads differently from the section "+" signs */
@@ -497,6 +503,7 @@ textarea{min-height:170px;resize:vertical}.two{display:grid;grid-template-column
   .about-hero-copy{order:1;padding:30px 20px 34px}
   .about-hero-copy h1{font-size:clamp(3rem,15vw,4.8rem)}
   .about-hero-copy>p:not(.eyebrow):not(.lead){max-width:none}
+  .about-columns{grid-template-columns:1fr;gap:16px}
 
 }
 /* Blocks never run wider than the useful page width (as on Work); content keeps an inner margin */
