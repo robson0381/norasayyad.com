@@ -234,6 +234,7 @@ def page(path, title, desc, body, current=None, og=None):
             fi_body = to_finnish(body)
             SEARCH_PAGES["fi"].append({"url": "/fi" + rel, "title": FI.get(title or "Home", title or "Home"),
                                        "desc": FI.get(desc, desc), "body": fi_body})
+        html = external_links(html)
         target.parent.mkdir(parents=True, exist_ok=True)
         target.write_text(html, encoding="utf-8")
 
@@ -254,6 +255,21 @@ def fi_text(raw):
         return lead + escape(FI[key], quote=False) + trail
     FI_MISSING.add(key)
     return raw
+
+
+def external_links(html):
+    # Links to other sites open in a new tab; norasayyad.com and <link> tags stay as they are
+    def fix(m):
+        tag = m.group(0)
+        if "target=" in tag or "norasayyad.com" in m.group(1):
+            return tag
+        rel = re.search(r'\srel="([^"]*)"', tag)
+        if rel:
+            tag = tag.replace(rel.group(0), f' rel="{rel.group(1)} noopener"')
+        else:
+            tag = tag[:-1] + ' rel="noopener"' + ">"
+        return tag[:-1] + ' target="_blank">'
+    return re.sub(r'<a\s[^>]*href="(https?://[^"]+)"[^>]*>', fix, html)
 
 
 def to_finnish(html):
