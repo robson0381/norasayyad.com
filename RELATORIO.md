@@ -84,7 +84,25 @@ Registro das decisões do projeto: data, decisão e quem decidiu. Novas entradas
 
 | Data | Decisão | Quem |
 |---|---|---|
+| 02/10/2026 | Ordem das seções do currículo (página Career) mantida como no protótipo, diferente do site atual. Fundamentação abaixo, para apresentar à Nora | Robson |
 | 28/09/2026 | Direção Editorial / Archive in Motion adicionada ao protótipo como nova opção visual, sem substituir as demais | Robson |
 | 28/09/2026 | Opções da versão 2 (Reportagem, Cartas, Tatreez, Sequências) publicadas num link privado para apresentar à Nora; Tatreez marcada como favorita | Robson |
 | 28/09/2026 | Versões 1 e 2 guardadas como opções adicionais; conceitos novos (Símbolos, Rota, Visível, Dois lares) em `opcoes/` | Robson |
 | 28/09/2026 | Fotos baixadas do Instagram não entram no repositório; usar originais da Nora | Robson |
+
+### Ordem das seções do currículo (página Career)
+
+O currículo no site atual da Nora segue a ordem: Education → Solo exhibitions → Selected group exhibitions → Selected awards, residencies → Public collections → Memberships.
+
+O protótipo usa: Solo exhibitions → Selected group exhibitions → Public collections → Awards & residencies → Selected assignments → Selected press → Publications & clients → Talks, teaching & juries → Education → Memberships.
+
+**Por que essa ordem:**
+
+1. **Exposições primeiro.** Em currículos de artistas com carreira estabelecida, o costume é abrir com o trabalho exposto, que é a credencial mais forte e a primeira coisa que curadores, galerias e editais procuram.
+2. **Coleções públicas antes de prêmios.** Ter obra no acervo de instituições públicas (Migration Institute of Finland, Finnish Heritage Agency, National Library of Finland) indica reconhecimento institucional duradouro e costuma pesar mais que um prêmio pontual.
+3. **Trabalho encomendado depois do núcleo artístico.** As seções novas (pautas para The Washington Post e The Times, imprensa, clientes, palestras e ensino) mostram a atuação como repórter visual e educadora. Ficam depois das exposições, coleções e prêmios para não misturar trabalho autoral com encomenda.
+4. **Formação no fim.** Para quem já tem carreira, a formação vira dado de referência, não de destaque. Começar pelo mestrado de 2022 esconderia mais de dez anos de exposições.
+5. **Associações por último**, como no site atual.
+
+Dentro de cada seção, a ordem continua do mais recente para o mais antigo, como no site dela. Se a Nora preferir a ordem atual, a troca é simples: basta mudar a sequência das chamadas `cv(...)` em `build_career()`, no `build.py`.
+
