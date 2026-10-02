@@ -1,0 +1,828 @@
+{
+  "captured_at": "2026-09-29",
+  "source_site": "https://www.norasayyad.com",
+  "policy": "Preserve all current visual assets as a migration inventory, but use a curated subset by default for page performance and narrative. Replace samples with Nora's originals before production.",
+  "pages": {
+    "home": {
+      "path": "/",
+      "observed_images": 1
+    },
+    "work": {
+      "path": "/work-1",
+      "project_covers": 4,
+      "background_image": {
+        "filename": "_A2A2025-1+kopio+2_SAYYAD.jpg",
+        "source_url": "https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/c47bc6e7-c136-42cc-88b7-b90dc9e6572c/_A2A2025-1%2Bkopio%2B2_SAYYAD.jpg",
+        "source": "current Squarespace CDN",
+        "role": "Work page background / archive visual",
+        "usage": "prototype sample",
+        "original_needed": true,
+        "metadata_status": "recovered from current Work page; original dimensions still to be confirmed"
+      }
+    },
+    "portraits": {
+      "path": "/work-1/project-one-f5w4d-z9nem-s3jda-eyssk-73f62-tmxz9-kllpy",
+      "observed_images": 19,
+      "structured_samples_file": "content/photos.json"
+    },
+    "from_arrival_to_belonging": {
+      "path": "/work-1/project-two-ky966-n329z-nnx53-feazs-s32gp-b59d5-9c4hw",
+      "observed_images": 10,
+      "structured_samples_file": "content/photos.json"
+    },
+    "parfyymin_tuulahdus": {
+      "path": "/work-1/parfyymin-tuulahdus",
+      "observed_images": 3,
+      "structured_samples_file": "content/photos.json"
+    },
+    "notes_of_resistance": {
+      "path": "/work-1/notes-of-resistance",
+      "observed_images": 86,
+      "images": [
+        {
+          "position": 1,
+          "filename": "01.jpg",
+          "source_url": "https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/e5e85ee9-ba4e-4f22-97c5-ca637303d65b/01.jpg",
+          "source": "current Squarespace CDN",
+          "usage": "prototype sample",
+          "original_needed": true,
+          "metadata_status": "dimensions/alt to be completed unless already present in content/photos.json"
+        },
+        {
+          "position": 2,
+          "filename": "4W7A4927.jpg",
+          "source_url": "https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/1746530539380-KQQGTMEO9L03QKHCBEU3/4W7A4927.jpg",
+          "source": "current Squarespace CDN",
+          "usage": "prototype sample",
+          "original_needed": true,
+          "metadata_status": "dimensions/alt to be completed unless already present in content/photos.json"
+        },
+        {
+          "position": 3,
+          "filename": "4W7A4693.jpg",
+          "source_url": "https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/1746530454524-B46OC3HLMGI4IEMGKLCU/4W7A4693.jpg",
+          "source": "current Squarespace CDN",
+          "usage": "prototype sample",
+          "original_needed": true,
+          "metadata_status": "dimensions/alt to be completed unless already present in content/photos.json"
+        },
+        {
+          "position": 4,
+          "filename": "4W7A4909.jpg",
+          "source_url": "https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/132e18e8-e2ed-4e62-b2cc-11df938aec90/4W7A4909.jpg",
+          "source": "current Squarespace CDN",
+          "usage": "prototype sample",
+          "original_needed": true,
+          "metadata_status": "dimensions/alt to be completed unless already present in content/photos.json"
+        },
+        {
+          "position": 5,
+          "filename": "BLM_TKU_NORASAYYAD_01.jpg",
+          "source_url": "https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/b9fbe6bc-d93a-4775-a2d3-7970d6ddf7cd/BLM_TKU_NORASAYYAD_01.jpg",
+          "source": "current Squarespace CDN",
+          "usage": "prototype sample",
+          "original_needed": true,
+          "metadata_status": "dimensions/alt to be completed unless already present in content/photos.json"
+        },
+        {
+          "position": 6,
+          "filename": "BLM_TKU_NORASAYYAD_10.jpg",
+          "source_url": "https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/fb3077cc-5c6a-475b-af15-dcc89dfb9725/BLM_TKU_NORASAYYAD_10.jpg",
+          "source": "current Squarespace CDN",
+          "usage": "prototype sample",
+          "original_needed": true,
+          "metadata_status": "dimensions/alt to be completed unless already present in content/photos.json"
+        },
+        {
+          "position": 7,
+          "filename": "Kelet_kontrasti_NS.jpg",
+          "source_url": "https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/be0ea7eb-8e8c-47b6-90b6-ae9ce6191616/Kelet_kontrasti_NS.jpg",
+          "source": "current Squarespace CDN",
+          "usage": "prototype sample",
+          "original_needed": true,
+          "metadata_status": "dimensions/alt to be completed unless already present in content/photos.json"
+        },
+        {
+          "position": 8,
+          "filename": "BLM_TKU_NORASAYYAD_02.jpg",
+          "source_url": "https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/ecf4f6f8-0108-494e-960e-c20c2d3ce9c8/BLM_TKU_NORASAYYAD_02.jpg",
+          "source": "current Squarespace CDN",
+          "usage": "prototype sample",
+          "original_needed": true,
+          "metadata_status": "dimensions/alt to be completed unless already present in content/photos.json"
+        },
+        {
+          "position": 9,
+          "filename": "BLM_TKU_NORASAYYAD_08.jpg",
+          "source_url": "https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/a6b065a7-bf9d-4c4b-92ef-cb7633f767b2/BLM_TKU_NORASAYYAD_08.jpg",
+          "source": "current Squarespace CDN",
+          "usage": "prototype sample",
+          "original_needed": true,
+          "metadata_status": "dimensions/alt to be completed unless already present in content/photos.json"
+        },
+        {
+          "position": 10,
+          "filename": "4W7A4929.jpg",
+          "source_url": "https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/5e9f4d0d-7ab1-4379-ba5b-aceb711d9d33/4W7A4929.jpg",
+          "source": "current Squarespace CDN",
+          "usage": "prototype sample",
+          "original_needed": true,
+          "metadata_status": "dimensions/alt to be completed unless already present in content/photos.json"
+        },
+        {
+          "position": 11,
+          "filename": "4W7A4689.jpg",
+          "source_url": "https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/4a2f45be-9c01-438a-a423-aa479f3e2a92/4W7A4689.jpg",
+          "source": "current Squarespace CDN",
+          "usage": "prototype sample",
+          "original_needed": true,
+          "metadata_status": "dimensions/alt to be completed unless already present in content/photos.json"
+        },
+        {
+          "position": 12,
+          "filename": "4W7A4903.jpg",
+          "source_url": "https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/02a8aa26-d8ca-4993-82a6-5e9baee33051/4W7A4903.jpg",
+          "source": "current Squarespace CDN",
+          "usage": "prototype sample",
+          "original_needed": true,
+          "metadata_status": "dimensions/alt to be completed unless already present in content/photos.json"
+        },
+        {
+          "position": 13,
+          "filename": "4W7A4556+kopio.jpg",
+          "source_url": "https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/6aae6462-f82a-47c1-9bab-27950543e6dd/4W7A4556%2Bkopio.jpg",
+          "source": "current Squarespace CDN",
+          "usage": "prototype sample",
+          "original_needed": true,
+          "metadata_status": "dimensions/alt to be completed unless already present in content/photos.json"
+        },
+        {
+          "position": 14,
+          "filename": "4W7A4498.jpg",
+          "source_url": "https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/98259fe4-eb3b-4189-b0e1-ce33fec31aa7/4W7A4498.jpg",
+          "source": "current Squarespace CDN",
+          "usage": "prototype sample",
+          "original_needed": true,
+          "metadata_status": "dimensions/alt to be completed unless already present in content/photos.json"
+        },
+        {
+          "position": 15,
+          "filename": "1A2A4513_SRGB.jpg",
+          "source_url": "https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/009f5bb4-c71a-47f2-927b-92b61798c82c/1A2A4513_SRGB.jpg",
+          "source": "current Squarespace CDN",
+          "usage": "prototype sample",
+          "original_needed": true,
+          "metadata_status": "dimensions/alt to be completed unless already present in content/photos.json"
+        },
+        {
+          "position": 16,
+          "filename": "Protestikuva_esimerkki_A2A5006_iSayyad__SRGB.jpg",
+          "source_url": "https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/62b36a22-aa26-4f2c-9125-071cd87dd5e1/Protestikuva_esimerkki_A2A5006_iSayyad__SRGB.jpg",
+          "source": "current Squarespace CDN",
+          "usage": "prototype sample",
+          "original_needed": true,
+          "metadata_status": "dimensions/alt to be completed unless already present in content/photos.json"
+        },
+        {
+          "position": 17,
+          "filename": "_A2A4986.jpg",
+          "source_url": "https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/8b756f2b-c331-423a-9550-458718d7af4a/_A2A4986.jpg",
+          "source": "current Squarespace CDN",
+          "usage": "prototype sample",
+          "original_needed": true,
+          "metadata_status": "dimensions/alt to be completed unless already present in content/photos.json"
+        },
+        {
+          "position": 18,
+          "filename": "_A2A4998.jpg",
+          "source_url": "https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/8a22cfb8-4135-473c-a21f-8d0319b9d695/_A2A4998.jpg",
+          "source": "current Squarespace CDN",
+          "usage": "prototype sample",
+          "original_needed": true,
+          "metadata_status": "dimensions/alt to be completed unless already present in content/photos.json"
+        },
+        {
+          "position": 19,
+          "filename": "_A2A5053.jpg",
+          "source_url": "https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/470cd6ae-0e11-41d7-a17e-62ac685d688a/_A2A5053.jpg",
+          "source": "current Squarespace CDN",
+          "usage": "prototype sample",
+          "original_needed": true,
+          "metadata_status": "dimensions/alt to be completed unless already present in content/photos.json"
+        },
+        {
+          "position": 20,
+          "filename": "Protestikuva_esimerkki_1A2A4430_Sayyad_.jpg",
+          "source_url": "https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/424a8cc6-3cce-4317-b864-1b6b5bf30b0c/Protestikuva_esimerkki_1A2A4430_Sayyad_.jpg",
+          "source": "current Squarespace CDN",
+          "usage": "prototype sample",
+          "original_needed": true,
+          "metadata_status": "dimensions/alt to be completed unless already present in content/photos.json"
+        },
+        {
+          "position": 21,
+          "filename": "Protestikuva_esimerkki_A2A657_Sayyad_.jpg",
+          "source_url": "https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/cffd6fa6-a896-4be8-89fe-aaabbc36591f/Protestikuva_esimerkki_A2A657_Sayyad_.jpg",
+          "source": "current Squarespace CDN",
+          "usage": "prototype sample",
+          "original_needed": true,
+          "metadata_status": "dimensions/alt to be completed unless already present in content/photos.json"
+        },
+        {
+          "position": 22,
+          "filename": "_A2A0222_SRGB.jpg",
+          "source_url": "https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/6364e8bc-96ec-404f-b733-45f3100f1a0a/_A2A0222_SRGB.jpg",
+          "source": "current Squarespace CDN",
+          "usage": "prototype sample",
+          "original_needed": true,
+          "metadata_status": "dimensions/alt to be completed unless already present in content/photos.json"
+        },
+        {
+          "position": 23,
+          "filename": "_A2A0212.jpg",
+          "source_url": "https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/613d1b99-ee46-462e-8529-10a72af9c235/_A2A0212.jpg",
+          "source": "current Squarespace CDN",
+          "usage": "prototype sample",
+          "original_needed": true,
+          "metadata_status": "dimensions/alt to be completed unless already present in content/photos.json"
+        },
+        {
+          "position": 24,
+          "filename": "_A2A0133_SRGB.jpg",
+          "source_url": "https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/b2931102-b729-4bc6-8d58-3e98089be038/_A2A0133_SRGB.jpg",
+          "source": "current Squarespace CDN",
+          "usage": "prototype sample",
+          "original_needed": true,
+          "metadata_status": "dimensions/alt to be completed unless already present in content/photos.json"
+        },
+        {
+          "position": 25,
+          "filename": "_A2A0233_SRGB.jpg",
+          "source_url": "https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/13b64272-dd16-4ef4-8309-80a4ccec441c/_A2A0233_SRGB.jpg",
+          "source": "current Squarespace CDN",
+          "usage": "prototype sample",
+          "original_needed": true,
+          "metadata_status": "dimensions/alt to be completed unless already present in content/photos.json"
+        },
+        {
+          "position": 26,
+          "filename": "Protestikuva_esimerkki_A2A7017_Sayyad_.jpg",
+          "source_url": "https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/7a3a6dde-2021-47e1-8564-8db37aa86c51/Protestikuva_esimerkki_A2A7017_Sayyad_.jpg",
+          "source": "current Squarespace CDN",
+          "usage": "prototype sample",
+          "original_needed": true,
+          "metadata_status": "dimensions/alt to be completed unless already present in content/photos.json"
+        },
+        {
+          "position": 27,
+          "filename": "_A2A6933_SRGB.jpg",
+          "source_url": "https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/655dc677-44de-4e91-b6b8-72fe3634f9f9/_A2A6933_SRGB.jpg",
+          "source": "current Squarespace CDN",
+          "usage": "prototype sample",
+          "original_needed": true,
+          "metadata_status": "dimensions/alt to be completed unless already present in content/photos.json"
+        },
+        {
+          "position": 28,
+          "filename": "_A2A4974_SRGB.jpg",
+          "source_url": "https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/a68ce91a-d131-4baa-a92e-11f6b937b0e6/_A2A4974_SRGB.jpg",
+          "source": "current Squarespace CDN",
+          "usage": "prototype sample",
+          "original_needed": true,
+          "metadata_status": "dimensions/alt to be completed unless already present in content/photos.json"
+        },
+        {
+          "position": 29,
+          "filename": "_A2A6448+2_SRGB.jpg",
+          "source_url": "https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/259bacdb-27b6-42a0-bd39-5191e87c4e9e/_A2A6448%2B2_SRGB.jpg",
+          "source": "current Squarespace CDN",
+          "usage": "prototype sample",
+          "original_needed": true,
+          "metadata_status": "dimensions/alt to be completed unless already present in content/photos.json"
+        },
+        {
+          "position": 30,
+          "filename": "_A2A6948+2.jpg",
+          "source_url": "https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/7f08a695-520f-4658-a0db-9f84870cfc23/_A2A6948%2B2.jpg",
+          "source": "current Squarespace CDN",
+          "usage": "prototype sample",
+          "original_needed": true,
+          "metadata_status": "dimensions/alt to be completed unless already present in content/photos.json"
+        },
+        {
+          "position": 31,
+          "filename": "249A4438_SRGB.jpg",
+          "source_url": "https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/73dad8c3-f464-49ce-ada8-0f0fd33736b2/249A4438_SRGB.jpg",
+          "source": "current Squarespace CDN",
+          "usage": "prototype sample",
+          "original_needed": true,
+          "metadata_status": "dimensions/alt to be completed unless already present in content/photos.json"
+        },
+        {
+          "position": 32,
+          "filename": "249A4520.jpg",
+          "source_url": "https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/d5d1c88c-3205-44d1-8d12-f66182f6a349/249A4520.jpg",
+          "source": "current Squarespace CDN",
+          "usage": "prototype sample",
+          "original_needed": true,
+          "metadata_status": "dimensions/alt to be completed unless already present in content/photos.json"
+        },
+        {
+          "position": 33,
+          "filename": "_A2A3117.jpg",
+          "source_url": "https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/71853f0b-ac6f-4bbd-bd86-6227ac363837/_A2A3117.jpg",
+          "source": "current Squarespace CDN",
+          "usage": "prototype sample",
+          "original_needed": true,
+          "metadata_status": "dimensions/alt to be completed unless already present in content/photos.json"
+        },
+        {
+          "position": 34,
+          "filename": "_A2A3118+(1)_SRGB.jpg",
+          "source_url": "https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/aaab268f-7340-44de-8e3e-89eb18f04560/_A2A3118%2B%281%29_SRGB.jpg",
+          "source": "current Squarespace CDN",
+          "usage": "prototype sample",
+          "original_needed": true,
+          "metadata_status": "dimensions/alt to be completed unless already present in content/photos.json"
+        },
+        {
+          "position": 35,
+          "filename": "_A2A3121.jpg",
+          "source_url": "https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/6d000f2c-6da3-4581-aecc-1e13ea228f8f/_A2A3121.jpg",
+          "source": "current Squarespace CDN",
+          "usage": "prototype sample",
+          "original_needed": true,
+          "metadata_status": "dimensions/alt to be completed unless already present in content/photos.json"
+        },
+        {
+          "position": 36,
+          "filename": "_A2A6758_SRGB.jpg",
+          "source_url": "https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/d0b44101-928d-4c69-822d-6b930ca641b6/_A2A6758_SRGB.jpg",
+          "source": "current Squarespace CDN",
+          "usage": "prototype sample",
+          "original_needed": true,
+          "metadata_status": "dimensions/alt to be completed unless already present in content/photos.json"
+        },
+        {
+          "position": 37,
+          "filename": "249A4442_SRGB.jpg",
+          "source_url": "https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/080e03d9-882d-4f97-8bf2-39bcd0dc8bca/249A4442_SRGB.jpg",
+          "source": "current Squarespace CDN",
+          "usage": "prototype sample",
+          "original_needed": true,
+          "metadata_status": "dimensions/alt to be completed unless already present in content/photos.json"
+        },
+        {
+          "position": 38,
+          "filename": "249A4622.jpg",
+          "source_url": "https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/5d8ebea6-8ce4-45c0-aa63-667585a40538/249A4622.jpg",
+          "source": "current Squarespace CDN",
+          "usage": "prototype sample",
+          "original_needed": true,
+          "metadata_status": "dimensions/alt to be completed unless already present in content/photos.json"
+        },
+        {
+          "position": 39,
+          "filename": "249A4676_SRGB.jpg",
+          "source_url": "https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/e247d195-0874-44b1-928e-2b3ea05d2887/249A4676_SRGB.jpg",
+          "source": "current Squarespace CDN",
+          "usage": "prototype sample",
+          "original_needed": true,
+          "metadata_status": "dimensions/alt to be completed unless already present in content/photos.json"
+        },
+        {
+          "position": 40,
+          "filename": "249A4576.jpg",
+          "source_url": "https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/3bd2efe7-7534-4c4f-82a5-d08565697b0b/249A4576.jpg",
+          "source": "current Squarespace CDN",
+          "usage": "prototype sample",
+          "original_needed": true,
+          "metadata_status": "dimensions/alt to be completed unless already present in content/photos.json"
+        },
+        {
+          "position": 41,
+          "filename": "_A2A1694.jpg",
+          "source_url": "https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/3f618244-88f9-45cf-b120-fa7e2b7b5f8b/_A2A1694.jpg",
+          "source": "current Squarespace CDN",
+          "usage": "prototype sample",
+          "original_needed": true,
+          "metadata_status": "dimensions/alt to be completed unless already present in content/photos.json"
+        },
+        {
+          "position": 42,
+          "filename": "_A2A1659-2.jpg",
+          "source_url": "https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/0d6da661-ebe9-4504-846e-86772281193a/_A2A1659-2.jpg",
+          "source": "current Squarespace CDN",
+          "usage": "prototype sample",
+          "original_needed": true,
+          "metadata_status": "dimensions/alt to be completed unless already present in content/photos.json"
+        },
+        {
+          "position": 43,
+          "filename": "_A2A3045.jpg",
+          "source_url": "https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/aee39eb4-e30b-4688-854b-74f48aeeb592/_A2A3045.jpg",
+          "source": "current Squarespace CDN",
+          "usage": "prototype sample",
+          "original_needed": true,
+          "metadata_status": "dimensions/alt to be completed unless already present in content/photos.json"
+        },
+        {
+          "position": 44,
+          "filename": "_A2A1707.jpg",
+          "source_url": "https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/d8b16992-db6f-46e1-9203-e2369adf5bb2/_A2A1707.jpg",
+          "source": "current Squarespace CDN",
+          "usage": "prototype sample",
+          "original_needed": true,
+          "metadata_status": "dimensions/alt to be completed unless already present in content/photos.json"
+        },
+        {
+          "position": 45,
+          "filename": "_A2A3380.jpg",
+          "source_url": "https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/994d87a5-1e9d-44fd-84ab-cc277aa5bf4e/_A2A3380.jpg",
+          "source": "current Squarespace CDN",
+          "usage": "prototype sample",
+          "original_needed": true,
+          "metadata_status": "dimensions/alt to be completed unless already present in content/photos.json"
+        },
+        {
+          "position": 46,
+          "filename": "_A2A3348.jpg",
+          "source_url": "https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/dec3bdde-3a9f-4514-bd75-197d548f5d5f/_A2A3348.jpg",
+          "source": "current Squarespace CDN",
+          "usage": "prototype sample",
+          "original_needed": true,
+          "metadata_status": "dimensions/alt to be completed unless already present in content/photos.json"
+        },
+        {
+          "position": 47,
+          "filename": "_A2A3194.jpg",
+          "source_url": "https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/b733a589-032c-46ec-8e11-6310bb45308a/_A2A3194.jpg",
+          "source": "current Squarespace CDN",
+          "usage": "prototype sample",
+          "original_needed": true,
+          "metadata_status": "dimensions/alt to be completed unless already present in content/photos.json"
+        },
+        {
+          "position": 48,
+          "filename": "_A2A3182.jpg",
+          "source_url": "https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/2a6b98f3-7da7-4d01-9c0d-8e372100f545/_A2A3182.jpg",
+          "source": "current Squarespace CDN",
+          "usage": "prototype sample",
+          "original_needed": true,
+          "metadata_status": "dimensions/alt to be completed unless already present in content/photos.json"
+        },
+        {
+          "position": 49,
+          "filename": "_A2A3389.jpg",
+          "source_url": "https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/e2aef143-769b-4304-897a-ff8997f92147/_A2A3389.jpg",
+          "source": "current Squarespace CDN",
+          "usage": "prototype sample",
+          "original_needed": true,
+          "metadata_status": "dimensions/alt to be completed unless already present in content/photos.json"
+        },
+        {
+          "position": 50,
+          "filename": "_A2A3149.jpg",
+          "source_url": "https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/911c18fa-438a-4d03-927d-0ae97d8a6b31/_A2A3149.jpg",
+          "source": "current Squarespace CDN",
+          "usage": "prototype sample",
+          "original_needed": true,
+          "metadata_status": "dimensions/alt to be completed unless already present in content/photos.json"
+        },
+        {
+          "position": 51,
+          "filename": "_A2A3217.jpg",
+          "source_url": "https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/8b2c3779-809e-4cb0-83e7-56d3550f0114/_A2A3217.jpg",
+          "source": "current Squarespace CDN",
+          "usage": "prototype sample",
+          "original_needed": true,
+          "metadata_status": "dimensions/alt to be completed unless already present in content/photos.json"
+        },
+        {
+          "position": 52,
+          "filename": "_A2A4565.jpg",
+          "source_url": "https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/81189dfe-76cc-472b-84a3-66eaad5296ed/_A2A4565.jpg",
+          "source": "current Squarespace CDN",
+          "usage": "prototype sample",
+          "original_needed": true,
+          "metadata_status": "dimensions/alt to be completed unless already present in content/photos.json"
+        },
+        {
+          "position": 53,
+          "filename": "_A2A4588.jpg",
+          "source_url": "https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/9ed8de52-f43f-4355-b9cb-e771ef13c45b/_A2A4588.jpg",
+          "source": "current Squarespace CDN",
+          "usage": "prototype sample",
+          "original_needed": true,
+          "metadata_status": "dimensions/alt to be completed unless already present in content/photos.json"
+        },
+        {
+          "position": 54,
+          "filename": "_A2A6560.jpg",
+          "source_url": "https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/6fe8772a-a1f7-404a-a27c-cc6bd97383d2/_A2A6560.jpg",
+          "source": "current Squarespace CDN",
+          "usage": "prototype sample",
+          "original_needed": true,
+          "metadata_status": "dimensions/alt to be completed unless already present in content/photos.json"
+        },
+        {
+          "position": 55,
+          "filename": "Protestikuva_esimerkki_A2A9758_Sayyad_.jpg",
+          "source_url": "https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/1ae1fec5-96e3-49f8-9363-d755758743eb/Protestikuva_esimerkki_A2A9758_Sayyad_.jpg",
+          "source": "current Squarespace CDN",
+          "usage": "prototype sample",
+          "original_needed": true,
+          "metadata_status": "dimensions/alt to be completed unless already present in content/photos.json"
+        },
+        {
+          "position": 56,
+          "filename": "Protestikuva_esimerkki_A2A9790_Sayyad_.jpg",
+          "source_url": "https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/3acd0e05-3ad8-4cad-8107-cdde1f2ce162/Protestikuva_esimerkki_A2A9790_Sayyad_.jpg",
+          "source": "current Squarespace CDN",
+          "usage": "prototype sample",
+          "original_needed": true,
+          "metadata_status": "dimensions/alt to be completed unless already present in content/photos.json"
+        },
+        {
+          "position": 57,
+          "filename": "_J1A3032_e.jpg",
+          "source_url": "https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/2233db9a-6e4a-4df8-ad04-ae02209a2e76/_J1A3032_e.jpg",
+          "source": "current Squarespace CDN",
+          "usage": "prototype sample",
+          "original_needed": true,
+          "metadata_status": "dimensions/alt to be completed unless already present in content/photos.json"
+        },
+        {
+          "position": 58,
+          "filename": "Protestikuva_esimerkki_A2A6714_Sayyad_.jpg",
+          "source_url": "https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/07a7a4b3-e68a-4898-8ef6-433830bae14d/Protestikuva_esimerkki_A2A6714_Sayyad_.jpg",
+          "source": "current Squarespace CDN",
+          "usage": "prototype sample",
+          "original_needed": true,
+          "metadata_status": "dimensions/alt to be completed unless already present in content/photos.json"
+        },
+        {
+          "position": 59,
+          "filename": "_J1A3033.jpg",
+          "source_url": "https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/29607d50-895c-4932-92b4-ecf24b31e112/_J1A3033.jpg",
+          "source": "current Squarespace CDN",
+          "usage": "prototype sample",
+          "original_needed": true,
+          "metadata_status": "dimensions/alt to be completed unless already present in content/photos.json"
+        },
+        {
+          "position": 60,
+          "filename": "_J1A3096.jpg",
+          "source_url": "https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/2e84a61b-2235-42e8-b53b-93a55ca34e14/_J1A3096.jpg",
+          "source": "current Squarespace CDN",
+          "usage": "prototype sample",
+          "original_needed": true,
+          "metadata_status": "dimensions/alt to be completed unless already present in content/photos.json"
+        },
+        {
+          "position": 61,
+          "filename": "_J1A3108.jpg",
+          "source_url": "https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/cee83288-3d3b-4015-9e03-cfeaab9a9844/_J1A3108.jpg",
+          "source": "current Squarespace CDN",
+          "usage": "prototype sample",
+          "original_needed": true,
+          "metadata_status": "dimensions/alt to be completed unless already present in content/photos.json"
+        },
+        {
+          "position": 62,
+          "filename": "1A2A4519.jpg",
+          "source_url": "https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/efcfc3a3-1d76-4528-8d74-9b48a396711e/1A2A4519.jpg",
+          "source": "current Squarespace CDN",
+          "usage": "prototype sample",
+          "original_needed": true,
+          "metadata_status": "dimensions/alt to be completed unless already present in content/photos.json"
+        },
+        {
+          "position": 63,
+          "filename": "249A4568.jpg",
+          "source_url": "https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/4c651720-c5df-4496-b1bd-b6ebad25c638/249A4568.jpg",
+          "source": "current Squarespace CDN",
+          "usage": "prototype sample",
+          "original_needed": true,
+          "metadata_status": "dimensions/alt to be completed unless already present in content/photos.json"
+        },
+        {
+          "position": 64,
+          "filename": "249A4556.jpg",
+          "source_url": "https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/9865e1d3-375e-44e2-92cd-a62519f1ac5d/249A4556.jpg",
+          "source": "current Squarespace CDN",
+          "usage": "prototype sample",
+          "original_needed": true,
+          "metadata_status": "dimensions/alt to be completed unless already present in content/photos.json"
+        },
+        {
+          "position": 65,
+          "filename": "249A4631.jpg",
+          "source_url": "https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/3b08d551-e730-49cd-8e30-075f408eb21d/249A4631.jpg",
+          "source": "current Squarespace CDN",
+          "usage": "prototype sample",
+          "original_needed": true,
+          "metadata_status": "dimensions/alt to be completed unless already present in content/photos.json"
+        },
+        {
+          "position": 66,
+          "filename": "249A4635.jpg",
+          "source_url": "https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/a3a2f745-06c9-4fe3-a033-4e53633f6a8b/249A4635.jpg",
+          "source": "current Squarespace CDN",
+          "usage": "prototype sample",
+          "original_needed": true,
+          "metadata_status": "dimensions/alt to be completed unless already present in content/photos.json"
+        },
+        {
+          "position": 67,
+          "filename": "249A4660.jpg",
+          "source_url": "https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/e178ecfe-ebff-4d76-af95-ef69b66b8d21/249A4660.jpg",
+          "source": "current Squarespace CDN",
+          "usage": "prototype sample",
+          "original_needed": true,
+          "metadata_status": "dimensions/alt to be completed unless already present in content/photos.json"
+        },
+        {
+          "position": 68,
+          "filename": "249A4673.jpg",
+          "source_url": "https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/054c3f8b-8f1b-4a14-a22b-4793727180fd/249A4673.jpg",
+          "source": "current Squarespace CDN",
+          "usage": "prototype sample",
+          "original_needed": true,
+          "metadata_status": "dimensions/alt to be completed unless already present in content/photos.json"
+        },
+        {
+          "position": 69,
+          "filename": "249A4783.jpg",
+          "source_url": "https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/f827c8ce-0209-45b1-838b-76ce2000689e/249A4783.jpg",
+          "source": "current Squarespace CDN",
+          "usage": "prototype sample",
+          "original_needed": true,
+          "metadata_status": "dimensions/alt to be completed unless already present in content/photos.json"
+        },
+        {
+          "position": 70,
+          "filename": "249A4796.jpg",
+          "source_url": "https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/8ab534ca-d635-4b77-8a54-d66bc967e862/249A4796.jpg",
+          "source": "current Squarespace CDN",
+          "usage": "prototype sample",
+          "original_needed": true,
+          "metadata_status": "dimensions/alt to be completed unless already present in content/photos.json"
+        },
+        {
+          "position": 71,
+          "filename": "249A4810.jpg",
+          "source_url": "https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/9b8f28f2-3c96-4ad8-9339-33a2ec7f2d73/249A4810.jpg",
+          "source": "current Squarespace CDN",
+          "usage": "prototype sample",
+          "original_needed": true,
+          "metadata_status": "dimensions/alt to be completed unless already present in content/photos.json"
+        },
+        {
+          "position": 72,
+          "filename": "_A2A6407.jpg",
+          "source_url": "https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/0fdaa1e0-cb0f-4ee5-a682-4447cf9f0d7d/_A2A6407.jpg",
+          "source": "current Squarespace CDN",
+          "usage": "prototype sample",
+          "original_needed": true,
+          "metadata_status": "dimensions/alt to be completed unless already present in content/photos.json"
+        },
+        {
+          "position": 73,
+          "filename": "_A2A6520.jpg",
+          "source_url": "https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/168ee618-bfaf-481a-a408-9bf894b31dcb/_A2A6520.jpg",
+          "source": "current Squarespace CDN",
+          "usage": "prototype sample",
+          "original_needed": true,
+          "metadata_status": "dimensions/alt to be completed unless already present in content/photos.json"
+        },
+        {
+          "position": 74,
+          "filename": "_A2A6544.jpg",
+          "source_url": "https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/848a56e0-99f3-4cdb-93c4-cd98d15032d0/_A2A6544.jpg",
+          "source": "current Squarespace CDN",
+          "usage": "prototype sample",
+          "original_needed": true,
+          "metadata_status": "dimensions/alt to be completed unless already present in content/photos.json"
+        },
+        {
+          "position": 75,
+          "filename": "_A2A6680.jpg",
+          "source_url": "https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/d29bc4ba-58db-4d02-be0d-de1983205ae4/_A2A6680.jpg",
+          "source": "current Squarespace CDN",
+          "usage": "prototype sample",
+          "original_needed": true,
+          "metadata_status": "dimensions/alt to be completed unless already present in content/photos.json"
+        },
+        {
+          "position": 76,
+          "filename": "_A2A6885.jpg",
+          "source_url": "https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/98389b97-b8e3-42c2-8a4b-9ea7badbb3fc/_A2A6885.jpg",
+          "source": "current Squarespace CDN",
+          "usage": "prototype sample",
+          "original_needed": true,
+          "metadata_status": "dimensions/alt to be completed unless already present in content/photos.json"
+        },
+        {
+          "position": 77,
+          "filename": "_A2A6906.jpg",
+          "source_url": "https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/470a1377-f080-496f-9fbd-6ff45328f5ec/_A2A6906.jpg",
+          "source": "current Squarespace CDN",
+          "usage": "prototype sample",
+          "original_needed": true,
+          "metadata_status": "dimensions/alt to be completed unless already present in content/photos.json"
+        },
+        {
+          "position": 78,
+          "filename": "_A2A6911.jpg",
+          "source_url": "https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/0c615fb4-434f-43f3-a372-e4118dd9ff74/_A2A6911.jpg",
+          "source": "current Squarespace CDN",
+          "usage": "prototype sample",
+          "original_needed": true,
+          "metadata_status": "dimensions/alt to be completed unless already present in content/photos.json"
+        },
+        {
+          "position": 79,
+          "filename": "_A2A7011-2.jpg",
+          "source_url": "https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/998c007d-211d-45d8-a508-4a902947ed38/_A2A7011-2.jpg",
+          "source": "current Squarespace CDN",
+          "usage": "prototype sample",
+          "original_needed": true,
+          "metadata_status": "dimensions/alt to be completed unless already present in content/photos.json"
+        },
+        {
+          "position": 80,
+          "filename": "_A2A6935.jpg",
+          "source_url": "https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/012e12cb-0ed1-44c8-9142-0f4f28d64c78/_A2A6935.jpg",
+          "source": "current Squarespace CDN",
+          "usage": "prototype sample",
+          "original_needed": true,
+          "metadata_status": "dimensions/alt to be completed unless already present in content/photos.json"
+        },
+        {
+          "position": 81,
+          "filename": "1A2A4388.jpg",
+          "source_url": "https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/b922e7e3-6ef8-4575-9ff6-942c18f1fb31/1A2A4388.jpg",
+          "source": "current Squarespace CDN",
+          "usage": "prototype sample",
+          "original_needed": true,
+          "metadata_status": "dimensions/alt to be completed unless already present in content/photos.json"
+        },
+        {
+          "position": 82,
+          "filename": "1A2A4460.jpg",
+          "source_url": "https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/89c3e098-c8af-437a-944c-6d92108ef82e/1A2A4460.jpg",
+          "source": "current Squarespace CDN",
+          "usage": "prototype sample",
+          "original_needed": true,
+          "metadata_status": "dimensions/alt to be completed unless already present in content/photos.json"
+        },
+        {
+          "position": 83,
+          "filename": "1A2A4470.jpg",
+          "source_url": "https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/3fb45051-cd08-4bf0-bf9e-9007a5cb7e8e/1A2A4470.jpg",
+          "source": "current Squarespace CDN",
+          "usage": "prototype sample",
+          "original_needed": true,
+          "metadata_status": "dimensions/alt to be completed unless already present in content/photos.json"
+        },
+        {
+          "position": 84,
+          "filename": "1A2A4665.jpg",
+          "source_url": "https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/8683682e-6c4e-4557-b664-040be67ddf44/1A2A4665.jpg",
+          "source": "current Squarespace CDN",
+          "usage": "prototype sample",
+          "original_needed": true,
+          "metadata_status": "dimensions/alt to be completed unless already present in content/photos.json"
+        },
+        {
+          "position": 85,
+          "filename": "1A2A4793.jpg",
+          "source_url": "https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/19eb224b-7951-49a2-a3c4-f315d4f35453/1A2A4793.jpg",
+          "source": "current Squarespace CDN",
+          "usage": "prototype sample",
+          "original_needed": true,
+          "metadata_status": "dimensions/alt to be completed unless already present in content/photos.json"
+        },
+        {
+          "position": 86,
+          "filename": "1A2A4843.jpg",
+          "source_url": "https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/6b39648d-cff7-43de-92be-19b9fc084f87/1A2A4843.jpg",
+          "source": "current Squarespace CDN",
+          "usage": "prototype sample",
+          "original_needed": true,
+          "metadata_status": "dimensions/alt to be completed unless already present in content/photos.json"
+        }
+      ]
+    },
+    "about": {
+      "path": "/about",
+      "observed_images": 0
+    }
+  },
+  "prototype_summary": {
+    "structured_images_in_photos_json": 58,
+    "notes_full_archive_urls": 86,
+    "production_rule": "Do not copy/recompress Instagram assets. Replace live-site samples with original files supplied/approved by Nora."
+  }
+}

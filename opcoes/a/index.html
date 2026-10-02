@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nora Sayyad — Reportagem</title>
+<meta name="description" content="Nora Sayyad is a Finnish-Palestinian documentary photographer and visual artist in Helsinki, published in The Washington Post and The Times.">
+<meta name="robots" content="noindex">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&family=Source+Serif+4:ital,wght@0,400;1,400&family=Noto+Naskh+Arabic:wght@500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;overflow-x:hidden}
+img{max-width:100%;display:block;height:auto}
+a{color:inherit}
+h1,h2,h3,p,figure{margin:0}
+:focus-visible{outline:2px solid currentColor;outline-offset:3px}
+.skip{position:absolute;left:-999px}.skip:focus{left:8px;top:8px;z-index:99;background:#000;color:#fff;padding:8px}
+.ar{font-family:'Noto Naskh Arabic',serif}
+
+:root{--ink:#141414;--soft:#5b5b5b;--line:#141414;--red:#b3261e}
+body{background:#fff;color:var(--ink);font:400 16px/1.55 'Archivo',system-ui,sans-serif}
+.serif{font-family:'Source Serif 4',Georgia,serif}
+.wrap{max-width:1360px;margin:0 auto;padding:0 clamp(16px,3vw,36px)}
+.top{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;border-bottom:1px solid var(--line);padding:12px 0;font-size:.78rem;text-transform:uppercase;letter-spacing:.08em}
+.top nav{display:flex;gap:20px}.top a{text-decoration:none}
+.mast{display:flex;align-items:flex-end;justify-content:space-between;gap:20px;padding:clamp(16px,3vw,30px) 0 clamp(8px,1.5vw,16px);border-bottom:6px solid var(--line)}
+.mast h1{font-stretch:62%;font-weight:800;font-size:clamp(3.6rem,14vw,13rem);line-height:.82;letter-spacing:-.02em;text-transform:uppercase}
+.mast .ar{font-size:clamp(1.6rem,4vw,3.4rem);line-height:1.2;color:var(--red);white-space:nowrap}
+.dl{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;padding:10px 0;border-bottom:1px solid var(--line);font-size:.8rem;text-transform:uppercase;letter-spacing:.06em}
+.kick{font-size:.74rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--red)}
+.lead{display:grid;grid-template-columns:2fr 1fr;border-bottom:1px solid var(--line)}
+.lead figure{padding:24px 24px 24px 0;border-right:1px solid var(--line)}
+.lead figcaption{font-size:.8rem;color:var(--soft);margin-top:8px}
+.lead aside{padding:24px 0 24px 24px;display:flex;flex-direction:column;gap:20px}
+.lead h2{font-stretch:75%;font-weight:700;font-size:clamp(1.8rem,3vw,2.6rem);line-height:1.02;text-transform:uppercase}
+.btns{display:flex;gap:10px;flex-wrap:wrap}
+.btn{display:inline-block;background:var(--ink);color:#fff;text-decoration:none;padding:12px 18px;font-weight:600;font-size:.88rem;text-transform:uppercase;letter-spacing:.05em}
+.btn.red{background:var(--red)}
+.assign{border-top:1px solid var(--line);padding-top:14px;display:grid;gap:16px}
+.assign b{display:block;font-stretch:75%;font-size:1.15rem;text-transform:uppercase;line-height:1.1;margin-top:2px}
+.assign p{font-size:.98rem;color:var(--soft)}
+.sec{display:flex;justify-content:space-between;align-items:baseline;border-bottom:1px solid var(--line);padding:36px 0 10px}
+.sec h2{font-stretch:62%;font-weight:800;font-size:clamp(2rem,5vw,3.6rem);text-transform:uppercase;line-height:1}
+.index{list-style:none;margin:0;padding:0}
+.index a,.index .row{display:grid;grid-template-columns:70px 1fr 200px 110px;gap:20px;align-items:center;padding:16px 0;border-bottom:1px solid var(--line);text-decoration:none}
+.index a:hover{background:#f6f3ee}
+.n{font-stretch:62%;font-weight:800;font-size:2.4rem;color:var(--red)}
+.index h3{font-stretch:75%;font-weight:700;font-size:clamp(1.25rem,2.3vw,1.9rem);text-transform:uppercase;line-height:1.05}
+.index p{color:var(--soft);margin-top:4px}
+.index img{aspect-ratio:3/2;object-fit:cover;width:100%}
+.y{font-size:.82rem;text-transform:uppercase;letter-spacing:.06em;text-align:right}
+.new{display:inline-block;background:var(--red);color:#fff;font-size:.66rem;font-weight:700;letter-spacing:.08em;padding:2px 6px;vertical-align:middle;margin-left:8px}
+.ph{aspect-ratio:3/2;background:repeating-linear-gradient(45deg,#f1eee9,#f1eee9 6px,#e6e2da 6px,#e6e2da 12px);display:grid;place-items:center;font-size:.7rem;color:#666;text-align:center;padding:6px}
+.cols{display:grid;grid-template-columns:repeat(3,1fr);border-bottom:1px solid var(--line)}
+.cols > div{padding:24px 24px 28px 0}
+.cols > div + div{border-left:1px solid var(--line);padding-left:24px}
+.cols h3{font-stretch:62%;font-weight:800;font-size:clamp(1.6rem,2.6vw,2.2rem);line-height:.98;text-transform:uppercase;margin:8px 0}
+.cols p{font-size:.98rem}
+.cols small{display:block;color:var(--soft);margin-top:6px;font-size:.9rem}
+.byline{display:grid;grid-template-columns:1fr 2fr;gap:24px;padding:28px 0;border-bottom:6px solid var(--line)}
+.byline h2{font-stretch:62%;font-weight:800;font-size:2.2rem;text-transform:uppercase;line-height:1;margin-top:8px}
+.byline ul{list-style:none;margin:0;padding:0}
+.byline li{display:flex;justify-content:space-between;gap:16px;padding:10px 0;border-bottom:1px solid #ddd;font-size:1.02rem}
+.byline li span:last-child{color:var(--soft);white-space:nowrap;font-size:.85rem;text-transform:uppercase;letter-spacing:.04em}
+footer{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;padding:18px 0 64px;font-size:.8rem;text-transform:uppercase;letter-spacing:.06em}
+@media (max-width:860px){
+ .lead,.cols,.byline{grid-template-columns:1fr}
+ .lead figure{padding-right:0;border-right:0}.lead aside{padding-left:0}
+ .cols > div + div{border-left:0;padding-left:0;border-top:1px solid var(--line)}
+ .index a,.index .row{grid-template-columns:44px 1fr;gap:12px}
+ .n{font-size:1.8rem}.index img,.index .ph{grid-column:1/-1;order:-1}.y{display:none}
+ .top nav{display:none}.mast{flex-direction:column;align-items:flex-start}
+ .byline li{flex-direction:column;gap:2px}
+}
+
+.switch{position:fixed;right:12px;bottom:12px;z-index:90;background:#111;color:#fff;font:500 13px/1 system-ui,sans-serif;padding:10px 14px;border-radius:999px;text-decoration:none;box-shadow:0 4px 18px rgba(0,0,0,.25)}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<div class="wrap">
+<div class="top"><span>Helsinki, Finland</span><nav aria-label="Main"><a href="/work/">Work</a><a href="/news/">Exhibitions</a><a href="/services/">Commissions</a><a href="/about/">About</a><a href="/contact/">Contact</a></nav></div>
+<header class="mast"><h1>Nora Sayyad</h1><span class="ar" lang="ar" dir="rtl">نورا صياد</span></header>
+<div class="dl"><span>Photographer · Visual artist · Visual reporter</span><span>EN · FI · SV · AR</span></div>
+<main id="main">
+<section class="lead">
+  <figure><img src="https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/be0ea7eb-8e8c-47b6-90b6-ae9ce6191616/Kelet_kontrasti_NS.jpg?format=1500w" srcset="https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/be0ea7eb-8e8c-47b6-90b6-ae9ce6191616/Kelet_kontrasti_NS.jpg?format=500w 500w, https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/be0ea7eb-8e8c-47b6-90b6-ae9ce6191616/Kelet_kontrasti_NS.jpg?format=750w 750w, https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/be0ea7eb-8e8c-47b6-90b6-ae9ce6191616/Kelet_kontrasti_NS.jpg?format=1000w 1000w, https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/be0ea7eb-8e8c-47b6-90b6-ae9ce6191616/Kelet_kontrasti_NS.jpg?format=1500w 1500w" sizes="(max-width:860px) 100vw, 66vw" width="2000" height="1333" alt="A woman holds up a hand-lettered Black Lives Matter sign" fetchpriority="high" decoding="async"><figcaption>From <em>Notes of Resistance</em> — Black Lives Matter demonstration, Finland, 2020</figcaption></figure>
+  <aside>
+    <span class="kick">Portfolio</span>
+    <h2>Belonging, memory and the right to be seen</h2>
+    <p class="serif">Finnish-Palestinian photographer, artist and visual reporter whose experimental lens moves between documentary and fictional storytelling.</p>
+    <div class="btns"><a class="btn" href="/work/">See the work</a><a class="btn red" href="/services/">Commission</a></div>
+    <div class="assign"><span class="kick" style="color:var(--ink)">Recent assignments</span><div><span class='kick'>The Washington Post · 2025</span><b>How is ‘happiness’ measured around the world?</b><p class='serif'>Photographed in Finland, the world’s “happiest country” for the eighth time.</p></div><div><span class='kick'>The Times · 2026</span><b>Finland’s plan to be the most financially literate nation</b><p class='serif'>Assignment at Yrityskylä, where children learn how money moves through society.</p></div></div>
+  </aside>
+</section>
+<div class="sec"><h2>Projects</h2><a href="/work/">All →</a></div>
+<ol class="index"><li><div class="row"><span class="n">00</span><div><h3>Letters to Mothers & Daughter–Father Relationships<span class="new">NEW</span></h3><p class="serif">A father who has spent his whole life searching for citizenship, and the daughter who carries his story.</p></div><div class="ph">Photos from the 2026 essay</div><span class="y">2026</span></div></li><li><a href="/work/portraits/"><span class="n">01</span><div><h3>Portraits</h3><p class="serif">Editorial and personal portraits of artists, activists, families and neighbours.</p></div><img src="https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/0d7e0888-94e5-4956-9e26-70b1e8888d7e/249A6278.jpg?format=1500w" srcset="https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/0d7e0888-94e5-4956-9e26-70b1e8888d7e/249A6278.jpg?format=500w 500w, https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/0d7e0888-94e5-4956-9e26-70b1e8888d7e/249A6278.jpg?format=750w 750w, https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/0d7e0888-94e5-4956-9e26-70b1e8888d7e/249A6278.jpg?format=1000w 1000w, https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/0d7e0888-94e5-4956-9e26-70b1e8888d7e/249A6278.jpg?format=1500w 1500w, https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/0d7e0888-94e5-4956-9e26-70b1e8888d7e/249A6278.jpg?format=2500w 2500w" sizes="(max-width:860px) 100vw, 200px" width="5413" height="8116" alt="A woman in an orange jacket, her hair caught in motion" loading="lazy" decoding="async"><span class="y">2017–</span></a></li><li><a href="/work/from-arrival-to-belonging/"><span class="n">02</span><div><h3>From Arrival to Belonging? A Decade in Portraits</h3><p class="serif">Refugee lives shaped by 2015 and 2022, and the policies and borders in between.</p></div><img src="https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/a4a39869-0b02-4ffe-9865-0f443df7fdcc/nora_sayyad_UKJ1.jpg?format=1500w" srcset="https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/a4a39869-0b02-4ffe-9865-0f443df7fdcc/nora_sayyad_UKJ1.jpg?format=500w 500w, https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/a4a39869-0b02-4ffe-9865-0f443df7fdcc/nora_sayyad_UKJ1.jpg?format=750w 750w, https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/a4a39869-0b02-4ffe-9865-0f443df7fdcc/nora_sayyad_UKJ1.jpg?format=1000w 1000w, https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/a4a39869-0b02-4ffe-9865-0f443df7fdcc/nora_sayyad_UKJ1.jpg?format=1500w 1500w, https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/a4a39869-0b02-4ffe-9865-0f443df7fdcc/nora_sayyad_UKJ1.jpg?format=2500w 2500w" sizes="(max-width:860px) 100vw, 200px" width="2668" height="4000" alt="Portrait of a young woman in red, against a blue backdrop" loading="lazy" decoding="async"><span class="y">2025–26</span></a></li><li><a href="/work/parfyymin-tuulahdus/"><span class="n">03</span><div><h3>Parfyymin tuulahdus</h3><p class="serif">Scent, memory and inheritance — a poetic series.</p></div><img src="https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/b6e1baa5-1f89-4868-8972-ec0759a4b5b7/Parfyymin_tuulahdus_still_leben_grain_valo_01+%282%29.jpg?format=1500w" srcset="https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/b6e1baa5-1f89-4868-8972-ec0759a4b5b7/Parfyymin_tuulahdus_still_leben_grain_valo_01+%282%29.jpg?format=500w 500w, https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/b6e1baa5-1f89-4868-8972-ec0759a4b5b7/Parfyymin_tuulahdus_still_leben_grain_valo_01+%282%29.jpg?format=750w 750w, https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/b6e1baa5-1f89-4868-8972-ec0759a4b5b7/Parfyymin_tuulahdus_still_leben_grain_valo_01+%282%29.jpg?format=1000w 1000w, https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/b6e1baa5-1f89-4868-8972-ec0759a4b5b7/Parfyymin_tuulahdus_still_leben_grain_valo_01+%282%29.jpg?format=1500w 1500w, https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/b6e1baa5-1f89-4868-8972-ec0759a4b5b7/Parfyymin_tuulahdus_still_leben_grain_valo_01+%282%29.jpg?format=2500w 2500w" sizes="(max-width:860px) 100vw, 200px" width="3000" height="2000" alt="Still life of perfume bottles on a dark, blue-lit surface" loading="lazy" decoding="async"><span class="y">2023</span></a></li><li><a href="/work/notes-of-resistance/"><span class="n">04</span><div><h3>Notes of Resistance</h3><p class="serif">Black Lives Matter in Finland and the Palestine solidarity movement in Helsinki, from the street.</p></div><img src="https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/8a22cfb8-4135-473c-a21f-8d0319b9d695/_A2A4998.jpg?format=1500w" srcset="https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/8a22cfb8-4135-473c-a21f-8d0319b9d695/_A2A4998.jpg?format=500w 500w, https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/8a22cfb8-4135-473c-a21f-8d0319b9d695/_A2A4998.jpg?format=750w 750w, https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/8a22cfb8-4135-473c-a21f-8d0319b9d695/_A2A4998.jpg?format=1000w 1000w, https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/8a22cfb8-4135-473c-a21f-8d0319b9d695/_A2A4998.jpg?format=1500w 1500w" sizes="(max-width:860px) 100vw, 200px" width="2362" height="3543" alt="A Palestinian flag held high over a street demonstration" loading="lazy" decoding="async"><span class="y">2020–</span></a></li><li><a href="/work/from-a-parallel-universe/"><span class="n">05</span><div><h3>From a Parallel Universe</h3><p class="serif">When love creates shapes that reality couldn't.</p></div><img src="/assets/images/from-a-parallel-universe/terra-dual.webp" width="1022" height="576" alt="A split Earth floating against a star-filled sky" loading="lazy" decoding="async"><span class="y">New project</span></a></li></ol>
+<div class="sec"><h2>Now showing</h2><a href="/news/">Exhibitions →</a></div>
+<section class="cols"><div><span class='kick'>On tour</span><h3>The Lost Paintings: A Prelude to Return</h3><p class='serif'>Montréal · Boston · New York · Belfast · London · Bristol</p><small>53 artists · Nora’s still life <em>Utopia</em> (2023)</small></div><div><span class='kick'>Touring Finland</span><h3>From Arrival to Belonging? A Decade in Portraits</h3><p class='serif'>Stoa, Helsinki → Valkea, Oulu → IKEA</p><small>With Startup Refugees, 2025–26</small></div><div><span class='kick'>Draft exhibition</span><h3>Visible Palestine</h3><p class='serif'>HIAP, Suomenlinna · December 2025</p><small>Portraits, interviews and protest photography</small></div></section>
+<section class="byline"><div><span class="kick">Words & pictures</span><h2>Photographed and written by Nora</h2></div><ul><li><span class='serif'>Lara Salous — a Palestinian artist visits Finland</span><span>Selkomedia · 2025</span></li><li><span class='serif'>Fayez Bassalat — learning Finnish in record time</span><span>Selkomedia · 2025</span></li><li><span class='serif'>Shadia Rask — Alumni of the Year, University of Helsinki</span><span>Selkomedia · 2025</span></li></ul></section>
+</main>
+<footer><span>© Nora Sayyad · Helsinki</span><span><a href="mailto:ellinorasayyad@gmail.com">ellinorasayyad@gmail.com</a> · <a href="https://www.instagram.com/norasayyad/">Instagram</a></span></footer>
+</div>
+<a class="switch" href="/opcoes/">← Todas as opções</a>
+
+</body>
+</html>

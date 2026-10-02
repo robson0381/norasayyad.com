@@ -9,9 +9,13 @@ Guia para quem trabalha no novo site da Nora Sayyad: você, a Nora, outros colab
 | Arquivo ou pasta | O que é | Pode editar à mão? |
 |---|---|---|
 | `build.py` | Gera o site completo (home, projetos, About, Commissions, News, Contact) | Sim: **fonte da verdade** do protótipo |
-| `build_options.py` | Gera os 4 conceitos atuais em `opcoes/` (Símbolos, Rota, Visível, Dois lares) | Sim |
+| `build_options.py` | Gera os 6 conceitos atuais em `opcoes/` (Editorial, Arquivo/Memória, Símbolos, Rota, Visível, Dois lares) | Sim |
+| `build_editorial.py` | Fonte do conceito Editorial / Archive in Motion usado por `build_options.py` | Sim |
+| `build_memory.py` | Fonte da alternativa visual Archive / Memory | Sim |
 | `build_options_v2.py` | Gera a versão 2 em `opcoes/v2/` (Reportagem, Cartas, Tatreez, Sequências) | Sim |
 | `content/photos.json` | Lista de fotos com texto alternativo, largura e altura | Sim |
+| `content/fi.json` | Tradução finlandesa (texto em inglês → finlandês) usada para gerar `/fi/` | Sim: revisão nativa pendente |
+| `fi/` | Páginas em finlandês, **geradas** por `build.py` | **Não** |
 | `assets/` | CSS, JS e favicon do protótipo principal | Sim |
 | `index.html`, `work/`, `about/`, `services/`, `news/`, `contact/` | **Gerados** por `build.py` | **Não**: edite o gerador e rode de novo |
 | `opcoes/*/index.html` | **Gerados** pelos `build_options*.py` | **Não** |

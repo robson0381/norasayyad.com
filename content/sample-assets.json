@@ -1,0 +1,17 @@
+{
+  "updated_at": "2026-09-29",
+  "policy": "Prototype samples may be used for layout validation, but final production should use Nora's approved original files whenever available.",
+  "assets": [
+    {
+      "id": "nora-about-selfportrait-2023",
+      "path": "/assets/images/nora-selfportrait-buenos-aires-2023-sample.jpg",
+      "source": "User-supplied Fotos.zip / Instagram export",
+      "source_filename": "653067109_18097680113298891_2225077549859325294_n.jpg",
+      "source_caption": "Self-portraits in Buenos Aires, May 2023. Autorretratos en Buenos Aires, mayo de 2023.",
+      "role": "About / Home portrait sample",
+      "status": "prototype-sample",
+      "original_needed": true,
+      "notes": "Low-resolution derivative committed only for prototype presentation. Replace with the approved original before production."
+    }
+  ]
+}

@@ -1,0 +1,46 @@
+#!/usr/bin/env python3
+"""Secondary visual direction: Archive / Memory.
+
+A deliberately more intimate alternative to the main Editorial / Archive in Motion
+design. It is only a presentation concept: home + project-story language.
+"""
+from build import PHOTOS, img
+
+def concept_memory():
+    P = PHOTOS["portraits"]
+    N = PHOTOS["notes-of-resistance"]
+    A = PHOTOS["from-arrival-to-belonging"]
+    H = PHOTOS["hero"]
+    return f"""<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Nora Sayyad — Archive / Memory</title><meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Newsreader:opsz,wght@6..72,400;6..72,500&display=swap" rel="stylesheet">
+<style>
+:root{{--paper:#eee8dc;--ink:#161611;--green:#425342;--red:#9b4639;--blue:#70869b;--line:rgba(22,22,17,.2)}}
+*{{box-sizing:border-box}}body{{margin:0;background:var(--paper);color:var(--ink);font:400 16px/1.55 "Newsreader",serif}}img{{display:block;width:100%}}a{{color:inherit}}.mono{{font:500 .68rem/1.4 "IBM Plex Mono",monospace;letter-spacing:.08em;text-transform:uppercase}}.wrap{{width:min(1280px,calc(100% - 34px));margin:auto}}
+header{{height:66px;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--line);font-family:"IBM Plex Mono",monospace;font-size:.72rem}}header nav{{display:flex;gap:22px}}header a{{text-decoration:none}}
+.hero{{padding:24px 0 80px;display:grid;grid-template-columns:.9fr 1.1fr;gap:34px;align-items:end}}.hero h1{{font-size:clamp(4.2rem,9vw,9rem);line-height:.75;letter-spacing:-.055em;margin:0}}.hero-copy p{{font-size:1.2rem;max-width:31rem}}.hero-photo{{position:relative;transform:rotate(1.1deg);box-shadow:0 16px 44px rgba(0,0,0,.12)}}.hero-photo::before{{content:"";position:absolute;z-index:2;top:-15px;left:42%;width:105px;height:34px;background:rgba(230,216,177,.78);transform:rotate(-4deg)}}.hero-photo img{{aspect-ratio:4/5;object-fit:cover}}
+.coordinates{{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}}.coordinates div{{padding:15px;border-right:1px solid var(--line)}}.coordinates div:last-child{{border:0}}.coordinates b{{display:block;font:500 .65rem "IBM Plex Mono",monospace;text-transform:uppercase;color:var(--green)}}
+.archive{{padding:76px 0}}.archive-head{{display:grid;grid-template-columns:1fr 1fr;gap:30px;margin-bottom:38px}}.archive h2{{font-size:clamp(2.8rem,6vw,6rem);line-height:.85;margin:0}}.archive-head p{{font-size:1.25rem;max-width:35rem}}
+.stack{{display:grid;grid-template-columns:1.15fr .85fr;gap:24px}}.sheet{{background:#f7f1e6;border:1px solid var(--line);padding:16px;position:relative}}.sheet:nth-child(2){{transform:translateY(50px) rotate(-.7deg)}}.sheet img{{aspect-ratio:16/10;object-fit:cover}}.sheet:nth-child(2) img{{aspect-ratio:4/5}}.sheet h3{{font-size:2rem;margin:14px 0 4px}}.sheet p{{margin:0;max-width:38rem}}.stamp{{position:absolute;right:15px;top:15px;border:1px solid var(--red);color:var(--red);padding:7px 9px;transform:rotate(4deg)}}
+.project-story{{padding:120px 0 80px}}.story-title{{display:grid;grid-template-columns:1fr 1fr;gap:30px;align-items:end}}.story-title h2{{font-size:clamp(3.5rem,8vw,7rem);line-height:.8;margin:0}}.story-title p{{font-size:1.2rem;max-width:36rem}}.folio{{margin:55px 0;display:grid;grid-template-columns:.8fr 1.2fr;gap:26px;align-items:center}}.folio img{{max-height:720px;object-fit:cover}}.note{{font-size:clamp(1.8rem,3.5vw,3.5rem);line-height:1.02;font-style:italic;padding:30px;border-left:4px solid var(--green)}}.note small{{display:block;margin-top:20px;font:500 .65rem "IBM Plex Mono",monospace;font-style:normal;text-transform:uppercase}}
+.tatreez{{height:18px;margin:50px 0;background:linear-gradient(135deg,transparent 40%,var(--red) 40% 60%,transparent 60%) 0 0/18px 18px,linear-gradient(45deg,transparent 40%,var(--green) 40% 60%,transparent 60%) 9px 0/18px 18px;opacity:.55}}
+footer{{border-top:1px solid var(--line);padding:30px 0 60px;display:flex;justify-content:space-between;font-family:"IBM Plex Mono",monospace;font-size:.7rem}}.switch{{position:fixed;right:12px;bottom:12px;background:#111;color:#fff;padding:10px 14px;border-radius:999px;text-decoration:none;font:500 13px system-ui;z-index:20}}
+@media(max-width:800px){{header nav a:not(:first-child){{display:none}}.hero,.archive-head,.stack,.story-title,.folio{{grid-template-columns:1fr}}.hero{{padding-bottom:48px}}.hero-photo{{transform:none}}.coordinates{{grid-template-columns:1fr 1fr}}.coordinates div:nth-child(2){{border-right:0}}.sheet:nth-child(2){{transform:none}}.project-story{{padding-top:70px}}}}
+</style></head><body>
+<div class="wrap"><header><a href="/opcoes/memoria/">NORA SAYYAD / ARCHIVE 01</a><nav><a href="/work/">Work</a><a href="/about/">About</a><a href="/contact/">Contact</a></nav></header>
+<section class="hero"><div class="hero-copy"><p class="mono">Helsinki · Palestine · memory · belonging</p><h1>Nora<br>Sayyad</h1><p>A photographic archive of people, places and inherited memory — moving between documentary evidence and poetic reconstruction.</p></div><figure class="hero-photo">{img(P[15], "(max-width:800px) 100vw, 55vw", lazy=False)}</figure></section>
+<div class="coordinates"><div><b>01 / Practice</b>Documentary + poetic</div><div><b>02 / Base</b>Helsinki, Finland</div><div><b>03 / Roots</b>Palestine</div><div><b>04 / Medium</b>Photography + archive</div></div>
+<section class="archive"><div class="archive-head"><h2>Memory is not a straight line.</h2><p>Projects are treated like folders: images, fragments, captions and context can sit together without flattening the work into a uniform portfolio grid.</p></div><div class="stack">
+<article class="sheet">{img(A[1], "(max-width:800px) 100vw, 55vw")}<span class="stamp mono">File 2025–26</span><h3>From Arrival to Belonging?</h3><p>A decade in portraits, migration and the question of who gets to belong.</p></article>
+<article class="sheet">{img(N[11], "(max-width:800px) 100vw, 42vw")}<span class="stamp mono">Street archive</span><h3>Notes of Resistance</h3><p>Demonstrations, vigils and solidarity movements documented from the street.</p></article>
+</div></section>
+<div class="tatreez" aria-hidden="true"></div>
+<section class="project-story"><div class="story-title"><h2>Inside a project.</h2><p>This alternative uses the visual language of letters, family archives, contact sheets and marginal notes. The motif is intentionally subtle rather than decorative.</p></div>
+<div class="folio">{img(H, "(max-width:800px) 100vw, 48vw")}<blockquote class="note">“A photograph can hold evidence and memory at the same time.”<small>Project statement / sample treatment</small></blockquote></div>
+<div class="folio"><div><p class="mono">Archive note · location / year / source</p><p>Captions and documents can carry provenance, dates and voices without interrupting the photographic sequence.</p></div>{img(N[14], "(max-width:800px) 100vw, 55vw")}</div>
+</section>
+<footer><span>© Nora Sayyad · concept study</span><span>Archive / Memory</span></footer></div><a class="switch" href="/opcoes/">← Todas as opções</a></body></html>"""

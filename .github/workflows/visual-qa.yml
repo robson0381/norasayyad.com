@@ -1,0 +1,57 @@
+name: Visual QA
+
+on:
+  push:
+    branches:
+      - chatgpt/editorial-archive
+    paths:
+      - ".github/workflows/visual-qa.yml"
+      - "visual-qa.mjs"
+      - "audit_site.py"
+      - "content/sample-assets.json"
+      - "assets/images/**"
+      - "assets/css/style.css"
+      - "assets/js/main.js"
+      - "build.py"
+      - "build_memory.py"
+      - "presentation/index.html"
+
+permissions:
+  contents: read
+
+jobs:
+  screenshots:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Regenerate site
+        run: |
+          python build.py
+          python build_options.py
+          python build_options_v2.py
+          python build_review.py
+          python audit_site.py
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Install Playwright
+        run: |
+          npm install --no-save playwright@1.55.0
+          npx playwright install --with-deps chromium
+      - name: Start static server
+        run: |
+          python -m http.server 4173 >/tmp/nora-http.log 2>&1 &
+          echo $! > /tmp/nora-http.pid
+          sleep 2
+      - name: Capture desktop, tablet and mobile
+        run: node visual-qa.mjs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: visual-qa
+          path: qa-artifacts/
+          retention-days: 7

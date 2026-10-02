@@ -1,0 +1,57 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "cleanUrls": true,
+  "trailingSlash": true,
+  "redirects": [
+    {
+      "source": "/work-1",
+      "destination": "/work/",
+      "permanent": true
+    },
+    {
+      "source": "/work-1/project-one-f5w4d-z9nem-s3jda-eyssk-73f62-tmxz9-kllpy",
+      "destination": "/work/portraits/",
+      "permanent": true
+    },
+    {
+      "source": "/work-1/project-two-ky966-n329z-nnx53-feazs-s32gp-b59d5-9c4hw",
+      "destination": "/work/from-arrival-to-belonging/",
+      "permanent": true
+    },
+    {
+      "source": "/work-1/parfyymin-tuulahdus",
+      "destination": "/work/parfyymin-tuulahdus/",
+      "permanent": true
+    },
+    {
+      "source": "/work-1/notes-of-resistance",
+      "destination": "/work/notes-of-resistance/",
+      "permanent": true
+    },
+    {
+      "source": "/about",
+      "destination": "/about/",
+      "permanent": true
+    }
+  ],
+  "headers": [
+    {
+      "source": "/review/(.*)",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex, nofollow"
+        }
+      ]
+    },
+    {
+      "source": "/presentation/(.*)",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex, nofollow"
+        }
+      ]
+    }
+  ]
+}

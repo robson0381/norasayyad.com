@@ -8,7 +8,7 @@ written or confirmed by Nora.
 """
 import json
 import re
-from html import escape
+from html import escape, unescape
 from pathlib import Path
 
 ROOT = Path(__file__).parent
@@ -16,34 +16,39 @@ SITE = "https://www.norasayyad.com"
 # Switch to a domain address (e.g. contact@norasayyad.com) once it exists.
 EMAIL = "ellinorasayyad@gmail.com"
 PHOTOS = json.loads((ROOT / "content/photos.json").read_text(encoding="utf-8"))
+# Finnish copy: exact English text fragment -> Finnish. Draft translation, to be reviewed by a native speaker.
+FI = json.loads((ROOT / "content/fi.json").read_text(encoding="utf-8"))
+FI_MISSING = set()
+ABOUT_PORTRAIT = "/assets/images/nora-selfportrait-buenos-aires-2023-sample.jpg"
+WORK_ARCHIVE_IMAGE = "https://images.squarespace-cdn.com/content/v1/6818f37ce1899b43f8d64046/c47bc6e7-c136-42cc-88b7-b90dc9e6572c/_A2A2025-1%2Bkopio%2B2_SAYYAD.jpg"
+LOST_PAINTINGS_IMAGE = "https://images.squarespace-cdn.com/content/v1/6542ba5ff81a372c7283e330/388e52ba-e53c-4a50-bcc7-a1f7346341fb/Nora_Sayyad.png?format=1000w"
 
-NAV = [("work", "Work"), ("news", "Exhibitions"), ("services", "Commissions"), ("about", "About")]
+NAV = [("", "Home"), ("work", "Work"), ("news", "Current"), ("services", "Commissions"), ("about", "About"), ("career", "Career")]
+CHEVRON = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg>'
+SEARCH_ICON = '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5L21 21"/></svg>'
+# Every generated page is indexed for the client-side search (assets/search-index.json).
+SEARCH_PAGES = {"en": [], "fi": []}
+
+
+def search_form(where):
+    return f"""<form class="site-search" role="search" data-search>
+          <label class="visually-hidden" for="q-{where}">Search the site</label>
+          <input type="search" id="q-{where}" name="q" placeholder="Search" autocomplete="off" enterkeyhint="search">
+          <button type="submit" aria-label="Search">{SEARCH_ICON}</button>
+          <ul class="search-results" aria-live="polite"></ul>
+        </form>"""
 
 PROJECTS = [
-    {
-        "slug": "notes-of-resistance",
-        "title": "Notes of Resistance",
-        "teaser": "Black Lives Matter in Finland and the Palestine solidarity movement in Helsinki, from the street.",
-        "intro": "<span class=todo>Draft — Nora to confirm:</span> Since the Black Lives Matter demonstrations of 2020, Nora has documented the people who take to the streets of Finland against racism and, later, in solidarity with Palestine: the signs they make, the vigils they hold and the care they show one another. Photographs from the series appeared in <em>NO JUSTICE, NO PEACE</em>, awarded Gold at Vuoden Huiput 2021.",
-        "facts": [
-            ("Years", "2020–<span class=todo>2025</span>"),
-            ("Location", "Finland"),
-            ("Book", '<a href="https://vuodenhuiput.fi/work/no-justice-no-peace/">No Justice, No Peace</a> (2021)'),
-            ("Press", '<a href="https://www.ruskeattytot.fi/freepalestine-documented">#FREEPALESTINE: Documented</a>'),
-        ],
-        "cover": 7,
-    },
     {
         "slug": "portraits",
         "title": "Portraits",
         "teaser": "Editorial and personal portraits of artists, activists, families and neighbours.",
-        "intro": "<span class=todo>Short introduction: how Nora works with the people she photographs, and where these portraits were published.</span>",
+        "intro": "",
         "facts": [
-            ("Years", "<span class=todo>2017–2025</span>"),
             ("Location", "Finland"),
-            ("Published", "Helsingin Sanomat, Plan International Finland, <span class=todo>…</span>"),
         ],
         "cover": 4,
+        "meta": "Ongoing · Portraiture",
     },
     {
         "slug": "from-arrival-to-belonging",
@@ -56,18 +61,51 @@ PROJECTS = [
             ("Exhibited", "IKEA; STOA; Valkea; Revontuli, Finland"),
         ],
         "cover": 1,
+        "meta": "2025–2026 · Documentary",
     },
     {
         "slug": "parfyymin-tuulahdus",
         "title": "Parfyymin tuulahdus",
         "teaser": "Scent, memory and inheritance — a poetic series.",
-        "intro": "<span class=todo>Short introduction to the series (in English, with the Finnish title explained).</span>",
+        "intro": "",
         "facts": [
             ("Press", '<a href="https://www.ruskeattytot.fi/podcast-parfyymin-tuulahdus">Podcast: Parfyymin tuulahdus, Ruskeat tytöt</a>'),
         ],
         "cover": 0,
+        "meta": "Conceptual · Poetic",
+    },
+    {
+        "slug": "notes-of-resistance",
+        "title": "Notes of Resistance",
+        "teaser": "Black Lives Matter in Finland and the Palestine solidarity movement in Helsinki, from the street.",
+        "intro": "",
+        "facts": [
+            ("Years", "2020–"),
+            ("Location", "Finland"),
+            ("Book", '<a href="https://vuodenhuiput.fi/work/no-justice-no-peace/">No Justice, No Peace</a> (2021)'),
+            ("Press", '<a href="https://www.ruskeattytot.fi/freepalestine-documented">#FREEPALESTINE: Documented</a>'),
+        ],
+        "cover": 7,
+        "meta": "2020– · Documentary",
+    },
+    {
+        "slug": "from-a-parallel-universe",
+        "title": "From a Parallel Universe",
+        "teaser": "When love creates shapes that reality couldn't.",
+        "intro": "",
+        "facts": [],
+        "cover": 0,
+        "meta": "New project",
     },
 ]
+
+
+def split_title(title):
+    """'Main? Subtitle' -> main title plus a subtitle span (inline on desktop, its own line on mobile)."""
+    head, sep, tail = title.partition("? ")
+    if not sep:
+        return title
+    return f'<span class="t">{head}?</span> <span class="s">{tail}</span>'
 
 
 def strip_tags(s):
@@ -75,91 +113,182 @@ def strip_tags(s):
 
 
 def img(p, sizes="100vw", cls="", lazy=True, attrs=""):
-    """Responsive <img> using Squarespace's ?format= resizing."""
+    """Responsive image helper for Squarespace CDN and local prototype assets."""
+    loading = ' loading="lazy"' if lazy else ' fetchpriority="high"'
+    class_attr = f' class="{cls}"' if cls else ""
+    if p["src"].startswith("/"):
+        return (f'<img src="{p["src"]}" width="{p["w"]}" height="{p["h"]}" '
+                f'alt="{escape(p["alt"])}"{loading} decoding="async"{class_attr}{attrs}>')
     widths = [w for w in (500, 750, 1000, 1500, 2500) if w <= p["w"]] or [p["w"]]
     srcset = ", ".join(f'{p["src"]}?format={w}w {w}w' for w in widths)
     default = f'{p["src"]}?format={max([w for w in widths if w <= 1500] or widths[:1])}w'
-    loading = ' loading="lazy"' if lazy else ' fetchpriority="high"'
     return (f'<img src="{default}" srcset="{srcset}" sizes="{sizes}" width="{p["w"]}" height="{p["h"]}" '
-            f'alt="{escape(p["alt"])}"{loading} decoding="async"{f" class={cls}" if cls else ""}{attrs}>')
+            f'alt="{escape(p["alt"])}"{loading} decoding="async"{class_attr}{attrs}>')
 
 
 def page(path, title, desc, body, current=None, og=None):
-    full_title = f"{title} — Nora Sayyad" if title else "Nora Sayyad — Documentary photographer & visual artist, Helsinki"
+    full_title = f"{title} — Nora Sayyad" if title else "Nora Sayyad — Photographer, artist & visual reporter, Helsinki"
     url = SITE + ("/" + path.rsplit("index.html", 1)[0] if path != "index.html" else "/")
-    og_image = (og or PHOTOS["hero"])["src"] + "?format=1500w"
-    nav = "".join(
-        f'<li><a href="/{slug}/"{" aria-current=page" if current == slug else ""}>{label}</a></li>'
-        for slug, label in NAV
-    )
-    html = f"""<!doctype html>
-<html lang="en">
+    og_src = (og or PHOTOS["hero"])["src"]
+    og_image = (SITE + og_src) if og_src.startswith("/") else (og_src + "?format=1500w")
+    section = path.split("/", 1)[0] if path != "index.html" else "home"
+    body_class = f"page-{section}"
+    rel = url.replace(SITE, "") or "/"
+    SEARCH_PAGES["en"].append({"url": rel, "title": title or "Home", "desc": desc, "body": body})
+    def nav_item(slug, label):
+        link = f'<a href="{"/" if not slug else f"/{slug}/"}"{" aria-current=page" if current == slug else ""}>{label}</a>'
+        if slug != "work":
+            return f"<li>{link}</li>"
+        # Work opens a project list inside the mobile drawer; desktop ignores it.
+        subs = "".join(
+            f'<li><a href="/work/{p["slug"]}/"{" aria-current=page" if path == f"work/{p["slug"]}/index.html" else ""}>{strip_tags(p["title"])}</a></li>'
+            for p in PROJECTS
+        )
+        return (f'<li class="has-sub">{link}<button class="sub-toggle" type="button" aria-expanded="false" '
+                f'aria-controls="nav-work" aria-label="Show projects">{CHEVRON}</button>'
+                f'<ul class="nav-sub" id="nav-work">{subs}</ul></li>')
+    nav = "".join(nav_item(slug, label) for slug, label in NAV)
+    footer_html = "" if path == "index.html" else f"""<footer class="site-footer">
+  <div class="wrap">
+    <p>© Nora Sayyad · Helsinki, Finland · <a href="mailto:{EMAIL}">{EMAIL}</a></p>
+    <ul>
+      <li><a href="https://www.instagram.com/norasayyad/" rel="me">Instagram</a></li>
+      <li><a href="https://www.womenphotograph.com">Women Photograph</a></li>
+      <li><a href="/contact/">Contact</a></li>
+    </ul>
+  </div>
+</footer>"""
+    def render(lang):
+        en_href, fi_href = rel, "/fi" + rel
+        def lang_links(extra=""):
+            return (f'<div class="lang{extra}" aria-label="Language">'
+                    f'<a href="{en_href}" hreflang="en" lang="en"{" aria-current=true" if lang == "en" else ""}>EN</a>'
+                    f'{"<span aria-hidden=true>/</span>" if extra else ""}'
+                    f'<a href="{fi_href}" hreflang="fi" lang="fi"{" aria-current=true" if lang == "fi" else ""}>FI</a></div>')
+        return f"""<!doctype html>
+<html lang="{lang}">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{full_title}</title>
-<meta name="description" content="{escape(desc)}">
-<link rel="canonical" href="{url}">
+<meta name="description" content="{escape(desc)}">\n<meta name="robots" content="noindex,nofollow">
+<link rel="canonical" href="{SITE + (fi_href if lang == "fi" else en_href)}">
+<link rel="alternate" hreflang="en" href="{SITE + en_href}">
+<link rel="alternate" hreflang="fi" href="{SITE + fi_href}">
 <meta property="og:type" content="website">
 <meta property="og:title" content="{full_title}">
 <meta property="og:description" content="{escape(desc)}">
-<meta property="og:url" content="{url}">
+<meta property="og:url" content="{SITE + (fi_href if lang == "fi" else en_href)}">
 <meta property="og:image" content="{og_image}">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://images.squarespace-cdn.com">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/css/style.css">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600&family=Newsreader:opsz,wght@6..72,400;6..72,500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/style.css?v=20261002-11">
 </head>
-<body>
+<body class="{body_class}">
 <a class="skip" href="#main">Skip to content</a>
 <header class="site-header">
   <div class="wrap">
     <a class="brand" href="/">Nora Sayyad</a>
-    <button class="menu-toggle" aria-label="Menu" aria-expanded="false" aria-controls="nav">
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 7h18M3 12h18M3 17h18"/></svg>
-    </button>
+    <div class="header-tools">
+      {lang_links(" header-lang")}
+      <button class="menu-toggle" aria-label="Menu" aria-expanded="false" aria-controls="nav">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 7h18M3 12h18M3 17h18"/></svg>
+      </button>
+    </div>
+    <div class="nav-scrim" data-nav-close></div>
     <nav class="nav" id="nav" aria-label="Main">
+      <div class="nav-top">
+        {search_form("drawer")}
+        <button class="nav-close" type="button" aria-label="Close menu" data-nav-close>
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 5l14 14M19 5L5 19"/></svg>
+        </button>
+      </div>
       <ul>{nav}</ul>
-      <div class="lang" aria-label="Language"><a href="#" aria-current="true">EN</a><a href="#" title="Suomeksi (coming soon)">FI</a><a href="#" title="På svenska (coming soon)">SV</a></div>
+      {lang_links()}
       <a class="btn small" href="/contact/">Get in touch</a>
     </nav>
+    <button class="search-toggle" type="button" aria-label="Search" aria-expanded="false" aria-controls="search-panel">{SEARCH_ICON}</button>
+  </div>
+  <div class="search-panel" id="search-panel" hidden>
+    <div class="wrap">{search_form("panel")}</div>
   </div>
 </header>
 <main id="main">
 {body}
 </main>
-<section class="newsletter" aria-labelledby="nl-title">
-  <div class="wrap narrow">
-    <h2 id="nl-title">Exhibitions & new work, a few times a year</h2>
-    <p>Openings, talks and new projects. No spam.</p>
-    <form action="#" method="post">
-      <label for="nl-email" style="position:absolute;left:-999px">Email</label>
-      <input id="nl-email" type="email" name="email" placeholder="your@email.com" required>
-      <button class="btn" type="submit">Subscribe</button>
-    </form>
-  </div>
-</section>
-<footer class="site-footer">
-  <div class="wrap">
-    <p>© Nora Sayyad · Helsinki, Finland · <a href="mailto:{EMAIL}">{EMAIL}</a></p>
-    <ul>
-      <li><a href="https://www.instagram.com/norasayyad/" rel="me">Instagram</a></li>
-      <li><a href="#" rel="me"><span class=todo>LinkedIn</span></a></li>
-      <li><a href="https://www.womenphotograph.com">Women Photograph</a></li>
-      <li><a href="/contact/">Contact</a></li>
-    </ul>
-  </div>
-</footer>
-<script src="/assets/js/main.js" defer></script>
+{footer_html}
+<script src="/assets/js/main.js?v=20261002-11" defer></script>
 </body>
 </html>
 """
-    out = ROOT / path
-    out.parent.mkdir(parents=True, exist_ok=True)
-    out.write_text(html, encoding="utf-8")
+    for lang in ("en", "fi"):
+        html = render(lang)
+        target = ROOT / path
+        if lang == "fi":
+            html = to_finnish(html)
+            target = ROOT / "fi" / path
+            fi_body = to_finnish(body)
+            SEARCH_PAGES["fi"].append({"url": "/fi" + rel, "title": FI.get(title or "Home", title or "Home"),
+                                       "desc": FI.get(desc, desc), "body": fi_body})
+        html = external_links(html)
+        target.parent.mkdir(parents=True, exist_ok=True)
+        target.write_text(html, encoding="utf-8")
+
+
+TEXT_NODE = re.compile(r">([^<]+)<")
+ATTR = re.compile(r'\b(alt|aria-label|placeholder|title|content|data-label)="([^"]*)"')
+INTERNAL_HREF = re.compile(r'href="/(?!assets/|fi/)([^"]*)"(?! hreflang="en")')
+
+
+def fi_text(raw):
+    """Translate one text fragment, keeping its surrounding whitespace; unknown text stays English."""
+    core = raw.strip()
+    if not core or not re.search(r"[A-Za-z]", core):
+        return raw
+    key = re.sub(r"\s+", " ", unescape(core))
+    if key in FI:
+        lead, trail = raw[:len(raw) - len(raw.lstrip())], raw[len(raw.rstrip()):]
+        return lead + escape(FI[key], quote=False) + trail
+    FI_MISSING.add(key)
+    return raw
+
+
+def external_links(html):
+    # Links to other sites open in a new tab; norasayyad.com and <link> tags stay as they are
+    def fix(m):
+        tag = m.group(0)
+        if "target=" in tag or "norasayyad.com" in m.group(1):
+            return tag
+        rel = re.search(r'\srel="([^"]*)"', tag)
+        if rel:
+            tag = tag.replace(rel.group(0), f' rel="{rel.group(1)} noopener"')
+        else:
+            tag = tag[:-1] + ' rel="noopener"' + ">"
+        return tag[:-1] + ' target="_blank">'
+    return re.sub(r'<a\s[^>]*href="(https?://[^"]+)"[^>]*>', fix, html)
+
+
+def to_finnish(html):
+    # Script blocks are code, not copy: translate only the text outside them
+    parts = re.split(r"(<script\b.*?</script>)", html, flags=re.S)
+    html = "".join(part if part.startswith("<script") else TEXT_NODE.sub(lambda m: ">" + fi_text(m.group(1)) + "<", part)
+                   for part in parts)
+    def attr(m):
+        name, value = m.groups()
+        key = unescape(value)
+        if name == "content" and key not in FI:
+            return m.group(0)
+        if key in FI:
+            return f'{name}="{escape(FI[key])}"'
+        if re.search(r"[A-Za-z]", key):
+            FI_MISSING.add(key)
+        return m.group(0)
+    html = ATTR.sub(attr, html)
+    return INTERNAL_HREF.sub(lambda m: f'href="/fi/{m.group(1)}"', html)
 
 
 def cover(p):
@@ -167,102 +296,188 @@ def cover(p):
 
 
 def card(p):
-    return f"""<a class="card" href="/work/{p['slug']}/">
-  <div class="frame">{img(cover(p), "(max-width: 700px) 100vw, 33vw", "cover")}</div>
+    cover_photo = cover(p)
+    orientation = " landscape-cover" if cover_photo["w"] > cover_photo["h"] else ""
+    return f"""<a class="card{orientation}" href="/work/{p['slug']}/">
+  <div class="frame">{img(cover_photo, "(max-width: 700px) 100vw, 33vw", "cover")}</div>
   <h3>{p['title']}</h3>
   <p>{p['teaser']}</p>
-  <div class="meta">{len(PHOTOS[p['slug']])} photographs</div>
+  <div class="meta">{p["meta"]} · {len(PHOTOS[p['slug']])} photographs</div>
 </a>"""
 
 
-CREDS = """<div class="creds" aria-label="Published, exhibited and collected by">
+CREDS = """<section class="credibility" aria-label="Selected recognition">
   <div class="wrap">
-    <p class="eyebrow" style="margin:0">Published · exhibited · collected</p>
-    <ul>
-      <li>The Washington Post</li>
-      <li>The Times</li>
-      <li>Helsinki City Museum</li>
-      <li>Finnish Museum of Photography</li>
-      <li>Bristol Museum & Art Gallery</li>
-      <li>National Library of Finland</li>
-    </ul>
+    <div class="credibility-groups">
+      <div class="credential-group">
+        <p class="credential-label">Published</p>
+        <div class="credential-marks">
+          <img class="credential-mark mark-wapo" src="/assets/logos/washington-post.svg" width="463" height="72" alt="The Washington Post" loading="lazy" decoding="async">
+          <img class="credential-mark mark-times" src="/assets/logos/the-times.png" width="1084" height="127" alt="The Times" loading="lazy" decoding="async">
+        </div>
+      </div>
+      <div class="credential-group">
+        <p class="credential-label">Exhibited</p>
+        <div class="credential-marks">
+          <img class="credential-mark mark-helsinki" src="/assets/logos/helsinki-city-museum.png" width="475" height="117" alt="Helsinki City Museum" loading="lazy" decoding="async">
+          <img class="credential-mark mark-photo-museum" src="/assets/logos/finnish-museum-of-photography.png" width="240" height="240" alt="The Finnish Museum of Photography" loading="lazy" decoding="async">
+        </div>
+      </div>
+      <div class="credential-group">
+        <p class="credential-label">Collected</p>
+        <div class="credential-marks">
+          <img class="credential-mark mark-migration" src="/assets/logos/migration-institute-of-finland.png" width="429" height="240" alt="Migration Institute of Finland" loading="lazy" decoding="async">
+          <img class="credential-mark mark-library" src="/assets/logos/national-library-of-finland.png" width="278" height="200" alt="The National Library of Finland" loading="lazy" decoding="async">
+        </div>
+      </div>
+    </div>
   </div>
-</div>"""
+</section>"""
 
 TOUR = """<ul class="tour">
-  <li><span>Montréal, Canada · Articule; MAI – Montréal, arts interculturels</span><span class=todo>Dates</span></li>
-  <li><span>United States · Unbound Visual Arts</span><span class=todo>Dates</span></li>
-  <li><span>Belfast, Northern Ireland · The MAC</span><span class=todo>Dates</span></li>
-  <li><span>London, UK · P21 Gallery</span><span class=todo>Dates</span></li>
-  <li><span>Bristol, UK · Bristol Museum & Art Gallery</span><span><span class="status">On now</span></span></li>
+  <li><span>Tiohtià:ke/Montréal · articule & MAI</span><span>29 Aug – 4 Oct 2025</span></li>
+  <li><span>Boston · Unbound Visual Arts & Brookline Art Center</span><span>19 Oct – 17 Dec 2025</span></li>
+  <li><span>Belfast · The MAC</span><span>23 Jan – 29 Mar 2026</span></li>
+  <li><span>London · P21 Gallery</span><span>16 Apr – 29 May 2026</span></li>
+  <li><span>Bristol · Bristol Museum & Art Gallery</span><span>19 Jun – 27 Sep 2026</span></li>
 </ul>"""
 
 BIO_SHORT = "Finnish-Palestinian visual artist and documentary photographer, born in Sweden and based in Helsinki."
 
 
 def build_home():
-    featured = "\n".join(card(p) for p in PROJECTS[:3])
-    body = f"""<div class="hero">
-  <div class="wrap hero-grid">
+    slides = [
+        (PHOTOS["hero"], "Visual practice"),
+        (PHOTOS["parfyymin-tuulahdus"][0], "Parfyymin tuulahdus"),
+    ]
+    slide_html = "\n".join(
+        f'<figure class="hero-slide hero-slide-{i + 1}{" active" if i == 0 else ""}" style="--hero-bg:url(\'{ph["src"]}?format=1500w\')" data-hero-slide aria-hidden="{"false" if i == 0 else "true"}">{img(ph, "100vw", lazy=i > 0)}<figcaption class="hero-caption">{label}</figcaption></figure>'
+        for i, (ph, label) in enumerate(slides)
+    )
+    featured_projects = [
+        next(p for p in PROJECTS if p["slug"] == "portraits"),
+        next(p for p in PROJECTS if p["slug"] == "from-arrival-to-belonging"),
+        next(p for p in PROJECTS if p["slug"] == "parfyymin-tuulahdus"),
+        next(p for p in PROJECTS if p["slug"] == "notes-of-resistance"),
+    ]
+    featured = "\n".join(
+        f"""<a class="editorial-project" href="/work/{p['slug']}/">
+  <div class="editorial-project-image" style="--cover:url('{cover(p)["src"]}?format=500w')">{img(cover(p), "(max-width: 640px) 100vw, 25vw", "cover")}</div>
+  <h3>{split_title(p['title'])}</h3>
+  <div class="meta">{p["meta"]} · {len(PHOTOS[p['slug']])} photographs</div>
+</a>""" for p in featured_projects
+    )
+    body = f"""<section class="editorial-hero" aria-labelledby="home-title">
+  <div class="wrap">
+    <div class="hero-stage" data-hero>
+      <div class="hero-slides">{slide_html}</div>
+      <div class="hero-shade"></div>
+      <div class="hero-copy">
+        <p class="eyebrow light">Photographer · Artist · Visual reporter · Helsinki</p>
+        <h1 id="home-title">Nora<br>Sayyad</h1>
+      </div>
+      <div class="hero-foot">
+        <span class="mobile-rule" aria-hidden="true"></span>
+        <p>Finnish-Palestinian photographer, artist and visual reporter whose practice moves between documentary and poetic storytelling.</p>
+        <a class="btn accent" href="/work/">View Portfolio <span aria-hidden="true">→</span></a>
+        <a class="hero-about" href="/about/">About the artist <span aria-hidden="true">→</span></a>
+      </div>
+      <div class="hero-controls" aria-label="Featured photographs">
+        <span data-hero-index aria-live="polite">01 / {len(slides):02d}</span>
+        <button type="button" data-hero-prev aria-label="Previous photograph">←</button>
+        <button type="button" data-hero-next aria-label="Next photograph">→</button>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="selected-work" aria-labelledby="featured">
+  <div class="wrap">
+    <div class="section-head">
+      <div><p class="eyebrow">Archive in motion</p><h2 id="featured">Selected projects</h2></div>
+      <a class="text-link" href="/work/">View all projects →</a>
+    </div>
+    <div class="editorial-projects">{featured}</div>
+  </div>
+</section>
+<section class="current-section" aria-labelledby="now">
+  <div class="wrap">
+    <div class="section-head">
+      <div><p class="eyebrow">Current</p><h2 id="now">Exhibitions & selected press</h2></div>
+      <a class="text-link" href="/news/">View current →</a>
+    </div>
+    <div class="current-grid">
+      <div class="current-image">{img(PHOTOS['notes-of-resistance'][9], "(max-width: 820px) 100vw, 38vw")}</div>
+      <article class="current-main">
+        <p class="eyebrow">Recent tour · 2025–2026</p>
+        <h3>The Lost Paintings: A Prelude to Return</h3>
+        <p>A travelling group exhibition presented across Canada, the United States, Northern Ireland and the United Kingdom, including Nora Sayyad's work <em>Utopia</em>.</p>
+        <a class="btn ghost" href="/news/">Exhibitions & dates →</a>
+      </article>
+      <article class="press-note">
+        <p class="eyebrow">Selected press</p>
+        <h3><a href="https://www.washingtonpost.com/world/interactive/2025/world-happiness-report/">The Washington Post</a></h3>
+        <p>“How is happiness measured around the world?” — photographed in Finland.</p>
+        <hr>
+        <h3>The Times</h3>
+        <p>Financial literacy and Yrityskylä in Finland.</p>
+        <a class="text-link" href="/about/">Biography & press →</a>
+      </article>
+    </div>
+  </div>
+</section>
+<section class="home-about" aria-labelledby="about-h">
+  <div class="wrap about-editorial">
+    <figure class="about-portrait"><img src="{ABOUT_PORTRAIT}" width="240" height="300" alt="Self-portrait by Nora Sayyad in Buenos Aires, May 2023" loading="lazy" decoding="async"></figure>
     <div>
-      <p class="eyebrow">Documentary photographer · Visual artist · Helsinki</p>
-      <h1>Photographs about belonging, memory and the right to be seen.</h1>
-      <p class="lead">Nora Sayyad is a {BIO_SHORT} Her work has been published by The Washington Post and The Times and is held in Finnish public collections.</p>
-      <div class="actions">
-        <a class="btn" href="/work/">See the work</a>
-        <a class="btn ghost" href="/services/">Commission Nora</a>
-      </div>
-    </div>
-    <figure class="hero-img">{img(PHOTOS['hero'], "(max-width: 860px) 100vw, 50vw", lazy=False)}</figure>
-  </div>
-</div>
-{CREDS}
-<section aria-labelledby="featured">
-  <div class="wrap">
-    <div class="section-head"><h2 id="featured">Selected projects</h2><a href="/work/">All projects →</a></div>
-    <div class="cards">{featured}</div>
-  </div>
-</section>
-<section aria-labelledby="now" style="padding-top:0">
-  <div class="wrap">
-    <div class="news-feature">
-      <div>
-        <p class="eyebrow">On tour 2025–2026</p>
-        <h2 id="now">The Lost Paintings: A Prelude to Return</h2>
-        <p>A group exhibition travelling through Canada, the United States, Northern Ireland and the United Kingdom. <a href="https://www.thelostpaintings.com/artist-sayyad">Nora's page on the project →</a></p>
-        {TOUR}
-        <a class="btn ghost" href="/news/">All exhibitions</a>
-      </div>
-      <div class="ph wide" role="img" aria-label="Installation view of The Lost Paintings" data-label="Installation view — photo needed"></div>
-    </div>
-  </div>
-</section>
-<section aria-labelledby="about-h" style="padding-top:0">
-  <div class="wrap about-top">
-    <div class="ph" role="img" aria-label="Portrait of Nora Sayyad" data-label="Professional portrait of Nora — photo needed"></div>
-    <div class="narrow">
       <p class="eyebrow">About</p>
-      <h2 id="about-h">Between documentary, poetic and conceptual.</h2>
-      <p>Her practice explores the politics of looking, questions of representation, and how photography can become a space for memory, dialogue and self-determination.</p>
-      <p>She holds an MA in Photography and Film from Aalto University, and works across visual reporting, teaching, writing and public speaking.</p>
-      <p><a href="/about/">Full biography & CV →</a></p>
+      <h2 id="about-h">Documentary, poetic and conceptual.</h2>
+      <p class="lead">Her practice explores belonging, memory, diaspora, representation and the politics of looking.</p>
+      <p>Based in Helsinki, Nora works across photography, visual reporting, writing, teaching and public speaking.</p>
+      <a class="text-link" href="/about/">Biography & career →</a>
     </div>
+  </div>
+</section>
+{CREDS}
+<section class="commission-band">
+  <div class="wrap commission-editorial">
+    <h2>Commissions <br>&amp; editorial.</h2>
+    <div>
+      <p>Available for editorial, institutional and selected commissioned work in Finland and internationally.</p>
+      <a class="btn inverse" href="/contact/">Discuss a project →</a>
+    </div>
+  </div>
+  <div class="wrap home-footer">
+    <p>© Nora Sayyad · Helsinki, Finland · <a href="mailto:{EMAIL}">{EMAIL}</a></p>
+    <ul>
+      <li><a href="https://www.instagram.com/norasayyad/" rel="me">Instagram</a></li>
+      <li><a href="https://www.womenphotograph.com">Women Photograph</a></li>
+      <li><a href="/contact/">Contact</a></li>
+    </ul>
   </div>
 </section>"""
-    page("index.html", "", "Nora Sayyad is a Finnish-Palestinian documentary photographer and visual artist in Helsinki, published in The Washington Post and The Times. Available for commissions.", body)
+    page("index.html", "", "Nora Sayyad is a Finnish-Palestinian photographer, artist and visual reporter based in Helsinki, working across documentary and poetic storytelling.", body, current="", og=slides[0][0])
 
 
 def build_work():
     cards = "\n".join(card(p) for p in PROJECTS)
-    body = f"""<section>
+    body = f"""<section class="work-index">
   <div class="wrap">
-    <p class="eyebrow">Work</p>
-    <h1>Projects</h1>
-    <p class="lead narrow">Long-form documentary series, portrait work and poetic projects. Each one opens with its story.</p>
-    <div class="cards" style="margin-top:40px">{cards}</div>
+    <div class="work-hero">
+      <img src="{WORK_ARCHIVE_IMAGE}?format=1500w"
+           srcset="{WORK_ARCHIVE_IMAGE}?format=750w 750w, {WORK_ARCHIVE_IMAGE}?format=1000w 1000w, {WORK_ARCHIVE_IMAGE}?format=1500w 1500w, {WORK_ARCHIVE_IMAGE}?format=2500w 2500w"
+           sizes="(max-width: 760px) 100vw, 1420px"
+           alt="Close-up still life of fruit and flowers against a black background"
+           loading="eager" decoding="async">
+      <div class="work-hero-shade"></div>
+      <div class="work-hero-copy">
+        <h1>Projects</h1>
+        <p>Long-form documentary series, portrait work and poetic projects. Each one opens with its story.</p>
+      </div>
+    </div>
+    <div class="cards">{cards}</div>
   </div>
 </section>"""
-    page("work/index.html", "Work", "Documentary projects and portraits by Nora Sayyad: Notes of Resistance, From Arrival to Belonging?, Portraits and Parfyymin tuulahdus.", body, current="work")
+    page("work/index.html", "Work", "Projects by Nora Sayyad: Notes of Resistance, From Arrival to Belonging?, Portraits, Parfyymin tuulahdus and From a Parallel Universe.", body, current="work")
 
 
 def build_project(i):
@@ -275,22 +490,25 @@ def build_project(i):
         if ph.get("chapter"):
             figs.append(f'<div class="chapter"><p class="eyebrow">Chapter</p><h2>{ph["chapter"]}</h2></div>')
         landscape = ph["w"] > ph["h"]
-        cls = "" if landscape else ("half right" if n % 2 else "half")
+        cls = "wide" if landscape else ""
         sizes = "(max-width: 1200px) 100vw, 1150px" if landscape else "(max-width: 760px) 100vw, 720px"
+        caption = ph.get("caption")
+        figcaption = f"<figcaption>{escape(caption)}</figcaption>" if caption else ""
         figs.append(f"""<figure class="{cls}">
   {img(ph, sizes, lazy=n > 0)}
-  <figcaption><span class=todo>Caption: place, date.</span></figcaption>
+  {figcaption}
 </figure>""")
     facts = "".join(f"<li><span>{k}</span><span>{v}</span></li>" for k, v in p["facts"])
+    intro_html = f"<p>{p['intro']}</p>" if p["intro"] else ""
     title_txt = strip_tags(p["title"])
-    body = f"""<section style="padding-bottom:40px">
+    body = f"""<section class="project-head">
   <div class="wrap">
     <p class="eyebrow"><a href="/work/">Work</a> / {title_txt}</p>
     <div class="project-intro">
       <div>
         <h1>{p['title']}</h1>
         <p class="lead">{p['teaser']}</p>
-        <p>{p['intro']}</p>
+        {intro_html}
       </div>
       <ul class="facts">
         {facts}
@@ -299,9 +517,11 @@ def build_project(i):
     </div>
   </div>
 </section>
-<div class="wrap story">
+<section class="story-block" aria-label="Photographs">
+  <div class="wrap story{" parallel-universe" if p["slug"] == "from-a-parallel-universe" else ""}">
 {chr(10).join(figs)}
-</div>
+  </div>
+</section>
 <section>
   <div class="wrap">
     <nav class="pager" aria-label="Projects">
@@ -315,37 +535,63 @@ def build_project(i):
 
 
 def cv(title, rows, open_=False):
-    items = "".join(f"<li><b>{y}</b> {t}</li>" for y, t in rows)
+    items = "".join(f"<li><b>{y}</b><span>{t}</span></li>" for y, t in rows)
     return f'<details{" open" if open_ else ""}><summary>{title}</summary><ul class="cv">{items}</ul></details>'
 
 
 def build_about():
-    body = f"""<section>
-  <div class="wrap about-top">
-    <div class="ph" role="img" aria-label="Portrait of Nora Sayyad" data-label="Portrait of Nora — photo needed"></div>
-    <div class="narrow">
-      <p class="eyebrow">About</p>
-      <h1>Nora Sayyad</h1>
-      <p class="lead">{BIO_SHORT}</p>
-      <p>Her practice moves between documentary, poetic and conceptual approaches, exploring the politics of looking, questions of representation, and how photography can become a space for memory, dialogue and self-determination. Drawing from personal and collective histories, her work examines connection, belonging and lived experience in relation to wider social and political realities.</p>
-      <p>Her work has been exhibited internationally, including as part of <em>The Lost Paintings: A Prelude to Return</em>, and presented at the Helsinki City Museum, the Finnish Museum of Photography and HIAP. Her photographs have been published by The Washington Post and The Times, and are held in the public collections of the Migration Institute of Finland, the Finnish Heritage Agency and the National Library of Finland.</p>
-      <p>Alongside her artistic practice she works across visual reporting, teaching, writing, public speaking and artivism, and has collaborated with organisations including Plan International Finland. In 2021 she was assistant curator of the award-winning <em>No Justice, No Peace</em>.</p>
-      <p style="display:flex;gap:12px;flex-wrap:wrap"><a class="btn" href="/assets/nora-sayyad-cv.pdf" download>Download CV (PDF)</a><a class="btn ghost" href="/contact/">Contact</a></p>
+    body = f"""<section class="about-hero">
+  <div class="wrap">
+    <div class="about-hero-stage">
+      <figure class="about-hero-portrait"><img src="{ABOUT_PORTRAIT}" width="240" height="300" alt="Self-portrait by Nora Sayyad in Buenos Aires, May 2023" loading="eager" decoding="async"></figure>
+      <div class="about-hero-copy" data-about-rotator>
+        <h1>Nora Sayyad</h1>
+        <div class="about-variants">
+          <div class="about-variant about-variant--a is-active" data-about-variant data-label="Option A · one column" aria-hidden="false">
+            <p class="lead">Nora Sayyad is a Finnish-Palestinian visual artist and documentary photographer, born in Sweden and based in Helsinki.</p>
+            <p>Her practice moves between documentary, poetic and conceptual approaches, exploring the politics of looking, questions of representation, and how photography can become a space for memory, dialogue and self-determination. Drawing from personal and collective histories, her work examines connection, belonging and lived experience in relation to wider social and political realities.</p>
+            <p>Her work has been exhibited internationally, including as part of <em>The Lost Paintings: A Prelude to Return</em>, and presented at institutions including the Helsinki City Museum, the Finnish Museum of Photography and HIAP. Her photographs have been published by Finnish and international media including The Washington Post and The Times. Her work is held in the public collections of the Migration Institute of Finland, the Finnish Heritage Agency and the National Library of Finland.</p>
+            <p>Alongside her artistic practice, she works across visual reporting, teaching, writing, public speaking, and artivism, and has collaborated with organisations including Plan International Finland. In 2021, she was assistant curator of the award-winning <em>No Justice, No Peace</em>, which received Gold at Vuoden Huiput and a Special Books honour in Finland’s Most Beautiful Books.</p>
+          </div>
+          <div class="about-variant about-variant--b" data-about-variant data-label="Option B · two columns" aria-hidden="true">
+            <p class="lead">Nora Sayyad is a Finnish-Palestinian visual artist and documentary photographer, born in Sweden and based in Helsinki.</p>
+            <div class="about-variant-cols">
+              <p>Her practice moves between documentary, poetic and conceptual approaches, exploring the politics of looking, questions of representation, and how photography can become a space for memory, dialogue and self-determination. Drawing from personal and collective histories, her work examines connection, belonging and lived experience in relation to wider social and political realities.</p>
+              <p>Her work has been exhibited internationally, including as part of <em>The Lost Paintings: A Prelude to Return</em>, and presented at institutions including the Helsinki City Museum, the Finnish Museum of Photography and HIAP. Her photographs have been published by Finnish and international media including The Washington Post and The Times. Her work is held in the public collections of the Migration Institute of Finland, the Finnish Heritage Agency and the National Library of Finland.</p>
+              <p>Alongside her artistic practice, she works across visual reporting, teaching, writing, public speaking, and artivism, and has collaborated with organisations including Plan International Finland. In 2021, she was assistant curator of the award-winning <em>No Justice, No Peace</em>, which received Gold at Vuoden Huiput and a Special Books honour in Finland’s Most Beautiful Books.</p>
+            </div>
+          </div>
+        </div>
+        <div class="about-foot">
+          <div class="about-switch" aria-label="Layout options"><span data-about-label aria-live="polite">Option A · one column</span><button type="button" data-about-prev aria-label="Previous layout">←</button><button type="button" data-about-next aria-label="Next layout">→</button></div>
+          <p class="about-actions"><a class="btn" href="/career/">View career history</a><a class="btn ghost" href="/contact/">Contact</a></p>
+        </div>
+      </div>
     </div>
   </div>
+</section>"""
+    page("about/index.html", "About", "Biography of Nora Sayyad, Finnish-Palestinian photographer and visual artist based in Helsinki.", body, current="about")
+
+
+def build_career():
+    body = f"""<section class="career-intro">
+  <div class="wrap">
+    <h1>Career history</h1>
+    <p class="lead narrow">Exhibitions, collections, awards, assignments, press and teaching, from 2015 to today.</p>
+  </div>
 </section>
-<section style="padding-top:0">
-  <div class="wrap narrow">
-    <h2>CV</h2>
+<section class="career-section" aria-label="Career history">
+  <div class="wrap">
+    <div class="cv-tools"><button class="cv-toggle" type="button" aria-expanded="false" data-cv-toggle><span class="cv-toggle-label">Expand all</span><span class="cv-toggle-icon" aria-hidden="true"></span></button></div>
     {cv("Solo exhibitions", [
         ("2025–26", "<em>From Arrival to Belonging: A Decade in Portraits</em>, with Startup Refugees — IKEA; STOA; Valkea; Revontuli, Finland"),
-        ("2025", "<em>Visible Palestine</em>, pop-up exhibition, HIAP, Suomenlinna, Helsinki"),
+        ("2025", '<a href="/news/visible-palestine/"><em>Visible Palestine</em></a> (ongoing work), pop-up exhibition, HIAP, Suomenlinna, Helsinki'),
         ("2024", "<em>Tervetuloa, tervemenoa: Suomi muuttoliikkeessä</em>, with the Migration Institute of Finland — touring Finnish universities and Turku City Library"),
         ("2022", "<em>Wired This Way</em>, STOA Cultural Center, Helsinki"),
         ("2021", "<em>Voimanaisia</em>, with Plan International Finland — Vuotalo & Maunula House, Helsinki"),
-        ("2017", "<em>Finding Forgiveness</em>, Logomo, Turku, with the Finnish Association for Abducted Children"),
+        ("2017", "<em>Finding Forgiveness</em>, Logomo and The Finnish Association for Abducted Children, Turku"),
         ("2015", "<em>Hour of Your Reality</em>, Book Café, Turku"),
-    ], True)}
+    ])}
     {cv("Selected group exhibitions", [
         ("2025–26", '<a href="https://www.thelostpaintings.com/artist-sayyad"><em>The Lost Paintings: A Prelude to Return</em></a> — Articule; MAI Montréal; Unbound Visual Arts; The MAC; P21 Gallery; Bristol Museum & Art Gallery'),
         ("2025", "<em>Förkolnade Minnen / Muistoihin Hiiltyneet</em>, Näse Gård, Porvoo"),
@@ -353,19 +599,23 @@ def build_about():
         ("2020", "<em>Unfold</em>, The Finnish Museum of Photography, Helsinki"),
         ("2019", "<em>Finding Forgiveness</em>, Frauen Museum, Wiesbaden, Germany"),
         ("2018", "<em>Islam and I</em>, Migration Institute of Finland, Turku"),
-        ("2017", "<em>Movement</em>, Kaapelitehdas, Helsinki · <em>Matkalla / På Väg</em>, Art Gallery, Vaasa"),
+        ("2017", "<em>Movement</em>, Kaapelitehdas / Valssaamo, Helsinki"),
+        ("2017", "<em>Matkalla / På Väg</em>, Art Gallery, Vaasa"),
     ])}
     {cv("Public collections", [("", "Migration Institute of Finland"), ("", "The Finnish Heritage Agency"), ("", "The National Library of Finland")])}
     {cv("Awards & residencies", [
         ("2025", "The Lost Paintings Residency, Boston, US"),
         ("2025", '<a href="https://urbanapa.fi/events/ua-miniresidencies-nora-sayyad/">UrbanApa Miniresidencies / HIAP</a>, Helsinki'),
         ("2025", "Summer Well: Art and Activism, Saari Residence, Kone Foundation"),
-        ("2021", "<em>No Justice, No Peace</em> — Vuoden Huiput, Gold; Finland's Most Beautiful Books, Special Books (assistant curator)"),
+        ("2023", "Societal ETMU Award to Palestinian Voices in Finland, accepted on behalf of the organisation, Jyväskylä"),
+        ("2022", "Helsinki Cultural Act Award to the Refugee Film Festival team (festival photographer)"),
+        ("2021", "<em>No Justice, No Peace</em> — Most Beautiful Books (Kauneimmat kirjat), Special Books category. Assistant curator"),
+        ("2020", '<a href="https://vuodenhuiput.fi/work/no-justice-no-peace/"><em>No Justice, No Peace</em></a> — Vuoden Huiput, Gold, Jokerit category. Assistant curator'),
         ("2019", "Jouko Lehtola Foundation & The Finnish Institute, St. Petersburg"),
     ])}
     {cv("Selected assignments", [
         ("2026", "The Times — financial literacy in Finland (Yrityskylä)"),
-        ("2025", "The Washington Post — “How is happiness measured around the world?”"),
+        ("2025", '<a href="https://www.washingtonpost.com/world/interactive/2025/world-happiness-report/">The Washington Post — “How is happiness measured around the world?”</a>'),
     ])}
     {cv("Selected press", [
         ("", '<a href="https://brooklineartscenter.org/lost-paintings-project">The Lost Paintings: A Prelude to Return</a> — Brookline Arts Center'),
@@ -384,7 +634,7 @@ def build_about():
     {cv("Memberships", [("", "Women Photograph (US) · Association of Photographic Artists · Kuvasto ry · GAP Creatives Database")])}
   </div>
 </section>"""
-    page("about/index.html", "About", "Biography and CV of Nora Sayyad: exhibitions, public collections, awards, press, teaching and education.", body, current="about")
+    page("career/index.html", "Career history", "Career history of Nora Sayyad: exhibitions, public collections, awards, assignments, press, teaching and education.", body, current="career")
 
 
 def build_services():
@@ -394,70 +644,215 @@ def build_services():
         ("Talks", "Lectures on documentary photography, representation and the politics of looking."),
         ("Workshops", "Photography workshops for schools, museums and community groups."),
     ]
+    topic_map = {
+        "Portraits": "Commission",
+        "Editorial & documentary": "Commission",
+        "Talks": "Talk or workshop",
+        "Workshops": "Talk or workshop",
+    }
     cards = "".join(
-        f'<div class="service"><h3>{t}</h3><p>{d}</p><a class="btn ghost small" href="/contact/?topic={t.split()[0].lower()}">Ask about {t.lower()}</a></div>'
+        f'<div class="service"><h3>{t}</h3><p>{d}</p><a class="btn ghost small" href="/contact/?topic={topic_map[t].replace(" ", "+")}">Ask about {t.lower()}</a></div>'
         for t, d in items
     )
     body = f"""<section>
   <div class="wrap">
-    <p class="eyebrow">Commissions</p>
     <h1>Work with Nora</h1>
     <p class="lead narrow">Available for projects and commissions in Finland and internationally. Past clients include Plan International Finland, the City of Helsinki, the University of Helsinki, Kone Foundation and Startup Refugees.</p>
-    <div class="services" style="margin-top:40px">{cards}</div>
+    <div class="services">{cards}</div>
   </div>
 </section>
-{CREDS}"""
+<section class="assignments" id="assignments" aria-labelledby="assignments-h">
+  <div class="wrap">
+    <h2 id="assignments-h">Selected assignments</h2>
+    <article class="assignment">
+      <a class="assignment-cover" href="/news/washington-post-happiness/" tabindex="-1" aria-hidden="true">{img(PHOTOS["washington-post-happiness"][0], "(max-width: 760px) 40vw, 220px", "cover")}</a>
+      <div class="assignment-head">
+        <img class="assignment-logo" src="/assets/logos/washington-post.svg" width="463" height="72" alt="The Washington Post">
+        <p class="meta">27 November 2025 · Finland chapter</p>
+        <h3><a href="/news/washington-post-happiness/">How is ‘happiness’ measured around the world?</a></h3>
+        <p>Nora photographed the Finland chapter of this story on the World Happiness Report, which has ranked Finland first for eight years.</p>
+        <a class="text-link" href="/news/washington-post-happiness/">View the photographs →</a>
+      </div>
+    </article>
+  </div>
+</section>"""
     page("services/index.html", "Commissions", "Commission Nora Sayyad for portraits, editorial and documentary assignments, talks and photography workshops.", body, current="services")
 
 
 def build_news():
-    body = f"""<section>
-  <div class="wrap">
-    <p class="eyebrow">Exhibitions</p>
+    more = [
+        (f'<a class="news-thumb news-thumb--arrival" href="/work/from-arrival-to-belonging/" tabindex="-1" aria-hidden="true" style="--cover:url({PHOTOS["from-arrival-to-belonging"][5]["src"]}?format=500w)">{img(PHOTOS["from-arrival-to-belonging"][5], "(max-width: 760px) 104px, 30vw", "cover")}</a>',
+         "2025–2026 · Solo exhibition",
+         '<a href="/work/from-arrival-to-belonging/">From Arrival to Belonging: A Decade in Portraits</a>',
+         "With Startup Refugees — IKEA; STOA; Valkea; Revontuli, Finland."),
+        (f'<a class="news-thumb news-thumb--vp" href="/news/visible-palestine/" tabindex="-1" aria-hidden="true">{img(PHOTOS["visible-palestine-cover"], "(max-width: 760px) 104px, 30vw", "cover")}</a>',
+         "2025 · Pop-up exhibition",
+         '<a href="/news/visible-palestine/">Visible Palestine</a>',
+         "Pop-up photo exhibition at HIAP, Suomenlinna, 18 December 2025: a draft for a future exhibition, based on ongoing work."),
+        (f'<a class="news-thumb" href="/news/washington-post-happiness/" tabindex="-1" aria-hidden="true">{img(PHOTOS["washington-post-happiness"][0], "(max-width: 760px) 104px, 30vw", "cover")}</a>',
+         "2025 · Assignment",
+         '<a href="/news/washington-post-happiness/">The Washington Post: How is ‘happiness’ measured around the world?</a>',
+         "Photographs for the Finland chapter of the story, published 27 November 2025."),
+        ('<div class="news-thumb ph" role="img" aria-label="Näse Gård, Porvoo" data-label="Photo needed"></div>',
+         "2025 · Group exhibition",
+         "Förkolnade Minnen / Muistoihin Hiiltyneet",
+         "Näse Gård, Porvoo, Finland."),
+    ]
+    items = "\n".join(
+        f'<article class="news-item">{thumb}<div class="news-item-copy"><p class="meta">{meta}</p><h3>{title}</h3><p>{text}</p></div></article>'
+        for thumb, meta, title, text in more
+    )
+    body = f"""<section class="current-feature" aria-labelledby="lost-paintings">
+  <div class="wrap current-title">
     <h1>Exhibitions & news</h1>
-    <div class="news-feature" style="margin-top:32px">
-      <div>
-        <p><span class="status">On tour</span></p>
-        <h2>The Lost Paintings: A Prelude to Return</h2>
-        <p>Group exhibition, 2025–2026. <a href="https://www.thelostpaintings.com/artist-sayyad">About Nora's contribution →</a></p>
-        {TOUR}
-        <p>Press: <a href="https://akimbo.ca/akimblog/the-lost-paintings-at-articule-and-mai-montreal/">Akimbo</a> · <a href="https://brooklineartscenter.org/lost-paintings-project">Brookline Arts Center</a></p>
-      </div>
-      <div class="ph wide" role="img" aria-label="Installation view of The Lost Paintings" data-label="Installation view — photo needed"></div>
+  </div>
+  <div class="wrap news-feature">
+    <figure class="lost-paintings-image"><img src="{LOST_PAINTINGS_IMAGE}" width="420" height="530" alt="The Lost Paintings exhibition artwork" loading="eager" decoding="async"></figure>
+    <div class="news-feature-copy">
+      <p class="news-kicker"><span class="status">Tour concluded</span><span class="meta">Group exhibition · 2025–2026</span></p>
+      <h2 id="lost-paintings">The Lost Paintings: A Prelude to Return</h2>
+      <p>A travelling group exhibition presented across Canada, the United States, Northern Ireland and the United Kingdom, including Nora Sayyad's work <em>Utopia</em>. <a href="https://www.thelostpaintings.com/artist-sayyad">About Nora's contribution →</a></p>
+      {TOUR}
+      <p class="news-press">Press: <a href="https://akimbo.ca/akimblog/the-lost-paintings-at-articule-and-mai-montreal/">Akimbo</a> · <a href="https://brooklineartscenter.org/lost-paintings-project">Brookline Arts Center</a></p>
     </div>
-    <h2 style="margin-top:64px">Also in 2025–2026</h2>
-    <div class="cards">
-      <a class="card" href="/work/from-arrival-to-belonging/"><div class="frame">{img(PHOTOS['from-arrival-to-belonging'][5], "(max-width: 700px) 100vw, 33vw", "cover")}</div><h3>From Arrival to Belonging: A Decade in Portraits</h3><p>Solo exhibition with Startup Refugees — IKEA; STOA; Valkea; Revontuli</p></a>
-      <div class="card"><div class="ph land" role="img" aria-label="Visible Palestine pop-up at HIAP" data-label="Photo needed"></div><h3>Visible Palestine</h3><p>Pop-up exhibition, HIAP, Suomenlinna — draft of a future three-part exhibition</p><div class="meta">2025</div></div>
-      <div class="card"><div class="ph land" role="img" aria-label="Näse Gård, Porvoo" data-label="Photo needed"></div><h3>Förkolnade Minnen / Muistoihin Hiiltyneet</h3><p>Group exhibition, Näse Gård, Porvoo</p><div class="meta">2025</div></div>
+  </div>
+</section>
+<section class="current-more" aria-labelledby="also">
+  <div class="wrap">
+    <h2 id="also">Also in 2025–2026</h2>
+    <div class="news-list">
+{items}
     </div>
   </div>
 </section>"""
-    page("news/index.html", "Exhibitions", "Current and past exhibitions of Nora Sayyad, including the touring exhibition The Lost Paintings: A Prelude to Return.", body, current="news")
+    page("news/index.html", "Exhibitions", "Recent and past exhibitions of Nora Sayyad, including The Lost Paintings: A Prelude to Return.", body, current="news")
+
+
+def build_visible_palestine():
+    figs = "\n".join(f'<figure>{img(ph, "(max-width: 760px) 100vw, 640px", lazy=n > 1)}</figure>'
+                     for n, ph in enumerate(PHOTOS["visible-palestine"]))
+    body = f"""<section class="project-head">
+  <div class="wrap">
+    <p class="eyebrow"><a href="/news/">Current</a> / Visible Palestine</p>
+    <div class="project-intro">
+      <div>
+        <h1>Visible Palestine</h1>
+        <p class="lead">A pop-up photo exhibition based on Nora's ongoing work, shown as the public event of her UA Miniresidency at HIAP.</p>
+        <p>The pop-up is a draft for a future exhibition envisioned in three parts. Portraits tell the stories of Palestinians and their families, showing how everyday life and resistance coexist. They are supported by interviews collected with Iris Pajunen within the Solidarity Movements workgroup, which also gathers visual documentation of activism and communities that have supported Palestine in Finland and abroad over the decades. The Protests section brings together street photography from multiple photographers, highlighting communal action and grassroots solidarity.</p>
+      </div>
+      <ul class="facts">
+        <li><span>Date</span><span>18 December 2025</span></li>
+        <li><span>Venue</span><span>HIAP, Suomenlinna, Helsinki</span></li>
+        <li><span>Context</span><span><a href="https://urbanapa.fi/events/ua-miniresidencies-nora-sayyad/">UA Miniresidencies</a> (UrbanApa &amp; HIAP)</span></li>
+        <li><span>Interviews</span><span>With Iris Pajunen, Solidarity Movements workgroup</span></li>
+        <li><span>Status</span><span>Ongoing work</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+<section class="story-block" aria-label="Photographs">
+  <div class="wrap story exhibition-gallery">
+{figs}
+  </div>
+</section>
+<section>
+  <div class="wrap">
+    <nav class="pager" aria-label="Current">
+      <a class="prev" href="/news/"><small>← Back</small>Exhibitions &amp; news</a>
+    </nav>
+  </div>
+</section>"""
+    page("news/visible-palestine/index.html", "Visible Palestine",
+         "Visible Palestine: a pop-up photo exhibition by Nora Sayyad at HIAP, Suomenlinna, December 2025, based on her ongoing work.",
+         body, current="news", og=PHOTOS["visible-palestine-cover"])
+
+
+def build_wapo_assignment():
+    figs = "\n".join(f'<figure>{img(ph, "(max-width: 760px) 100vw, 640px", lazy=n > 1)}</figure>'
+                     for n, ph in enumerate(PHOTOS["washington-post-happiness"]))
+    body = f"""<section class="project-head">
+  <div class="wrap">
+    <p class="eyebrow"><a href="/news/">Current</a> / The Washington Post</p>
+    <div class="project-intro">
+      <div>
+        <h1>How is ‘happiness’ measured around the world?</h1>
+        <p class="lead">Photographs for the Finland chapter of The Washington Post’s story on the World Happiness Report.</p>
+        <p>The story follows four countries: Finland, Indonesia, Jamaica and Senegal. Finland has ranked first in the report for eight years; Nora photographed its chapter.</p>
+      </div>
+      <ul class="facts">
+        <li><span>Publication</span><span>The Washington Post</span></li>
+        <li><span>Date</span><span>27 November 2025</span></li>
+        <li><span>Story</span><span>Maham Javaid</span></li>
+        <li><span>Photographs</span><span>{len(PHOTOS["washington-post-happiness"])}, Finland chapter</span></li>
+        <li><span>Read</span><span><a href="https://www.washingtonpost.com/world/interactive/2025/world-happiness-report/">washingtonpost.com</a></span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+<section class="story-block" aria-label="Photographs">
+  <div class="wrap story">
+{figs}
+  </div>
+</section>
+<section>
+  <div class="wrap">
+    <nav class="pager" aria-label="Current">
+      <a class="prev" href="/news/"><small>← Back</small>Exhibitions &amp; news</a>
+      <a class="next" href="/services/#assignments"><small>Commissions →</small>Selected assignments</a>
+    </nav>
+  </div>
+</section>"""
+    page("news/washington-post-happiness/index.html", "The Washington Post: How is ‘happiness’ measured around the world?",
+         "Nora Sayyad's photographs for the Finland chapter of The Washington Post story on the World Happiness Report, November 2025.",
+         body, current="news", og=PHOTOS["washington-post-happiness"][0])
 
 
 def build_contact():
-    body = f"""<section>
-  <div class="wrap">
-    <p class="eyebrow">Contact</p>
-    <h1>Let's talk</h1>
-    <p class="lead narrow">Commissions, exhibitions, press, talks and prints. Replies within <span class=todo>2 working days</span>.</p>
-    <form class="contact" action="#" method="post" style="margin-top:32px">
-      <div class="two">
-        <label>Name<input name="name" autocomplete="name" required></label>
-        <label>Email<input type="email" name="email" autocomplete="email" required></label>
+    body = f"""<section class="contact-section">
+  <div class="wrap contact-layout">
+    <div class="contact-copy">
+      <p class="eyebrow">Contact</p>
+      <h1>Let's talk.</h1>
+      <p class="lead">Commissions, exhibitions, press, talks and selected collaborations.</p>
+      <div class="contact-meta">
+        <div><span>Based in</span><b>Helsinki, Finland</b></div>
+        <div><span>Email</span><a href="mailto:{EMAIL}">{EMAIL}</a></div>
+        <div><span>Instagram</span><a href="https://www.instagram.com/norasayyad/">@norasayyad</a></div>
       </div>
-      <div class="two">
-        <label>Organisation<input name="org" autocomplete="organization"></label>
-        <label>Topic<select name="topic"><option>Commission</option><option>Exhibition / curatorial</option><option>Press</option><option>Talk or workshop</option><option>Prints</option><option>Other</option></select></label>
-      </div>
-      <label>Message<textarea name="message" required></textarea></label>
-      <div><button class="btn" type="submit">Send message</button></div>
-    </form>
-    <p style="margin-top:32px">Or email <a href="mailto:{EMAIL}">{EMAIL}</a></p>
+    </div>
+    <div>
+      <form class="contact" action="mailto:{EMAIL}" method="post" data-mailto-form>
+        <div class="two">
+          <label>Name<input name="name" autocomplete="name" required></label>
+          <label>Email<input type="email" name="email" autocomplete="email" required></label>
+        </div>
+        <div class="two">
+          <label>Organisation<input name="org" autocomplete="organization"></label>
+          <label>Topic<select name="topic"><option>Commission</option><option>Exhibition / curatorial</option><option>Press</option><option>Talk or workshop</option><option>Prints</option><option>Other</option></select></label>
+        </div>
+        <label>Message<textarea name="message" required></textarea></label>
+        <div><button class="btn" type="submit">Open email draft</button></div>
+        <p class="form-note">Preview mode: this opens your email application with the message filled in. A direct web form will be connected before launch.</p>
+      </form>
+    </div>
   </div>
 </section>"""
     page("contact/index.html", "Contact", "Contact photographer Nora Sayyad for commissions, exhibitions, press, talks and prints.", body)
+
+
+def write_search_index():
+    """Plain-text index of every page per language, with image alt text so scenes are findable too."""
+    for lang, pages in SEARCH_PAGES.items():
+        entries = []
+        for pg in pages:
+            body = re.sub(r"<(script|style|form)\b.*?</\1>", " ", pg["body"], flags=re.S)
+            alts = " ".join(re.findall(r'alt="([^"]*)"', body))
+            text = re.sub(r"\s+", " ", strip_tags(body.replace("<br>", " "))).strip()
+            entries.append({"url": pg["url"], "title": pg["title"], "desc": pg["desc"],
+                            "text": unescape(text), "alt": unescape(alts)})
+        name = "search-index.json" if lang == "en" else f"search-index-{lang}.json"
+        (ROOT / "assets" / name).write_text(
+            json.dumps(entries, ensure_ascii=False, separators=(",", ":")), encoding="utf-8")
 
 
 if __name__ == "__main__":
@@ -466,7 +861,12 @@ if __name__ == "__main__":
     for i in range(len(PROJECTS)):
         build_project(i)
     build_about()
+    build_career()
     build_services()
     build_news()
+    build_visible_palestine()
+    build_wapo_assignment()
     build_contact()
-    print("built")
+    write_search_index()
+    (ROOT / "content/fi-missing.txt").write_text("\n".join(sorted(FI_MISSING)) + "\n", encoding="utf-8")
+    print(f"built (fi: {len(FI_MISSING)} untranslated fragments -> content/fi-missing.txt)")

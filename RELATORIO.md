@@ -8,11 +8,12 @@ Este repositório traz um **protótipo navegável** do site proposto (HTML/CSS e
 
 | Página | URL atual | Conteúdo |
 |---|---|---|
+| 28/09/2026 | Editorial / Archive in Motion definido como identidade principal do protótipo; Arquivo / Memória passa a ser a alternativa visual secundária para apresentação | Robson |
 | Home | `/` | Uma foto, "A visual storyteller", botão "View Portfolio" |
 | Work | `/work-1` | Índice de 4 projetos, com a foto mudando ao passar o mouse |
 | Notes of Resistance | `/work-1/notes-of-resistance` | **86 fotos**, nenhum texto ou legenda |
 | Portraits | `/work-1/project-one-f5w4d-z9nem-…` | 19 fotos, nenhum texto |
-| From Arrival to Belonging? | `/work-1/project-two-ky966-n329z-…` | 11 fotos (uma repetida) e **o único texto de projeto do site** |
+| From Arrival to Belonging? | `/work-1/project-two-ky966-n329z-…` | 10 fotos e **o único texto de projeto do site** |
 | Parfyymin tuulahdus | `/work-1/parfyymin-tuulahdus` | 3 fotos e só o título; uma das fotos também está em Portraits |
 | About | `/about` | Bio forte e CV completo, mas sem foto dela e num bloco único e longo |
 
@@ -30,7 +31,7 @@ Em todas as páginas: link "Login / Account", link para `/cart`, meta descriptio
 |---|---|---|---|
 | 1 | Link "Login Account" e carrinho "0" sem loja | Desativar *Commerce* e *Customer Accounts* em Configurações | Cabeçalho sem login/carrinho |
 | 2 | URLs `/work-1` e `/project-one-f5w4d-…` | Renomear os slugs e criar redirecionamentos 301 das URLs antigas | `/work/`, `/work/notes-of-resistance/` |
-| 3 | Texto alternativo = nome do arquivo (`4W7A4927.jpg`, `Kopio tiedostosta…`) ou vazio | Descrever a cena em cada imagem; renomear os arquivos antes do upload | As 57 fotos do protótipo têm texto alternativo descritivo (`content/photos.json`) |
+| 3 | Texto alternativo = nome do arquivo (`4W7A4927.jpg`, `Kopio tiedostosta…`) ou vazio | Descrever a cena em cada imagem; renomear os arquivos antes do upload | As 58 referências estruturadas do protótipo têm texto alternativo descritivo (`content/photos.json`) |
 | 4 | Sem meta description e sem og:image | Preencher *SEO description* por página e definir a imagem social | `<meta name="description">` e `og:image` em todas as páginas |
 | 5 | Home sem H1; "A visual storyteller" com 12px, branco, em cima da foto | H1 com o posicionamento, texto ≥ 16px, fora da foto ou sobre uma área escura | H1 + lead na home |
 | 6 | Foto de capa é uma exportação "INSTAGRAM" clareada | Enviar o original em ≥ 2500px, sem recompressão | Hero com `srcset` responsivo |
@@ -83,6 +84,25 @@ Registro das decisões do projeto: data, decisão e quem decidiu. Novas entradas
 
 | Data | Decisão | Quem |
 |---|---|---|
+| 02/10/2026 | Ordem das seções do currículo (página Career) mantida como no protótipo, diferente do site atual. Fundamentação abaixo, para apresentar à Nora | Robson |
+| 28/09/2026 | Direção Editorial / Archive in Motion adicionada ao protótipo como nova opção visual, sem substituir as demais | Robson |
 | 28/09/2026 | Opções da versão 2 (Reportagem, Cartas, Tatreez, Sequências) publicadas num link privado para apresentar à Nora; Tatreez marcada como favorita | Robson |
 | 28/09/2026 | Versões 1 e 2 guardadas como opções adicionais; conceitos novos (Símbolos, Rota, Visível, Dois lares) em `opcoes/` | Robson |
 | 28/09/2026 | Fotos baixadas do Instagram não entram no repositório; usar originais da Nora | Robson |
+
+### Ordem das seções do currículo (página Career)
+
+O currículo no site atual da Nora segue a ordem: Education → Solo exhibitions → Selected group exhibitions → Selected awards, residencies → Public collections → Memberships.
+
+O protótipo usa: Solo exhibitions → Selected group exhibitions → Public collections → Awards & residencies → Selected assignments → Selected press → Publications & clients → Talks, teaching & juries → Education → Memberships.
+
+**Por que essa ordem:**
+
+1. **Exposições primeiro.** Em currículos de artistas com carreira estabelecida, o costume é abrir com o trabalho exposto, que é a credencial mais forte e a primeira coisa que curadores, galerias e editais procuram.
+2. **Coleções públicas antes de prêmios.** Ter obra no acervo de instituições públicas (Migration Institute of Finland, Finnish Heritage Agency, National Library of Finland) indica reconhecimento institucional duradouro e costuma pesar mais que um prêmio pontual.
+3. **Trabalho encomendado depois do núcleo artístico.** As seções novas (pautas para The Washington Post e The Times, imprensa, clientes, palestras e ensino) mostram a atuação como repórter visual e educadora. Ficam depois das exposições, coleções e prêmios para não misturar trabalho autoral com encomenda.
+4. **Formação no fim.** Para quem já tem carreira, a formação vira dado de referência, não de destaque. Começar pelo mestrado de 2022 esconderia mais de dez anos de exposições.
+5. **Associações por último**, como no site atual.
+
+Dentro de cada seção, a ordem continua do mais recente para o mais antigo, como no site dela. Se a Nora preferir a ordem atual, a troca é simples: basta mudar a sequência das chamadas `cv(...)` em `build_career()`, no `build.py`.
+
