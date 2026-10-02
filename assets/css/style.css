@@ -22,10 +22,10 @@ body{margin:0;background:var(--paper);color:var(--ink);font:400 16px/1.62 var(--
 img{max-width:100%;display:block}
 a{color:inherit}
 p{margin:0 0 1em}
-h1,h2,h3{font-family:var(--serif);font-weight:400;line-height:1.02;margin:0 0 .5em;overflow-wrap:break-word;hyphens:auto}
-h1{font-size:clamp(3rem,7vw,6.4rem);letter-spacing:-.035em}
-h2{font-size:clamp(2.2rem,4.5vw,4.7rem);letter-spacing:-.025em}
-h3{font-size:clamp(1.3rem,2vw,1.7rem)}
+h1,h2,h3{font-family:var(--serif);font-weight:400;line-height:1.02;margin:0 0 .5em;overflow-wrap:break-word;hyphens:manual}
+h1{font-size:clamp(2.4rem,4.2vw,4rem);letter-spacing:-.03em}
+h2{font-size:clamp(1.8rem,2.8vw,2.8rem);letter-spacing:-.02em}
+h3{font-size:clamp(1.2rem,1.6vw,1.45rem)}
 .wrap{width:min(var(--wrap),calc(100% - 2*var(--gutter)));margin:0 auto}
 .narrow{max-width:760px}
 .eyebrow{font-size:.68rem;letter-spacing:.15em;text-transform:uppercase;color:var(--ink-soft);margin:0 0 .8rem}
@@ -133,11 +133,11 @@ main>.commission-band{background:var(--blue);margin-bottom:0}
 
 .current-grid{display:grid;grid-template-columns:1.05fr 1fr .85fr;gap:38px;align-items:start}
 .current-image{aspect-ratio:4/3;overflow:hidden;background:#111}.current-image img{width:100%;height:100%;object-fit:cover;object-position:center 34%}
-.current-main h3,.press-note h3{font-size:clamp(1.8rem,3vw,3rem);line-height:.98;text-wrap:balance}
+.current-main h3,.press-note h3{font-size:clamp(1.5rem,2.2vw,2.2rem);line-height:1;text-wrap:balance}
 .current-main p,.press-note p{color:var(--ink-soft)}
 .press-note{border-top:1px solid var(--ink);padding-top:12px}.press-note h3{font-size:1.55rem;margin-bottom:6px}.press-note hr{border:0;border-top:1px solid var(--line);margin:24px 0}
 .about-editorial{display:grid;grid-template-columns:.72fr 1.28fr;gap:clamp(34px,6vw,80px);align-items:start}
-.about-editorial h2{font-size:clamp(3rem,6vw,6rem);line-height:.86}
+.about-editorial h2{font-size:clamp(2rem,3.2vw,3.2rem);line-height:.98}
 .about-portrait{aspect-ratio:4/5;margin:0;overflow:hidden;background:var(--ph-a)}.about-portrait img{width:100%;height:100%;object-fit:cover;object-position:center}
 .commission-band{background:var(--blue);color:white;border-bottom:0;padding:41px 0 23px}
 .commission-editorial{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:clamp(20px,3vw,48px);align-items:center}
@@ -164,7 +164,7 @@ main>.commission-band{background:var(--blue);margin-bottom:0}
 .page-news main>section:first-child>.wrap>h1,
 .page-services main>section:first-child>.wrap>h1,
 .page-about .about-hero-copy h1{
-  font-size:clamp(2.7rem,4.4vw,4.35rem);
+  font-size:clamp(2.2rem,3.4vw,3.4rem);
   line-height:.9;
   letter-spacing:-.035em;
 }
@@ -190,7 +190,7 @@ main>section.work-index{background:none;padding-bottom:0}
 /* Contact */
 .contact-layout{display:grid;grid-template-columns:.72fr 1.28fr;gap:clamp(44px,7vw,100px);align-items:start}
 .contact-copy{position:sticky;top:118px}
-.contact-copy h1{font-size:clamp(4rem,8vw,8rem);line-height:.8;margin-bottom:28px}
+.contact-copy h1{font-size:clamp(2.4rem,3.8vw,3.8rem);line-height:.9;margin-bottom:22px}
 .contact-meta{margin-top:42px;border-top:1px solid var(--line)}
 .contact-meta div{display:grid;grid-template-columns:100px 1fr;gap:18px;padding:12px 0;border-bottom:1px solid var(--line);font-size:.86rem}
 .contact-meta span{font-size:.65rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft)}
@@ -207,7 +207,7 @@ main>section.work-index{background:none;padding-bottom:0}
 .story figure{margin:0}.story figure.half{width:min(100%,760px)}.story figure.right{justify-self:end}
 .story img{width:100%;height:auto;cursor:zoom-in;background:var(--ph-a)}
 .story figcaption{font-size:.8rem;color:var(--ink-soft);margin-top:9px;max-width:640px}
-.chapter{max-width:720px;padding-top:30px}.chapter h2{font-size:clamp(2rem,4vw,4rem)}
+.chapter{max-width:720px;padding-top:30px}.chapter h2{font-size:clamp(1.7rem,2.8vw,2.8rem)}
 .pager{display:grid;grid-template-columns:1fr auto 1fr;gap:18px;align-items:center;border-top:1px solid var(--line);padding-top:28px}
 .pager a{text-decoration:none;font-family:var(--serif);font-size:1.15rem}.pager small{display:block;font:500 .64rem/1.4 var(--sans);color:var(--ink-soft);letter-spacing:.1em;text-transform:uppercase}
 .pager .next{text-align:right}.pager .all{font:500 .7rem/1 var(--sans);letter-spacing:.08em;text-transform:uppercase}
@@ -264,10 +264,10 @@ details ul{margin:14px 0 0;padding-left:1.1em}.cv b{display:inline-block;min-wid
 .lost-paintings-image{margin:0;aspect-ratio:4/5;background:#0b0b0b;overflow:hidden;position:sticky;top:96px}
 .lost-paintings-image img{width:100%;height:100%;object-fit:cover;object-position:center 30%}
 .news-kicker{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-bottom:18px}
-.news-feature-copy h2{font-size:clamp(2.2rem,3.8vw,3.9rem);line-height:.98;text-wrap:balance}
+.news-feature-copy h2{font-size:clamp(1.8rem,2.8vw,2.8rem);line-height:1;text-wrap:balance}
 .news-feature-copy>p{color:var(--ink-soft);max-width:40rem}
 .news-press{font-size:.85rem}
-.current-more h2{font-size:clamp(2rem,3.4vw,3.2rem);margin-bottom:28px}
+.current-more h2{font-size:clamp(1.7rem,2.6vw,2.6rem);margin-bottom:24px}
 .news-list{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:28px}
 .news-item{display:flex;flex-direction:column;gap:14px}
 .news-thumb,.news-thumb.ph{display:block;aspect-ratio:4/3;overflow:hidden;background:var(--ph-a)}
@@ -357,12 +357,12 @@ textarea{min-height:170px;resize:vertical}.two{display:grid;grid-template-column
   main>section{margin-bottom:10px}
   .header-lang{display:flex;gap:7px;font-size:.78rem;letter-spacing:.06em}
   section{padding:52px 0}
-  h1{font-size:clamp(2.8rem,15vw,4.8rem)}
-  h2{font-size:clamp(2.1rem,11vw,3.5rem)}
+  h1{font-size:clamp(2.2rem,10vw,3rem)}
+  h2{font-size:clamp(1.7rem,7.5vw,2.3rem)}
   .page-work .work-hero-copy h1,
   .page-news main>section:first-child> .wrap > h1,
   .page-services main>section:first-child> .wrap > h1,
-  .page-about .about-hero-copy h1{font-size:clamp(2.55rem,11vw,3.5rem);line-height:.92}
+  .page-about .about-hero-copy h1{font-size:clamp(2.1rem,9vw,2.7rem);line-height:.95}
   .hero-stage{height:min(74svh,650px);min-height:520px}.hero-shade{background:linear-gradient(0deg,rgba(5,5,5,.70) 0%,rgba(5,5,5,.20) 56%,rgba(5,5,5,.03) 100%)}
   .hero-copy h1{font-size:clamp(3.7rem,20vw,5.8rem)}
   .hero-controls{left:24px;transform:none}
@@ -378,7 +378,7 @@ textarea{min-height:170px;resize:vertical}.two{display:grid;grid-template-column
   .contact-meta div{grid-template-columns:82px 1fr}
   .about-top .narrow,.about-editorial>div:last-child{order:-1}
   .about-portrait{max-width:360px;margin-inline:auto}
-  .about-editorial h2{font-size:clamp(2.2rem,10.5vw,3rem)}
+  .about-editorial h2{font-size:clamp(1.8rem,8vw,2.3rem)}
   .credentials{grid-template-columns:1fr 1fr}
   .section-head{align-items:start}
   .two{grid-template-columns:1fr}
@@ -468,8 +468,8 @@ textarea{min-height:170px;resize:vertical}.two{display:grid;grid-template-column
   .news-feature{grid-template-columns:1fr;gap:22px}
   .lost-paintings-image{position:static;aspect-ratio:4/3}
   .lost-paintings-image img{object-position:center 35%}
-  .news-feature-copy h2{font-size:2rem}
-  .current-more h2{font-size:1.7rem;margin-bottom:12px}
+  .news-feature-copy h2{font-size:1.7rem}
+  .current-more h2{font-size:1.5rem;margin-bottom:12px}
   .news-list{grid-template-columns:1fr;gap:0}
   .news-item{display:grid;grid-template-columns:96px 1fr;gap:14px;padding:14px 0;border-top:1px solid var(--line)}
   .news-thumb,.news-thumb.ph{aspect-ratio:1}
@@ -506,7 +506,7 @@ textarea{min-height:170px;resize:vertical}.two{display:grid;grid-template-column
 @media(min-width:961px){
   .page-contact main>section:first-child{margin-top:22px;min-height:max(570px,min(74vh,780px));display:flex;flex-direction:column;justify-content:center;padding:clamp(22px,4vh,52px) 0}
   .page-contact .contact-copy{position:static}
-  .page-contact .contact-copy h1{font-size:clamp(3.4rem,min(7vw,11vh),7rem)}
+  .page-contact .contact-copy h1{font-size:clamp(2.4rem,min(3.8vw,7vh),3.8rem)}
   .page-contact .contact-meta{margin-top:clamp(18px,3.5vh,42px)}
   .page-contact form.contact{gap:clamp(10px,1.9vh,18px)}
   .page-contact textarea{min-height:clamp(96px,16vh,170px)}
@@ -522,7 +522,7 @@ textarea{min-height:170px;resize:vertical}.two{display:grid;grid-template-column
   .page-news .lost-paintings-image{position:relative;top:auto;aspect-ratio:auto;min-height:300px}
   .page-news .lost-paintings-image img{position:absolute;inset:0}
   .page-news .news-feature-copy{display:flex;flex-direction:column;justify-content:center}
-  .page-news .news-feature-copy h2{font-size:clamp(1.8rem,min(3.4vw,5.2vh),3.4rem);margin-bottom:.35em}
+  .page-news .news-feature-copy h2{font-size:clamp(1.7rem,min(2.8vw,4.6vh),2.8rem);margin-bottom:.35em}
   .page-news .tour{margin:clamp(6px,1.2vh,14px) 0 clamp(8px,1.6vh,18px)}
   .page-news .tour li{padding:clamp(4px,.75vh,9px) 0;font-size:clamp(.8rem,1.8vh,.9rem)}
 }
