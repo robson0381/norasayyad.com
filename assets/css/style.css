@@ -75,11 +75,13 @@ h3{font-size:clamp(1.2rem,1.6vw,1.45rem)}
 .btn.accent{background:var(--oxide);border-color:var(--oxide);color:white;padding:14px 20px;letter-spacing:.16em}.btn.accent:hover{background:#8c3d33;border-color:#8c3d33;color:white}
 
 /* Shared sections */
-section{padding:clamp(56px,7vw,96px) 0;border-bottom:1px solid var(--line)}
+section{padding:clamp(36px,4.5vw,64px) 0;border-bottom:1px solid var(--line)}
 /* g1-style discreet blocks: each section is its own light card on a grey ground */
 body{background:#e7e3da}
 main>section{background:var(--surface);border-bottom:0;margin-bottom:12px}
-.site-header{background:rgba(251,250,246,.96)}
+.site-header{background:var(--surface)}
+/* Content blocks start with the same grey gap as the heros, so they never touch the header */
+main>section:first-child:not(.editorial-hero):not(.work-index):not(.about-hero){margin-top:22px}
 .page-home main>.editorial-hero{background:none}
 main>.commission-band{background:var(--blue);margin-bottom:0}
 .section-head{display:flex;justify-content:space-between;align-items:end;gap:24px;margin-bottom:30px;flex-wrap:wrap}
@@ -136,7 +138,7 @@ main>.commission-band{background:var(--blue);margin-bottom:0}
 .current-main h3,.press-note h3{font-size:clamp(1.5rem,2.2vw,2.2rem);line-height:1;text-wrap:balance}
 .current-main p,.press-note p{color:var(--ink-soft)}
 .press-note{border-top:1px solid var(--ink);padding-top:12px}.press-note h3{font-size:1.55rem;margin-bottom:6px}.press-note hr{border:0;border-top:1px solid var(--line);margin:24px 0}
-.about-editorial{display:grid;grid-template-columns:.72fr 1.28fr;gap:clamp(34px,6vw,80px);align-items:start}
+.about-editorial{display:grid;grid-template-columns:.72fr 1.28fr;gap:clamp(34px,6vw,80px);align-items:center}
 .about-editorial h2{font-size:clamp(2rem,3.2vw,3.2rem);line-height:.98}
 .about-portrait{aspect-ratio:4/5;margin:0;overflow:hidden;background:var(--ph-a)}.about-portrait img{width:100%;height:100%;object-fit:cover;object-position:center}
 .commission-band{background:var(--blue);color:white;border-bottom:0;padding:41px 0 23px}
@@ -308,7 +310,7 @@ textarea{min-height:170px;resize:vertical}.two{display:grid;grid-template-column
   .menu-toggle{display:block}
   .site-header .wrap{min-height:62px}
   /* Drawer menu from the right, dimmed page behind (a tap outside closes it) */
-  .site-header{backdrop-filter:none;-webkit-backdrop-filter:none;background:rgba(243,240,232,.97)}
+  .site-header{backdrop-filter:none;-webkit-backdrop-filter:none;background:var(--surface)}
   .header-tools{display:flex;align-items:center;gap:16px;margin-left:auto}
   .search-toggle,.search-panel{display:none!important}
   .nav-scrim{display:block;position:fixed;inset:0;background:rgba(10,10,10,.28);opacity:0;visibility:hidden;transition:opacity .25s,visibility .25s;z-index:1}
@@ -356,7 +358,8 @@ textarea{min-height:170px;resize:vertical}.two{display:grid;grid-template-column
   body{font-size:14px}
   main>section{margin-bottom:10px}
   .header-lang{display:flex;gap:7px;font-size:.78rem;letter-spacing:.06em}
-  section{padding:52px 0}
+  section{padding:36px 0}
+  main>section:first-child:not(.editorial-hero):not(.work-index):not(.about-hero){margin-top:10px}
   h1{font-size:clamp(2.2rem,10vw,3rem)}
   h2{font-size:clamp(1.7rem,7.5vw,2.3rem)}
   .page-work .work-hero-copy h1,
