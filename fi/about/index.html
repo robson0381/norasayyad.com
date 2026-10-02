@@ -1,6 +1,11 @@
 <!doctype html>
 <html lang="fi">
 <head>
+<script>
+/* Screens wider than 1440px get the 1440px layout scaled up, so the page keeps the same distribution.
+   --vh is the viewport height in layout pixels, so heights based on it keep their share of the screen. */
+(function(){var d=document.documentElement;function fit(){var w=window.innerWidth,z=w>1440?w/1440:1;d.style.zoom=z>1?String(z):"";d.style.setProperty("--vh",(window.innerHeight/z/100)+"px")}fit();window.addEventListener("resize",fit)})();
+</script>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Tietoa — Nora Sayyad</title>
@@ -20,7 +25,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600&family=Newsreader:opsz,wght@6..72,400;6..72,500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/css/style.css?v=20261002-3">
+<link rel="stylesheet" href="/assets/css/style.css?v=20261002-6">
 </head>
 <body class="page-about">
 <a class="skip" href="#main">Siirry sisältöön</a>
@@ -66,19 +71,30 @@
   <div class="wrap">
     <div class="about-hero-stage">
       <figure class="about-hero-portrait"><img src="/assets/images/nora-selfportrait-buenos-aires-2023-sample.jpg" width="240" height="300" alt="Nora Sayyadin omakuva Buenos Airesissa toukokuussa 2023" loading="eager" decoding="async"></figure>
-      <div class="about-hero-copy">
+      <div class="about-hero-copy" data-about-rotator>
         <h1>Nora Sayyad</h1>
-        <p class="lead">Nora Sayyad on suomalais-palestiinalainen kuvataiteilija ja dokumentaarinen valokuvaaja, joka on syntynyt Ruotsissa ja asuu Helsingissä.</p>
-        <p>Hänen työnsä liikkuu dokumentaarisen, runollisen ja käsitteellisen välillä ja tutkii katsomisen politiikkaa, representaation kysymyksiä sekä sitä, miten valokuvasta voi tulla muistin, dialogin ja itsemääräämisen tila. Henkilökohtaisista ja yhteisistä historioista ammentaen hänen teoksensa tarkastelevat yhteyttä, kuulumista ja elettyä kokemusta suhteessa laajempiin yhteiskunnallisiin ja poliittisiin todellisuuksiin.</p>
-        <p class="about-actions"><a class="btn" href="/fi/career/">Katso ura</a><a class="btn ghost" href="/fi/contact/">Yhteystiedot</a></p>
+        <div class="about-variants">
+          <div class="about-variant about-variant--a is-active" data-about-variant data-label="Vaihtoehto A · yksi palsta" aria-hidden="false">
+            <p class="lead">Nora Sayyad on suomalais-palestiinalainen kuvataiteilija ja dokumentaarinen valokuvaaja, joka on syntynyt Ruotsissa ja asuu Helsingissä.</p>
+            <p>Hänen työnsä liikkuu dokumentaarisen, runollisen ja käsitteellisen välillä ja tutkii katsomisen politiikkaa, representaation kysymyksiä sekä sitä, miten valokuvasta voi tulla muistin, dialogin ja itsemääräämisen tila. Henkilökohtaisista ja yhteisistä historioista ammentaen hänen teoksensa tarkastelevat yhteyttä, kuulumista ja elettyä kokemusta suhteessa laajempiin yhteiskunnallisiin ja poliittisiin todellisuuksiin.</p>
+            <p>Hänen töitään on ollut esillä kansainvälisesti, muun muassa osana näyttelyä <em>The Lost Paintings: A Prelude to Return</em>, sekä esimerkiksi Helsingin kaupunginmuseossa, Suomen valokuvataiteen museossa ja HIAPissa. Hänen valokuviaan ovat julkaisseet suomalaiset ja kansainväliset mediat, kuten The Washington Post ja The Times. Hänen teoksiaan on Siirtolaisuusinstituutin, Museoviraston ja Kansalliskirjaston julkisissa kokoelmissa.</p>
+            <p>Taiteellisen työnsä ohella hän tekee kuvajournalismia, opettaa, kirjoittaa, puhuu ja tekee artivismia, ja hän on tehnyt yhteistyötä muun muassa Plan International Suomen kanssa. Vuonna 2021 hän oli apulaiskuraattorina palkitussa teoksessa <em>No Justice, No Peace</em>, joka sai kultaa Vuoden Huiput -kilpailussa ja erikoiskirjat-tunnustuksen Vuoden kauneimmat kirjat -kilpailussa.</p>
+          </div>
+          <div class="about-variant about-variant--b" data-about-variant data-label="Vaihtoehto B · kaksi palstaa" aria-hidden="true">
+            <p class="lead">Nora Sayyad on suomalais-palestiinalainen kuvataiteilija ja dokumentaarinen valokuvaaja, joka on syntynyt Ruotsissa ja asuu Helsingissä.</p>
+            <div class="about-variant-cols">
+              <p>Hänen työnsä liikkuu dokumentaarisen, runollisen ja käsitteellisen välillä ja tutkii katsomisen politiikkaa, representaation kysymyksiä sekä sitä, miten valokuvasta voi tulla muistin, dialogin ja itsemääräämisen tila. Henkilökohtaisista ja yhteisistä historioista ammentaen hänen teoksensa tarkastelevat yhteyttä, kuulumista ja elettyä kokemusta suhteessa laajempiin yhteiskunnallisiin ja poliittisiin todellisuuksiin.</p>
+              <p>Hänen töitään on ollut esillä kansainvälisesti, muun muassa osana näyttelyä <em>The Lost Paintings: A Prelude to Return</em>, sekä esimerkiksi Helsingin kaupunginmuseossa, Suomen valokuvataiteen museossa ja HIAPissa. Hänen valokuviaan ovat julkaisseet suomalaiset ja kansainväliset mediat, kuten The Washington Post ja The Times. Hänen teoksiaan on Siirtolaisuusinstituutin, Museoviraston ja Kansalliskirjaston julkisissa kokoelmissa.</p>
+              <p>Taiteellisen työnsä ohella hän tekee kuvajournalismia, opettaa, kirjoittaa, puhuu ja tekee artivismia, ja hän on tehnyt yhteistyötä muun muassa Plan International Suomen kanssa. Vuonna 2021 hän oli apulaiskuraattorina palkitussa teoksessa <em>No Justice, No Peace</em>, joka sai kultaa Vuoden Huiput -kilpailussa ja erikoiskirjat-tunnustuksen Vuoden kauneimmat kirjat -kilpailussa.</p>
+            </div>
+          </div>
+        </div>
+        <div class="about-foot">
+          <div class="about-switch" aria-label="Asetteluvaihtoehdot"><span data-about-label aria-live="polite">Vaihtoehto A · yksi palsta</span><button type="button" data-about-prev aria-label="Edellinen asettelu">←</button><button type="button" data-about-next aria-label="Seuraava asettelu">→</button></div>
+          <p class="about-actions"><a class="btn" href="/fi/career/">Katso ura</a><a class="btn ghost" href="/fi/contact/">Yhteystiedot</a></p>
+        </div>
       </div>
     </div>
-  </div>
-</section>
-<section class="about-more" aria-label="Näyttelyt, julkaisut ja yhteistyöt">
-  <div class="wrap about-columns">
-    <p>Hänen töitään on ollut esillä kansainvälisesti, muun muassa osana näyttelyä <em>The Lost Paintings: A Prelude to Return</em>, sekä esimerkiksi Helsingin kaupunginmuseossa, Suomen valokuvataiteen museossa ja HIAPissa. Hänen valokuviaan ovat julkaisseet suomalaiset ja kansainväliset mediat, kuten The Washington Post ja The Times. Hänen teoksiaan on Siirtolaisuusinstituutin, Museoviraston ja Kansalliskirjaston julkisissa kokoelmissa.</p>
-    <p>Taiteellisen työnsä ohella hän tekee kuvajournalismia, opettaa, kirjoittaa, puhuu ja tekee artivismia, ja hän on tehnyt yhteistyötä muun muassa Plan International Suomen kanssa. Vuonna 2021 hän oli apulaiskuraattorina palkitussa teoksessa <em>No Justice, No Peace</em>, joka sai kultaa Vuoden Huiput -kilpailussa ja erikoiskirjat-tunnustuksen Vuoden kauneimmat kirjat -kilpailussa.</p>
   </div>
 </section>
 </main>
@@ -92,6 +108,6 @@
     </ul>
   </div>
 </footer>
-<script src="/assets/js/main.js?v=20261002-3" defer></script>
+<script src="/assets/js/main.js?v=20261002-6" defer></script>
 </body>
 </html>

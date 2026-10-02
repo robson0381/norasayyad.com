@@ -168,6 +168,11 @@ def page(path, title, desc, body, current=None, og=None):
         return f"""<!doctype html>
 <html lang="{lang}">
 <head>
+<script>
+/* Screens wider than 1440px get the 1440px layout scaled up, so the page keeps the same distribution.
+   --vh is the viewport height in layout pixels, so heights based on it keep their share of the screen. */
+(function(){{var d=document.documentElement;function fit(){{var w=window.innerWidth,z=w>1440?w/1440:1;d.style.zoom=z>1?String(z):"";d.style.setProperty("--vh",(window.innerHeight/z/100)+"px")}}fit();window.addEventListener("resize",fit)}})();
+</script>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{full_title}</title>
@@ -186,7 +191,7 @@ def page(path, title, desc, body, current=None, og=None):
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600&family=Newsreader:opsz,wght@6..72,400;6..72,500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/css/style.css?v=20261002-3">
+<link rel="stylesheet" href="/assets/css/style.css?v=20261002-6">
 </head>
 <body class="{body_class}">
 <a class="skip" href="#main">Skip to content</a>
@@ -221,7 +226,7 @@ def page(path, title, desc, body, current=None, og=None):
 {body}
 </main>
 {footer_html}
-<script src="/assets/js/main.js?v=20261002-3" defer></script>
+<script src="/assets/js/main.js?v=20261002-6" defer></script>
 </body>
 </html>
 """
@@ -257,7 +262,10 @@ def fi_text(raw):
 
 
 def to_finnish(html):
-    html = TEXT_NODE.sub(lambda m: ">" + fi_text(m.group(1)) + "<", html)
+    # Script blocks are code, not copy: translate only the text outside them
+    parts = re.split(r"(<script\b.*?</script>)", html, flags=re.S)
+    html = "".join(part if part.startswith("<script") else TEXT_NODE.sub(lambda m: ">" + fi_text(m.group(1)) + "<", part)
+                   for part in parts)
     def attr(m):
         name, value = m.groups()
         key = unescape(value)
@@ -523,19 +531,30 @@ def build_about():
   <div class="wrap">
     <div class="about-hero-stage">
       <figure class="about-hero-portrait"><img src="{ABOUT_PORTRAIT}" width="240" height="300" alt="Self-portrait by Nora Sayyad in Buenos Aires, May 2023" loading="eager" decoding="async"></figure>
-      <div class="about-hero-copy">
+      <div class="about-hero-copy" data-about-rotator>
         <h1>Nora Sayyad</h1>
-        <p class="lead">Nora Sayyad is a Finnish-Palestinian visual artist and documentary photographer, born in Sweden and based in Helsinki.</p>
-        <p>Her practice moves between documentary, poetic and conceptual approaches, exploring the politics of looking, questions of representation, and how photography can become a space for memory, dialogue and self-determination. Drawing from personal and collective histories, her work examines connection, belonging and lived experience in relation to wider social and political realities.</p>
-        <p class="about-actions"><a class="btn" href="/career/">View career history</a><a class="btn ghost" href="/contact/">Contact</a></p>
+        <div class="about-variants">
+          <div class="about-variant about-variant--a is-active" data-about-variant data-label="Option A · one column" aria-hidden="false">
+            <p class="lead">Nora Sayyad is a Finnish-Palestinian visual artist and documentary photographer, born in Sweden and based in Helsinki.</p>
+            <p>Her practice moves between documentary, poetic and conceptual approaches, exploring the politics of looking, questions of representation, and how photography can become a space for memory, dialogue and self-determination. Drawing from personal and collective histories, her work examines connection, belonging and lived experience in relation to wider social and political realities.</p>
+            <p>Her work has been exhibited internationally, including as part of <em>The Lost Paintings: A Prelude to Return</em>, and presented at institutions including the Helsinki City Museum, the Finnish Museum of Photography and HIAP. Her photographs have been published by Finnish and international media including The Washington Post and The Times. Her work is held in the public collections of the Migration Institute of Finland, the Finnish Heritage Agency and the National Library of Finland.</p>
+            <p>Alongside her artistic practice, she works across visual reporting, teaching, writing, public speaking, and artivism, and has collaborated with organisations including Plan International Finland. In 2021, she was assistant curator of the award-winning <em>No Justice, No Peace</em>, which received Gold at Vuoden Huiput and a Special Books honour in Finland’s Most Beautiful Books.</p>
+          </div>
+          <div class="about-variant about-variant--b" data-about-variant data-label="Option B · two columns" aria-hidden="true">
+            <p class="lead">Nora Sayyad is a Finnish-Palestinian visual artist and documentary photographer, born in Sweden and based in Helsinki.</p>
+            <div class="about-variant-cols">
+              <p>Her practice moves between documentary, poetic and conceptual approaches, exploring the politics of looking, questions of representation, and how photography can become a space for memory, dialogue and self-determination. Drawing from personal and collective histories, her work examines connection, belonging and lived experience in relation to wider social and political realities.</p>
+              <p>Her work has been exhibited internationally, including as part of <em>The Lost Paintings: A Prelude to Return</em>, and presented at institutions including the Helsinki City Museum, the Finnish Museum of Photography and HIAP. Her photographs have been published by Finnish and international media including The Washington Post and The Times. Her work is held in the public collections of the Migration Institute of Finland, the Finnish Heritage Agency and the National Library of Finland.</p>
+              <p>Alongside her artistic practice, she works across visual reporting, teaching, writing, public speaking, and artivism, and has collaborated with organisations including Plan International Finland. In 2021, she was assistant curator of the award-winning <em>No Justice, No Peace</em>, which received Gold at Vuoden Huiput and a Special Books honour in Finland’s Most Beautiful Books.</p>
+            </div>
+          </div>
+        </div>
+        <div class="about-foot">
+          <div class="about-switch" aria-label="Layout options"><span data-about-label aria-live="polite">Option A · one column</span><button type="button" data-about-prev aria-label="Previous layout">←</button><button type="button" data-about-next aria-label="Next layout">→</button></div>
+          <p class="about-actions"><a class="btn" href="/career/">View career history</a><a class="btn ghost" href="/contact/">Contact</a></p>
+        </div>
       </div>
     </div>
-  </div>
-</section>
-<section class="about-more" aria-label="Exhibitions, publications and collaborations">
-  <div class="wrap about-columns">
-    <p>Her work has been exhibited internationally, including as part of <em>The Lost Paintings: A Prelude to Return</em>, and presented at institutions including the Helsinki City Museum, the Finnish Museum of Photography and HIAP. Her photographs have been published by Finnish and international media including The Washington Post and The Times. Her work is held in the public collections of the Migration Institute of Finland, the Finnish Heritage Agency and the National Library of Finland.</p>
-    <p>Alongside her artistic practice, she works across visual reporting, teaching, writing, public speaking, and artivism, and has collaborated with organisations including Plan International Finland. In 2021, she was assistant curator of the award-winning <em>No Justice, No Peace</em>, which received Gold at Vuoden Huiput and a Special Books honour in Finland’s Most Beautiful Books.</p>
   </div>
 </section>"""
     page("about/index.html", "About", "Biography of Nora Sayyad, Finnish-Palestinian photographer and visual artist based in Helsinki.", body, current="about")
@@ -549,7 +568,7 @@ def build_career():
   </div>
 </section>
 <section class="career-section" aria-label="Career history">
-  <div class="wrap narrow">
+  <div class="wrap">
     <div class="cv-tools"><button class="cv-toggle" type="button" aria-expanded="false" data-cv-toggle><span class="cv-toggle-label">Expand all</span><span class="cv-toggle-icon" aria-hidden="true"></span></button></div>
     {cv("Solo exhibitions", [
         ("2025–26", "<em>From Arrival to Belonging: A Decade in Portraits</em>, with Startup Refugees — IKEA; STOA; Valkea; Revontuli, Finland"),

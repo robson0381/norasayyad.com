@@ -1,6 +1,11 @@
 <!doctype html>
 <html lang="fi">
 <head>
+<script>
+/* Screens wider than 1440px get the 1440px layout scaled up, so the page keeps the same distribution.
+   --vh is the viewport height in layout pixels, so heights based on it keep their share of the screen. */
+(function(){var d=document.documentElement;function fit(){var w=window.innerWidth,z=w>1440?w/1440:1;d.style.zoom=z>1?String(z):"";d.style.setProperty("--vh",(window.innerHeight/z/100)+"px")}fit();window.addEventListener("resize",fit)})();
+</script>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Ura — Nora Sayyad</title>
@@ -20,7 +25,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600&family=Newsreader:opsz,wght@6..72,400;6..72,500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/css/style.css?v=20261002-3">
+<link rel="stylesheet" href="/assets/css/style.css?v=20261002-6">
 </head>
 <body class="page-career">
 <a class="skip" href="#main">Siirry sisältöön</a>
@@ -69,7 +74,7 @@
   </div>
 </section>
 <section class="career-section" aria-label="Ura">
-  <div class="wrap narrow">
+  <div class="wrap">
     <div class="cv-tools"><button class="cv-toggle" type="button" aria-expanded="false" data-cv-toggle><span class="cv-toggle-label">Avaa kaikki</span><span class="cv-toggle-icon" aria-hidden="true"></span></button></div>
     <details><summary>Yksityisnäyttelyt</summary><ul class="cv"><li><b>2025–26</b> <em>From Arrival to Belonging: A Decade in Portraits</em>, yhteistyössä Startup Refugeesin kanssa — IKEA; Stoa; Valkea; Revontuli</li><li><b>2025</b> <a href="/fi/news/visible-palestine/"><em>Visible Palestine</em></a> (jatkuva työ), pop-up-näyttely, HIAP, Suomenlinna, Helsinki</li><li><b>2024</b> <em>Tervetuloa, tervemenoa: Suomi muuttoliikkeessä</em>, yhteistyössä Siirtolaisuusinstituutin kanssa — kiertue suomalaisissa yliopistoissa ja Turun kaupunginkirjastossa</li><li><b>2022</b> <em>Wired This Way</em>, Kulttuurikeskus Stoa, Helsinki</li><li><b>2021</b> <em>Voimanaisia</em>, yhteistyössä Plan International Suomen kanssa — Vuotalo ja Maunula-talo, Helsinki</li><li><b>2017</b> <em>Finding Forgiveness</em>, Logomo ja Kaapatut Lapset ry, Turku</li><li><b>2015</b> <em>Hour of Your Reality</em>, Book Café, Turku</li></ul></details>
     <details><summary>Valikoidut ryhmänäyttelyt</summary><ul class="cv"><li><b>2025–26</b> <a href="https://www.thelostpaintings.com/artist-sayyad"><em>The Lost Paintings: A Prelude to Return</em></a> — Articule; MAI Montréal; Unbound Visual Arts; The MAC; P21 Gallery; Bristol Museum &amp; Art Gallery</li><li><b>2025</b> <em>Förkolnade Minnen / Muistoihin Hiiltyneet</em>, Näse Gård, Porvoo</li><li><b>2023</b> <a href="https://www.helsinginkaupunginmuseo.fi/2023/04/20/being-black-poimintoja-afrosuomalaisuudesta-tuo-esiin-moniaanista-helsinkia/"><em>Being Black – poimintoja afrosuomalaisuudesta</em></a>, Helsingin kaupunginmuseo</li><li><b>2020</b> <em>Unfold</em>, Suomen valokuvataiteen museo, Helsinki</li><li><b>2019</b> <em>Finding Forgiveness</em>, Frauen Museum, Wiesbaden, Saksa</li><li><b>2018</b> <em>Islam and I</em>, Siirtolaisuusinstituutti, Turku</li><li><b>2017</b> <em>Movement</em>, Kaapelitehdas / Valssaamo, Helsinki</li><li><b>2017</b> <em>Matkalla / På Väg</em>, taidegalleria, Vaasa</li></ul></details>
@@ -94,6 +99,6 @@
     </ul>
   </div>
 </footer>
-<script src="/assets/js/main.js?v=20261002-3" defer></script>
+<script src="/assets/js/main.js?v=20261002-6" defer></script>
 </body>
 </html>

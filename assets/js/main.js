@@ -287,3 +287,25 @@ if (cvToggle) {
   restore();
   window.addEventListener('load', restore, { once: true });
 })();
+
+// About: the two bio layouts alternate (prototype comparison); arrows step through them
+const aboutRotator = document.querySelector('[data-about-rotator]');
+if (aboutRotator) {
+  const variants = [...aboutRotator.querySelectorAll('[data-about-variant]')];
+  const label = aboutRotator.querySelector('[data-about-label]');
+  const labels = IS_FI ? ['Vaihtoehto A · yksi palsta', 'Vaihtoehto B · kaksi palstaa'] : variants.map(v => v.dataset.label);
+  let current = 0, timer = null;
+  const show = (n) => {
+    current = (n + variants.length) % variants.length;
+    variants.forEach((v, i) => { v.classList.toggle('is-active', i === current); v.setAttribute('aria-hidden', String(i !== current)); });
+    if (label) label.textContent = labels[current];
+  };
+  const stop = () => { if (timer) { clearInterval(timer); timer = null; } };
+  const start = () => { if (!timer && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) timer = setInterval(() => show(current + 1), 7000); };
+  aboutRotator.querySelector('[data-about-prev]')?.addEventListener('click', () => { show(current - 1); });
+  aboutRotator.querySelector('[data-about-next]')?.addEventListener('click', () => { show(current + 1); });
+  aboutRotator.addEventListener('mouseenter', stop);
+  aboutRotator.addEventListener('mouseleave', start);
+  aboutRotator.addEventListener('focusin', stop);
+  show(0); start();
+}
