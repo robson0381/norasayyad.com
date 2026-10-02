@@ -29,6 +29,7 @@ MAIN_PAGES = [
     Path("services/index.html"),
     Path("news/index.html"),
     Path("news/visible-palestine/index.html"),
+    Path("news/washington-post-happiness/index.html"),
     Path("contact/index.html"),
 ]
 # Every main page also exists in Finnish under /fi/.

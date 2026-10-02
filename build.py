@@ -186,7 +186,7 @@ def page(path, title, desc, body, current=None, og=None):
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600&family=Newsreader:opsz,wght@6..72,400;6..72,500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/css/style.css?v=20261002-10">
+<link rel="stylesheet" href="/assets/css/style.css?v=20261002-11">
 </head>
 <body class="{body_class}">
 <a class="skip" href="#main">Skip to content</a>
@@ -221,7 +221,7 @@ def page(path, title, desc, body, current=None, og=None):
 {body}
 </main>
 {footer_html}
-<script src="/assets/js/main.js?v=20261002-10" defer></script>
+<script src="/assets/js/main.js?v=20261002-11" defer></script>
 </body>
 </html>
 """
@@ -638,7 +638,6 @@ def build_services():
         f'<div class="service"><h3>{t}</h3><p>{d}</p><a class="btn ghost small" href="/contact/?topic={topic_map[t].replace(" ", "+")}">Ask about {t.lower()}</a></div>'
         for t, d in items
     )
-    wapo_figs = "\n".join(f'<figure>{img(ph, "(max-width: 760px) 50vw, 330px")}</figure>' for ph in PHOTOS["washington-post-happiness"])
     body = f"""<section>
   <div class="wrap">
     <h1>Work with Nora</h1>
@@ -650,15 +649,13 @@ def build_services():
   <div class="wrap">
     <h2 id="assignments-h">Selected assignments</h2>
     <article class="assignment">
+      <a class="assignment-cover" href="/news/washington-post-happiness/" tabindex="-1" aria-hidden="true">{img(PHOTOS["washington-post-happiness"][0], "(max-width: 760px) 40vw, 220px", "cover")}</a>
       <div class="assignment-head">
         <img class="assignment-logo" src="/assets/logos/washington-post.svg" width="463" height="72" alt="The Washington Post">
-        <p class="meta">27 November 2025 · Finland chapter · Story by Maham Javaid</p>
-        <h3><a href="https://www.washingtonpost.com/world/interactive/2025/world-happiness-report/">How is ‘happiness’ measured around the world?</a></h3>
+        <p class="meta">27 November 2025 · Finland chapter</p>
+        <h3><a href="/news/washington-post-happiness/">How is ‘happiness’ measured around the world?</a></h3>
         <p>Nora photographed the Finland chapter of this story on the World Happiness Report, which has ranked Finland first for eight years.</p>
-        <a class="text-link" href="https://www.washingtonpost.com/world/interactive/2025/world-happiness-report/">Read the story →</a>
-      </div>
-      <div class="story assignment-gallery">
-{wapo_figs}
+        <a class="text-link" href="/news/washington-post-happiness/">View the photographs →</a>
       </div>
     </article>
   </div>
@@ -676,9 +673,9 @@ def build_news():
          "2025 · Pop-up exhibition",
          '<a href="/news/visible-palestine/">Visible Palestine</a>',
          "Pop-up photo exhibition at HIAP, Suomenlinna, 18 December 2025: a draft for a future exhibition, based on ongoing work."),
-        (f'<a class="news-thumb" href="/services/#assignments" tabindex="-1" aria-hidden="true">{img(PHOTOS["washington-post-happiness"][0], "(max-width: 760px) 104px, 30vw", "cover")}</a>',
+        (f'<a class="news-thumb" href="/news/washington-post-happiness/" tabindex="-1" aria-hidden="true">{img(PHOTOS["washington-post-happiness"][0], "(max-width: 760px) 104px, 30vw", "cover")}</a>',
          "2025 · Assignment",
-         '<a href="/services/#assignments">The Washington Post: How is ‘happiness’ measured around the world?</a>',
+         '<a href="/news/washington-post-happiness/">The Washington Post: How is ‘happiness’ measured around the world?</a>',
          "Photographs for the Finland chapter of the story, published 27 November 2025."),
         ('<div class="news-thumb ph" role="img" aria-label="Näse Gård, Porvoo" data-label="Photo needed"></div>',
          "2025 · Group exhibition",
@@ -754,6 +751,46 @@ def build_visible_palestine():
          body, current="news", og=PHOTOS["visible-palestine-cover"])
 
 
+def build_wapo_assignment():
+    figs = "\n".join(f'<figure>{img(ph, "(max-width: 760px) 100vw, 640px", lazy=n > 1)}</figure>'
+                     for n, ph in enumerate(PHOTOS["washington-post-happiness"]))
+    body = f"""<section class="project-head">
+  <div class="wrap">
+    <p class="eyebrow"><a href="/news/">Current</a> / The Washington Post</p>
+    <div class="project-intro">
+      <div>
+        <h1>How is ‘happiness’ measured around the world?</h1>
+        <p class="lead">Photographs for the Finland chapter of The Washington Post’s story on the World Happiness Report.</p>
+        <p>The story follows four countries: Finland, Indonesia, Jamaica and Senegal. Finland has ranked first in the report for eight years; Nora photographed its chapter.</p>
+      </div>
+      <ul class="facts">
+        <li><span>Publication</span><span>The Washington Post</span></li>
+        <li><span>Date</span><span>27 November 2025</span></li>
+        <li><span>Story</span><span>Maham Javaid</span></li>
+        <li><span>Photographs</span><span>{len(PHOTOS["washington-post-happiness"])}, Finland chapter</span></li>
+        <li><span>Read</span><span><a href="https://www.washingtonpost.com/world/interactive/2025/world-happiness-report/">washingtonpost.com</a></span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+<section class="story-block" aria-label="Photographs">
+  <div class="wrap story">
+{figs}
+  </div>
+</section>
+<section>
+  <div class="wrap">
+    <nav class="pager" aria-label="Current">
+      <a class="prev" href="/news/"><small>← Back</small>Exhibitions &amp; news</a>
+      <a class="next" href="/services/#assignments"><small>Commissions →</small>Selected assignments</a>
+    </nav>
+  </div>
+</section>"""
+    page("news/washington-post-happiness/index.html", "The Washington Post: How is ‘happiness’ measured around the world?",
+         "Nora Sayyad's photographs for the Finland chapter of The Washington Post story on the World Happiness Report, November 2025.",
+         body, current="news", og=PHOTOS["washington-post-happiness"][0])
+
+
 def build_contact():
     body = f"""<section class="contact-section">
   <div class="wrap contact-layout">
@@ -812,6 +849,7 @@ if __name__ == "__main__":
     build_services()
     build_news()
     build_visible_palestine()
+    build_wapo_assignment()
     build_contact()
     write_search_index()
     (ROOT / "content/fi-missing.txt").write_text("\n".join(sorted(FI_MISSING)) + "\n", encoding="utf-8")
