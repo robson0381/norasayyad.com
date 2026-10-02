@@ -75,7 +75,7 @@ h3{font-size:clamp(1.2rem,1.6vw,1.45rem)}
 .btn.accent{background:var(--oxide);border-color:var(--oxide);color:white;padding:14px 20px;letter-spacing:.16em}.btn.accent:hover{background:#8c3d33;border-color:#8c3d33;color:white}
 
 /* Shared sections */
-section{padding:clamp(36px,4.5vw,64px) 0;border-bottom:1px solid var(--line)}
+section{padding:clamp(20px,2vw,32px) 0;border-bottom:1px solid var(--line)}
 /* g1-style discreet blocks: each section is its own light card on a grey ground */
 body{background:#e7e3da}
 main>section{background:var(--surface);border-bottom:0;margin-bottom:12px}
@@ -84,7 +84,8 @@ main>section{background:var(--surface);border-bottom:0;margin-bottom:12px}
 main>section:first-child:not(.editorial-hero):not(.work-index):not(.about-hero){margin-top:22px}
 .page-home main>.editorial-hero{background:none}
 main>.commission-band{background:var(--blue);margin-bottom:0}
-.section-head{display:flex;justify-content:space-between;align-items:end;gap:24px;margin-bottom:30px;flex-wrap:wrap}
+.section-head{display:flex;justify-content:space-between;align-items:end;gap:24px;margin-bottom:clamp(14px,1.4vw,20px);flex-wrap:wrap}
+.section-head .eyebrow{margin-bottom:.5rem}
 .section-head h2{margin:0}
 .ph{position:relative;background:linear-gradient(135deg,var(--ph-a),var(--ph-b));aspect-ratio:4/5;width:100%;overflow:hidden}
 .ph.wide{aspect-ratio:3/2}.ph.land{aspect-ratio:16/10}.ph.square{aspect-ratio:1}
@@ -110,7 +111,6 @@ main>.commission-band{background:var(--blue);margin-bottom:0}
 .hero-foot p{font-size:clamp(.94rem,1.1vw,1.05rem);line-height:1.5;margin-bottom:20px;text-wrap:balance;color:rgba(255,255,255,.92)}
 .hero-caption{position:absolute;z-index:2;right:24px;bottom:22px;color:rgba(255,255,255,.86);font:500 .62rem/1.4 var(--sans);letter-spacing:.11em;text-transform:uppercase}.hero-controls{position:absolute;z-index:3;left:50%;bottom:20px;transform:translateX(-50%);display:flex;align-items:center;gap:12px;color:white;font-size:.66rem;letter-spacing:.08em}
 .hero-controls button{border:0;background:none;color:white;padding:7px 9px;cursor:pointer;font-size:1rem}.hero-controls button:focus-visible{outline-color:white}
-.selected-work{padding-top:76px}
 .editorial-projects{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
 .editorial-project{text-decoration:none;display:block}
 .editorial-project-image{aspect-ratio:4/5;overflow:hidden;background:var(--ph-a)}
@@ -358,7 +358,7 @@ textarea{min-height:170px;resize:vertical}.two{display:grid;grid-template-column
   body{font-size:14px}
   main>section{margin-bottom:10px}
   .header-lang{display:flex;gap:7px;font-size:.78rem;letter-spacing:.06em}
-  section{padding:36px 0}
+  section{padding:24px 0}
   main>section:first-child:not(.editorial-hero):not(.work-index):not(.about-hero){margin-top:10px}
   h1{font-size:clamp(2.2rem,10vw,3rem)}
   h2{font-size:clamp(1.7rem,7.5vw,2.3rem)}
@@ -402,7 +402,6 @@ textarea{min-height:170px;resize:vertical}.two{display:grid;grid-template-column
   .hero-copy .eyebrow{max-width:270px;line-height:1.5}
   .hero-copy p:not(.eyebrow){max-width:315px}
   .hero-controls{left:20px;bottom:18px}
-  .selected-work{padding-top:58px}
   .editorial-project h3{font-size:1.55rem}
   .credibility{padding:12px 0 14px}
   .credibility-groups{grid-template-columns:1fr}
@@ -451,7 +450,7 @@ textarea{min-height:170px;resize:vertical}.two{display:grid;grid-template-column
   .page-home .hero-foot .btn.accent{padding:11px 14px;gap:14px;font-size:.56rem;letter-spacing:.22em}
   .page-home .hero-foot .btn span,.page-home .hero-about span{font-size:.85rem;letter-spacing:0}
   .page-home .hero-about{display:flex;width:max-content;align-items:center;gap:14px;margin-top:10px;padding:4px 0;color:white;text-decoration:none;text-transform:uppercase;letter-spacing:.22em;font-size:.56rem}
-  .page-home .selected-work{padding:30px 0 40px}
+  .page-home .selected-work{padding:22px 0 26px}
   .page-home .selected-work .section-head{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:18px}
   .page-home .selected-work .section-head h2{font:500 .7rem/1.2 var(--sans);letter-spacing:.3em;text-transform:uppercase;margin:0}
   .page-home .selected-work .section-head .eyebrow{display:none}
