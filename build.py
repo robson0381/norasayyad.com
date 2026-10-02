@@ -168,11 +168,6 @@ def page(path, title, desc, body, current=None, og=None):
         return f"""<!doctype html>
 <html lang="{lang}">
 <head>
-<script>
-/* Screens wider than 1440px get the 1440px layout scaled up, so the page keeps the same distribution.
-   --vh is the viewport height in layout pixels, so heights based on it keep their share of the screen. */
-(function(){{var d=document.documentElement;function fit(){{var w=window.innerWidth,z=w>1440?w/1440:1;d.style.zoom=z>1?String(z):"";d.style.setProperty("--vh",(window.innerHeight/z/100)+"px")}}fit();window.addEventListener("resize",fit)}})();
-</script>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{full_title}</title>
@@ -191,7 +186,7 @@ def page(path, title, desc, body, current=None, og=None):
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600&family=Newsreader:opsz,wght@6..72,400;6..72,500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/css/style.css?v=20261002-6">
+<link rel="stylesheet" href="/assets/css/style.css?v=20261002-8">
 </head>
 <body class="{body_class}">
 <a class="skip" href="#main">Skip to content</a>
@@ -226,7 +221,7 @@ def page(path, title, desc, body, current=None, og=None):
 {body}
 </main>
 {footer_html}
-<script src="/assets/js/main.js?v=20261002-6" defer></script>
+<script src="/assets/js/main.js?v=20261002-8" defer></script>
 </body>
 </html>
 """

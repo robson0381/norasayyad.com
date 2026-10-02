@@ -274,7 +274,9 @@ main>section.about-hero{padding:22px 0 0;background:none}
 .about-actions{margin:0}
 /* Career: history spread over the whole block, entries in two columns on wide screens */
 .career-section summary{padding:4px 0}
-.career-section .cv{list-style:none;padding:0;margin:18px 0 6px;columns:2;column-gap:clamp(28px,4vw,64px)}
+/* Centred column: left edge under the second "e" of the title, about 7.6% in from each side */
+@media(min-width:961px){.career-section>.wrap{padding-inline:7.6%}}
+.career-section .cv{list-style:none;padding:0;margin:18px 0 6px}
 .career-section .cv li{display:grid;grid-template-columns:5.6em 1fr;gap:14px;break-inside:avoid;margin:0 0 12px;line-height:1.55}
 .career-section .cv b{min-width:0}
 .career-intro h1{margin-bottom:.35em}
@@ -521,7 +523,7 @@ textarea{min-height:170px;resize:vertical}.two{display:grid;grid-template-column
   .about-hero-copy{order:1;padding:30px 20px 34px}
   .about-hero-copy h1{font-size:clamp(3rem,15vw,4.8rem)}
   .about-hero-copy>p:not(.eyebrow):not(.lead){max-width:none}
-  .about-variant-cols,.career-section .cv{columns:1}
+  .about-variant-cols{columns:1}
   .about-foot{flex-direction:column;align-items:flex-start}
 
 }
