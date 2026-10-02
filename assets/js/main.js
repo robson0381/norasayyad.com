@@ -256,3 +256,34 @@ if (cvToggle) {
   });
   sections.forEach(d => d.addEventListener('toggle', sync));
 }
+
+// Switching EN/FI keeps the reader where they were: same open sections, same spot on the page.
+// Both language versions share the same structure, so blocks are matched by their order.
+(() => {
+  const KEY = 'nora-lang-switch';
+  const blocks = () => [...document.querySelectorAll('main section, main details, main figure, main h1, main h2, main h3')];
+  document.querySelectorAll('.lang a[hreflang]').forEach(a => a.addEventListener('click', () => {
+    if (a.hasAttribute('aria-current')) return;
+    const list = blocks();
+    let i = list.findIndex(el => el.getBoundingClientRect().bottom > 80);
+    if (i < 0) i = 0;
+    const state = {
+      to: new URL(a.href, location.href).pathname,
+      open: [...document.querySelectorAll('main details')].map(d => d.open),
+      i, offset: list[i] ? list[i].getBoundingClientRect().top : 0,
+    };
+    try { sessionStorage.setItem(KEY, JSON.stringify(state)); } catch (e) { /* storage unavailable: plain navigation */ }
+  }));
+  let state = null;
+  try { state = JSON.parse(sessionStorage.getItem(KEY) || 'null'); sessionStorage.removeItem(KEY); } catch (e) { state = null; }
+  if (!state || state.to !== location.pathname) return;
+  if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+  document.querySelectorAll('main details').forEach((d, n) => { if (state.open[n]) d.open = true; });
+  document.querySelectorAll('main details').forEach(d => d.dispatchEvent(new Event('toggle')));
+  const restore = () => {
+    const el = blocks()[state.i];
+    if (el) window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - state.offset, behavior: 'instant' });
+  };
+  restore();
+  window.addEventListener('load', restore, { once: true });
+})();

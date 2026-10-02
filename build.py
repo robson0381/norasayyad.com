@@ -186,7 +186,7 @@ def page(path, title, desc, body, current=None, og=None):
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600&family=Newsreader:opsz,wght@6..72,400;6..72,500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/css/style.css?v=20261002-1">
+<link rel="stylesheet" href="/assets/css/style.css?v=20261002-2">
 </head>
 <body class="{body_class}">
 <a class="skip" href="#main">Skip to content</a>
@@ -221,7 +221,7 @@ def page(path, title, desc, body, current=None, og=None):
 {body}
 </main>
 {footer_html}
-<script src="/assets/js/main.js?v=20261002-1" defer></script>
+<script src="/assets/js/main.js?v=20261002-2" defer></script>
 </body>
 </html>
 """
@@ -545,14 +545,14 @@ def build_career():
 </section>
 <section class="career-section" aria-label="Career history">
   <div class="wrap narrow">
-    <button class="cv-toggle" type="button" aria-expanded="false" data-cv-toggle><span class="cv-toggle-icon" aria-hidden="true"></span><span class="cv-toggle-label">Expand all</span></button>
+    <div class="cv-tools"><button class="cv-toggle" type="button" aria-expanded="false" data-cv-toggle><span class="cv-toggle-label">Expand all</span><span class="cv-toggle-icon" aria-hidden="true"></span></button></div>
     {cv("Solo exhibitions", [
         ("2025–26", "<em>From Arrival to Belonging: A Decade in Portraits</em>, with Startup Refugees — IKEA; STOA; Valkea; Revontuli, Finland"),
         ("2025", '<a href="/news/visible-palestine/"><em>Visible Palestine</em></a> (ongoing work), pop-up exhibition, HIAP, Suomenlinna, Helsinki'),
         ("2024", "<em>Tervetuloa, tervemenoa: Suomi muuttoliikkeessä</em>, with the Migration Institute of Finland — touring Finnish universities and Turku City Library"),
         ("2022", "<em>Wired This Way</em>, STOA Cultural Center, Helsinki"),
         ("2021", "<em>Voimanaisia</em>, with Plan International Finland — Vuotalo & Maunula House, Helsinki"),
-        ("2017", "<em>Finding Forgiveness</em>, Logomo, Turku, with the Finnish Association for Abducted Children"),
+        ("2017", "<em>Finding Forgiveness</em>, Logomo and The Finnish Association for Abducted Children, Turku"),
         ("2015", "<em>Hour of Your Reality</em>, Book Café, Turku"),
     ])}
     {cv("Selected group exhibitions", [
@@ -562,7 +562,8 @@ def build_career():
         ("2020", "<em>Unfold</em>, The Finnish Museum of Photography, Helsinki"),
         ("2019", "<em>Finding Forgiveness</em>, Frauen Museum, Wiesbaden, Germany"),
         ("2018", "<em>Islam and I</em>, Migration Institute of Finland, Turku"),
-        ("2017", "<em>Movement</em>, Kaapelitehdas, Helsinki · <em>Matkalla / På Väg</em>, Art Gallery, Vaasa"),
+        ("2017", "<em>Movement</em>, Kaapelitehdas / Valssaamo, Helsinki"),
+        ("2017", "<em>Matkalla / På Väg</em>, Art Gallery, Vaasa"),
     ])}
     {cv("Public collections", [("", "Migration Institute of Finland"), ("", "The Finnish Heritage Agency"), ("", "The National Library of Finland")])}
     {cv("Awards & residencies", [
@@ -571,7 +572,8 @@ def build_career():
         ("2025", "Summer Well: Art and Activism, Saari Residence, Kone Foundation"),
         ("2023", "Societal ETMU Award to Palestinian Voices in Finland, accepted on behalf of the organisation, Jyväskylä"),
         ("2022", "Helsinki Cultural Act Award to the Refugee Film Festival team (festival photographer)"),
-        ("2021", "<em>No Justice, No Peace</em> — Vuoden Huiput, Gold; Finland's Most Beautiful Books, Special Books (assistant curator)"),
+        ("2021", "<em>No Justice, No Peace</em> — Most Beautiful Books (Kauneimmat kirjat), Special Books category. Assistant curator"),
+        ("2020", '<a href="https://vuodenhuiput.fi/work/no-justice-no-peace/"><em>No Justice, No Peace</em></a> — Vuoden Huiput, Gold, Jokerit category. Assistant curator'),
         ("2019", "Jouko Lehtola Foundation & The Finnish Institute, St. Petersburg"),
     ])}
     {cv("Selected assignments", [

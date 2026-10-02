@@ -77,3 +77,10 @@ Evitar masters vindos de Instagram. O pacote de referência fornecido continua d
 - **Pessoas identificáveis** (outras residentes e visitantes): confirmar com a Nora a autorização de cada uma antes do site no ar.
 - As fotos têm cerca de 800 px de largura; para a versão final, pedir os originais em alta resolução.
 
+## Career history: avisar a Nora
+
+- **No Justice, No Peace / Vuoden Huiput:** o CV do site dela lista o ouro (categoria Jokerit) em **2021**, mas a página da competição (https://vuodenhuiput.fi/work/no-justice-no-peace/) registra **"2020 Kultahuippu, Jokeri"**. O protótipo usa **2020**, conforme a fonte, com link para a página. Confirmar com ela e, se for o caso, corrigir também o site atual.
+- O prêmio **Kauneimmat kirjat** (Most Beautiful Books, Special Books) continua em 2021, como no CV dela. Antes os dois prêmios apareciam juntos numa linha só; agora são duas entradas, como no site oficial.
+- Entradas do protótipo que **não estão** no CV do site dela, vindas das legendas públicas do Instagram: prêmio ETMU 2023 (Palestinian Voices in Finland) e Helsinki Cultural Act Award 2022 (equipe do Refugee Film Festival). Confirmar.
+- O pop-up que o CV dela chama de "Untitled: Palestine (working title)" aparece no protótipo com o nome público usado pela HIAP: **Visible Palestine**.
+
