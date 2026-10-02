@@ -186,7 +186,7 @@ def page(path, title, desc, body, current=None, og=None):
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600&family=Newsreader:opsz,wght@6..72,400;6..72,500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/css/style.css?v=20261002-9">
+<link rel="stylesheet" href="/assets/css/style.css?v=20261002-10">
 </head>
 <body class="{body_class}">
 <a class="skip" href="#main">Skip to content</a>
@@ -221,7 +221,7 @@ def page(path, title, desc, body, current=None, og=None):
 {body}
 </main>
 {footer_html}
-<script src="/assets/js/main.js?v=20261002-9" defer></script>
+<script src="/assets/js/main.js?v=20261002-10" defer></script>
 </body>
 </html>
 """
@@ -474,7 +474,7 @@ def build_project(i):
         if ph.get("chapter"):
             figs.append(f'<div class="chapter"><p class="eyebrow">Chapter</p><h2>{ph["chapter"]}</h2></div>')
         landscape = ph["w"] > ph["h"]
-        cls = "" if landscape else ("half right" if n % 2 else "half")
+        cls = "wide" if landscape else ""
         sizes = "(max-width: 1200px) 100vw, 1150px" if landscape else "(max-width: 760px) 100vw, 720px"
         caption = ph.get("caption")
         figcaption = f"<figcaption>{escape(caption)}</figcaption>" if caption else ""
@@ -485,7 +485,7 @@ def build_project(i):
     facts = "".join(f"<li><span>{k}</span><span>{v}</span></li>" for k, v in p["facts"])
     intro_html = f"<p>{p['intro']}</p>" if p["intro"] else ""
     title_txt = strip_tags(p["title"])
-    body = f"""<section style="padding-bottom:40px">
+    body = f"""<section class="project-head">
   <div class="wrap">
     <p class="eyebrow"><a href="/work/">Work</a> / {title_txt}</p>
     <div class="project-intro">
@@ -501,9 +501,11 @@ def build_project(i):
     </div>
   </div>
 </section>
-<div class="wrap story{" parallel-universe" if p["slug"] == "from-a-parallel-universe" else ""}">
+<section class="story-block" aria-label="Photographs">
+  <div class="wrap story{" parallel-universe" if p["slug"] == "from-a-parallel-universe" else ""}">
 {chr(10).join(figs)}
-</div>
+  </div>
+</section>
 <section>
   <div class="wrap">
     <nav class="pager" aria-label="Projects">
@@ -636,11 +638,29 @@ def build_services():
         f'<div class="service"><h3>{t}</h3><p>{d}</p><a class="btn ghost small" href="/contact/?topic={topic_map[t].replace(" ", "+")}">Ask about {t.lower()}</a></div>'
         for t, d in items
     )
+    wapo_figs = "\n".join(f'<figure>{img(ph, "(max-width: 760px) 50vw, 330px")}</figure>' for ph in PHOTOS["washington-post-happiness"])
     body = f"""<section>
   <div class="wrap">
     <h1>Work with Nora</h1>
     <p class="lead narrow">Available for projects and commissions in Finland and internationally. Past clients include Plan International Finland, the City of Helsinki, the University of Helsinki, Kone Foundation and Startup Refugees.</p>
     <div class="services">{cards}</div>
+  </div>
+</section>
+<section class="assignments" id="assignments" aria-labelledby="assignments-h">
+  <div class="wrap">
+    <h2 id="assignments-h">Selected assignments</h2>
+    <article class="assignment">
+      <div class="assignment-head">
+        <img class="assignment-logo" src="/assets/logos/washington-post.svg" width="463" height="72" alt="The Washington Post">
+        <p class="meta">27 November 2025 · Finland chapter · Story by Maham Javaid</p>
+        <h3><a href="https://www.washingtonpost.com/world/interactive/2025/world-happiness-report/">How is ‘happiness’ measured around the world?</a></h3>
+        <p>Nora photographed the Finland chapter of this story on the World Happiness Report, which has ranked Finland first for eight years.</p>
+        <a class="text-link" href="https://www.washingtonpost.com/world/interactive/2025/world-happiness-report/">Read the story →</a>
+      </div>
+      <div class="story assignment-gallery">
+{wapo_figs}
+      </div>
+    </article>
   </div>
 </section>"""
     page("services/index.html", "Commissions", "Commission Nora Sayyad for portraits, editorial and documentary assignments, talks and photography workshops.", body, current="services")
@@ -656,6 +676,10 @@ def build_news():
          "2025 · Pop-up exhibition",
          '<a href="/news/visible-palestine/">Visible Palestine</a>',
          "Pop-up photo exhibition at HIAP, Suomenlinna, 18 December 2025: a draft for a future exhibition, based on ongoing work."),
+        (f'<a class="news-thumb" href="/services/#assignments" tabindex="-1" aria-hidden="true">{img(PHOTOS["washington-post-happiness"][0], "(max-width: 760px) 104px, 30vw", "cover")}</a>',
+         "2025 · Assignment",
+         '<a href="/services/#assignments">The Washington Post: How is ‘happiness’ measured around the world?</a>',
+         "Photographs for the Finland chapter of the story, published 27 November 2025."),
         ('<div class="news-thumb ph" role="img" aria-label="Näse Gård, Porvoo" data-label="Photo needed"></div>',
          "2025 · Group exhibition",
          "Förkolnade Minnen / Muistoihin Hiiltyneet",
@@ -694,7 +718,7 @@ def build_news():
 def build_visible_palestine():
     figs = "\n".join(f'<figure>{img(ph, "(max-width: 760px) 100vw, 640px", lazy=n > 1)}</figure>'
                      for n, ph in enumerate(PHOTOS["visible-palestine"]))
-    body = f"""<section style="padding-bottom:40px">
+    body = f"""<section class="project-head">
   <div class="wrap">
     <p class="eyebrow"><a href="/news/">Current</a> / Visible Palestine</p>
     <div class="project-intro">
@@ -713,9 +737,11 @@ def build_visible_palestine():
     </div>
   </div>
 </section>
-<div class="wrap story exhibition-gallery">
+<section class="story-block" aria-label="Photographs">
+  <div class="wrap story exhibition-gallery">
 {figs}
-</div>
+  </div>
+</section>
 <section>
   <div class="wrap">
     <nav class="pager" aria-label="Current">

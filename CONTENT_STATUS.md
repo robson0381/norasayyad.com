@@ -84,3 +84,10 @@ Evitar masters vindos de Instagram. O pacote de referência fornecido continua d
 - Entradas do protótipo que **não estão** no CV do site dela, vindas das legendas públicas do Instagram: prêmio ETMU 2023 (Palestinian Voices in Finland) e Helsinki Cultural Act Award 2022 (equipe do Refugee Film Festival). Confirmar.
 - O pop-up que o CV dela chama de "Untitled: Palestine (working title)" aparece no protótipo com o nome público usado pela HIAP: **Visible Palestine**.
 
+## The Washington Post — "How is 'happiness' measured around the world?" (27/11/2025)
+
+- O capítulo da Finlândia ("Life satisfaction") tem 8 fotos com crédito "Photos by Nora Sayyad/For The Washington Post". Estão na página Commissions (bloco "Selected assignments") e na lista cronológica da Current.
+- **As imagens usadas são as cópias publicadas pelo jornal** (salvas da página por Robson, reduzidas para 1000×1500). Antes do site no ar: pedir os originais à Nora e confirmar que o contrato com o Washington Post permite mostrar as fotos no portfólio.
+- As fotos mostram pessoas identificáveis, inclusive crianças: confirmar com a Nora.
+- As ilustrações da matéria (por exemplo "Life Satisfaction") são arte do jornal e não entram no site.
+

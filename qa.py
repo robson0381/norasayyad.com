@@ -108,8 +108,8 @@ for rel in MAIN_PAGES:
 
 photos = json.loads((ROOT / "content/photos.json").read_text(encoding="utf-8"))
 structured = sum(len(v) if isinstance(v, list) else 1 for v in photos.values())
-if structured != 75:
-    err(f"content/photos.json: expected 75 structured references, found {structured}")
+if structured != 83:
+    err(f"content/photos.json: expected 83 structured references, found {structured}")
 
 inventory = json.loads((ROOT / "content/current-site-inventory.json").read_text(encoding="utf-8"))
 notes = inventory["pages"]["notes_of_resistance"]["images"]

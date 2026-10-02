@@ -462,5 +462,55 @@
       "h": 571,
       "alt": "Two women preparing work in a bright room with arched windows"
     }
+  ],
+  "washington-post-happiness": [
+    {
+      "src": "/assets/images/washington-post-happiness/family-sofa.webp",
+      "w": 1000,
+      "h": 1500,
+      "alt": "A mother and two young children laughing together on a sofa"
+    },
+    {
+      "src": "/assets/images/washington-post-happiness/sketchbook.webp",
+      "w": 1000,
+      "h": 1500,
+      "alt": "A hand drawing in a sketchbook next to a tablet"
+    },
+    {
+      "src": "/assets/images/washington-post-happiness/friends-night.webp",
+      "w": 1000,
+      "h": 1500,
+      "alt": "A group of young women posing together outside at night"
+    },
+    {
+      "src": "/assets/images/washington-post-happiness/pink-building.webp",
+      "w": 1000,
+      "h": 1500,
+      "alt": "People sitting outside a pink building on a city street"
+    },
+    {
+      "src": "/assets/images/washington-post-happiness/orange-room.webp",
+      "w": 1000,
+      "h": 1500,
+      "alt": "A woman sitting on a chair in a warm orange room"
+    },
+    {
+      "src": "/assets/images/washington-post-happiness/dance-hall.webp",
+      "w": 1000,
+      "h": 1500,
+      "alt": "Children dancing in a bright hall with tall windows"
+    },
+    {
+      "src": "/assets/images/washington-post-happiness/planetary-jacket.webp",
+      "w": 1000,
+      "h": 1500,
+      "alt": "The back of a jacket reading “What I need is happiness within planetary boundaries”"
+    },
+    {
+      "src": "/assets/images/washington-post-happiness/window-floor.webp",
+      "w": 1000,
+      "h": 1500,
+      "alt": "A mother and her child sitting on the floor by a large window"
+    }
   ]
 }
